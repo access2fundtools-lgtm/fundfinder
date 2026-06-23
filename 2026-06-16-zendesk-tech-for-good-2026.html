@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Zendesk Foundation Tech for Good Impact Awards 2026 — Up to $50,000">
+<meta property="og:description" content="Global funding for nonprofits & social impact organisations using technology for good. Nigeria-based organisations eligible. Apply now!">
+<meta property="og:type" content="website">
+<title>Zendesk Tech for Good 2026 – Funding Alert</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .card {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(150deg, #001a00 0%, #004d1a 40%, #006400 100%);
+  }
+  /* Decorative shapes */
+  .hex-bg {
+    position: absolute; right: -50px; top: -60px;
+    width: 380px; height: 380px;
+    background: rgba(255,215,0,0.06);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .hex-bg2 {
+    position: absolute; left: -80px; bottom: 80px;
+    width: 300px; height: 300px;
+    background: rgba(255,215,0,0.04);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .diagonal-bar {
+    position: absolute;
+    width: 120%; height: 300px;
+    background: rgba(255,215,0,0.03);
+    transform: rotate(-15deg);
+    top: 300px; left: -50px;
+  }
+
+  /* NEW badge top */
+  .new-banner {
+    background: linear-gradient(90deg, #006400, #FFD700 40%, #FFD700 60%, #006400);
+    padding: 10px;
+    text-align: center;
+    font-size: 16px; font-weight: 900; color: #003300;
+    letter-spacing: 3px; text-transform: uppercase;
+    flex-shrink: 0; z-index: 10;
+  }
+
+  .top-section {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 50px 0; z-index: 10; position: relative;
+  }
+  .flag-badge {
+    background: rgba(255,215,0,0.15); border: 2px solid #FFD700; border-radius: 30px;
+    padding: 8px 20px; display: flex; align-items: center; gap: 8px;
+    font-size: 15px; font-weight: 700; color: #FFD700; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .global-badge {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px;
+    padding: 8px 18px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.8);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+
+  .main { flex: 1; padding: 26px 50px 0; z-index: 10; position: relative; }
+
+  .funder { font-size: 13px; font-weight: 600; color: rgba(255,215,0,0.65); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .program-name { font-size: 50px; font-weight: 900; color: #fff; line-height: 1.05; margin-bottom: 8px; }
+  .program-name .gold { color: #FFD700; }
+  .sub { font-size: 18px; color: rgba(255,255,255,0.7); font-weight: 400; margin-bottom: 24px; line-height: 1.4; }
+
+  /* AMOUNT ROW */
+  .amount-row {
+    display: flex; gap: 16px; margin-bottom: 24px; align-items: stretch;
+  }
+  .amt-main {
+    background: rgba(255,215,0,0.12); border: 2px solid #FFD700;
+    border-radius: 16px; padding: 18px 28px; flex: 0 0 auto;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .amt-main .label { font-size: 11px; color: rgba(255,215,0,0.65); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .amt-main .value { font-size: 58px; color: #FFD700; font-weight: 900; line-height: 1; }
+  .amt-main .currency { font-size: 20px; color: rgba(255,215,0,0.7); }
+
+  .benefits-box {
+    flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 16px; padding: 16px 20px;
+  }
+  .benefits-box .b-title { font-size: 11px; color: rgba(255,215,0,0.65); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .benefits-box ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .benefits-box ul li { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; display: flex; gap: 8px; }
+  .benefits-box ul li span { color: #FFD700; }
+
+  /* FACTS */
+  .facts { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+  .fact-item {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 12px; padding: 12px; text-align: center;
+  }
+  .fact-item .f-label { font-size: 10px; color: rgba(255,215,0,0.6); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .fact-item .f-value { font-size: 13px; color: #fff; font-weight: 700; }
+
+  /* ELIGIBILITY */
+  .elig-title { font-size: 12px; color: #FFD700; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .elig-list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 22px; }
+  .elig-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: rgba(255,255,255,0.88); font-weight: 500; line-height: 1.35; }
+  .check { color: #FFD700; flex-shrink: 0; }
+
+  /* CTA */
+  .cta-row { display: flex; align-items: center; gap: 16px; }
+  .cta-btn {
+    display: inline-block; background: #FFD700; color: #003300;
+    font-size: 19px; font-weight: 900; padding: 16px 40px;
+    border-radius: 50px; text-decoration: none; flex-shrink: 0;
+  }
+  .apply-url { font-size: 11px; color: rgba(255,255,255,0.4); word-break: break-all; }
+
+  /* FOOTER */
+  .footer {
+    background: rgba(0,0,0,0.4); padding: 14px 50px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 10; position: relative; margin-top: 12px;
+  }
+  .footer .handle { font-size: 16px; color: #FFD700; font-weight: 700; }
+  .footer .sub-foot { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .footer .logo { font-size: 22px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hex-bg"></div>
+  <div class="hex-bg2"></div>
+  <div class="diagonal-bar"></div>
+
+  <div class="new-banner">🆕 NEW OPPORTUNITY — JUST ANNOUNCED · JUNE 16, 2026</div>
+
+  <div class="top-section">
+    <div class="flag-badge">🇳🇬 FUNDING ALERT</div>
+    <div class="global-badge">🌍 Global · Nigeria Eligible</div>
+  </div>
+
+  <div class="main">
+    <div class="funder">Zendesk Foundation</div>
+    <div class="program-name">Tech for <span class="gold">Good</span><br>Impact Awards 2026</div>
+    <div class="sub">Global awards for nonprofits & social impact organisations using technology to drive change</div>
+
+    <div class="amount-row">
+      <div class="amt-main">
+        <div class="label">Up To</div>
+        <div class="value">$50,000</div>
+        <div class="currency">USD · Non-Dilutive</div>
+      </div>
+      <div class="benefits-box">
+        <div class="b-title">What Winners Receive</div>
+        <ul>
+          <li><span>💵</span> Funding up to $50,000 USD</li>
+          <li><span>🌍</span> Global recognition & visibility</li>
+          <li><span>🤝</span> Access to social impact community</li>
+          <li><span>📈</span> Support to scale your programme</li>
+          <li><span>🏆</span> Zendesk Foundation recognition</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact-item">
+        <div class="f-label">Open To</div>
+        <div class="f-value">NGOs & Impact Orgs</div>
+      </div>
+      <div class="fact-item">
+        <div class="f-label">Sector</div>
+        <div class="f-value">Tech · Education · Equity</div>
+      </div>
+      <div class="fact-item">
+        <div class="f-label">Deadline</div>
+        <div class="f-value">Rolling — Apply ASAP</div>
+      </div>
+    </div>
+
+    <div class="elig-title">✦ Eligibility Requirements</div>
+    <ul class="elig-list">
+      <li><span class="check">✅</span> Registered nonprofit, charitable, or mission-driven organisation (Nigeria eligible)</li>
+      <li><span class="check">✅</span> Using technology innovatively to address education, equity, workforce dev, or community empowerment</li>
+      <li><span class="check">✅</span> Demonstrable social impact with measurable outcomes and scalable approach</li>
+    </ul>
+
+    <div class="cta-row">
+      <a class="cta-btn" href="https://techforgood.zendesk.com/hc/en-us" target="_blank">APPLY NOW →</a>
+      <div class="apply-url">techforgood.zendesk.com/hc/en-us</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="handle">@access2fundtools</div>
+      <div class="sub-foot">Follow for daily funding alerts</div>
+    </div>
+    <div class="logo">🇳🇬</div>
+  </div>
+</div>
+</body>
+</html>

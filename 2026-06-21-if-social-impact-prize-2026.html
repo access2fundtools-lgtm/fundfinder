@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="iF Social Impact Prize 2026 — €100,000 Grant for Nigerian Innovators">
+<meta property="og:description" content="Win up to €100,000 for your SDG-aligned social impact project. Open globally — Nigeria eligible. Deadline: August 19, 2026.">
+<meta property="og:image" content="https://opportunities.a2fpartners.com/2026-06-21-if-social-impact-prize-2026.html">
+<title>iF Social Impact Prize 2026 | €100,000 Grant | A2F Partners</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+    background: #0a0a0f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .flyer {
+    width: 1080px;
+    height: 1080px;
+    background: linear-gradient(145deg, #001400 0%, #003300 30%, #001800 60%, #000d00 100%);
+    border: 2px solid rgba(255,215,0,0.2);
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 52px 56px;
+  }
+
+  /* Background decorations */
+  .bg-circles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .bg-c1 { position: absolute; top: -180px; right: -120px; width: 650px; height: 650px; border-radius: 50%; background: radial-gradient(circle, rgba(0,120,0,0.10) 0%, transparent 65%); }
+  .bg-c2 { position: absolute; bottom: -120px; left: -100px; width: 550px; height: 550px; border-radius: 50%; background: radial-gradient(circle, rgba(255,215,0,0.06) 0%, transparent 65%); }
+  .bg-c3 { position: absolute; top: 50%; right: 15%; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(100,255,100,0.04) 0%, transparent 70%); }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,215,0,0.07) 1px, transparent 1px); background-size: 40px 40px; }
+  .accent-top { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #006400, #FFD700, #006400); }
+
+  /* Header row */
+  .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; position: relative; z-index: 1; }
+  .flag-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255,215,0,0.1);
+    border: 1.5px solid rgba(255,215,0,0.35);
+    color: #FFD700;
+    font-size: 12px; font-weight: 800; letter-spacing: 2.5px;
+    text-transform: uppercase; padding: 9px 18px; border-radius: 40px;
+  }
+  .urgent-badge {
+    background: rgba(255,100,30,0.15);
+    border: 1.5px solid rgba(255,100,30,0.45);
+    color: #ff8c42;
+    font-size: 12px; font-weight: 800; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 9px 18px; border-radius: 40px;
+  }
+
+  /* Prize amount */
+  .prize-block { margin-bottom: 20px; position: relative; z-index: 1; }
+  .prize-label { font-size: 12px; color: rgba(255,215,0,0.6); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+  .prize-main { font-size: 108px; font-weight: 900; color: #FFD700; line-height: 1; letter-spacing: -4px; text-shadow: 0 0 80px rgba(255,215,0,0.3); }
+  .prize-sub { font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+  /* Programme name */
+  .program-name { font-size: 38px; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 8px; position: relative; z-index: 1; }
+  .funder-line { font-size: 13px; color: rgba(255,215,0,0.65); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 26px; position: relative; z-index: 1; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent); margin-bottom: 24px; position: relative; z-index: 1; }
+
+  /* Key facts grid */
+  .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; position: relative; z-index: 1; }
+  .fact-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 16px 14px; text-align: center; }
+  .fact-icon { font-size: 20px; margin-bottom: 6px; }
+  .fact-label { font-size: 10px; color: rgba(255,215,0,0.55); font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 5px; }
+  .fact-value { font-size: 14px; font-weight: 800; color: #fff; line-height: 1.2; }
+
+  /* Eligibility bullets */
+  .elig-title { font-size: 11px; color: rgba(255,215,0,0.6); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; position: relative; z-index: 1; }
+  .elig-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; position: relative; z-index: 1; }
+  .elig-item { display: flex; align-items: flex-start; gap: 12px; }
+  .elig-check { width: 22px; height: 22px; border-radius: 50%; background: rgba(0,180,0,0.2); border: 1.5px solid rgba(0,200,0,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #4ade80; font-size: 12px; font-weight: 900; }
+  .elig-text { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.4; font-weight: 500; }
+
+  /* CTA */
+  .cta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; position: relative; z-index: 1; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #000; font-size: 16px; font-weight: 900;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 18px 36px; border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(255,215,0,0.35);
+    flex-shrink: 0;
+  }
+  .deadline-pill {
+    background: rgba(255,60,60,0.12); border: 1.5px solid rgba(255,60,60,0.35);
+    color: #ff8080; font-size: 13px; font-weight: 800; letter-spacing: 1px;
+    padding: 12px 20px; border-radius: 50px;
+  }
+
+  /* Footer */
+  .footer { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(255,215,0,0.12); display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+  .footer-brand { font-size: 12px; color: rgba(255,215,0,0.5); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .footer-url { font-size: 11px; color: rgba(255,255,255,0.3); font-weight: 600; }
+
+  @media (max-width: 1100px) {
+    .flyer { width: 100%; height: auto; min-height: 600px; }
+    .prize-main { font-size: 72px; }
+    .program-name { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="flyer">
+  <div class="bg-circles">
+    <div class="bg-c1"></div>
+    <div class="bg-c2"></div>
+    <div class="bg-c3"></div>
+    <div class="bg-dots"></div>
+  </div>
+  <div class="accent-top"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="flag-badge">🇳🇬 FUNDING ALERT</div>
+    <div class="urgent-badge">⏳ OPEN NOW</div>
+  </div>
+
+  <!-- Prize -->
+  <div class="prize-block">
+    <div class="prize-label">Total Prize Pool</div>
+    <div class="prize-main">€100K</div>
+    <div class="prize-sub">Equity-Free Grant · Global Competition · Nigeria Eligible</div>
+  </div>
+
+  <!-- Name -->
+  <div class="program-name">iF Social Impact Prize 2026</div>
+  <div class="funder-line">iF Design Foundation · Germany · Global Programme</div>
+
+  <div class="divider"></div>
+
+  <!-- Key facts -->
+  <div class="facts-grid">
+    <div class="fact-item">
+      <div class="fact-icon">📅</div>
+      <div class="fact-label">Deadline</div>
+      <div class="fact-value">Aug 19, 2026<br><span style="color:#ff8080;font-size:11px;">Round 2 Open</span></div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-icon">🌍</div>
+      <div class="fact-label">Who Can Apply</div>
+      <div class="fact-value">NGOs, Social<br>Enterprises & SMEs</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-icon">🏭</div>
+      <div class="fact-label">Sector</div>
+      <div class="fact-value">Any SDG-aligned<br>Social Innovation</div>
+    </div>
+  </div>
+
+  <!-- Eligibility -->
+  <div class="elig-title">Key Requirements</div>
+  <div class="elig-list">
+    <div class="elig-item">
+      <div class="elig-check">✓</div>
+      <div class="elig-text">Project must address at least one UN Sustainable Development Goal (SDG) and be connected to design thinking or product innovation</div>
+    </div>
+    <div class="elig-item">
+      <div class="elig-check">✓</div>
+      <div class="elig-text">Your project must already be implemented or in progress — concepts and student projects are NOT accepted</div>
+    </div>
+    <div class="elig-item">
+      <div class="elig-check">✓</div>
+      <div class="elig-text">Open to organisations, social enterprises, NGOs, and for-profit SMEs worldwide — Nigeria is fully eligible. Free to apply.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-row">
+    <a class="cta-btn" href="https://ifdesign.com/en/if-social-impact-prize" target="_blank">APPLY NOW →</a>
+    <div class="deadline-pill">🗓 Round 2 Closes: 19 Aug 2026</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-brand">Shared by FundFinder AI | A2F Partners</div>
+    <div class="footer-url">opportunities.a2fpartners.com</div>
+  </div>
+</div>
+</body>
+</html>

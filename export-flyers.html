@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A2F Partners — Flyer Export Tool</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    /* ─── Tool UI ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #fff; min-height: 100vh; padding: 40px 32px 60px; }
+    .tool-header { text-align: center; margin-bottom: 48px; }
+    .tool-header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .tool-header p { color: rgba(255,255,255,0.45); font-size: 15px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto; }
+    .export-card { background: #1a1a1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; }
+    .preview-wrapper {
+      width: 100%; aspect-ratio: 1;
+      overflow: hidden; position: relative;
+      background: #000; cursor: pointer;
+    }
+    .preview-scaler {
+      width: 1080px; height: 1080px;
+      transform-origin: top left;
+      /* scale set via JS on load */
+    }
+    .card-footer { padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .card-title { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); line-height: 1.4; flex: 1; }
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #fff; color: #000;
+      font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      padding: 9px 16px; border-radius: 6px; border: none; cursor: pointer;
+      white-space: nowrap; flex-shrink: 0;
+      transition: opacity 0.15s;
+    }
+    .dl-btn:hover { opacity: 0.85; }
+    .dl-btn:disabled { opacity: 0.4; cursor: wait; }
+    .toast {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+      background: #fff; color: #000;
+      font-size: 14px; font-weight: 700; padding: 12px 28px; border-radius: 8px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .toast.show { opacity: 1; }
+
+    /* ─── Shared Flyer Styles ─── */
+    .flyer-card {
+      width: 1080px; height: 1080px;
+      background: #000;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      padding: 56px 60px 48px;
+      font-family: 'Inter', sans-serif;
+    }
+    .flyer-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .top-line { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #fff; }
+    .header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; position: relative; z-index: 1; }
+    .badge-col { display: flex; flex-direction: column; gap: 10px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #000; font-size: 13px; font-weight: 800; letter-spacing: 2px; padding: 8px 18px; border-radius: 4px; text-transform: uppercase; width: fit-content; }
+    .status-pill { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(255,255,255,0.45); color: rgba(255,255,255,0.75); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; padding: 6px 14px; border-radius: 4px; text-transform: uppercase; width: fit-content; }
+    .status-pill.urgent { border-color: #fff; color: #fff; }
+    .logo-box { width: 110px; height: 110px; border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; flex-shrink: 0; background: rgba(255,255,255,0.04); }
+    .logo-initials { color: #fff; font-size: 26px; font-weight: 900; line-height: 1; letter-spacing: -0.5px; text-align: center; }
+    .logo-label { color: rgba(255,255,255,0.38); font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-align: center; padding: 0 6px; line-height: 1.4; }
+    .main-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+    .org-name { color: rgba(255,255,255,0.38); font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+    .flyer-card h1 { color: #fff; font-size: 62px; font-weight: 900; line-height: 0.97; letter-spacing: -2px; margin-bottom: 13px; }
+    .subtitle { color: rgba(255,255,255,0.5); font-size: 18px; font-weight: 400; line-height: 1.5; margin-bottom: 26px; }
+    .amount-block { margin-bottom: 26px; }
+    .amount-row { display: flex; gap: 16px; margin-bottom: 26px; }
+    .amount-box { flex: 1; border: 1px solid rgba(255,255,255,0.14); border-radius: 8px; padding: 18px 22px; }
+    .amount-label { color: rgba(255,255,255,0.33); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 4px; }
+    .amount-value { color: #fff; font-size: 72px; font-weight: 900; line-height: 1; letter-spacing: -3px; }
+    .amount-value.sm { font-size: 42px; letter-spacing: -1.5px; padding-top: 6px; }
+    .amount-sub { color: rgba(255,255,255,0.38); font-size: 15px; font-weight: 400; margin-top: 5px; }
+    .facts-row { display: flex; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.11); border-radius: 8px; overflow: hidden; }
+    .fact-item { flex: 1; padding: 15px 20px; border-right: 1px solid rgba(255,255,255,0.11); }
+    .fact-item:last-child { border-right: none; }
+    .fact-label { color: rgba(255,255,255,0.28); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+    .fact-value { color: #fff; font-size: 15px; font-weight: 700; }
+    .req-list { margin-bottom: 26px; }
+    .req-title { color: rgba(255,255,255,0.28); font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 11px; }
+    .req-item { display: flex; align-items: flex-start; gap: 12px; color: rgba(255,255,255,0.62); font-size: 16px; font-weight: 400; margin-bottom: 8px; line-height: 1.45; }
+    .req-dot { color: rgba(255,255,255,0.22); font-size: 18px; line-height: 1.35; flex-shrink: 0; }
+    .cta-btn { display: inline-block; background: #fff; color: #000; font-size: 17px; font-weight: 900; padding: 20px 52px; border-radius: 6px; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px; width: fit-content; }
+    .divider { height: 1px; background: rgba(255,255,255,0.09); margin-bottom: 17px; }
+    .flyer-footer { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+    .footer-brand { color: rgba(255,255,255,0.42); font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+    .footer-url { color: rgba(255,255,255,0.2); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+<div class="tool-header">
+  <h1>🇳🇬 A2F Partners — Flyer Export Tool</h1>
+  <p>Click <strong>Download PNG</strong> on any flyer to save a 1080×1080 image ready for Instagram, Twitter/X, LinkedIn &amp; WhatsApp.</p>
+</div>
+
+<div class="grid">
+
+  <!-- ══════════════════════════════════════════════
+       FLYER 1 — GoGettaz Agripreneur Prize 2026
+  ══════════════════════════════════════════════ -->
+  <div class="export-card">
+    <div class="preview-wrapper" onclick="downloadFlyer('f1','gogettaz-agripreneur-prize-2026')">
+      <div class="preview-scaler" id="f1">
+        <div class="flyer-card">
+          <div class="top-line"></div>
+          <div class="header-row">
+            <div class="badge-col">
+              <div class="badge">🇳🇬 Funding Alert</div>
+              <div class="status-pill urgent">⚡ Deadline June 28 — URGENT</div>
+            </div>
+            <div class="logo-box">
+              <div class="logo-initials">GG</div>
+              <div class="logo-label">GoGettaz<br>Generation Africa</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="org-name">Generation Africa · AGRA</div>
+            <h1>GoGettaz<br>Agripreneur<br>Prize 2026</h1>
+            <div class="subtitle">The premier prize for Africa's boldest young agri-entrepreneurs solving food security challenges</div>
+            <div class="amount-block">
+              <div class="amount-label">Grand Prize</div>
+              <div class="amount-value">$50,000</div>
+              <div class="amount-sub">+ $60,000 in impact awards · $160,000 total pool</div>
+            </div>
+            <div class="facts-row">
+              <div class="fact-item"><div class="fact-label">Deadline</div><div class="fact-value">June 28, 2026</div></div>
+              <div class="fact-item"><div class="fact-label">Eligible</div><div class="fact-value">Ages 18–35, Africa</div></div>
+              <div class="fact-item"><div class="fact-label">Sector</div><div class="fact-value">Agribusiness</div></div>
+            </div>
+            <div class="req-list">
+              <div class="req-title">Requirements</div>
+              <div class="req-item"><span class="req-dot">—</span>Nigerian (African) youth aged 18–35 with an operational agribusiness venture</div>
+              <div class="req-item"><span class="req-dot">—</span>Business addresses food security, climate resilience, or nutrition challenges</div>
+              <div class="req-item"><span class="req-dot">—</span>Venture must be generating some revenue and demonstrating impact</div>
+            </div>
+            <div class="cta-btn">Apply Now →</div>
+            <div class="divider"></div>
+            <div class="flyer-footer">
+              <span class="footer-brand">a2fpartners.com</span>
+              <span class="footer-url">gogettaz.africa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-title">GoGettaz Agripreneur Prize 2026<br><span style="color:rgba(255,255,255,0.35)">$50,000 · Deadline June 28 ⚡</span></div>
+      <button class="dl-btn" onclick="downloadFlyer('f1','gogettaz-agripreneur-prize-2026')">⬇ PNG</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       FLYER 2 — BATN Foundation F4F Grant
+  ══════════════════════════════════════════════ -->
+  <div class="export-card">
+    <div class="preview-wrapper" onclick="downloadFlyer('f2','batn-foundation-f4f-grant-2026')">
+      <div class="preview-scaler" id="f2">
+        <div class="flyer-card">
+          <div class="top-line"></div>
+          <div class="header-row">
+            <div class="badge-col">
+              <div class="badge">🇳🇬 Funding Alert</div>
+              <div class="status-pill urgent">⚡ Deadline June 22 — URGENT</div>
+            </div>
+            <div class="logo-box">
+              <div class="logo-initials">BATN</div>
+              <div class="logo-label">BATN<br>Foundation</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="org-name">BATN Foundation · New Nigeria Foundation · NYSC</div>
+            <h1>Farmers for<br>the Future<br>(F4F) Grant 2026</h1>
+            <div class="subtitle">Equity-free cash grants for NYSC members with agribusiness ideas ready to scale across Nigeria</div>
+            <div class="amount-block">
+              <div class="amount-label">1st Prize</div>
+              <div class="amount-value" style="font-size:64px">₦3,000,000</div>
+              <div class="amount-sub">2nd: ₦2M (×2) · 3rd: ₦1M (×3) · Equity-free</div>
+            </div>
+            <div class="facts-row">
+              <div class="fact-item"><div class="fact-label">Deadline</div><div class="fact-value">June 22, 2026</div></div>
+              <div class="fact-item"><div class="fact-label">Eligible</div><div class="fact-value">Current NYSC members</div></div>
+              <div class="fact-item"><div class="fact-label">Sector</div><div class="fact-value">Agriculture</div></div>
+            </div>
+            <div class="req-list">
+              <div class="req-title">Requirements</div>
+              <div class="req-item"><span class="req-dot">—</span>Must be a currently serving NYSC member in Nigeria</div>
+              <div class="req-item"><span class="req-dot">—</span>Agribusiness idea or operational venture — any agricultural subsector</div>
+              <div class="req-item"><span class="req-dot">—</span>Grant is 100% equity-free — no repayment, no shares given</div>
+            </div>
+            <div class="cta-btn">Apply Now →</div>
+            <div class="divider"></div>
+            <div class="flyer-footer">
+              <span class="footer-brand">a2fpartners.com</span>
+              <span class="footer-url">batnf.net</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-title">BATN Foundation F4F Grant 2026<br><span style="color:rgba(255,255,255,0.35)">₦3M · Deadline June 22 ⚡</span></div>
+      <button class="dl-btn" onclick="downloadFlyer('f2','batn-foundation-f4f-grant-2026')">⬇ PNG</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       FLYER 3 — NSIA Prize for Innovation
+  ══════════════════════════════════════════════ -->
+  <div class="export-card">
+    <div class="preview-wrapper" onclick="downloadFlyer('f3','nsia-prize-for-innovation-2026')">
+      <div class="preview-scaler" id="f3">
+        <div class="flyer-card">
+          <div class="top-line"></div>
+          <div class="header-row">
+            <div class="badge-col">
+              <div class="badge">🇳🇬 Funding Alert</div>
+              <div class="status-pill">📅 Deadline: July 8, 2026</div>
+            </div>
+            <div class="logo-box">
+              <div class="logo-initials" style="font-size:20px">NSIA</div>
+              <div class="logo-label">Nigeria Sovereign<br>Investment Authority</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="org-name">Nigeria Sovereign Investment Authority</div>
+            <h1>NSIA Prize<br>for Innovation<br>2026</h1>
+            <div class="subtitle">Rewarding breakthrough Nigerian startups in Healthcare, Manufacturing &amp; Climate — with equity investment opportunity</div>
+            <div class="amount-block">
+              <div class="amount-label">Total Prize Pool</div>
+              <div class="amount-value" style="font-size:64px">$275,000</div>
+              <div class="amount-sub">$220,000 main prize + runner-up awards + equity investment</div>
+            </div>
+            <div class="facts-row">
+              <div class="fact-item"><div class="fact-label">Deadline</div><div class="fact-value">July 8, 2026</div></div>
+              <div class="fact-item"><div class="fact-label">Eligible</div><div class="fact-value">Nigerian citizens, 18+</div></div>
+              <div class="fact-item"><div class="fact-label">Sector</div><div class="fact-value">Health · Mfg · Climate</div></div>
+            </div>
+            <div class="req-list">
+              <div class="req-title">Requirements</div>
+              <div class="req-item"><span class="req-dot">—</span>Nigerian citizen (18+), startup operating in Nigeria for 6+ months with an MVP</div>
+              <div class="req-item"><span class="req-dot">—</span>Sectors: Healthcare, Manufacturing, Climate &amp; Food Security</div>
+              <div class="req-item"><span class="req-dot">—</span>Winners also qualify for direct equity investment from NSIA</div>
+            </div>
+            <div class="cta-btn">Apply Now →</div>
+            <div class="divider"></div>
+            <div class="flyer-footer">
+              <span class="footer-brand">a2fpartners.com</span>
+              <span class="footer-url">nsia-ip.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-title">NSIA Prize for Innovation 2026<br><span style="color:rgba(255,255,255,0.35)">$275,000 pool · Deadline July 8</span></div>
+      <button class="dl-btn" onclick="downloadFlyer('f3','nsia-prize-for-innovation-2026')">⬇ PNG</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       FLYER 4 — Growing Roots Grant
+  ══════════════════════════════════════════════ -->
+  <div class="export-card">
+    <div class="preview-wrapper" onclick="downloadFlyer('f4','growing-roots-grant-nigeria-2026')">
+      <div class="preview-scaler" id="f4">
+        <div class="flyer-card">
+          <div class="top-line"></div>
+          <div class="header-row">
+            <div class="badge-col">
+              <div class="badge">🇳🇬 Funding Alert</div>
+              <div class="status-pill">🟢 Rolling Applications — Open Now</div>
+            </div>
+            <div class="logo-box">
+              <div class="logo-initials">GR</div>
+              <div class="logo-label">Growing<br>Roots Grant</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="org-name">Growing Roots Grant Programme</div>
+            <h1>Growing<br>Roots<br>Grant 2026</h1>
+            <div class="subtitle">Non-dilutive funding for early-stage social, environmental &amp; community ventures in Nigeria</div>
+            <div class="amount-block">
+              <div class="amount-label">Grant Amount</div>
+              <div class="amount-value">$10,000</div>
+              <div class="amount-sub">Non-dilutive · No equity required</div>
+            </div>
+            <div class="facts-row">
+              <div class="fact-item"><div class="fact-label">Deadline</div><div class="fact-value">Rolling / Open Now</div></div>
+              <div class="fact-item"><div class="fact-label">Eligible</div><div class="fact-value">Individuals &amp; Startups, Nigeria</div></div>
+              <div class="fact-item"><div class="fact-label">Sector</div><div class="fact-value">Social / Environmental</div></div>
+            </div>
+            <div class="req-list">
+              <div class="req-title">Requirements</div>
+              <div class="req-item"><span class="req-dot">—</span>Based in Nigeria — individuals, social enterprises, early-stage startups (pre-revenue welcome)</div>
+              <div class="req-item"><span class="req-dot">—</span>Venture addresses social, environmental, health, or community development challenges</div>
+              <div class="req-item"><span class="req-dot">—</span>Fully non-dilutive — no equity or repayment required</div>
+            </div>
+            <div class="cta-btn">Apply Now →</div>
+            <div class="divider"></div>
+            <div class="flyer-footer">
+              <span class="footer-brand">a2fpartners.com</span>
+              <span class="footer-url">Growing Roots Grant Programme</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-title">Growing Roots Grant 2026<br><span style="color:rgba(255,255,255,0.35)">Up to $10,000 · Rolling deadline</span></div>
+      <button class="dl-btn" onclick="downloadFlyer('f4','growing-roots-grant-nigeria-2026')">⬇ PNG</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       FLYER 5 — BATN Foundation GAP
+  ══════════════════════════════════════════════ -->
+  <div class="export-card">
+    <div class="preview-wrapper" onclick="downloadFlyer('f5','batn-foundation-gap-2026')">
+      <div class="preview-scaler" id="f5">
+        <div class="flyer-card">
+          <div class="top-line"></div>
+          <div class="header-row">
+            <div class="badge-col">
+              <div class="badge">🇳🇬 Funding Alert</div>
+              <div class="status-pill">🟢 Ongoing — Apply Now</div>
+            </div>
+            <div class="logo-box">
+              <div class="logo-initials">BATN</div>
+              <div class="logo-label">BATN<br>Foundation</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="org-name">BATN Foundation</div>
+            <h1>Graduate<br>Agripreneur<br>Program (GAP) 2026</h1>
+            <div class="subtitle">Cash grants, free land, free tools and mentorship for agriculture graduates ready to farm commercially</div>
+            <div class="amount-block">
+              <div class="amount-label">Grant Per Winner</div>
+              <div class="amount-value" style="font-size:64px">₦1,500,000</div>
+              <div class="amount-sub">Equity-free · Plus free land, tools &amp; expert mentorship</div>
+            </div>
+            <div class="facts-row">
+              <div class="fact-item"><div class="fact-label">Deadline</div><div class="fact-value">Ongoing</div></div>
+              <div class="fact-item"><div class="fact-label">Eligible</div><div class="fact-value">Agri graduates, 4 universities</div></div>
+              <div class="fact-item"><div class="fact-label">Sector</div><div class="fact-value">Agriculture</div></div>
+            </div>
+            <div class="req-list">
+              <div class="req-title">Requirements</div>
+              <div class="req-item"><span class="req-dot">—</span>Graduate from FUNAAB, Univ. of Ilorin, Univ. of Ibadan, or MOUAU Umudike</div>
+              <div class="req-item"><span class="req-dot">—</span>Agriculture-related degree or diploma with passion for commercial farming</div>
+              <div class="req-item"><span class="req-dot">—</span>100% equity-free — no repayment; land and tools also provided free</div>
+            </div>
+            <div class="cta-btn">Apply Now →</div>
+            <div class="divider"></div>
+            <div class="flyer-footer">
+              <span class="footer-brand">a2fpartners.com</span>
+              <span class="footer-url">batnf.net</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-title">BATN Foundation GAP 2026<br><span style="color:rgba(255,255,255,0.35)">₦1.5M + land + tools · Ongoing</span></div>
+      <button class="dl-btn" onclick="downloadFlyer('f5','batn-foundation-gap-2026')">⬇ PNG</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       FLYER 6 — Accelerate Africa Startup Programme
+  ══════════════════════════════════════════════ -->
+  <div class="export-card">
+    <div class="preview-wrapper" onclick="downloadFlyer('f6','accelerate-africa-startup-programme-2026')">
+      <div class="preview-scaler" id="f6">
+        <div class="flyer-card">
+          <div class="top-line"></div>
+          <div class="header-row">
+            <div class="badge-col">
+              <div class="badge">🇳🇬 Funding Alert</div>
+              <div class="status-pill">📅 Deadline: July 25, 2026</div>
+            </div>
+            <div class="logo-box">
+              <div class="logo-initials">AA</div>
+              <div class="logo-label">Accelerate Africa /<br>Future Africa</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="org-name">Future Africa · Accelerate Africa</div>
+            <h1>Accelerate<br>Africa Startup<br>Programme 2026</h1>
+            <div class="subtitle">12-week programme to help early-stage African startups scale globally — only 10 founders selected</div>
+            <div class="amount-block">
+              <div class="amount-label">Investment Range</div>
+              <div class="amount-value" style="font-size:64px">$500,000</div>
+              <div class="amount-sub">$250K–$500K per selected venture · No upfront equity to apply</div>
+            </div>
+            <div class="facts-row">
+              <div class="fact-item"><div class="fact-label">Deadline</div><div class="fact-value">July 25, 2026</div></div>
+              <div class="fact-item"><div class="fact-label">Eligible</div><div class="fact-value">Early-stage, Africa</div></div>
+              <div class="fact-item"><div class="fact-label">Duration</div><div class="fact-value">12 Weeks</div></div>
+            </div>
+            <div class="req-list">
+              <div class="req-title">Requirements</div>
+              <div class="req-item"><span class="req-dot">—</span>Early-stage African founder building a globally scalable business — Nigerian founders eligible</div>
+              <div class="req-item"><span class="req-dot">—</span>Must have at least 2 co-founders and a working product/MVP</div>
+              <div class="req-item"><span class="req-dot">—</span>Free to apply — no upfront equity required at application stage</div>
+            </div>
+            <div class="cta-btn">Apply Now →</div>
+            <div class="divider"></div>
+            <div class="flyer-footer">
+              <span class="footer-brand">a2fpartners.com</span>
+              <span class="footer-url">nigeriastartupact.ng</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-title">Accelerate Africa Programme 2026<br><span style="color:rgba(255,255,255,0.35)">Up to $500K · Deadline July 25</span></div>
+      <button class="dl-btn" onclick="downloadFlyer('f6','accelerate-africa-startup-programme-2026')">⬇ PNG</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       FLYER 7 — HelpMum CareCode Hackathon
+  ══════════════════════════════════════════════ -->
+  <div class="export-card">
+    <div class="preview-wrapper" onclick="downloadFlyer('f7','helpmum-carecode-hackathon-2026')">
+      <div class="preview-scaler" id="f7">
+        <div class="flyer-card">
+          <div class="top-line"></div>
+          <div class="header-row">
+            <div class="badge-col">
+              <div class="badge">🇳🇬 Funding Alert</div>
+              <div class="status-pill">📅 Deadline: July 20, 2026</div>
+            </div>
+            <div class="logo-box">
+              <div class="logo-initials" style="font-size:20px">Help<br>Mum</div>
+              <div class="logo-label">HelpMum<br>Africa</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="org-name">HelpMum Africa</div>
+            <h1>CareCode<br>Hackathon 2.0</h1>
+            <div class="subtitle">Build life-saving tech for maternal &amp; infant healthcare across Nigeria and win big</div>
+            <div class="amount-block">
+              <div class="amount-label">Total Prize Pool</div>
+              <div class="amount-value" style="font-size:56px">₦10,000,000</div>
+              <div class="amount-sub">1st: ₦5M · 2nd: ₦3M · 3rd: ₦2M</div>
+            </div>
+            <div class="facts-row">
+              <div class="fact-item"><div class="fact-label">Deadline</div><div class="fact-value">July 20, 2026</div></div>
+              <div class="fact-item"><div class="fact-label">Eligible</div><div class="fact-value">Ages 18–35, Nigeria</div></div>
+              <div class="fact-item"><div class="fact-label">Sector</div><div class="fact-value">HealthTech / AI</div></div>
+            </div>
+            <div class="req-list">
+              <div class="req-title">Requirements</div>
+              <div class="req-item"><span class="req-dot">—</span>Currently resident in Nigeria, aged 18–35</div>
+              <div class="req-item"><span class="req-dot">—</span>Must own or be part of a registered business with a clear sustainability plan</div>
+              <div class="req-item"><span class="req-dot">—</span>Proficiency in software development and/or Artificial Intelligence required</div>
+            </div>
+            <div class="cta-btn">Apply Now →</div>
+            <div class="divider"></div>
+            <div class="flyer-footer">
+              <span class="footer-brand">a2fpartners.com</span>
+              <span class="footer-url">helpmum.org/HACKATHON</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-title">HelpMum CareCode Hackathon 2.0<br><span style="color:rgba(255,255,255,0.35)">₦10M pool · Deadline July 20</span></div>
+      <button class="dl-btn" onclick="downloadFlyer('f7','helpmum-carecode-hackathon-2026')">⬇ PNG</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       FLYER 8 — MEST AI Startup Program
+  ══════════════════════════════════════════════ -->
+  <div class="export-card">
+    <div class="preview-wrapper" onclick="downloadFlyer('f8','mest-ai-startup-program-2027')">
+      <div class="preview-scaler" id="f8">
+        <div class="flyer-card">
+          <div class="top-line"></div>
+          <div class="header-row">
+            <div class="badge-col">
+              <div class="badge">🇳🇬 Funding Alert</div>
+              <div class="status-pill">⭐ Fully Funded Fellowship</div>
+            </div>
+            <div class="logo-box">
+              <div class="logo-initials">MEST</div>
+              <div class="logo-label">MEST<br>Africa</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="org-name">MEST Africa — Meltwater Entrepreneurial School of Technology</div>
+            <h1>MEST AI<br>Startup Program<br>(Class of 2027)</h1>
+            <div class="subtitle">Fully-sponsored 12-month residential AI startup fellowship for Nigerian founders — with pre-seed investment</div>
+            <div class="amount-row">
+              <div class="amount-box">
+                <div class="amount-label">Pre-seed Investment</div>
+                <div class="amount-value sm">$100,000</div>
+                <div class="amount-sub">For top-performing ventures</div>
+              </div>
+              <div class="amount-box">
+                <div class="amount-label">Programme Type</div>
+                <div class="amount-value sm">Fully Funded</div>
+                <div class="amount-sub">Residential fellowship — all costs covered</div>
+              </div>
+            </div>
+            <div class="facts-row">
+              <div class="fact-item"><div class="fact-label">Deadline</div><div class="fact-value">July 20, 2026</div></div>
+              <div class="fact-item"><div class="fact-label">Eligible</div><div class="fact-value">Nigerian founders</div></div>
+              <div class="fact-item"><div class="fact-label">Sector</div><div class="fact-value">AI / Technology</div></div>
+            </div>
+            <div class="req-list">
+              <div class="req-title">Requirements</div>
+              <div class="req-item"><span class="req-dot">—</span>Nigerian entrepreneur with an AI-focused startup idea or early-stage venture</div>
+              <div class="req-item"><span class="req-dot">—</span>Must be able to attend the in-person programme in Accra, Ghana (fully sponsored)</div>
+              <div class="req-item"><span class="req-dot">—</span>Rolling review — apply early for best chances</div>
+            </div>
+            <div class="cta-btn">Apply Now →</div>
+            <div class="divider"></div>
+            <div class="flyer-footer">
+              <span class="footer-brand">a2fpartners.com</span>
+              <span class="footer-url">mestaistartupprogram.smapply.us</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-title">MEST AI Startup Program 2027<br><span style="color:rgba(255,255,255,0.35)">Up to $100K + fully funded · July 20</span></div>
+      <button class="dl-btn" onclick="downloadFlyer('f8','mest-ai-startup-program-2027')">⬇ PNG</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       FLYER 9 — Y Combinator Fall 2026
+  ══════════════════════════════════════════════ -->
+  <div class="export-card">
+    <div class="preview-wrapper" onclick="downloadFlyer('f9','ycombinator-fall-2026')">
+      <div class="preview-scaler" id="f9">
+        <div class="flyer-card">
+          <div class="top-line"></div>
+          <div class="header-row">
+            <div class="badge-col">
+              <div class="badge">🇳🇬 Funding Alert</div>
+              <div class="status-pill">🌍 Global Accelerator</div>
+            </div>
+            <div class="logo-box">
+              <div class="logo-initials" style="font-size:36px">YC</div>
+              <div class="logo-label">Y Combinator<br>Silicon Valley</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="org-name">Y Combinator — Silicon Valley, USA</div>
+            <h1>Y Combinator<br>Fall 2026<br>Batch</h1>
+            <div class="subtitle">The world's most prestigious accelerator — Paystack, Stripe &amp; Airbnb started here. Nigerian startups fully eligible.</div>
+            <div class="amount-block">
+              <div class="amount-label">Standard Deal</div>
+              <div class="amount-value">$500,000</div>
+              <div class="amount-sub">$125K standard terms + $375K MFN note · Free to apply</div>
+            </div>
+            <div class="facts-row">
+              <div class="fact-item"><div class="fact-label">Deadline</div><div class="fact-value">July 27, 2026</div></div>
+              <div class="fact-item"><div class="fact-label">Eligible</div><div class="fact-value">Any Nigerian startup</div></div>
+              <div class="fact-item"><div class="fact-label">Sector</div><div class="fact-value">All sectors</div></div>
+            </div>
+            <div class="req-list">
+              <div class="req-title">Requirements</div>
+              <div class="req-item"><span class="req-dot">—</span>Early-stage startup, any sector — Nigerian founders are fully eligible to apply</div>
+              <div class="req-item"><span class="req-dot">—</span>Programme runs Oct–Dec 2026 in San Francisco (relocation required during programme)</div>
+              <div class="req-item"><span class="req-dot">—</span>No fee to apply — free application at ycombinator.com/apply</div>
+            </div>
+            <div class="cta-btn">Apply Now →</div>
+            <div class="divider"></div>
+            <div class="flyer-footer">
+              <span class="footer-brand">a2fpartners.com</span>
+              <span class="footer-url">ycombinator.com/apply</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-title">Y Combinator Fall 2026 Batch<br><span style="color:rgba(255,255,255,0.35)">$500,000 · Deadline July 27</span></div>
+      <button class="dl-btn" onclick="downloadFlyer('f9','ycombinator-fall-2026')">⬇ PNG</button>
+    </div>
+  </div>
+
+</div><!-- /grid -->
+
+<!-- Download All button -->
+<div style="text-align:center; margin-top: 48px;">
+  <button class="dl-btn" style="font-size:15px; padding:16px 40px;" onclick="downloadAll()">
+    ⬇ Download All 9 as PNG
+  </button>
+  <p style="color:rgba(255,255,255,0.3); font-size:13px; margin-top:12px;">Downloads one by one — allow a few seconds between each</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  /* ── Scale previews to fit their containers ── */
+  function scalePreviewers() {
+    document.querySelectorAll('.preview-wrapper').forEach(wrapper => {
+      const scaler = wrapper.querySelector('.preview-scaler');
+      const ratio = wrapper.offsetWidth / 1080;
+      scaler.style.transform = `scale(${ratio})`;
+    });
+  }
+  scalePreviewers();
+  window.addEventListener('resize', scalePreviewers);
+
+  /* ── Toast notification ── */
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  /* ── Download a single flyer as PNG ── */
+  async function downloadFlyer(id, filename) {
+    const btn = event?.target;
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ Rendering…'; }
+
+    const el = document.getElementById(id);
+
+    // Temporarily bring to full size off-screen for capture
+    const orig = {
+      position: el.style.position,
+      left: el.style.left,
+      top: el.style.top,
+      transform: el.style.transform,
+      zIndex: el.style.zIndex
+    };
+    el.style.position = 'fixed';
+    el.style.left = '-2000px';
+    el.style.top = '0';
+    el.style.transform = 'none';
+    el.style.zIndex = '-1';
+
+    try {
+      const canvas = await html2canvas(el, {
+        width: 1080,
+        height: 1080,
+        scale: 2,          // 2× = 2160×2160 high-DPI export
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#000000',
+        logging: false
+      });
+
+      const link = document.createElement('a');
+      link.download = '2026-06-13-' + filename + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      showToast('✓ Downloaded: ' + filename + '.png');
+    } catch(err) {
+      showToast('Error — try again');
+      console.error(err);
+    } finally {
+      // Restore original styles
+      el.style.position = orig.position;
+      el.style.left = orig.left;
+      el.style.top = orig.top;
+      el.style.transform = orig.transform;
+      el.style.zIndex = orig.zIndex;
+      if (btn) { btn.disabled = false; btn.textContent = '⬇ PNG'; }
+      scalePreviewers();
+    }
+  }
+
+  /* ── Download all 9, staggered ── */
+  async function downloadAll() {
+    const flyers = [
+      ['f1','gogettaz-agripreneur-prize-2026'],
+      ['f2','batn-foundation-f4f-grant-2026'],
+      ['f3','nsia-prize-for-innovation-2026'],
+      ['f4','growing-roots-grant-nigeria-2026'],
+      ['f5','batn-foundation-gap-2026'],
+      ['f6','accelerate-africa-startup-programme-2026'],
+      ['f7','helpmum-carecode-hackathon-2026'],
+      ['f8','mest-ai-startup-program-2027'],
+      ['f9','ycombinator-fall-2026']
+    ];
+    for (const [id, name] of flyers) {
+      await downloadFlyer(id, name);
+      await new Promise(r => setTimeout(r, 1200)); // pause between downloads
+    }
+    showToast('✅ All 9 flyers downloaded!');
+  }
+</script>
+</body>
+</html>

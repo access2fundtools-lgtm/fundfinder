@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="USAID DIV Fund 2026 — Up to $1.5 Million for Nigerian Innovators">
+<meta property="og:description" content="USAID Development Innovation Ventures: $50K–$1.5M to pilot, test & scale innovations that improve lives. Rolling deadline — apply anytime. Nigeria eligible.">
+<meta property="og:image" content="https://opportunities.a2fpartners.com/2026-06-21-usaid-div-fund-2026.html">
+<title>USAID DIV Fund 2026 | Up to $1.5M | A2F Partners</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+    background: #0a0a0f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .flyer {
+    width: 1080px;
+    height: 1080px;
+    background: linear-gradient(145deg, #001400 0%, #003300 35%, #001a00 65%, #000a00 100%);
+    border: 2px solid rgba(255,215,0,0.25);
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 56px;
+  }
+
+  .bg-circles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .bg-c1 { position: absolute; top: -150px; right: -100px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(0,150,0,0.08) 0%, transparent 65%); }
+  .bg-c2 { position: absolute; bottom: -100px; left: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 65%); }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,215,0,0.08) 1px, transparent 1px); background-size: 40px 40px; }
+  .accent-top { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #006400, #FFD700, #006400); }
+
+  /* Header */
+  .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; position: relative; z-index: 1; }
+  .flag-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,215,0,0.1); border: 1.5px solid rgba(255,215,0,0.35); color: #FFD700; font-size: 13px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; padding: 9px 18px; border-radius: 40px; }
+  .rolling-badge { background: rgba(34,197,94,0.15); border: 1.5px solid rgba(34,197,94,0.4); color: #4ade80; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 9px 18px; border-radius: 40px; }
+
+  /* Amount */
+  .amount-block { margin-bottom: 18px; position: relative; z-index: 1; }
+  .amount-label { font-size: 13px; color: rgba(255,215,0,0.6); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+  .amount-main { font-size: 100px; font-weight: 900; color: #FFD700; line-height: 1; letter-spacing: -4px; text-shadow: 0 0 80px rgba(255,215,0,0.25); }
+  .amount-range { font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+  /* Program name */
+  .program-name { font-size: 36px; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 8px; position: relative; z-index: 1; }
+  .funder-name { font-size: 14px; color: rgba(255,215,0,0.65); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px; position: relative; z-index: 1; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,215,0,0.35), transparent); margin-bottom: 26px; position: relative; z-index: 1; }
+
+  /* Stages */
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 26px; position: relative; z-index: 1; }
+  .stage { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; text-align: center; }
+  .stage-num { font-size: 11px; color: rgba(255,215,0,0.6); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+  .stage-name { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .stage-amount { font-size: 15px; font-weight: 900; color: #FFD700; }
+
+  /* Facts */
+  .facts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; position: relative; z-index: 1; }
+  .fact-item { display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 16px; }
+  .fact-icon { font-size: 22px; flex-shrink: 0; }
+  .fact-label { font-size: 10px; color: rgba(255,215,0,0.55); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 3px; }
+  .fact-value { font-size: 14px; font-weight: 700; color: #fff; }
+
+  /* Eligibility */
+  .eligibility { margin-bottom: 26px; position: relative; z-index: 1; }
+  .eligibility-title { font-size: 11px; color: rgba(255,215,0,0.6); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .eli-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 9px; font-size: 14px; color: rgba(255,255,255,0.82); }
+  .eli-check { color: #4ade80; font-size: 15px; flex-shrink: 0; }
+
+  /* CTA */
+  .cta-section { margin-top: auto; position: relative; z-index: 1; }
+  .cta-btn { display: block; width: 100%; background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; font-size: 20px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; padding: 20px 40px; border-radius: 14px; text-decoration: none; text-align: center; box-shadow: 0 6px 30px rgba(255,215,0,0.25); margin-bottom: 16px; }
+  .footer-brand { text-align: center; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+  .footer-brand span { color: rgba(255,215,0,0.45); }
+
+  @media (max-width: 1100px) {
+    .flyer { width: 100%; height: auto; }
+    .amount-main { font-size: 70px; }
+  }
+</style>
+</head>
+<body>
+<div class="flyer">
+  <div class="bg-circles"><div class="bg-c1"></div><div class="bg-c2"></div><div class="bg-dots"></div></div>
+  <div class="accent-top"></div>
+
+  <div class="header">
+    <div class="flag-badge">🇳🇬 FUNDING ALERT</div>
+    <div class="rolling-badge">🔄 Rolling Deadline</div>
+  </div>
+
+  <div class="amount-block">
+    <div class="amount-label">Up to</div>
+    <div class="amount-main">$1.5M</div>
+    <div class="amount-range">3 stages: $50,000 → $200,000 → $1,500,000</div>
+  </div>
+
+  <div class="program-name">USAID Development<br>Innovation Ventures (DIV) 2026</div>
+  <div class="funder-name">USAID — United States Agency for International Development</div>
+
+  <div class="divider"></div>
+
+  <div class="stages">
+    <div class="stage">
+      <div class="stage-num">Stage 1</div>
+      <div class="stage-name">Proof of Concept</div>
+      <div class="stage-amount">$50K–$200K</div>
+    </div>
+    <div class="stage">
+      <div class="stage-num">Stage 2</div>
+      <div class="stage-name">Testing &amp; Scale</div>
+      <div class="stage-amount">Up to $1.5M</div>
+    </div>
+    <div class="stage">
+      <div class="stage-num">Stage 3</div>
+      <div class="stage-name">Scaling Impact</div>
+      <div class="stage-amount">Up to $5M</div>
+    </div>
+  </div>
+
+  <div class="facts-grid">
+    <div class="fact-item">
+      <div class="fact-icon">⏰</div>
+      <div>
+        <div class="fact-label">Deadline</div>
+        <div class="fact-value">Rolling — apply anytime</div>
+      </div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-icon">🌍</div>
+      <div>
+        <div class="fact-label">Eligibility</div>
+        <div class="fact-value">Nigeria &amp; 50+ countries</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="eligibility">
+    <div class="eligibility-title">Who Can Apply &amp; Key Requirements</div>
+    <div class="eli-item"><span class="eli-check">✅</span><span>Startups, social enterprises, individuals &amp; organisations in Nigeria</span></div>
+    <div class="eli-item"><span class="eli-check">✅</span><span>Innovation must improve lives in developing countries (health, agri, education, fintech, climate)</span></div>
+    <div class="eli-item"><span class="eli-check">✅</span><span>Evidence of rigorous approach: randomised trials, data-driven impact — early stage OK for Stage 1</span></div>
+  </div>
+
+  <div class="cta-section">
+    <a class="cta-btn" href="https://divportal.usaid.gov/s/apply" target="_blank">APPLY NOW → divportal.usaid.gov</a>
+    <div class="footer-brand">Shared by <span>FundFinder AI | A2F Partners | opportunities.a2fpartners.com</span></div>
+  </div>
+</div>
+</body>
+</html>

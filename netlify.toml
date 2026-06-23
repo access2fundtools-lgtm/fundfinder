@@ -1,0 +1,23 @@
+# FundFinder AI — Netlify Configuration
+# This file tells Netlify how to deploy the site
+
+[build]
+  publish = "."                    # deploy everything in this folder
+  command = ""                     # no build step needed — pure HTML/CSS/JS
+  functions = "netlify/functions"  # serverless functions (e.g. Zoho subscribe)
+
+# Redirect root URL to the hub page
+[[redirects]]
+  from = "/"
+  to = "/opportunity-hub.html"
+  status = 200
+
+# Friendly URL for the chat interface
+[[redirects]]
+  from = "/chat"
+  to = "/fundfinder-chat.html"
+  status = 200
+
+# Handle Netlify form submissions
+[build.environment]
+  NODE_VERSION = "18"

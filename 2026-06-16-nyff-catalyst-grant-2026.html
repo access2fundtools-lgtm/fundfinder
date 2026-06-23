@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="NYFF Catalyst Grant 2026 — Up to $50,000 for Nigerian Youth Organisations">
+<meta property="og:description" content="Up to $50,000 in non-dilutive funding for Nigerian youth-focused organisations serving as regional civic & innovation hubs. Apply now!">
+<meta property="og:type" content="website">
+<title>NYFF Catalyst Grant 2026 – Funding Alert</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .card {
+    width: 1080px;
+    height: 1080px;
+    background: #003300;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .bg-gradient {
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(255,215,0,0.12) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(0,100,0,0.8) 0%, transparent 60%),
+                linear-gradient(160deg, #001500 0%, #006400 60%, #003d00 100%);
+  }
+
+  /* Big $50K decorative text */
+  .bg-text {
+    position: absolute;
+    right: -30px; top: 120px;
+    font-size: 280px; font-weight: 900;
+    color: rgba(255,215,0,0.04);
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -10px;
+  }
+
+  .top-stripe { background: linear-gradient(90deg, #FFD700, #b8860b); height: 8px; flex-shrink: 0; }
+
+  .top-section {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 26px 50px 0; z-index: 10; position: relative;
+  }
+  .flag-badge {
+    background: rgba(255,215,0,0.15); border: 2px solid #FFD700; border-radius: 30px;
+    padding: 8px 20px; display: flex; align-items: center; gap: 8px;
+    font-size: 15px; font-weight: 700; color: #FFD700; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .open-badge {
+    background: rgba(0,170,68,0.9); border-radius: 12px;
+    padding: 8px 18px; font-size: 14px; font-weight: 800; color: #fff;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+
+  .main { flex: 1; padding: 30px 50px 0; z-index: 10; position: relative; }
+
+  .funder { font-size: 13px; font-weight: 600; color: rgba(255,215,0,0.65); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+
+  .program-name {
+    font-size: 62px; font-weight: 900; line-height: 1.0; margin-bottom: 8px; color: #fff;
+  }
+  .program-name .gold { color: #FFD700; }
+
+  .sub { font-size: 20px; color: rgba(255,255,255,0.7); font-weight: 400; margin-bottom: 26px; line-height: 1.4; }
+
+  /* BIG AMOUNT */
+  .big-amount {
+    margin-bottom: 26px; display: flex; align-items: flex-end; gap: 16px;
+  }
+  .big-amount .value { font-size: 100px; font-weight: 900; color: #FFD700; line-height: 1; }
+  .big-amount .side {
+    padding-bottom: 12px;
+  }
+  .big-amount .side .l1 { font-size: 16px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+  .big-amount .side .l2 { font-size: 14px; color: rgba(255,215,0,0.6); }
+
+  /* FACTS ROW */
+  .facts { display: flex; gap: 12px; margin-bottom: 22px; }
+  .fact-item {
+    flex: 1; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,215,0,0.22);
+    border-radius: 12px; padding: 12px 14px; text-align: center;
+  }
+  .fact-item .f-label { font-size: 10px; color: rgba(255,215,0,0.6); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .fact-item .f-value { font-size: 13px; color: #fff; font-weight: 700; }
+
+  /* ELIGIBILITY */
+  .elig-title { font-size: 12px; color: #FFD700; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .elig-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+  .elig-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 16px; color: rgba(255,255,255,0.88); font-weight: 500; line-height: 1.35; }
+  .check { color: #FFD700; flex-shrink: 0; font-size: 16px; }
+
+  /* BACKED BY STRIP */
+  .backed {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    font-size: 12px; color: rgba(255,255,255,0.4);
+  }
+  .backed .label { text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+  .backed .orgs { color: rgba(255,255,255,0.65); font-weight: 600; }
+
+  /* CTA */
+  .cta-row { display: flex; align-items: center; gap: 16px; }
+  .cta-btn {
+    display: inline-block; background: #FFD700; color: #003300;
+    font-size: 20px; font-weight: 900; padding: 17px 42px;
+    border-radius: 50px; text-decoration: none; flex-shrink: 0;
+  }
+  .apply-url { font-size: 11px; color: rgba(255,255,255,0.4); word-break: break-all; }
+
+  /* FOOTER */
+  .footer {
+    background: rgba(0,0,0,0.4); padding: 14px 50px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 10; position: relative; margin-top: 14px;
+  }
+  .footer .handle { font-size: 16px; color: #FFD700; font-weight: 700; }
+  .footer .sub-foot { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .footer .logo { font-size: 24px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-gradient"></div>
+  <div class="bg-text">$50K</div>
+
+  <div class="top-stripe"></div>
+  <div class="top-section">
+    <div class="flag-badge">🇳🇬 FUNDING ALERT</div>
+    <div class="open-badge">✅ OPEN NOW</div>
+  </div>
+
+  <div class="main">
+    <div class="funder">Nigeria Youth Futures Fund (NYFF)</div>
+    <div class="program-name">NYFF <span class="gold">Catalyst</span><br>Grant 2026</div>
+    <div class="sub">For youth-focused organisations building civic<br>& innovation hubs across Nigeria</div>
+
+    <div class="big-amount">
+      <div class="value">$50K</div>
+      <div class="side">
+        <div class="l1">Non-Dilutive Grant</div>
+        <div class="l2">No equity required</div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact-item">
+        <div class="f-label">Eligible</div>
+        <div class="f-value">Youth-Led NGOs & Hubs</div>
+      </div>
+      <div class="fact-item">
+        <div class="f-label">Country</div>
+        <div class="f-value">🇳🇬 Nigeria</div>
+      </div>
+      <div class="fact-item">
+        <div class="f-label">Sector</div>
+        <div class="f-value">Governance · Civic · Tech</div>
+      </div>
+    </div>
+
+    <div class="elig-title">✦ Key Requirements</div>
+    <ul class="elig-list">
+      <li><span class="check">✅</span> Registered organisation operating as a regional civic or innovation hub in Nigeria</li>
+      <li><span class="check">✅</span> Focus on youth leadership, governance, civic participation, or ecosystem building</li>
+      <li><span class="check">✅</span> Encourages technology, media, arts, women-led projects, and PWD initiatives</li>
+    </ul>
+
+    <div class="backed">
+      <span class="label">Backed by:</span>
+      <span class="orgs">MacArthur Foundation · Ford Foundation · Luminate Group</span>
+    </div>
+
+    <div class="cta-row">
+      <a class="cta-btn" href="https://leapafrica.smapply.io/prog/nyff_catalyst_grant_application-_2026/" target="_blank">APPLY NOW →</a>
+      <div class="apply-url">leapafrica.smapply.io/prog/nyff_catalyst_grant_application-_2026</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="handle">@access2fundtools</div>
+      <div class="sub-foot">Follow for daily funding alerts</div>
+    </div>
+    <div class="logo">🇳🇬</div>
+  </div>
+</div>
+</body>
+</html>

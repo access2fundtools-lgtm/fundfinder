@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founders Support Initiative (FSI) 2026 Cohort | A2F Partners</title>
+<meta property="og:title" content="FSI 2026 — ₦3M Non-Dilutive Grant for Nigerian Entrepreneurs">
+<meta property="og:description" content="Up to ₦3,000,000. No equity. No repayment. 8–12 week bootcamp + mentorship. Rolling applications. Nigeria only.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --surface: #111; --surface2: #1a1a1a;
+    --border: rgba(255,255,255,0.08); --text: #f0f0f0;
+    --muted: rgba(255,255,255,0.5); --gold: #FFD700;
+    --green: #22c55e; --red: #ef4444;
+  }
+  body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  nav { border-bottom: 1px solid var(--border); padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,10,0.97); }
+  .nav-logo { font-size: 18px; font-weight: 800; letter-spacing: 2px; text-decoration: none; color: var(--text); }
+  .nav-logo span { color: var(--gold); }
+  .back-link { color: var(--gold); text-decoration: none; font-size: 14px; font-weight: 600; }
+
+  .hero-banner { background: linear-gradient(135deg, #0a0014 0%, #160028 50%, #006400 100%); padding: 60px 40px 50px; border-bottom: 1px solid rgba(255,215,0,0.1); }
+  .hero-inner { max-width: 860px; margin: 0 auto; }
+  .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+  .badge { font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .badge-nigeria { background: rgba(255,215,0,0.15); color: var(--gold); border: 1px solid rgba(255,215,0,0.3); }
+  .badge-open { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+  .badge-free { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+  .funder-tag { font-size: 13px; color: rgba(255,215,0,0.7); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 10px; }
+  .hero-title { font-size: clamp(28px, 4vw, 46px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero-title span { color: var(--gold); }
+  .hero-tagline { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 600px; margin-bottom: 32px; }
+  .hero-stats { display: flex; gap: 8px; flex-wrap: wrap; }
+  .stat-chip { background: rgba(255,215,0,0.07); border: 1px solid rgba(255,215,0,0.15); padding: 10px 20px; border-radius: 12px; }
+  .stat-chip-num { font-size: 24px; font-weight: 900; color: var(--gold); }
+  .stat-chip-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  .content { max-width: 860px; margin: 0 auto; padding: 48px 40px 80px; }
+  h2 { font-size: 20px; font-weight: 800; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+  .section { margin-bottom: 40px; }
+  p { color: rgba(255,255,255,0.8); font-size: 15.5px; margin-bottom: 14px; }
+
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .info-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .info-card-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-weight: 700; }
+  .info-card-value { font-size: 16px; font-weight: 700; }
+  .info-card-value.gold { color: var(--gold); }
+  .info-card-value.green { color: var(--green); }
+
+  ul.styled { list-style: none; padding: 0; }
+  ul.styled li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px; color: rgba(255,255,255,0.8); }
+  ul.styled li:last-child { border-bottom: none; }
+  ul.styled li::before { content: '✓'; color: var(--gold); font-weight: 900; flex-shrink: 0; }
+
+  .highlight-box { background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,165,0,0.04)); border: 1px solid rgba(255,215,0,0.25); border-radius: 16px; padding: 28px; text-align: center; margin-bottom: 20px; }
+  .hl-label { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 8px; }
+  .hl-amount { font-size: 52px; font-weight: 900; color: var(--gold); }
+  .hl-sub { font-size: 16px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  .hl-tags { display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap; }
+  .hl-tag { font-size: 12px; font-weight: 700; background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.25); padding: 5px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: 10px; }
+  .pillar { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .pillar-icon { font-size: 24px; margin-bottom: 8px; }
+  .pillar-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .pillar-desc { font-size: 12px; color: var(--muted); }
+
+  .cta-box { background: linear-gradient(135deg, #001a00 0%, #004d00 100%); border: 1px solid rgba(255,215,0,0.2); border-radius: 16px; padding: 36px; text-align: center; margin-top: 40px; }
+  .cta-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+  .cta-box p { color: rgba(255,255,255,0.7); font-size: 15px; margin-bottom: 24px; }
+  .cta-btn { display: inline-block; background: var(--gold); color: #000; font-size: 15px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; padding: 16px 40px; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
+  .cta-btn:hover { background: #ffe555; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,215,0,0.25); }
+  .apply-link { display: block; font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+  .disclaimer { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-top: 24px; font-size: 13px; color: var(--muted); }
+  footer { border-top: 1px solid var(--border); padding: 28px 40px; text-align: center; font-size: 13px; color: var(--muted); }
+  footer a { color: var(--gold); text-decoration: none; }
+  @media (max-width: 640px) { nav { padding: 14px 20px; } .hero-banner { padding: 40px 20px 36px; } .content { padding: 32px 20px 60px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://a2fpartners.com" class="nav-logo">A2F <span>PARTNERS</span></a>
+  <a href="opportunity-hub.html" class="back-link">← All Opportunities</a>
+</nav>
+
+<div class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <span class="badge badge-nigeria">🇳🇬 Nigeria Only</span>
+      <span class="badge badge-open">Rolling Applications</span>
+      <span class="badge badge-free">NON-DILUTIVE</span>
+    </div>
+    <div class="funder-tag">Founders Support Initiative (FSI)</div>
+    <h1 class="hero-title">FSI 2026 Cohort —<br><span>Non-Dilutive Grant</span></h1>
+    <p class="hero-tagline">Up to ₦3,000,000 in free funding for Nigerian entrepreneurs — no equity, no repayment. Includes an 8–12 week bootcamp, mentorship, and investor network access.</p>
+    <div class="hero-stats">
+      <div class="stat-chip"><div class="stat-chip-num">₦3M</div><div class="stat-chip-label">Max Grant</div></div>
+      <div class="stat-chip"><div class="stat-chip-num">0%</div><div class="stat-chip-label">Equity Taken</div></div>
+      <div class="stat-chip"><div class="stat-chip-num">Rolling</div><div class="stat-chip-label">Deadline</div></div>
+      <div class="stat-chip"><div class="stat-chip-num">8–12 Wk</div><div class="stat-chip-label">Bootcamp</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <h2>📋 Key Details</h2>
+    <div class="info-grid">
+      <div class="info-card"><div class="info-card-label">Grant Amount</div><div class="info-card-value gold">Up to ₦3,000,000</div></div>
+      <div class="info-card"><div class="info-card-label">Equity Taken</div><div class="info-card-value green">None — 0%</div></div>
+      <div class="info-card"><div class="info-card-label">Repayment</div><div class="info-card-value green">Not Required</div></div>
+      <div class="info-card"><div class="info-card-label">Nigeria Only</div><div class="info-card-value green">✅ Yes</div></div>
+      <div class="info-card"><div class="info-card-label">Application</div><div class="info-card-value">Rolling — Open Now</div></div>
+      <div class="info-card"><div class="info-card-label">Includes</div><div class="info-card-value">Bootcamp + Mentoring</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>💰 The Grant</h2>
+    <div class="highlight-box">
+      <div class="hl-label">Non-Dilutive Grant for Nigerian Entrepreneurs</div>
+      <div class="hl-amount">₦3,000,000</div>
+      <div class="hl-sub">Free money. You keep 100% of your business.</div>
+      <div class="hl-tags">
+        <span class="hl-tag">No Equity</span>
+        <span class="hl-tag">No Repayment</span>
+        <span class="hl-tag">No Hidden Fees</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🌍 About This Opportunity</h2>
+    <p>The Founders Support Initiative (FSI) is a Nigeria-focused entrepreneur support programme that combines non-dilutive grant funding with structured training and mentorship. Unlike most funding programmes that take equity in your business, FSI gives you cash — and you keep 100% of your company.</p>
+    <p>The 2026 cohort is currently accepting rolling applications, meaning you can apply at any time. The programme was published in May 2026 and is intended to support a new batch of Nigerian entrepreneurs with the capital, skills, and connections they need to scale their ventures.</p>
+    <p>Participants go through an 8–12 week startup bootcamp covering business strategy, financial modelling, marketing, product development, and investor readiness — then pitch to FSI's investor network for potential follow-on investment beyond the grant.</p>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Programme Pillars</h2>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-icon">💰</div>
+        <div class="pillar-title">Non-Dilutive Grant</div>
+        <div class="pillar-desc">Up to ₦3M with no equity or repayment required</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📚</div>
+        <div class="pillar-title">8–12 Week Bootcamp</div>
+        <div class="pillar-desc">Intensive business and startup skills training</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🧭</div>
+        <div class="pillar-title">1-on-1 Mentorship</div>
+        <div class="pillar-desc">Dedicated mentor matched to your business needs</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🤝</div>
+        <div class="pillar-title">Investor Network</div>
+        <div class="pillar-desc">Pitch to FSI's curated network of active investors</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👤 Who Qualifies</h2>
+    <ul class="styled">
+      <li>Nigerian entrepreneurs — individuals or small founding teams</li>
+      <li>Early-stage businesses — from idea stage to early revenue</li>
+      <li>Any sector: tech, services, trade, agriculture, creative industries, health, and more</li>
+      <li>Must be based in Nigeria with serious intent to build and scale</li>
+      <li>No minimum revenue or traction required — ambition and potential count</li>
+      <li>Growing businesses (not just ideation stage) also welcome to apply</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 How to Apply</h2>
+    <ul class="styled">
+      <li>Visit the FSI website: founderssupport.org</li>
+      <li>Complete the online application — describe your business and goals</li>
+      <li>Applications are reviewed on a rolling basis — no fixed deadline</li>
+      <li>Shortlisted applicants contacted for interviews or further assessment</li>
+      <li>Selected founders join the next cohort bootcamp intake</li>
+      <li>Apply early — cohort spots fill up as applications are accepted</li>
+    </ul>
+  </div>
+
+  <div class="cta-box">
+    <h3>Rolling Applications — Apply Anytime</h3>
+    <p>No equity. No repayment. ₦3,000,000 in free capital plus training, mentorship, and investor access. There is no fixed deadline — but cohort spots are limited. Apply now.</p>
+    <a class="cta-btn" href="https://founderssupport.org/" target="_blank" rel="noopener">Apply Now — Free →</a>
+    <span class="apply-link">https://founderssupport.org/</span>
+  </div>
+
+  <div class="disclaimer">ℹ️ <strong>Disclaimer:</strong> A2F Partners curates funding intelligence for Nigerian entrepreneurs. Verify eligibility and programme details at founderssupport.org before applying. We have no affiliation with the Founders Support Initiative.</div>
+
+</div>
+<footer><p>Curated by <a href="https://a2fpartners.com">A2F Partners</a> · <a href="opportunity-hub.html">← View All Opportunities</a> · Updated June 17, 2026</p></footer>
+</body>
+</html>
