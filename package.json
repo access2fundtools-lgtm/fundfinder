@@ -1,0 +1,8 @@
+{
+  "name": "fundfinder-ai",
+  "version": "1.0.0",
+  "description": "FundFinder AI — funding discovery platform for Nigerian entrepreneurs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}
