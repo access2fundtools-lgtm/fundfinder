@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Wallet — FundFinder AI</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --surface: #111; --surface2: #1a1a1a;
+    --border: rgba(255,255,255,0.08); --text: #f0f0f0;
+    --muted: rgba(255,255,255,0.5); --gold: #FFD700;
+    --green: #22c55e; --red: #ef4444;
+  }
+  body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  nav { border-bottom: 1px solid var(--border); padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: rgba(10,10,10,0.96); backdrop-filter: blur(12px); z-index: 100; }
+  .nav-logo { font-size: 18px; font-weight: 900; text-decoration: none; color: var(--text); }
+  .nav-logo span { color: var(--gold); }
+  .nav-user { display: flex; align-items: center; gap: 16px; }
+  .nav-email { font-size: 13px; color: var(--muted); }
+  .btn-logout { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 13px; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+  .btn-logout:hover { border-color: var(--red); color: var(--red); }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+  /* Wallet card */
+  .wallet-card { background: linear-gradient(135deg, #001a00 0%, #003300 50%, #001a00 100%); border: 1px solid rgba(255,215,0,0.2); border-radius: 20px; padding: 36px; margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+  .wallet-bal-label { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .wallet-bal-num { font-size: 56px; font-weight: 900; color: var(--gold); line-height: 1; }
+  .wallet-bal-unit { font-size: 16px; color: rgba(255,215,0,0.6); font-weight: 600; margin-top: 4px; }
+  .wallet-stats { display: flex; gap: 28px; }
+  .wallet-stat { text-align: center; }
+  .wallet-stat-num { font-size: 22px; font-weight: 800; color: var(--text); }
+  .wallet-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* Packages */
+  h2 { font-size: 20px; font-weight: 800; margin-bottom: 16px; }
+  h2 span { color: var(--gold); }
+
+  .packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 36px; }
+  .pkg { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 18px; cursor: pointer; transition: all 0.2s; position: relative; }
+  .pkg:hover, .pkg.selected { border-color: rgba(255,215,0,0.5); background: rgba(255,215,0,0.04); }
+  .pkg.popular::before { content: 'MOST POPULAR'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 9px; font-weight: 900; padding: 3px 10px; border-radius: 30px; letter-spacing: 1px; white-space: nowrap; }
+  .pkg-name { font-size: 14px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .pkg-credits { font-size: 36px; font-weight: 900; color: var(--text); line-height: 1; }
+  .pkg-credits-label { font-size: 12px; color: var(--muted); margin-top: 2px; margin-bottom: 12px; }
+  .pkg-price { font-size: 20px; font-weight: 900; color: var(--gold); }
+  .pkg-per { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+
+  .btn-pay { background: var(--gold); color: #000; font-size: 15px; font-weight: 900; padding: 15px 32px; border-radius: 10px; border: none; cursor: pointer; letter-spacing: 0.5px; transition: opacity 0.2s; width: 100%; max-width: 340px; display: block; }
+  .btn-pay:hover { opacity: 0.88; }
+  .btn-pay:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Transaction history */
+  .tx-table { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .tx-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .tx-row:last-child { border-bottom: none; }
+  .tx-row.header { background: var(--surface2); font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+  .tx-ref { color: var(--muted); font-size: 11px; font-family: monospace; }
+  .badge-success { background: rgba(34,197,94,0.1); color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 30px; }
+  .badge-pending { background: rgba(255,215,0,0.1); color: var(--gold); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 30px; }
+
+  .empty-state { text-align: center; padding: 40px; color: var(--muted); font-size: 14px; }
+
+  /* Credit usage guide */
+  .usage-guide { background: var(--surface2); border-radius: 14px; padding: 22px; margin-bottom: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+  .usage-item { display: flex; align-items: center; gap: 10px; }
+  .usage-icon { font-size: 22px; flex-shrink: 0; }
+  .usage-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .usage-text strong { color: var(--text); display: block; margin-bottom: 2px; font-size: 13px; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(0,0,0,0.3); border-top-color: #000; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 8px; }
+  .loading { text-align: center; padding: 60px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="opportunity-hub.html" class="nav-logo">Fund<span>Finder</span> AI</a>
+  <div class="nav-user">
+    <span class="nav-email" id="navEmail">Loading…</span>
+    <a href="fundfinder-chat.html" style="text-decoration:none; background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.3); color:var(--gold); font-size:13px; font-weight:700; padding:7px 14px; border-radius:8px;">🤖 Chat →</a>
+    <button class="btn-logout" onclick="handleLogout()">Log Out</button>
+  </div>
+</nav>
+
+<div class="page" id="mainContent" style="display:none;">
+
+  <!-- WALLET CARD -->
+  <div class="wallet-card">
+    <div>
+      <div class="wallet-bal-label">💳 Credit Balance</div>
+      <div class="wallet-bal-num" id="balanceNum">0</div>
+      <div class="wallet-bal-unit">credits remaining</div>
+    </div>
+    <div class="wallet-stats">
+      <div class="wallet-stat">
+        <div class="wallet-stat-num" id="statPurchased">0</div>
+        <div class="wallet-stat-label">Total Bought</div>
+      </div>
+      <div class="wallet-stat">
+        <div class="wallet-stat-num" id="statUsed">0</div>
+        <div class="wallet-stat-label">Total Used</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT CREDITS DO -->
+  <h2>What <span>Credits</span> Do</h2>
+  <div class="usage-guide">
+    <div class="usage-item"><span class="usage-icon">💬</span><div class="usage-text"><strong>1 credit</strong>One AI chat message — profile building, opportunity matching, advice</div></div>
+    <div class="usage-item"><span class="usage-icon">📋</span><div class="usage-text"><strong>5 credits</strong>Full application pre-fill for one opportunity</div></div>
+    <div class="usage-item"><span class="usage-icon">📄</span><div class="usage-text"><strong>10 credits</strong>Generate a business plan or grant proposal</div></div>
+    <div class="usage-item"><span class="usage-icon">🤖</span><div class="usage-text"><strong>Free</strong>Browse opportunities, view flyers, email/WhatsApp alerts</div></div>
+  </div>
+
+  <!-- BUY CREDITS -->
+  <h2>Top Up Your <span>Wallet</span></h2>
+  <div class="packages" id="packagesGrid">
+    <div class="loading">Loading packages…</div>
+  </div>
+  <button class="btn-pay" id="payBtn" onclick="initiatePayment()" disabled>Select a package to continue</button>
+  <p style="font-size:12px; color:var(--muted); margin-top:12px; max-width:340px;">Powered by Paystack · Cards, Bank Transfer &amp; USSD accepted · Instant credit top-up</p>
+
+  <!-- TRANSACTION HISTORY -->
+  <h2 style="margin-top:40px;">Transaction <span>History</span></h2>
+  <div class="tx-table">
+    <div class="tx-row header">
+      <span>Date</span><span>Package</span><span>Credits</span><span>Amount</span><span>Status</span>
+    </div>
+    <div id="txList"><div class="empty-state">No transactions yet.</div></div>
+  </div>
+
+</div>
+
+<div id="loadingState" class="loading">Loading your wallet…</div>
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Paystack inline -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+// ============================================================
+// CONFIG — replace with your actual values
+// ============================================================
+const SUPABASE_URL   = 'YOUR_SUPABASE_PROJECT_URL';
+const SUPABASE_ANON  = 'YOUR_SUPABASE_ANON_KEY';
+const PAYSTACK_KEY   = 'pk_live_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'; // Paystack public key
+
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+let currentUser = null;
+let selectedPackage = null;
+
+// ============================================================
+// INIT
+// ============================================================
+async function init() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) {
+    window.location.href = 'fundfinder-auth.html';
+    return;
+  }
+  currentUser = session.user;
+  document.getElementById('navEmail').textContent = currentUser.email;
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('mainContent').style.display = 'block';
+  await Promise.all([loadWallet(), loadPackages(), loadTransactions()]);
+}
+
+// ============================================================
+// LOAD WALLET
+// ============================================================
+async function loadWallet() {
+  const { data } = await supabase
+    .from('wallets')
+    .select('balance_credits, total_credits_purchased, total_credits_used')
+    .eq('user_id', currentUser.id)
+    .single();
+
+  if (data) {
+    document.getElementById('balanceNum').textContent  = data.balance_credits;
+    document.getElementById('statPurchased').textContent = data.total_credits_purchased;
+    document.getElementById('statUsed').textContent    = data.total_credits_used;
+  }
+}
+
+// ============================================================
+// LOAD PACKAGES
+// ============================================================
+async function loadPackages() {
+  const { data: packages } = await supabase
+    .from('credit_packages')
+    .select('*')
+    .eq('is_active', true)
+    .order('price_ngn');
+
+  if (!packages) return;
+  const grid = document.getElementById('packagesGrid');
+  grid.innerHTML = packages.map(pkg => `
+    <div class="pkg ${pkg.is_popular ? 'popular' : ''}" onclick="selectPackage(this, '${pkg.id}', ${pkg.credits}, ${pkg.price_ngn}, '${pkg.name}')">
+      <div class="pkg-name">${pkg.name}</div>
+      <div class="pkg-credits">${pkg.credits}</div>
+      <div class="pkg-credits-label">credits</div>
+      <div class="pkg-price">₦${pkg.price_ngn.toLocaleString()}</div>
+      <div class="pkg-per">₦${Math.round(pkg.price_ngn / pkg.credits)} per credit</div>
+    </div>
+  `).join('');
+}
+
+function selectPackage(el, id, credits, price, name) {
+  document.querySelectorAll('.pkg').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPackage = { id, credits, price, name };
+  const btn = document.getElementById('payBtn');
+  btn.disabled = false;
+  btn.textContent = `Pay ₦${price.toLocaleString()} for ${credits} credits →`;
+}
+
+// ============================================================
+// PAYSTACK PAYMENT
+// ============================================================
+function initiatePayment() {
+  if (!selectedPackage) return;
+  const ref = 'FF_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+  const handler = PaystackPop.setup({
+    key: PAYSTACK_KEY,
+    email: currentUser.email,
+    amount: selectedPackage.price * 100, // Paystack uses kobo
+    currency: 'NGN',
+    ref,
+    metadata: {
+      user_id: currentUser.id,
+      package_id: selectedPackage.id,
+      credits: selectedPackage.credits,
+      package_name: selectedPackage.name
+    },
+    onClose: () => {},
+    callback: async (response) => {
+      // Payment successful on Paystack side
+      // The Netlify webhook function will top up credits once Paystack confirms
+      // Meanwhile show optimistic success
+      await recordPendingTransaction(ref, selectedPackage);
+      await loadWallet();
+      await loadTransactions();
+      alert(`✅ Payment received! Your ${selectedPackage.credits} credits will appear in your wallet within seconds.`);
+    }
+  });
+  handler.openIframe();
+}
+
+async function recordPendingTransaction(ref, pkg) {
+  await supabase.from('transactions').insert({
+    user_id: currentUser.id,
+    paystack_ref: ref,
+    amount_ngn: pkg.price,
+    credits_added: pkg.credits,
+    package_id: pkg.id,
+    status: 'pending'
+  });
+}
+
+// ============================================================
+// TRANSACTION HISTORY
+// ============================================================
+async function loadTransactions() {
+  const { data } = await supabase
+    .from('transactions')
+    .select('*')
+    .eq('user_id', currentUser.id)
+    .order('created_at', { ascending: false })
+    .limit(20);
+
+  const list = document.getElementById('txList');
+  if (!data || data.length === 0) {
+    list.innerHTML = '<div class="empty-state">No transactions yet. Top up to get started.</div>';
+    return;
+  }
+  list.innerHTML = data.map(tx => `
+    <div class="tx-row">
+      <span>${new Date(tx.created_at).toLocaleDateString('en-NG', {day:'numeric', month:'short', year:'numeric'})}</span>
+      <span>${tx.credits_added} credits</span>
+      <span style="color:var(--green); font-weight:700;">+${tx.credits_added}</span>
+      <span>₦${tx.amount_ngn.toLocaleString()}</span>
+      <span class="${tx.status === 'success' ? 'badge-success' : 'badge-pending'}">${tx.status}</span>
+    </div>
+  `).join('');
+}
+
+// ============================================================
+// LOGOUT
+// ============================================================
+async function handleLogout() {
+  await supabase.auth.signOut();
+  window.location.href = 'fundfinder-auth.html';
+}
+
+// ============================================================
+// START
+// ============================================================
+init();
+</script>
+</body>
+</html>
