@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="🇳🇬 FUNDING ALERT: Global Good Fund Fellowship 2027 — $10,000 Grant">
+  <meta property="og:description" content="Social entrepreneurs worldwide (incl. Nigeria) can win $10,000 + executive coaching + mentorship. Deadline: June 30, 2026. Apply NOW!">
+  <meta property="og:type" content="website">
+  <title>Global Good Fund Fellowship 2027 | FundFinder AI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .flyer {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(155deg, #001200 0%, #002600 35%, #003d00 65%, #001200 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bg-star-1 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,80,0,0.35) 0%, transparent 70%);
+      top: -80px;
+      right: -80px;
+    }
+    .bg-star-2 {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,215,0,0.07) 0%, transparent 70%);
+      bottom: 80px;
+      left: 0;
+    }
+    .gold-line-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    }
+    .gold-line-bot {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    }
+
+    /* CLOSING SOON BADGE */
+    .closing-ribbon {
+      position: absolute;
+      top: 28px;
+      right: -40px;
+      background: linear-gradient(135deg, #cc0000, #990000);
+      color: #fff;
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      padding: 10px 70px;
+      transform: rotate(35deg);
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 50px 60px 40px;
+    }
+
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .funding-badge {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #000;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-transform: uppercase;
+    }
+    .flag-emoji { font-size: 36px; }
+
+    .program-name {
+      font-size: 58px;
+      font-weight: 900;
+      color: #FFD700;
+      line-height: 1.08;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+      text-shadow: 0 0 40px rgba(255,215,0,0.25);
+    }
+    .program-sub {
+      font-size: 24px;
+      color: rgba(255,215,0,0.65);
+      font-weight: 500;
+      margin-bottom: 28px;
+      letter-spacing: 1px;
+    }
+
+    .funder-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .funder-logo {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,215,0,0.12);
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+    .funder-name {
+      color: #fff;
+      font-size: 21px;
+      font-weight: 600;
+    }
+    .funder-label {
+      color: rgba(255,255,255,0.45);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .amount-block {
+      background: linear-gradient(135deg, rgba(255,215,0,0.16), rgba(255,165,0,0.07));
+      border: 2px solid rgba(255,215,0,0.5);
+      border-radius: 20px;
+      padding: 22px 32px;
+      margin-bottom: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      width: fit-content;
+    }
+    .amount-icon { font-size: 42px; }
+    .amount-value {
+      font-size: 64px;
+      font-weight: 900;
+      color: #FFD700;
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(255,215,0,0.35);
+    }
+    .amount-label {
+      font-size: 17px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .fact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,215,0,0.22);
+      border-radius: 14px;
+      padding: 15px 16px;
+    }
+    .fact-label {
+      color: rgba(255,215,0,0.65);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+    .fact-value {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .eligibility-title {
+      color: #FFD700;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .eligibility-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .eligibility-list li {
+      color: rgba(255,255,255,0.9);
+      font-size: 19px;
+      padding: 5px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.4;
+    }
+    .check { color: #FFD700; font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+    /* Bonus benefits strip */
+    .benefits-strip {
+      background: rgba(255,215,0,0.08);
+      border: 1px solid rgba(255,215,0,0.2);
+      border-radius: 12px;
+      padding: 12px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .benefit-item {
+      color: rgba(255,255,255,0.8);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cta-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cta-button {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #000;
+      font-size: 26px;
+      font-weight: 900;
+      padding: 20px 44px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 30px rgba(255,215,0,0.4);
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,215,0,0.18);
+      padding-top: 15px;
+      margin-top: 18px;
+      text-align: center;
+    }
+    .footer-text {
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .footer-brand { color: rgba(255,215,0,0.65); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <div class="bg-star-1"></div>
+    <div class="bg-star-2"></div>
+    <div class="gold-line-top"></div>
+    <div class="gold-line-bot"></div>
+    <div class="closing-ribbon">5 Days Left!</div>
+
+    <div class="content">
+      <div class="badge-row">
+        <span class="flag-emoji">🇳🇬</span>
+        <span class="funding-badge">⚡ Funding Alert</span>
+      </div>
+
+      <div class="program-name">Global Good Fund<br>Fellowship 2027</div>
+      <div class="program-sub">12-Month Leadership Fellowship for Social Entrepreneurs</div>
+
+      <div class="funder-block">
+        <div class="funder-logo">🌍</div>
+        <div>
+          <div class="funder-label">Funder / Organiser</div>
+          <div class="funder-name">The Global Good Fund</div>
+        </div>
+      </div>
+
+      <div class="amount-block">
+        <div class="amount-icon">💵</div>
+        <div>
+          <div class="amount-value">$10,000</div>
+          <div class="amount-label">Leadership Development Grant + Executive Coaching</div>
+        </div>
+      </div>
+
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-label">⏰ Deadline</div>
+          <div class="fact-value">June 30, 2026</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">👥 Who Can Apply</div>
+          <div class="fact-value">Social Entrepreneurs</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">🌐 Eligibility</div>
+          <div class="fact-value">Nigeria + Worldwide</div>
+        </div>
+      </div>
+
+      <div class="eligibility-title">✅ Key Requirements</div>
+      <ul class="eligibility-list">
+        <li><span class="check">✦</span>Founder or senior leader (CEO/COO/CTO/Co-Founder) of for-profit or non-profit social enterprise</li>
+        <li><span class="check">✦</span>Enterprise operational for at least 2 years with min. 2 full-time paid employees</li>
+        <li><span class="check">✦</span>Hold full-time primary decision-making role — open to all nationalities including Nigerians</li>
+      </ul>
+
+      <!-- Bonus benefits -->
+      <div class="benefits-strip">
+        <div class="benefit-item">🎓 Executive Coaching</div>
+        <div class="benefit-item">🤝 C-Suite Mentorship</div>
+        <div class="benefit-item">🌐 Global Network Access</div>
+        <div class="benefit-item">📊 Business Growth Tools</div>
+      </div>
+
+      <div class="cta-row">
+        <div>
+          <div style="color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:4px;">Official Application Portal</div>
+          <div style="color:#FFD700;font-size:16px;font-weight:700;">globalgoodfund.org/apply</div>
+        </div>
+        <a href="https://globalgoodfund.org/apply/" class="cta-button">Apply Now →</a>
+      </div>
+
+      <div class="footer">
+        <div class="footer-text">
+          Shared by <span class="footer-brand">FundFinder AI</span> &nbsp;|&nbsp;
+          <span class="footer-brand">A2F Partners</span> &nbsp;|&nbsp;
+          opportunities.a2fpartners.com
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

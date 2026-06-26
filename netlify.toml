@@ -21,3 +21,6 @@
 # Handle Netlify form submissions
 [build.environment]
   NODE_VERSION = "18"
+  # Public values — intentionally in frontend, not secrets
+  SUPABASE_URL = "https://zrkxigbmlprowiofhjy.supabase.co"
+  SUPABASE_ANON_KEY = "sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54"

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register as Program Principal — FundFinder AI</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --surface: #111; --surface2: #161616; --surface3: #1c1c1c;
+    --border: rgba(255,255,255,0.08); --text: #f0f0f0; --muted: rgba(255,255,255,0.45);
+    --gold: #FFD700; --green: #22c55e; --blue: #3b82f6;
+  }
+  body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  nav { border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,10,0.98); position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-size: 20px; font-weight: 900; letter-spacing: 1px; text-decoration: none; color: var(--text); }
+  .nav-logo span { color: var(--gold); }
+  .nav-sub { font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
+
+  .hero { background: linear-gradient(135deg, #001a00 0%, #002a00 60%, #0a0a0a 100%); border-bottom: 1px solid rgba(255,215,0,0.1); padding: 56px 40px 48px; text-align: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 16px; border-radius: 30px; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(26px, 4vw, 42px); font-weight: 900; margin-bottom: 14px; }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: 16px; color: var(--muted); max-width: 600px; margin: 0 auto 28px; line-height: 1.6; }
+
+  /* Value props */
+  .value-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
+  .value-chip { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 30px; padding: 8px 18px; font-size: 13px; font-weight: 600; }
+
+  /* STEPS INDICATOR */
+  .steps-wrap { max-width: 760px; margin: 0 auto; padding: 36px 24px 0; }
+  .steps { display: flex; align-items: center; gap: 0; }
+  .step { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
+  .step::after { content: ''; position: absolute; top: 16px; left: 50%; width: 100%; height: 2px; background: var(--border); z-index: 0; }
+  .step:last-child::after { display: none; }
+  .step-dot { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border); background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; position: relative; z-index: 1; color: var(--muted); }
+  .step-dot.active { border-color: var(--gold); background: rgba(255,215,0,0.15); color: var(--gold); }
+  .step-dot.done { border-color: var(--green); background: rgba(34,197,94,0.15); color: var(--green); }
+  .step-label { font-size: 11px; color: var(--muted); margin-top: 8px; text-align: center; font-weight: 600; }
+  .step-label.active { color: var(--gold); }
+
+  /* FORM */
+  .form-wrap { max-width: 760px; margin: 0 auto; padding: 32px 24px 60px; }
+  .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px; margin-bottom: 24px; display: none; }
+  .form-card.active { display: block; }
+  .card-title { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+  .card-desc { font-size: 13px; color: var(--muted); margin-bottom: 28px; line-height: 1.5; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .form-row.single { grid-template-columns: 1fr; }
+  .form-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  input, select, textarea { width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-size: 14px; padding: 12px 14px; border-radius: 10px; outline: none; font-family: inherit; transition: border-color 0.2s; }
+  input:focus, select:focus, textarea:focus { border-color: rgba(255,215,0,0.45); }
+  input::placeholder, textarea::placeholder { color: var(--muted); }
+  select option { background: var(--surface2); }
+  textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+  .hint { font-size: 11px; color: rgba(255,255,255,0.28); line-height: 1.4; }
+
+  /* Capital type grid */
+  .cap-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+  .cap-option { border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; cursor: pointer; transition: all 0.15s; text-align: center; }
+  .cap-option input { display: none; }
+  .cap-option .cap-icon { font-size: 22px; margin-bottom: 6px; }
+  .cap-option .cap-label { font-size: 12px; font-weight: 700; }
+  .cap-option .cap-desc { font-size: 10px; color: var(--muted); margin-top: 3px; }
+  .cap-option.selected { border-color: rgba(255,215,0,0.5); background: rgba(255,215,0,0.06); }
+
+  /* NGX Pathway highlight box */
+  .ngx-box { background: linear-gradient(135deg, rgba(255,215,0,0.05) 0%, rgba(34,197,94,0.05) 100%); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+  .ngx-box h3 { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+  .ngx-box h3 span { color: var(--gold); }
+  .ngx-box p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+  .ngx-features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ngx-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; }
+  .ngx-feature .ico { color: var(--gold); font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+
+  /* Toggle */
+  .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .toggle-row:last-child { border-bottom: none; }
+  .toggle-info .tl { font-size: 14px; font-weight: 600; }
+  .toggle-info .ts { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .toggle { position: relative; width: 46px; height: 26px; flex-shrink: 0; }
+  .toggle input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider { position: absolute; cursor: pointer; inset: 0; background: var(--surface3); border-radius: 26px; transition: 0.2s; border: 1px solid var(--border); }
+  .toggle-slider::before { content: ""; position: absolute; height: 19px; width: 19px; left: 3px; bottom: 3px; background: var(--muted); border-radius: 50%; transition: 0.2s; }
+  .toggle input:checked + .toggle-slider { background: rgba(255,215,0,0.15); border-color: rgba(255,215,0,0.4); }
+  .toggle input:checked + .toggle-slider::before { transform: translateX(20px); background: var(--gold); }
+
+  /* Buttons */
+  .btn-row { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; }
+  .btn-primary { background: var(--gold); color: #000; font-size: 15px; font-weight: 900; padding: 14px 32px; border-radius: 10px; border: none; cursor: pointer; transition: opacity 0.2s; }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn-back { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 10px; cursor: pointer; transition: all 0.2s; }
+  .btn-back:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+
+  /* Success screen */
+  #successScreen { display: none; text-align: center; padding: 60px 24px; max-width: 560px; margin: 0 auto; }
+  #successScreen .big-check { font-size: 56px; margin-bottom: 20px; }
+  #successScreen h2 { font-size: 28px; font-weight: 900; margin-bottom: 12px; }
+  #successScreen h2 span { color: var(--gold); }
+  #successScreen p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
+  .next-steps { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-align: left; margin-bottom: 24px; }
+  .next-steps h4 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .ns-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 14px; }
+  .ns-num { width: 24px; height: 24px; border-radius: 50%; background: rgba(255,215,0,0.15); color: var(--gold); font-size: 12px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+
+  /* Msg */
+  .msg { padding: 12px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; margin-top: 16px; display: none; }
+  .msg.error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #ef4444; display: block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner { display: inline-block; width: 15px; height: 15px; border: 2px solid rgba(0,0,0,0.3); border-top-color: #000; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 8px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="opportunity-hub.html" style="text-decoration:none;">
+    <div class="nav-logo">Fund<span>Finder</span> AI</div>
+    <div class="nav-sub">by A2F Partners</div>
+  </a>
+  <a href="fundfinder-auth.html" style="color:var(--muted); font-size:13px; text-decoration:none;">Already registered? Log in →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🏛️ For Organisations</div>
+  <h1>Become a <span>Program Principal</span></h1>
+  <p>Register your grant, empowerment fund, credit scheme, or capital deployment program on FundFinder AI. Our AI agent handles every step — application intake, eligibility screening, shortlisting, communication, and reporting. Zero manual overhead.</p>
+  <div class="value-row">
+    <span class="value-chip">🤖 AI-powered application screening</span>
+    <span class="value-chip">📊 Real-time portfolio dashboard</span>
+    <span class="value-chip">🏦 NGX Growth Board pipeline</span>
+    <span class="value-chip">✅ Zero manual overhead</span>
+  </div>
+</div>
+
+<!-- STEPS -->
+<div class="steps-wrap">
+  <div class="steps">
+    <div class="step">
+      <div class="step-dot active" id="dot1">1</div>
+      <div class="step-label active" id="lbl1">Organisation</div>
+    </div>
+    <div class="step">
+      <div class="step-dot" id="dot2">2</div>
+      <div class="step-label" id="lbl2">Program Setup</div>
+    </div>
+    <div class="step">
+      <div class="step-dot" id="dot3">3</div>
+      <div class="step-label" id="lbl3">NGX Pathway</div>
+    </div>
+    <div class="step">
+      <div class="step-dot" id="dot4">4</div>
+      <div class="step-label" id="lbl4">Account</div>
+    </div>
+  </div>
+</div>
+
+<!-- FORM CARDS -->
+<div class="form-wrap">
+
+  <!-- STEP 1: Organisation -->
+  <div class="form-card active" id="step1">
+    <div class="card-title">Your Organisation</div>
+    <div class="card-desc">Tell us about your organisation. This information is used to verify your credentials and configure your program on the platform.</div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Organisation Name *</label>
+        <input type="text" id="orgName" placeholder="e.g. Lagos State Employment Trust Fund">
+      </div>
+      <div class="form-group">
+        <label>Organisation Type *</label>
+        <select id="orgType">
+          <option value="">Select type</option>
+          <option value="government_federal">Federal Government Agency</option>
+          <option value="government_state">State Government Agency</option>
+          <option value="dfi">Development Finance Institution (DFI)</option>
+          <option value="corporate_csr">Corporate CSR / Foundation</option>
+          <option value="international_dev">International Development Partner</option>
+          <option value="foundation">Private Foundation</option>
+          <option value="vc_fund">VC / Private Capital Fund</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>RC / Registration Number</label>
+        <input type="text" id="regNum" placeholder="CAC, FMCIDE, or agency registration no.">
+      </div>
+      <div class="form-group">
+        <label>Website</label>
+        <input type="text" id="orgWebsite" placeholder="https://yourorg.gov.ng">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Primary Contact Name *</label>
+        <input type="text" id="contactName" placeholder="Full name of programme officer">
+      </div>
+      <div class="form-group">
+        <label>Official Email Address *</label>
+        <input type="email" id="contactEmail" placeholder="official@organisation.gov.ng">
+      </div>
+    </div>
+    <div class="form-row single">
+      <div class="form-group">
+        <label>Contact Phone</label>
+        <input type="tel" id="contactPhone" placeholder="+2348012345678">
+      </div>
+    </div>
+
+    <div id="errStep1" class="msg"></div>
+    <div class="btn-row">
+      <div></div>
+      <button class="btn-primary" onclick="nextStep(1)">Next: Program Setup →</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Program Setup -->
+  <div class="form-card" id="step2">
+    <div class="card-title">Configure Your Program</div>
+    <div class="card-desc">Set up your program parameters. These define how FundFinder AI screens, matches, and manages applicants on your behalf.</div>
+
+    <div class="form-row single">
+      <div class="form-group">
+        <label>Program Name *</label>
+        <input type="text" id="programName" placeholder="e.g. LSETF Targeted Credit Facility 2026">
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:20px;">
+      <label>Capital Type *</label>
+      <div class="cap-grid" id="capGrid">
+        <label class="cap-option" onclick="selectCapType('grant',this)">
+          <input type="radio" name="capType" value="grant">
+          <div class="cap-icon">🎁</div>
+          <div class="cap-label">Grant</div>
+          <div class="cap-desc">Non-repayable</div>
+        </label>
+        <label class="cap-option" onclick="selectCapType('soft_loan',this)">
+          <input type="radio" name="capType" value="soft_loan">
+          <div class="cap-icon">💳</div>
+          <div class="cap-label">Soft Loan</div>
+          <div class="cap-desc">Low-interest credit</div>
+        </label>
+        <label class="cap-option" onclick="selectCapType('empowerment',this)">
+          <input type="radio" name="capType" value="empowerment">
+          <div class="cap-icon">🤝</div>
+          <div class="cap-label">Empowerment</div>
+          <div class="cap-desc">Training + stipend</div>
+        </label>
+        <label class="cap-option" onclick="selectCapType('credit_guarantee',this)">
+          <input type="radio" name="capType" value="credit_guarantee">
+          <div class="cap-icon">🛡️</div>
+          <div class="cap-label">Credit Guarantee</div>
+          <div class="cap-desc">Risk backstop</div>
+        </label>
+        <label class="cap-option" onclick="selectCapType('blended_finance',this)">
+          <input type="radio" name="capType" value="blended_finance">
+          <div class="cap-icon">⚗️</div>
+          <div class="cap-label">Blended Finance</div>
+          <div class="cap-desc">Grant + debt mix</div>
+        </label>
+        <label class="cap-option" onclick="selectCapType('mixed',this)">
+          <input type="radio" name="capType" value="mixed">
+          <div class="cap-icon">📦</div>
+          <div class="cap-label">Mixed</div>
+          <div class="cap-desc">Multiple types</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-row triple">
+      <div class="form-group">
+        <label>Minimum Award (₦)</label>
+        <input type="text" id="fundMin" placeholder="e.g. 100,000">
+      </div>
+      <div class="form-group">
+        <label>Maximum Award (₦)</label>
+        <input type="text" id="fundMax" placeholder="e.g. 5,000,000">
+      </div>
+      <div class="form-group">
+        <label>Application Deadline</label>
+        <input type="date" id="deadline">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Target Beneficiaries</label>
+        <select id="targetBeneficiary">
+          <option value="individuals">Individuals</option>
+          <option value="smes">SMEs / Businesses</option>
+          <option value="both">Individuals & SMEs</option>
+          <option value="ngos">NGOs / Civil Society</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Geography</label>
+        <select id="targetGeo">
+          <option value="">Nationwide</option>
+          <option>Lagos</option><option>Abuja (FCT)</option><option>Rivers</option>
+          <option>Kano</option><option>Ogun</option><option>Oyo</option>
+          <option>Delta</option><option>Anambra</option><option>Enugu</option>
+          <option>Cross River</option><option>Akwa Ibom</option>
+          <option>Southwest (Multi-state)</option><option>Southeast (Multi-state)</option>
+          <option>South-South (Multi-state)</option><option>North (Multi-state)</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row single">
+      <div class="form-group">
+        <label>Eligibility Criteria (summary)</label>
+        <textarea id="eligibilityNotes" placeholder="Age range, sector focus, registration status, any exclusions…"></textarea>
+      </div>
+    </div>
+
+    <div id="errStep2" class="msg"></div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="prevStep(2)">← Back</button>
+      <button class="btn-primary" onclick="nextStep(2)">Next: NGX Growth Board Pathway →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: NGX Pathway -->
+  <div class="form-card" id="step3">
+    <div class="ngx-box">
+      <h3>🏦 The <span>NGX Growth Board</span> Pathway</h3>
+      <p>A2F Partners acts as your capital markets offtake partner. The strongest companies funded through your program are identified, prepared, and listed on the NGX Growth Board — creating measurable capital markets outcomes from your disbursements.</p>
+      <div class="ngx-features">
+        <div class="ngx-feature"><span class="ico">📈</span><span>AI-driven Growth Board readiness scoring for every portfolio company</span></div>
+        <div class="ngx-feature"><span class="ico">🎯</span><span>A2F acts as Transaction Sponsor on qualifying listings</span></div>
+        <div class="ngx-feature"><span class="ico">📋</span><span>Listing readiness reports for your top-performing cohort</span></div>
+        <div class="ngx-feature"><span class="ico">🤝</span><span>Co-branded portfolio intelligence — your program's capital markets story</span></div>
+      </div>
+    </div>
+
+    <div class="card-title">NGX Pathway Settings</div>
+    <div class="card-desc">Enable the NGX Growth Board pathway for your program. Companies in your portfolio are tracked for listing readiness from day one.</div>
+
+    <div style="background:var(--surface2); border-radius:12px; padding:8px 18px; margin-bottom:20px;">
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="tl">Enable NGX Growth Board Pathway</div>
+          <div class="ts">Top portfolio companies automatically scored for listing readiness</div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="ngxActive" checked><span class="toggle-slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="tl">Receive Quarterly Portfolio Intelligence Report</div>
+          <div class="ts">A2F sends a private report on your portfolio's NGX readiness each quarter</div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="ngxReport" checked><span class="toggle-slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="tl">Co-brand the NGX Pathway</div>
+          <div class="ts">Your program is featured as the origination source for every A2F-sponsored listing from your cohort</div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="ngxCobrand"><span class="toggle-slider"></span></label>
+      </div>
+    </div>
+
+    <div class="form-row single">
+      <div class="form-group">
+        <label>Notes on NGX Pathway (optional)</label>
+        <textarea id="ngxNotes" placeholder="Any specific requirements or preferences for the capital markets pathway for your program beneficiaries…"></textarea>
+      </div>
+    </div>
+
+    <div id="errStep3" class="msg"></div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="prevStep(3)">← Back</button>
+      <button class="btn-primary" onclick="nextStep(3)">Next: Create Account →</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Account -->
+  <div class="form-card" id="step4">
+    <div class="card-title">Create Your Admin Account</div>
+    <div class="card-desc">Your secure login to the FundFinder AI Program Principal dashboard. You'll use this to manage applications, view your portfolio, and access your NGX readiness reports.</div>
+
+    <div class="form-row single">
+      <div class="form-group">
+        <label>Account Email *</label>
+        <input type="email" id="accountEmail" placeholder="your@official-email.com">
+        <span class="hint">Use your official organisation email where possible.</span>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Password *</label>
+        <input type="password" id="accountPwd" placeholder="At least 8 characters" minlength="8">
+      </div>
+      <div class="form-group">
+        <label>Confirm Password *</label>
+        <input type="password" id="accountPwd2" placeholder="Repeat password" minlength="8">
+      </div>
+    </div>
+
+    <div style="background:rgba(255,215,0,0.06); border:1px solid rgba(255,215,0,0.2); border-radius:10px; padding:16px 18px; margin-bottom:4px;">
+      <p style="font-size:13px; font-weight:600; color:var(--gold); margin-bottom:6px;">What happens after you register</p>
+      <p style="font-size:12px; color:var(--muted); line-height:1.6;">Our team verifies your organisation credentials within 48 hours. You'll receive an email confirmation when your account is activated. Your program goes live on the FundFinder AI platform the moment verification is complete.</p>
+    </div>
+
+    <div id="errStep4" class="msg"></div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="prevStep(4)">← Back</button>
+      <button class="btn-primary" id="submitBtn" onclick="submitRegistration()">Submit Registration →</button>
+    </div>
+  </div>
+
+  <!-- SUCCESS SCREEN -->
+  <div id="successScreen">
+    <div class="big-check">🎉</div>
+    <h2>You're in the <span>FundFinder AI</span> ecosystem</h2>
+    <p>Your Program Principal registration has been submitted. Our team will verify your credentials within 48 hours and activate your account. You'll receive a confirmation email at the address you provided.</p>
+    <div class="next-steps">
+      <h4>What Happens Next</h4>
+      <div class="ns-item"><div class="ns-num">1</div><span>A2F team verifies your organisation credentials (within 48 hours)</span></div>
+      <div class="ns-item"><div class="ns-num">2</div><span>Your program goes live on the FundFinder AI platform — entrepreneurs start matching against your program immediately</span></div>
+      <div class="ns-item"><div class="ns-num">3</div><span>AI agent begins intake, screening, and shortlisting. Your dashboard shows your pipeline in real-time</span></div>
+      <div class="ns-item"><div class="ns-num">4</div><span>Top-scoring portfolio companies are identified for the NGX Growth Board Pathway — A2F prepares your capital markets story</span></div>
+    </div>
+    <a href="opportunity-hub.html" style="display:inline-block; background:var(--gold); color:#000; font-weight:900; font-size:15px; padding:14px 36px; border-radius:10px; text-decoration:none;">Back to FundFinder Hub →</a>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL  = 'https://zrkxigbmlprowiofhjy.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+let currentStep = 1;
+let selectedCapType = '';
+
+function selectCapType(val, el) {
+  selectedCapType = val;
+  document.querySelectorAll('.cap-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function setStep(n) {
+  for (let i = 1; i <= 4; i++) {
+    document.getElementById('step' + i).classList.toggle('active', i === n);
+    const dot = document.getElementById('dot' + i);
+    const lbl = document.getElementById('lbl' + i);
+    dot.className = 'step-dot' + (i < n ? ' done' : i === n ? ' active' : '');
+    dot.textContent = i < n ? '✓' : i;
+    lbl.className = 'step-label' + (i === n ? ' active' : '');
+  }
+  currentStep = n;
+}
+
+function nextStep(from) {
+  const err = document.getElementById('errStep' + from);
+  err.className = 'msg';
+
+  if (from === 1) {
+    if (!document.getElementById('orgName').value.trim() ||
+        !document.getElementById('orgType').value ||
+        !document.getElementById('contactName').value.trim() ||
+        !document.getElementById('contactEmail').value.trim()) {
+      err.textContent = 'Please complete all required fields (marked *).';
+      err.className = 'msg error'; return;
+    }
+  }
+  if (from === 2) {
+    if (!document.getElementById('programName').value.trim() || !selectedCapType) {
+      err.textContent = 'Please enter a program name and select a capital type.';
+      err.className = 'msg error'; return;
+    }
+  }
+  setStep(from + 1);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function prevStep(from) {
+  setStep(from - 1);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+async function submitRegistration() {
+  const btn = document.getElementById('submitBtn');
+  const err = document.getElementById('errStep4');
+  err.className = 'msg';
+
+  const email = document.getElementById('accountEmail').value.trim();
+  const pwd   = document.getElementById('accountPwd').value;
+  const pwd2  = document.getElementById('accountPwd2').value;
+
+  if (!email || !pwd) { err.textContent = 'Email and password are required.'; err.className = 'msg error'; return; }
+  if (pwd.length < 8) { err.textContent = 'Password must be at least 8 characters.'; err.className = 'msg error'; return; }
+  if (pwd !== pwd2)   { err.textContent = 'Passwords do not match.'; err.className = 'msg error'; return; }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Registering…';
+
+  // 1. Create auth account
+  const { data: authData, error: authError } = await sb.auth.signUp({ email, password: pwd });
+  if (authError) {
+    btn.disabled = false; btn.innerHTML = 'Submit Registration →';
+    err.textContent = authError.message; err.className = 'msg error'; return;
+  }
+
+  // 2. Save Program Principal record
+  const ppPayload = {
+    user_id: authData.user?.id,
+    org_name: document.getElementById('orgName').value.trim(),
+    org_type: document.getElementById('orgType').value,
+    registration_number: document.getElementById('regNum').value.trim() || null,
+    website: document.getElementById('orgWebsite').value.trim() || null,
+    contact_name: document.getElementById('contactName').value.trim(),
+    contact_email: document.getElementById('contactEmail').value.trim(),
+    contact_phone: document.getElementById('contactPhone').value.trim() || null,
+    program_name: document.getElementById('programName').value.trim(),
+    capital_type: selectedCapType || null,
+    target_beneficiary: document.getElementById('targetBeneficiary').value,
+    eligibility_notes: document.getElementById('eligibilityNotes').value.trim() || null,
+    ngx_pathway_active: document.getElementById('ngxActive').checked,
+    ngx_pathway_notes: document.getElementById('ngxNotes').value.trim() || null,
+    onboarding_complete: true,
+    onboarding_step: 4
+  };
+
+  const { error: ppError } = await sb.from('program_principals').insert([ppPayload]);
+  if (ppError) {
+    console.warn('PP record error (non-fatal):', ppError.message);
+    // Don't block — auth account created, PP record can be completed on first login
+  }
+
+  // Show success
+  document.getElementById('step4').classList.remove('active');
+  document.getElementById('successScreen').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

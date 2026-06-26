@@ -199,8 +199,8 @@
 // CONFIG — replace with your Supabase project values
 // Get these from: Supabase Dashboard → Settings → API
 // ============================================================
-const SUPABASE_URL  = 'YOUR_SUPABASE_PROJECT_URL';
-const SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL  = 'https://zrkxigbmlprowiofhjy.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
@@ -312,8 +312,8 @@ async function handleLogin() {
     return;
   }
 
-  // Redirect to wallet/dashboard after login
-  window.location.href = 'fundfinder-wallet.html';
+  // Redirect to dashboard after login
+  window.location.href = 'fundfinder-dashboard.html';
 }
 
 // ============================================================
@@ -322,7 +322,7 @@ async function handleLogin() {
 async function handleGoogleAuth() {
   await supabase.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo: window.location.origin + '/fundfinder-wallet.html' }
+    options: { redirectTo: window.location.origin + '/fundfinder-dashboard.html' }
   });
 }
 
@@ -343,7 +343,7 @@ async function handleForgotPassword() {
 // AUTO-REDIRECT if already logged in
 // ============================================================
 supabase.auth.getSession().then(({ data: { session } }) => {
-  if (session) window.location.href = 'fundfinder-wallet.html';
+  if (session) window.location.href = 'fundfinder-dashboard.html';
 });
 </script>
 </body>

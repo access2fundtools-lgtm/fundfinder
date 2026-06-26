@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="🇳🇬 FUNDING ALERT: Lagos Agrithon 2026 — ₦200 Million Grant Pool">
+  <meta property="og:description" content="Lagos State is offering ₦200 million in agribusiness grants for young Nigerian entrepreneurs aged 18–40. Deadline: July 19, 2026. Apply now!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.lagosagrinnovation.com/agrithon">
+  <title>Lagos Agrithon 2026 — ₦200 Million Grant | FundFinder AI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .flyer {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(160deg, #001a00 0%, #003300 40%, #004d00 70%, #001a00 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background decorative elements */
+    .bg-circle-1 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,100,0,0.3) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+    }
+    .bg-circle-2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
+      bottom: 50px;
+      left: -50px;
+    }
+    .gold-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    }
+    .gold-line-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    }
+
+    /* URGENT BADGE */
+    .urgent-ribbon {
+      position: absolute;
+      top: 28px;
+      right: -32px;
+      background: #e60000;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      padding: 10px 60px;
+      transform: rotate(35deg);
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 50px 60px 40px;
+    }
+
+    /* HEADER */
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .funding-badge {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #000;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-transform: uppercase;
+    }
+    .flag-emoji { font-size: 36px; }
+
+    /* PROGRAM NAME */
+    .program-name {
+      font-size: 72px;
+      font-weight: 900;
+      color: #FFD700;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+      text-shadow: 0 0 40px rgba(255,215,0,0.3);
+    }
+    .program-sub {
+      font-size: 28px;
+      color: rgba(255,215,0,0.7);
+      font-weight: 500;
+      margin-bottom: 28px;
+      letter-spacing: 1px;
+    }
+
+    /* FUNDER */
+    .funder-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .funder-logo {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,215,0,0.15);
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+    .funder-name {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .funder-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* AMOUNT */
+    .amount-block {
+      background: linear-gradient(135deg, rgba(255,215,0,0.18), rgba(255,165,0,0.08));
+      border: 2px solid rgba(255,215,0,0.5);
+      border-radius: 20px;
+      padding: 22px 32px;
+      margin-bottom: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      width: fit-content;
+    }
+    .amount-icon { font-size: 42px; }
+    .amount-value {
+      font-size: 62px;
+      font-weight: 900;
+      color: #FFD700;
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(255,215,0,0.4);
+    }
+    .amount-label {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    /* KEY FACTS */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .fact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,215,0,0.25);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .fact-label {
+      color: rgba(255,215,0,0.7);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .fact-value {
+      color: #fff;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    /* ELIGIBILITY */
+    .eligibility-title {
+      color: #FFD700;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .eligibility-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .eligibility-list li {
+      color: rgba(255,255,255,0.9);
+      font-size: 20px;
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .check {
+      color: #FFD700;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    /* CTA */
+    .cta-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cta-button {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #000;
+      font-size: 26px;
+      font-weight: 900;
+      padding: 20px 44px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 30px rgba(255,215,0,0.4);
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+    .footer {
+      border-top: 1px solid rgba(255,215,0,0.2);
+      padding-top: 16px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .footer-text {
+      color: rgba(255,255,255,0.45);
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+    .footer-brand {
+      color: rgba(255,215,0,0.7);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <div class="bg-circle-1"></div>
+    <div class="bg-circle-2"></div>
+    <div class="gold-line"></div>
+    <div class="gold-line-bottom"></div>
+    <div class="urgent-ribbon">URGENT</div>
+
+    <div class="content">
+      <!-- Header badge -->
+      <div class="badge-row">
+        <span class="flag-emoji">🇳🇬</span>
+        <span class="funding-badge">⚡ Funding Alert</span>
+      </div>
+
+      <!-- Program name -->
+      <div class="program-name">Lagos Agrithon<br>2026</div>
+      <div class="program-sub">Innovation & Enterprise Acceleration Programme</div>
+
+      <!-- Funder -->
+      <div class="funder-block">
+        <div class="funder-logo">🌾</div>
+        <div>
+          <div class="funder-label">Funder / Organiser</div>
+          <div class="funder-name">Lagos State Ministry of Agriculture & Food Systems</div>
+        </div>
+      </div>
+
+      <!-- Amount -->
+      <div class="amount-block">
+        <div class="amount-icon">💰</div>
+        <div>
+          <div class="amount-value">₦200 Million</div>
+          <div class="amount-label">Total Grant Pool — Multiple Prizes Available</div>
+        </div>
+      </div>
+
+      <!-- Key facts -->
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-label">⏰ Deadline</div>
+          <div class="fact-value">July 19, 2026</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">👥 Who Can Apply</div>
+          <div class="fact-value">Ages 18–40 (Lagos)</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">🌱 Sector</div>
+          <div class="fact-value">Agribusiness & Agritech</div>
+        </div>
+      </div>
+
+      <!-- Eligibility -->
+      <div class="eligibility-title">✅ Key Requirements</div>
+      <ul class="eligibility-list">
+        <li><span class="check">✦</span>Aged 18–40 with a business domiciled in Lagos or serving Lagos market</li>
+        <li><span class="check">✦</span>Operating agribusiness or agritech venture for minimum 3 years</li>
+        <li><span class="check">✦</span>Youth-led innovation across agriculture, food processing, logistics or digital agri solutions</li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="cta-row">
+        <div>
+          <div style="color:rgba(255,255,255,0.5);font-size:14px;margin-bottom:4px;">Official Application Portal</div>
+          <div style="color:#FFD700;font-size:18px;font-weight:700;">lagosagrinnovation.com/agrithon</div>
+        </div>
+        <a href="https://www.lagosagrinnovation.com/agrithon" class="cta-button">Apply Now →</a>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-text">
+          Shared by <span class="footer-brand">FundFinder AI</span> &nbsp;|&nbsp;
+          <span class="footer-brand">A2F Partners</span> &nbsp;|&nbsp;
+          opportunities.a2fpartners.com
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

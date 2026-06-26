@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="🇳🇬 FUNDING ALERT: 234Finance SME Bootcamp 2026 – Access to $2M Funding Pool">
+  <meta property="og:description" content="Apply for the 234Finance Pan-African SME Bootcamp 2026. Nigerian SMEs get access to a $2M funding pool + world-class training. Deadline: October 30, 2026.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>🇳🇬 234Finance SME Bootcamp 2026 – $2M Funding Pool | FundFinder AI</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      padding: 20px;
+    }
+
+    .flyer {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(145deg, #001800 0%, #003300 25%, #004d00 55%, #001200 100%);
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+    }
+
+    /* Gold accent overlay */
+    .flyer::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,215,0,0.06) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+
+    .flyer::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,150,0,0.2) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+
+    /* Diagonal stripe accent */
+    .stripe {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(180deg, #FFD700, #FFA500, #FFD700);
+    }
+
+    .stripe2 {
+      position: absolute;
+      top: 0;
+      right: 18px;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3), rgba(255,215,0,0.3));
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 48px 56px 40px;
+    }
+
+    /* Top badge */
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .badge {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #001800;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 2px;
+      padding: 8px 20px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .pan-african-badge {
+      background: rgba(255,215,0,0.15);
+      border: 1px solid rgba(255,215,0,0.4);
+      color: #FFD700;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 7px 14px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    /* Funder */
+    .funder-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .funder-logo {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      color: #001800;
+      flex-shrink: 0;
+      letter-spacing: -1px;
+    }
+
+    .funder-name {
+      color: #FFD700;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Program title */
+    .program-title {
+      color: #ffffff;
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.08;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+      letter-spacing: -1px;
+    }
+
+    .program-title span {
+      color: #FFD700;
+    }
+
+    .subtitle {
+      color: rgba(255,255,255,0.65);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Amount */
+    .amount-block {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin: 0 0 22px;
+      width: fit-content;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(255,165,0,0.35);
+    }
+
+    .amount-label-box {
+      background: #003a00;
+      border: 1px solid rgba(255,215,0,0.3);
+      color: rgba(255,215,0,0.8);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+    }
+
+    .amount-value-box {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #001800;
+      font-size: 38px;
+      font-weight: 900;
+      padding: 12px 24px;
+      letter-spacing: -1px;
+    }
+
+    /* Key facts */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .fact-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,215,0,0.18);
+      border-radius: 8px;
+      padding: 13px 15px;
+    }
+
+    .fact-label {
+      color: #FFD700;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .fact-value {
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255,215,0,0.5), rgba(255,215,0,0.1), transparent);
+      margin-bottom: 18px;
+    }
+
+    /* Bullets */
+    .section-title {
+      color: #FFD700;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .bullets {
+      list-style: none;
+      margin-bottom: 22px;
+    }
+
+    .bullets li {
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 7px 0;
+      padding-left: 24px;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .bullets li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #FFD700;
+      font-weight: 900;
+    }
+
+    /* Supported by row */
+    .support-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .support-label {
+      color: rgba(255,215,0,0.6);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .support-tag {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5);
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+
+    /* CTA */
+    .cta-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #001800;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 22px 48px;
+      border-radius: 8px;
+      width: 100%;
+      box-shadow: 0 10px 35px rgba(255,165,0,0.45);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,215,0,0.12);
+    }
+
+    .footer-brand {
+      color: rgba(255,215,0,0.65);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+    }
+
+    .footer-date {
+      color: rgba(255,255,255,0.35);
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <div class="stripe"></div>
+    <div class="stripe2"></div>
+
+    <div class="content">
+      <!-- Badge Row -->
+      <div class="badge-row">
+        <div class="badge">🇳🇬 Funding Alert</div>
+        <div class="pan-african-badge">🌍 Pan-African · Nigeria Eligible</div>
+      </div>
+
+      <!-- Funder -->
+      <div class="funder-row">
+        <div class="funder-logo">234F</div>
+        <div class="funder-name">234Finance · SMEDAN · WIPO · IESE Business School</div>
+      </div>
+
+      <!-- Title -->
+      <div class="program-title">
+        SME <span>Bootcamp</span><br>2026
+      </div>
+      <div class="subtitle">Pan-African Scale-Up Programme for Growth-Stage Nigerian Businesses</div>
+
+      <!-- Amount -->
+      <div class="amount-block">
+        <div class="amount-label-box">Access to Funding Pool</div>
+        <div class="amount-value-box">$2,000,000</div>
+      </div>
+
+      <!-- Key Facts -->
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-label">⏰ Deadline</div>
+          <div class="fact-value">October 30, 2026</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">👤 Who Can Apply</div>
+          <div class="fact-value">Nigerian SMEs, growth-stage businesses</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">🏢 Sectors</div>
+          <div class="fact-value">Agro, Manufacturing, Logistics, Tech, Fashion, Climate</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Eligibility -->
+      <div class="section-title">✅ Key Eligibility & Benefits</div>
+      <ul class="bullets">
+        <li>Open to Nigerian SMEs in agro-processing, manufacturing, logistics, tech, fashion, creative industries & climate innovation</li>
+        <li>Access a $2 Million funding pool + 2-month virtual training, mentorship, investor readiness & cross-border expansion support</li>
+        <li>Backed by SMEDAN, WIPO and IESE Business School — 1,000+ SMEs across 10+ African markets will be supported</li>
+      </ul>
+
+      <!-- Supported by -->
+      <div class="support-row">
+        <div class="support-label">Backed by:</div>
+        <div class="support-tag">SMEDAN</div>
+        <div class="support-tag">WIPO</div>
+        <div class="support-tag">IESE Business School</div>
+        <div class="support-tag">AfCFTA / ICOYACA</div>
+        <div class="support-tag">Amila Africa</div>
+      </div>
+
+      <!-- CTA -->
+      <a class="cta-button" href="https://234finance.com/bootcamp" target="_blank">
+        APPLY NOW →
+      </a>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-brand">Shared by FundFinder AI | A2F Partners | opportunities.a2fpartners.com</div>
+        <div class="footer-date">Jun 24, 2026</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

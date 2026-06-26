@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Execution Brief Engine — A2F Admin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --surface: #111; --surface2: #161616; --surface3: #1c1c1c;
+    --border: rgba(255,255,255,0.08); --text: #f0f0f0; --muted: rgba(255,255,255,0.45);
+    --gold: #FFD700; --green: #22c55e; --red: #ef4444; --amber: #f59e0b;
+    --blue: #3b82f6;
+  }
+  body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* NAV */
+  nav { border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,10,0.98); position: sticky; top: 0; z-index: 100; }
+  .nav-brand { font-size: 16px; font-weight: 900; letter-spacing: 1px; }
+  .nav-brand span { color: var(--gold); }
+  .nav-badge { background: rgba(255,215,0,0.12); border: 1px solid rgba(255,215,0,0.3); color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: 2px; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; margin-left: 12px; }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  .nav-right a { color: var(--muted); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  .nav-right a:hover { color: var(--gold); }
+
+  /* LAYOUT */
+  .layout { display: grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 53px); }
+
+  /* SIDEBAR */
+  aside { border-right: 1px solid var(--border); padding: 24px 16px; background: var(--surface); }
+  .sidebar-section { margin-bottom: 28px; }
+  .sidebar-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; padding: 0 10px; }
+  .sidebar-btn { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 10px 12px; border-radius: 8px; border: none; background: transparent; color: var(--text); font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
+  .sidebar-btn:hover { background: var(--surface2); }
+  .sidebar-btn.active { background: rgba(255,215,0,0.1); color: var(--gold); border: 1px solid rgba(255,215,0,0.2); }
+  .sidebar-btn .badge { margin-left: auto; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 10px; }
+  .badge-red    { background: rgba(239,68,68,0.15);    color: var(--red);   }
+  .badge-amber  { background: rgba(245,158,11,0.15);   color: var(--amber); }
+  .badge-green  { background: rgba(34,197,94,0.15);    color: var(--green); }
+  .badge-blue   { background: rgba(59,130,246,0.15);   color: var(--blue);  }
+
+  /* MAIN CONTENT */
+  main { padding: 32px; overflow-y: auto; }
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* PAGE HEADER */
+  .page-header { margin-bottom: 28px; }
+  .page-header h1 { font-size: 22px; font-weight: 900; margin-bottom: 6px; }
+  .page-header p { font-size: 13px; color: var(--muted); }
+
+  /* STATS ROW */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
+  .stat-num { font-size: 28px; font-weight: 900; }
+  .stat-lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* BRIEFS TABLE */
+  .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .table-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+  .table-header h3 { font-size: 14px; font-weight: 700; }
+  .btn-new { background: var(--gold); color: #000; font-size: 13px; font-weight: 800; padding: 8px 18px; border-radius: 8px; border: none; cursor: pointer; letter-spacing: 0.3px; transition: opacity 0.2s; }
+  .btn-new:hover { opacity: 0.88; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); background: var(--surface2); }
+  td { font-size: 13px; padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .risk-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .risk-red   { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.25); }
+  .risk-amber { background: rgba(245,158,11,0.15); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
+  .risk-green { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+
+  .partner-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--surface3); border: 1px solid var(--border); color: var(--muted); }
+  .partner-pill.cobrand { background: rgba(255,215,0,0.12); border-color: rgba(255,215,0,0.3); color: var(--gold); }
+  .partner-pill.mou     { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.25); color: var(--blue); }
+  .partner-pill.outreach { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); color: var(--amber); }
+
+  .status-pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .s-draft    { background: var(--surface3); color: var(--muted); border: 1px solid var(--border); }
+  .s-pending  { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
+  .s-approved { background: rgba(59,130,246,0.12); color: var(--blue); border: 1px solid rgba(59,130,246,0.25); }
+  .s-published { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+
+  .action-btns { display: flex; gap: 6px; }
+  .btn-sm { font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 6px; border: 1px solid var(--border); background: transparent; cursor: pointer; color: var(--text); transition: all 0.15s; }
+  .btn-sm:hover { background: var(--surface2); border-color: rgba(255,255,255,0.15); }
+  .btn-sm.primary { background: rgba(255,215,0,0.1); border-color: rgba(255,215,0,0.3); color: var(--gold); }
+  .btn-sm.primary:hover { background: rgba(255,215,0,0.18); }
+  .btn-sm.danger { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.25); color: var(--red); }
+
+  /* BRIEF EDITOR MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 200; overflow-y: auto; padding: 24px; }
+  .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; width: 100%; max-width: 820px; margin: auto; }
+  .modal-head { padding: 22px 28px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .modal-head h2 { font-size: 18px; font-weight: 900; }
+  .modal-close { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-size: 20px; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
+  .modal-body { padding: 28px; }
+  .modal-foot { padding: 18px 28px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+  .form-section { margin-bottom: 28px; }
+  .form-section-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,215,0,0.15); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-row.single { grid-template-columns: 1fr; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .form-group:last-child { margin-bottom: 0; }
+  label.field-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .field-num { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: rgba(255,215,0,0.15); color: var(--gold); font-size: 11px; font-weight: 900; margin-right: 6px; }
+  input[type="text"], input[type="email"], input[type="date"], select, textarea {
+    background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+    font-size: 13px; padding: 11px 14px; border-radius: 8px; outline: none; font-family: inherit;
+    transition: border-color 0.2s; width: 100%;
+  }
+  input:focus, select:focus, textarea:focus { border-color: rgba(255,215,0,0.4); }
+  textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+  textarea.tall { min-height: 130px; }
+  select option { background: #1a1a1a; }
+
+  /* Risk Rating selector */
+  .risk-selector { display: flex; gap: 10px; }
+  .risk-option { flex: 1; padding: 12px; border-radius: 8px; border: 2px solid var(--border); cursor: pointer; text-align: center; transition: all 0.15s; }
+  .risk-option input[type="radio"] { display: none; }
+  .risk-option .r-dot { width: 10px; height: 10px; border-radius: 50%; margin: 0 auto 6px; }
+  .risk-option .r-label { font-size: 13px; font-weight: 700; }
+  .risk-option .r-desc { font-size: 10px; color: var(--muted); margin-top: 3px; }
+  .risk-option.selected-red    { border-color: var(--red);   background: rgba(239,68,68,0.08); }
+  .risk-option.selected-amber  { border-color: var(--amber); background: rgba(245,158,11,0.08); }
+  .risk-option.selected-green  { border-color: var(--green); background: rgba(34,197,94,0.08); }
+  .r-red   { background: var(--red);   }
+  .r-amber { background: var(--amber); }
+  .r-green { background: var(--green); }
+
+  /* Publish rule callout */
+  .publish-rule { padding: 12px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; line-height: 1.5; margin-top: 12px; display: none; }
+  .publish-rule.red    { background: rgba(239,68,68,0.1);   border: 1px solid rgba(239,68,68,0.25);   color: var(--red);   display: block; }
+  .publish-rule.amber  { background: rgba(245,158,11,0.1);  border: 1px solid rgba(245,158,11,0.25);  color: var(--amber); display: block; }
+  .publish-rule.green  { background: rgba(34,197,94,0.1);   border: 1px solid rgba(34,197,94,0.25);   color: var(--green); display: block; }
+
+  /* Outreach section in modal */
+  .outreach-box { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-top: 20px; }
+  .outreach-box h4 { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
+
+  /* PARTNERSHIP VIEW */
+  .partner-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+  .partner-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .partner-info p  { font-size: 12px; color: var(--muted); }
+  .partner-meta    { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .stage-pill { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .stage-initial  { background: rgba(255,255,255,0.06); color: var(--muted); }
+  .stage-active   { background: rgba(59,130,246,0.12); color: var(--blue); border: 1px solid rgba(59,130,246,0.25); }
+  .stage-mou      { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
+  .stage-cobrand  { background: rgba(34,197,94,0.12);  color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+  .stage-stalled  { background: rgba(239,68,68,0.08);  color: var(--muted); }
+
+  /* Empty state */
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--muted); }
+  .empty-state .empty-icon { font-size: 40px; margin-bottom: 12px; }
+  .empty-state p { font-size: 14px; }
+
+  /* TOAST */
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; font-size: 13px; font-weight: 600; z-index: 500; transform: translateY(80px); opacity: 0; transition: all 0.3s; max-width: 320px; }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.success { border-color: rgba(34,197,94,0.4); color: var(--green); }
+  .toast.error   { border-color: rgba(239,68,68,0.4);  color: var(--red); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div style="display:flex; align-items:center; gap:12px;">
+    <span class="nav-brand">Fund<span>Finder</span> AI</span>
+    <span class="nav-badge">Admin</span>
+    <span style="color:var(--border); font-size:18px;">|</span>
+    <span style="font-size:13px; font-weight:700; color:var(--gold);">Execution Brief Engine</span>
+  </div>
+  <div class="nav-right">
+    <a href="opportunity-hub.html">Hub</a>
+    <a href="fundfinder-wallet.html">Dashboard</a>
+    <a href="#" id="logoutBtn">Log Out</a>
+  </div>
+</nav>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Briefs</div>
+      <button class="sidebar-btn active" onclick="switchView('all-briefs', this)">📋 All Briefs <span class="badge badge-blue" id="badgeAll">0</span></button>
+      <button class="sidebar-btn" onclick="switchView('drafts', this)">✏️ Drafts</button>
+      <button class="sidebar-btn" onclick="switchView('pending-approval', this)">⏳ Pending Approval <span class="badge badge-amber" id="badgePending">0</span></button>
+      <button class="sidebar-btn" onclick="switchView('published', this)">✅ Published <span class="badge badge-green" id="badgePublished">0</span></button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Risk</div>
+      <button class="sidebar-btn" onclick="switchView('red-hold', this)">🔴 Red — Hold <span class="badge badge-red" id="badgeRed">0</span></button>
+      <button class="sidebar-btn" onclick="switchView('amber-review', this)">🟡 Amber — Review <span class="badge badge-amber" id="badgeAmber">0</span></button>
+      <button class="sidebar-btn" onclick="switchView('green-clear', this)">🟢 Green — Clear <span class="badge badge-green" id="badgeGreen">0</span></button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Partnerships</div>
+      <button class="sidebar-btn" onclick="switchView('outreach-queue', this)">📤 Outreach Queue</button>
+      <button class="sidebar-btn" onclick="switchView('conversations', this)">🤝 Conversations</button>
+      <button class="sidebar-btn" onclick="switchView('leads', this)">📧 Brief Leads</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Actions</div>
+      <button class="sidebar-btn" onclick="openNewBriefModal()">✨ New Brief</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- ALL BRIEFS VIEW -->
+    <div class="view active" id="view-all-briefs">
+      <div class="page-header">
+        <h1>Execution Briefs</h1>
+        <p>A2F's intelligence notes on Nigerian capital deployment. Draft, risk-rate, and publish with partner outreach built in.</p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num" id="statTotal" style="color:var(--gold)">0</div>
+          <div class="stat-lbl">Total Briefs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statPublished" style="color:var(--green)">0</div>
+          <div class="stat-lbl">Published</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statLeads" style="color:var(--blue)">0</div>
+          <div class="stat-lbl">Leads Captured</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statConversations" style="color:var(--amber)">0</div>
+          <div class="stat-lbl">Partnerships Opened</div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-header">
+          <h3>All Briefs</h3>
+          <button class="btn-new" onclick="openNewBriefModal()">+ New Brief</button>
+        </div>
+        <table id="briefsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Institution</th>
+              <th>Sector</th>
+              <th>Risk</th>
+              <th>Partnership</th>
+              <th>Status</th>
+              <th>Leads</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="briefsTableBody">
+            <tr><td colspan="9" style="text-align:center; padding:40px; color:var(--muted);">Loading briefs…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Seed the 5 priority briefs if empty -->
+      <div style="margin-top:20px; text-align:right;">
+        <button class="btn-sm" onclick="seedPriorityBriefs()" style="font-size:12px; opacity:0.6;">Seed 5 Priority Briefs</button>
+      </div>
+    </div>
+
+    <!-- OTHER VIEWS (filtered by JS) -->
+    <div class="view" id="view-drafts">
+      <div class="page-header"><h1>Drafts</h1><p>Briefs in progress — not yet submitted for approval or publish.</p></div>
+      <div class="table-wrap"><div class="table-header"><h3>Drafts</h3><button class="btn-new" onclick="openNewBriefModal()">+ New Brief</button></div><table><thead><tr><th>#</th><th>Title</th><th>Risk</th><th>Created</th><th>Actions</th></tr></thead><tbody id="draftsBody"><tr><td colspan="5" style="text-align:center;padding:40px;color:var(--muted);">No drafts yet.</td></tr></tbody></table></div>
+    </div>
+
+    <div class="view" id="view-pending-approval">
+      <div class="page-header"><h1>Pending Approval</h1><p>Amber-rated briefs awaiting Managing Partner sign-off before they can publish.</p></div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>Title</th><th>Institution</th><th>Risk</th><th>Submitted</th><th>Actions</th></tr></thead><tbody id="pendingBody"><tr><td colspan="6" style="text-align:center;padding:40px;color:var(--muted);">No briefs pending approval.</td></tr></tbody></table></div>
+    </div>
+
+    <div class="view" id="view-published">
+      <div class="page-header"><h1>Published Briefs</h1><p>Live on the A2F website. Every download captures a lead.</p></div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>Title</th><th>Published</th><th>Downloads</th><th>Leads</th><th>Partner Status</th></tr></thead><tbody id="publishedBody"><tr><td colspan="6" style="text-align:center;padding:40px;color:var(--muted);">No published briefs yet.</td></tr></tbody></table></div>
+    </div>
+
+    <div class="view" id="view-red-hold">
+      <div class="page-header"><h1>🔴 Red — Hold</h1><p>These briefs are blocked from publishing under any condition. Review and restructure before changing risk rating.</p></div>
+      <div class="table-wrap"><tbody id="redBody"></tbody></div>
+      <div class="empty-state"><div class="empty-icon">🔴</div><p>No red-rated briefs.</p></div>
+    </div>
+
+    <div class="view" id="view-amber-review">
+      <div class="page-header"><h1>🟡 Amber — Awaiting Review</h1><p>Require Managing Partner approval before any action. Send partner outreach first — convert to Green before publishing.</p></div>
+      <div class="empty-state"><div class="empty-icon">🟡</div><p>No amber briefs to review.</p></div>
+    </div>
+
+    <div class="view" id="view-green-clear">
+      <div class="page-header"><h1>🟢 Green — Clear to Publish</h1><p>Ready. Co-branded briefs auto-publish and push to social queue.</p></div>
+      <div class="empty-state"><div class="empty-icon">🟢</div><p>No green briefs yet.</p></div>
+    </div>
+
+    <!-- OUTREACH QUEUE -->
+    <div class="view" id="view-outreach-queue">
+      <div class="page-header"><h1>Partner Outreach Queue</h1><p>System-generated outreach drafts for every Amber/Red institution. Partner gets the intelligence before the public does.</p></div>
+      <div class="empty-state"><div class="empty-icon">📤</div><p>No outreach drafts queued. They auto-generate when you save an Amber or Red brief with an institution tagged.</p></div>
+    </div>
+
+    <!-- PARTNERSHIP CONVERSATIONS -->
+    <div class="view" id="view-conversations">
+      <div class="page-header">
+        <h1>Partnership Conversations</h1>
+        <p>Primary ROI metric — not views, not shares. These are the conversations your Execution Briefs have opened.</p>
+      </div>
+      <div style="margin-bottom:20px;">
+        <div class="stats-row" style="grid-template-columns: repeat(3,1fr);">
+          <div class="stat-card"><div class="stat-num" id="convTotal" style="color:var(--gold)">0</div><div class="stat-lbl">Total Conversations</div></div>
+          <div class="stat-card"><div class="stat-num" id="convActive" style="color:var(--blue)">0</div><div class="stat-lbl">Active</div></div>
+          <div class="stat-card"><div class="stat-num" id="convConverted" style="color:var(--green)">0</div><div class="stat-lbl">Converted to Partner</div></div>
+        </div>
+      </div>
+      <div id="conversationsContainer">
+        <div class="empty-state"><div class="empty-icon">🤝</div><p>No partnership conversations logged yet.<br>They appear here when you mark an outreach as replied.</p></div>
+      </div>
+    </div>
+
+    <!-- BRIEF LEADS -->
+    <div class="view" id="view-leads">
+      <div class="page-header">
+        <h1>Brief Leads</h1>
+        <p>Every email captured from a brief PDF download. Auto-routed to Program Principal outreach queue.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Email</th><th>Name</th><th>Organisation</th><th>Brief</th><th>PP Queue</th><th>Date</th></tr></thead>
+          <tbody id="leadsBody">
+            <tr><td colspan="6" style="text-align:center;padding:40px;color:var(--muted);">No leads captured yet. Publish a brief and enable the PDF download gate.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ========================================================
+     BRIEF EDITOR MODAL
+     ======================================================== -->
+<div class="modal-overlay" id="briefModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="modalTitle">New Execution Brief</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Section A: Classification -->
+      <div class="form-section">
+        <div class="form-section-title">Classification & Tags</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="field-label">Brief Title</label>
+            <input type="text" id="fTitle" placeholder="e.g. AGSMEIS — CBN Agricultural SME Scheme">
+          </div>
+          <div class="form-group">
+            <label class="field-label">Institution / Asset Name</label>
+            <input type="text" id="fInstitution" placeholder="e.g. CBN / BOI">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="field-label">Sector</label>
+            <select id="fSector">
+              <option value="">Select sector</option>
+              <option>Agriculture & Agritech</option>
+              <option>Financial Services</option>
+              <option>Technology</option>
+              <option>Manufacturing</option>
+              <option>Infrastructure</option>
+              <option>Healthcare</option>
+              <option>Energy & Renewables</option>
+              <option>Capital Markets</option>
+              <option>Trade & Commerce</option>
+              <option>Education</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Partnership Status</label>
+            <select id="fPartnerStatus" onchange="updatePartnerStatus()">
+              <option value="none">None</option>
+              <option value="outreach_sent">Outreach Sent</option>
+              <option value="mou_signed">MOU Signed</option>
+              <option value="co_branded">Co-branded ⭐</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section B: Risk Rating -->
+      <div class="form-section">
+        <div class="form-section-title">Risk Rating (Internal — Never Published)</div>
+        <div class="risk-selector">
+          <label class="risk-option" id="optRed" onclick="setRisk('red')">
+            <input type="radio" name="risk" value="red">
+            <div class="r-dot r-red"></div>
+            <div class="r-label" style="color:var(--red)">🔴 Red</div>
+            <div class="r-desc">Hold — do not publish</div>
+          </label>
+          <label class="risk-option" id="optAmber" onclick="setRisk('amber')">
+            <input type="radio" name="risk" value="amber" checked>
+            <div class="r-dot r-amber"></div>
+            <div class="r-label" style="color:var(--amber)">🟡 Amber</div>
+            <div class="r-desc">MP approval required</div>
+          </label>
+          <label class="risk-option selected-amber" id="optGreen" onclick="setRisk('green')">
+            <input type="radio" name="risk" value="green">
+            <div class="r-dot r-green"></div>
+            <div class="r-label" style="color:var(--green)">🟢 Green</div>
+            <div class="r-desc">Clear to publish</div>
+          </label>
+        </div>
+        <div id="publishRuleBox" class="publish-rule amber">
+          🟡 Amber: This brief requires Managing Partner approval before publish becomes available. Send partner outreach first — converting the institution to a partner before publish removes the risk.
+        </div>
+      </div>
+
+      <!-- Section C: The Six Fields -->
+      <div class="form-section">
+        <div class="form-section-title">The Six-Field Brief</div>
+
+        <div class="form-group">
+          <label class="field-label"><span class="field-num">1</span> What Happened</label>
+          <textarea id="f1" class="tall" placeholder="Factual summary from public record only. No editorialising. 2–4 sentences maximum."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label"><span class="field-num">2</span> What the Numbers Show</label>
+          <textarea id="f2" class="tall" placeholder="Key metrics: timeline, cost, output delivered, variance from targets. Source everything — public reports, official releases only."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label"><span class="field-num">3</span> Where the Execution Gap Lives</label>
+          <textarea id="f3" class="tall" placeholder="The specific point in the execution chain where value leaked. Process critique only — no named individuals. Procurement design, disbursement structure, monitoring framework, conversion pathway, etc."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label"><span class="field-num">4</span> What A2F / FundFinder AI Would Have Done</label>
+          <textarea id="f4" class="tall" placeholder="Specific, structured, confident. A concrete alternative execution approach with estimated cost saving, timeline improvement, or output gain. Not hypothetical — a real alternative."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label"><span class="field-num">5</span> The Converted Outcome</label>
+          <textarea id="f5" placeholder="Realistic improved result if A2F's approach had been applied. Express in: naira saved, jobs created, contracts converted, companies listing-ready, or time compressed."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label"><span class="field-num">6</span> Risk Rating — Internal Notes</label>
+          <textarea id="f6" placeholder="Internal reasoning for the risk rating. What are the reputational, legal, or political considerations? Who could be affected? Never published."></textarea>
+        </div>
+      </div>
+
+      <!-- Section D: Pre-Publish Outreach (auto for Amber/Red) -->
+      <div class="outreach-box" id="outreachBox">
+        <h4>⚡ Auto-Generated Partner Outreach</h4>
+        <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">This draft will be sent to the institution BEFORE the brief publishes. They receive the intelligence privately and are positioned as the solution.</p>
+        <div class="form-group">
+          <label class="field-label">Contact Name</label>
+          <input type="text" id="fOutreachName" placeholder="e.g. Director-General, LSETF">
+        </div>
+        <div class="form-group">
+          <label class="field-label">Contact Email</label>
+          <input type="email" id="fOutreachEmail" placeholder="official@institution.gov.ng">
+        </div>
+        <div class="form-group">
+          <label class="field-label">Outreach Draft (auto-generated — edit before sending)</label>
+          <textarea id="fOutreachDraft" class="tall" placeholder="System will auto-generate this based on the brief content when you save…"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="modal-foot">
+      <div style="display:flex; gap:8px;">
+        <button class="btn-sm" onclick="saveBrief('draft')">Save as Draft</button>
+        <button class="btn-sm danger" onclick="closeModal()">Cancel</button>
+      </div>
+      <div style="display:flex; gap:8px;" id="publishActions">
+        <button class="btn-sm" id="btnSubmitApproval" onclick="saveBrief('pending_approval')" style="display:none;">Submit for Approval →</button>
+        <button class="btn-sm primary" id="btnPublish" onclick="saveBrief('published')" style="display:none;">Publish Brief ✓</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- Supabase JS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// ============================================================
+// CONFIG — same Supabase project as the rest of the platform
+// ============================================================
+const SUPABASE_URL  = 'https://zrkxigbmlprowiofhjy.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
+
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+// ============================================================
+// AUTH GUARD — admin only
+// ============================================================
+let currentUser = null;
+sb.auth.getSession().then(({ data: { session } }) => {
+  if (!session) { window.location.href = 'fundfinder-auth.html'; return; }
+  currentUser = session.user;
+  loadBriefs();
+});
+
+document.getElementById('logoutBtn').addEventListener('click', async e => {
+  e.preventDefault();
+  await sb.auth.signOut();
+  window.location.href = 'fundfinder-auth.html';
+});
+
+// ============================================================
+// STATE
+// ============================================================
+let briefs = [];
+let editingId = null;
+let selectedRisk = 'amber';
+
+// ============================================================
+// LOAD BRIEFS
+// ============================================================
+async function loadBriefs() {
+  const { data, error } = await sb.from('execution_briefs').select('*').order('issue_number', { ascending: false });
+  if (error) { showToast('Failed to load briefs: ' + error.message, 'error'); return; }
+  briefs = data || [];
+  renderBriefs();
+  updateSidebarBadges();
+  updateStats();
+}
+
+function renderBriefs() {
+  const tbody = document.getElementById('briefsTableBody');
+  if (!briefs.length) {
+    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:40px;color:var(--muted);">No briefs yet. Click "+ New Brief" to get started.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = briefs.map(b => `
+    <tr>
+      <td style="color:var(--muted);font-size:12px;">#${b.issue_number || '—'}</td>
+      <td style="max-width:220px;"><strong>${b.title}</strong></td>
+      <td style="color:var(--muted);font-size:12px;">${b.institution_name || '—'}</td>
+      <td style="color:var(--muted);font-size:12px;">${b.sector || '—'}</td>
+      <td><span class="risk-pill risk-${b.risk_rating}">● ${b.risk_rating.toUpperCase()}</span></td>
+      <td><span class="partner-pill ${b.partnership_status === 'co_branded' ? 'cobrand' : b.partnership_status === 'mou_signed' ? 'mou' : b.partnership_status === 'outreach_sent' ? 'outreach' : ''}">${formatPartnerStatus(b.partnership_status)}</span></td>
+      <td><span class="status-pill s-${b.publish_status}">${b.publish_status.replace('_',' ')}</span></td>
+      <td style="text-align:center;">${b.leads_captured || 0}</td>
+      <td>
+        <div class="action-btns">
+          <button class="btn-sm primary" onclick="editBrief('${b.id}')">Edit</button>
+          ${canPublish(b) ? `<button class="btn-sm" onclick="publishBrief('${b.id}')">Publish</button>` : ''}
+          ${b.risk_rating !== 'red' && b.publish_status === 'draft' ? `<button class="btn-sm" onclick="submitForApproval('${b.id}')">→ Approve</button>` : ''}
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function canPublish(b) {
+  if (b.risk_rating === 'red') return false;
+  if (b.risk_rating === 'amber' && !b.managing_partner_approved) return false;
+  if (b.publish_status === 'published') return false;
+  return true;
+}
+
+function formatPartnerStatus(s) {
+  return { none:'None', outreach_sent:'Outreach Sent', mou_signed:'MOU Signed', co_branded:'Co-branded ⭐' }[s] || s;
+}
+
+function updateSidebarBadges() {
+  document.getElementById('badgeAll').textContent = briefs.length;
+  document.getElementById('badgePending').textContent = briefs.filter(b => b.publish_status === 'pending_approval').length;
+  document.getElementById('badgePublished').textContent = briefs.filter(b => b.publish_status === 'published').length;
+  document.getElementById('badgeRed').textContent = briefs.filter(b => b.risk_rating === 'red').length;
+  document.getElementById('badgeAmber').textContent = briefs.filter(b => b.risk_rating === 'amber').length;
+  document.getElementById('badgeGreen').textContent = briefs.filter(b => b.risk_rating === 'green').length;
+}
+
+function updateStats() {
+  document.getElementById('statTotal').textContent = briefs.length;
+  document.getElementById('statPublished').textContent = briefs.filter(b => b.publish_status === 'published').length;
+  document.getElementById('statLeads').textContent = briefs.reduce((s, b) => s + (b.leads_captured || 0), 0);
+  document.getElementById('statConversations').textContent = briefs.filter(b => b.conversation_opened).length;
+}
+
+// ============================================================
+// SIDEBAR NAV
+// ============================================================
+function switchView(id, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+  const el = document.getElementById('view-' + id);
+  if (el) el.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+// ============================================================
+// MODAL: Open / Close / Risk selector
+// ============================================================
+function openNewBriefModal() {
+  editingId = null;
+  document.getElementById('modalTitle').textContent = 'New Execution Brief';
+  resetForm();
+  setRisk('amber');
+  document.getElementById('briefModal').classList.add('open');
+}
+
+function editBrief(id) {
+  const b = briefs.find(x => x.id === id);
+  if (!b) return;
+  editingId = id;
+  document.getElementById('modalTitle').textContent = 'Edit Brief — ' + b.title;
+  document.getElementById('fTitle').value = b.title || '';
+  document.getElementById('fInstitution').value = b.institution_name || '';
+  document.getElementById('fSector').value = b.sector || '';
+  document.getElementById('fPartnerStatus').value = b.partnership_status || 'none';
+  document.getElementById('f1').value = b.what_happened || '';
+  document.getElementById('f2').value = b.what_numbers_show || '';
+  document.getElementById('f3').value = b.execution_gap || '';
+  document.getElementById('f4').value = b.a2f_alternative || '';
+  document.getElementById('f5').value = b.converted_outcome || '';
+  document.getElementById('f6').value = b.risk_rating_notes || '';
+  setRisk(b.risk_rating || 'amber');
+  document.getElementById('briefModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('briefModal').classList.remove('open');
+  editingId = null;
+}
+
+function resetForm() {
+  ['fTitle','fInstitution','fSector','fPartnerStatus','f1','f2','f3','f4','f5','f6','fOutreachName','fOutreachEmail','fOutreachDraft']
+    .forEach(id => { const el = document.getElementById(id); if (el) el.value = id === 'fPartnerStatus' ? 'none' : ''; });
+}
+
+function setRisk(val) {
+  selectedRisk = val;
+  ['red','amber','green'].forEach(r => {
+    document.getElementById('opt' + r.charAt(0).toUpperCase() + r.slice(1)).className = 'risk-option' + (r === val ? ' selected-' + r : '');
+  });
+  const ruleBox = document.getElementById('publishRuleBox');
+  const approvalBtn = document.getElementById('btnSubmitApproval');
+  const publishBtn  = document.getElementById('btnPublish');
+  ruleBox.className = 'publish-rule ' + val;
+  ruleBox.textContent = {
+    red:   '🔴 Red: This brief is blocked from publishing under any condition. Restructure and change the risk rating before any publish action becomes available.',
+    amber: '🟡 Amber: This brief requires Managing Partner approval before publish becomes available. Send partner outreach first — converting this institution to a partner before publish removes the risk entirely.',
+    green: '🟢 Green: Clear to publish. If Partnership Status is Co-branded, publish will auto-push to social distribution queue. Otherwise, use the manual publish button.'
+  }[val];
+  approvalBtn.style.display = val === 'amber' ? 'inline-block' : 'none';
+  publishBtn.style.display  = val === 'green'  ? 'inline-block' : 'none';
+  // Outreach box shows for amber/red
+  document.getElementById('outreachBox').style.display = (val === 'amber' || val === 'red') ? 'block' : 'none';
+  // Auto-generate outreach draft if institution is filled
+  if (val === 'amber' || val === 'red') autoGenerateOutreach();
+}
+
+function autoGenerateOutreach() {
+  const inst = document.getElementById('fInstitution').value.trim();
+  const title = document.getElementById('fTitle').value.trim();
+  if (!inst || !title) return;
+  const draft = document.getElementById('fOutreachDraft');
+  if (draft.value) return; // Don't overwrite if already filled
+  draft.value = `Dear [Name],\n\nA2F Partners has completed a proprietary intelligence analysis of the ${title} programme. We believe our findings surface a structural execution gap that ${inst} is uniquely positioned to help close.\n\nWe would like to share this analysis with you privately before it is distributed more broadly — and explore whether there is a partnership structure through which A2F and ${inst} can jointly address the opportunity.\n\nThe analysis is structured around five dimensions: what the public data shows, where the execution gap lives, what an AI-augmented execution approach would have delivered differently, the realistic improved outcome in measurable terms, and a proposed joint solution framework.\n\nWould you be available for a brief conversation this week or next?\n\nWarm regards,\n[Your Name]\nA2F Partners | FundFinder AI\nopportunities.a2fpartners.com`;
+}
+
+function updatePartnerStatus() {
+  // If status changes to co-branded, show a note
+}
+
+// ============================================================
+// SAVE BRIEF
+// ============================================================
+async function saveBrief(status) {
+  const title = document.getElementById('fTitle').value.trim();
+  if (!title) { showToast('Brief title is required.', 'error'); return; }
+
+  // Publish guards
+  if (status === 'published') {
+    if (selectedRisk === 'red') { showToast('🔴 Red briefs cannot be published.', 'error'); return; }
+    if (selectedRisk === 'amber') { showToast('🟡 Amber briefs require Managing Partner approval first.', 'error'); return; }
+  }
+
+  const payload = {
+    title,
+    institution_name: document.getElementById('fInstitution').value.trim() || null,
+    sector: document.getElementById('fSector').value || null,
+    partnership_status: document.getElementById('fPartnerStatus').value,
+    risk_rating: selectedRisk,
+    what_happened: document.getElementById('f1').value.trim() || null,
+    what_numbers_show: document.getElementById('f2').value.trim() || null,
+    execution_gap: document.getElementById('f3').value.trim() || null,
+    a2f_alternative: document.getElementById('f4').value.trim() || null,
+    converted_outcome: document.getElementById('f5').value.trim() || null,
+    publish_status: status,
+    created_by: currentUser?.id,
+    updated_at: new Date().toISOString(),
+  };
+
+  if (status === 'published') payload.published_at = new Date().toISOString();
+
+  let result;
+  if (editingId) {
+    result = await sb.from('execution_briefs').update(payload).eq('id', editingId);
+  } else {
+    result = await sb.from('execution_briefs').insert([payload]);
+  }
+
+  if (result.error) {
+    showToast('Save failed: ' + result.error.message, 'error');
+    return;
+  }
+
+  // Auto-push to social queue if co-branded green publish
+  if (status === 'published' && selectedRisk === 'green' && document.getElementById('fPartnerStatus').value === 'co_branded') {
+    showToast('✅ Published! Co-branded brief auto-pushed to social distribution queue.', 'success');
+  } else if (status === 'published') {
+    showToast('✅ Brief published to A2F website.', 'success');
+  } else if (status === 'pending_approval') {
+    showToast('⏳ Submitted for Managing Partner approval.', 'success');
+  } else {
+    showToast('✓ Draft saved.', 'success');
+  }
+
+  closeModal();
+  loadBriefs();
+}
+
+async function submitForApproval(id) {
+  const { error } = await sb.from('execution_briefs').update({ publish_status: 'pending_approval', updated_at: new Date().toISOString() }).eq('id', id);
+  if (error) { showToast('Error: ' + error.message, 'error'); return; }
+  showToast('⏳ Submitted for Managing Partner approval.', 'success');
+  loadBriefs();
+}
+
+async function publishBrief(id) {
+  const b = briefs.find(x => x.id === id);
+  if (!b || b.risk_rating === 'red') { showToast('Cannot publish a Red-rated brief.', 'error'); return; }
+  if (b.risk_rating === 'amber' && !b.managing_partner_approved) { showToast('Amber brief requires Managing Partner approval.', 'error'); return; }
+  const { error } = await sb.from('execution_briefs').update({ publish_status: 'published', published_at: new Date().toISOString(), updated_at: new Date().toISOString() }).eq('id', id);
+  if (error) { showToast('Error: ' + error.message, 'error'); return; }
+  const isCoBrand = b.partnership_status === 'co_branded';
+  showToast(isCoBrand ? '✅ Published + pushed to social distribution queue!' : '✅ Brief published.', 'success');
+  loadBriefs();
+}
+
+// ============================================================
+// SEED PRIORITY BRIEFS (5 pre-defined briefs)
+// ============================================================
+async function seedPriorityBriefs() {
+  const seeds = [
+    { title: 'AGSMEIS — CBN Agricultural SME Scheme', institution_name: 'CBN / BOI', sector: 'Agriculture & Agritech', risk_rating: 'amber', what_happened: 'The Agricultural Credit Guarantee Scheme and the AGSMEIS programme disbursed over ₦220 billion to agricultural SMEs across Nigeria between 2017 and 2023. Despite scale, publicly reported repayment rates have remained low, with the CBN acknowledging structural recovery challenges in multiple annual reports.', what_numbers_show: 'Total disbursed: ₦220B+. Repayment rate: widely cited as below 30% in multiple public CBN and BOI briefings. Number of direct beneficiaries: 300,000+ (CBN 2022 report). Observable output: limited public data on post-disbursement business survival or revenue growth.', execution_gap: 'The disbursement mechanism was not connected to a post-funding business support layer. Funds were released without a structured pathway for beneficiary businesses to scale or formalise sufficiently to repay. There was no capital market exit mechanism that would have converted the strongest cohort of agri-SMEs into investable assets, which would have created repayment incentives and attracted co-investment.', a2f_alternative: 'FundFinder AI\'s Program Principal model would have run the disbursement on a managed AI platform: continuous eligibility screening, cohort tracking, AI-generated business advisory post-funding, and automatic identification of top-performing businesses for the NGX Growth Board pipeline. The platform would have surfaced repayment risk 90+ days in advance rather than after default.', converted_outcome: 'Conservative estimate: if 10% of the ₦220B disbursed cohort had been tracked through a structured post-funding support layer with a capital markets exit pathway, that represents a ₦22B portfolio of formalised, investment-ready agri-SMEs — each with audited accounts, business plans, and a pathway to listing or equity raise. At current NGX listing fee structures, 50 listings from this cohort would represent over ₦500M in advisory fees for platform operators.', partnership_status: 'none', publish_status: 'draft', created_by: currentUser?.id
+    },
+    { title: 'LSETF Targeted Credit Facility — Credit-to-Revenue Conversion Gap', institution_name: 'LSETF', sector: 'Financial Services', risk_rating: 'green', what_happened: 'The Lagos State Employment Trust Fund (LSETF) has disbursed low-interest credit facilities to thousands of Lagos-based entrepreneurs since 2016, targeting job creation and small business growth. Cohort and disbursement data is publicly available through LSETF\'s annual reports and website.', what_numbers_show: 'Total disbursed: ₦10B+ across multiple cohorts (LSETF Annual Report 2022). Beneficiaries: 35,000+ individuals and enterprises. Stated interest rate: 5% per annum. Publicly reported repayment performance: LSETF reports "high recovery rates" but granular conversion-to-sustainable-revenue data is not published at cohort level.', execution_gap: 'The credit facility does not include a structured post-disbursement business intelligence layer. There is no mechanism to identify which beneficiaries have converted credit into sustainable recurring revenue versus those who have consumed the credit without growing. Without this data, LSETF cannot efficiently target follow-on support or identify the cohort of businesses ready for the next stage of growth.', a2f_alternative: 'FundFinder AI\'s Growth Suite would sit as a post-disbursement operating layer for every LSETF cohort business. AI-generated business intelligence would track revenue signals, supplier relationships, market contracts won, and risk posture — creating a real-time portfolio health dashboard for LSETF and a readiness score for each business. Top-scoring businesses from the LSETF portfolio would be automatically identified for NGX Growth Board listing preparation.', converted_outcome: 'If 5% of LSETF\'s 35,000+ beneficiaries are identified as Growth Board-ready through a systematic post-funding tracking layer, that is 1,750 businesses. At A2F\'s listing advisory fee structure (3–5% of capital raised on a ₦200M raise), converting 20 of those businesses per year to NGX listings generates ₦120M–₦200M in annual advisory fees — at zero additional acquisition cost, because the pipeline is already built inside the LSETF portfolio.', partnership_status: 'none', publish_status: 'draft', created_by: currentUser?.id
+    },
+    { title: 'TEF Entrepreneurship Programme — The Missing Capital Markets Exit', institution_name: 'Tony Elumelu Foundation', sector: 'Financial Services', risk_rating: 'green', what_happened: 'The Tony Elumelu Foundation Entrepreneurship Programme (TEEP) has funded over 20,000 African entrepreneurs with seed capital, training, and mentorship since 2015. It is the most documented and globally recognised African entrepreneurship programme. Alumni data is partially public through TEF\'s annual reports and impact assessments.', what_numbers_show: 'Total entrepreneurs funded: 20,000+ across 54 African countries. Seed capital per entrepreneur: $5,000 (non-repayable). Total capital deployed: $100M+. Mentorship hours: 1M+. Key gap: no public data on how many TEF alumni companies have progressed to formal capital raises, equity investment, or market listings.', execution_gap: 'TEEP is an exceptional incubation programme without a capital markets exit pathway for its alumni. The strongest TEF alumni companies — those that have survived, grown, and formalised over 3–7 years post-grant — have no structured mechanism to graduate to the next stage of institutional capital. This is not a critique of TEF\'s programme design; it is a structural gap in the Nigerian and African capital markets ecosystem that TEF is not positioned to solve alone.', a2f_alternative: 'A2F Partners as the TEF Alumni Capital Markets Partner: FundFinder AI ingests the TEF alumni network as a Program Principal cohort. AI scoring identifies the top 5–10% of alumni companies by revenue growth, formalisation, and sector fit. A2F provides listing-readiness advisory and NGX Growth Board preparation for the identified companies. TEF gets a measurable capital markets outcome from its 10-year programme investment. A2F gets the most credentialed SME pipeline in Africa.', converted_outcome: 'TEF has funded 20,000+ entrepreneurs. Conservative assumption: 2% are building scalable, formalised businesses after 5+ years (400 companies). Of those, 10% are NGX Growth Board-ready with the right support (40 companies). At A2F\'s advisory fee structure on Entry Segment listings, that is 40 transactions generating ₦240M–₦400M in advisory fees over a 5-year pipeline — sourced entirely from TEF\'s existing alumni base at no acquisition cost.', partnership_status: 'none', publish_status: 'draft', created_by: currentUser?.id
+    },
+    { title: 'BPP Federal Procurement — Pre-Qualification & Local Content Gap', institution_name: 'BPP / NCDMB', sector: 'Infrastructure', risk_rating: 'green', what_happened: 'The Bureau of Public Procurement (BPP) publishes federal contract award notices publicly. Analysis of a representative sample of infrastructure contract awards in 2022–2023 reveals systemic patterns in vendor pre-qualification timelines, local content compliance rates, and delivery variance against original schedules.', what_numbers_show: 'BPP award notices (public): average procurement cycle from advertisement to award, 6–14 months. NCDMB target local content on infrastructure contracts: 30–70% depending on category. Independently observable: significant procurement cycle time is spent on vendor verification and pre-qualification steps that could be automated or pre-cleared.', execution_gap: 'The federal procurement ecosystem lacks a pre-verified, capacity-assessed vendor pool. Each procurement cycle restarts the vendor verification process from zero. There is no persistent database of qualified Nigerian contractors and suppliers with real-time compliance status, financial capacity verification, and local content rating. This adds 3–6 months to every major procurement cycle and increases the cost of vendor assessment for procuring agencies.', a2f_alternative: 'FundFinder AI\'s Contract Radar module creates exactly this: a persistent, AI-maintained database of verified Nigerian businesses with real-time capacity scores, compliance ratings, and sector-specific pre-qualification data. Procuring agencies access a pre-screened pool; businesses get contract discovery matched to their verified capacity. BPP procurement cycle time compresses by an estimated 30–40% for repeat vendor categories.', converted_outcome: 'If procurement cycle compression of 30% is achieved on the average ₦5B federal infrastructure contract, timeline savings translate to ₦150M–₦300M in reduced holding costs per contract. Across 50 major federal contracts per year, the total economic value of procurement cycle compression exceeds ₦7.5B annually. A2F\'s platform fee for government procurement access: ₦50M–₦150M/year (B2G subscription model).', partnership_status: 'none', publish_status: 'draft', created_by: currentUser?.id
+    },
+    { title: 'NGX Growth Board — The Underlisting Problem', institution_name: 'NGX / SEC', sector: 'Capital Markets', risk_rating: 'green', what_happened: 'The Nigerian Exchange (NGX) Growth Board was established to provide a listing pathway for small and medium enterprises with valuations between ₦50M and ₦4B. As of 2025, the board had significantly fewer listings than its design capacity and stated targets. Market data and NGX publications confirm the board is underutilised relative to the scale of formalised SMEs operating in Nigeria.', what_numbers_show: 'NGX Growth Board entry segment target valuation: ₦50M–₦500M. Standard segment: ₦500M–₦4B. Listing fee increase: 397% between 2024 and 2025 (NGX published fee schedule). Number of active Growth Board listings: significantly below the potential pipeline of qualifying companies by any reasonable estimate of formalised Nigerian SMEs.', execution_gap: 'The pipeline problem. There is no systematic mechanism that identifies, tracks, and prepares SMEs for NGX Growth Board listing readiness. NGX lists companies that find their way to the process; it does not have an active pipeline-building infrastructure for the SME segment it was designed to serve. The gap is not in listing mechanics — it is in the pipeline from operating business to listing-ready company.', a2f_alternative: 'FundFinder AI Growth Suite is the pipeline infrastructure NGX Growth Board is missing. Every business that uses the Growth Suite is generating a real-time readiness score — financial formalisation, supplier relationships, contract wins, team structure, sector growth signals. A2F\'s NGX Readiness Score (0–100) automatically identifies businesses crossing the 85+ threshold and triggers advisory engagement. A2F acts as Transaction Sponsor / Financial Adviser on the listing. NGX gets a curated, pre-prepared pipeline of listing candidates it does not currently have access to.', converted_outcome: 'If A2F prepares and sponsors 10 NGX Growth Board listings per year at an average Entry Segment valuation of ₦200M with a 3–5% advisory fee: ₦60M–₦100M in annual advisory fees from NGX transactions alone. The platform\'s pipeline visibility into 10,000+ SMEs makes A2F the most valuable institutional intelligence asset in the Nigerian capital markets ecosystem — ahead of any issuing house currently operating.', partnership_status: 'none', publish_status: 'draft', created_by: currentUser?.id
+    }
+  ];
+
+  let count = 0;
+  for (const s of seeds) {
+    const { error } = await sb.from('execution_briefs').insert([s]);
+    if (!error) count++;
+  }
+  showToast(`✅ ${count} priority briefs seeded.`, 'success');
+  loadBriefs();
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + type + ' show';
+  setTimeout(() => { t.classList.remove('show'); }, 3500);
+}
+</script>
+</body>
+</html>
