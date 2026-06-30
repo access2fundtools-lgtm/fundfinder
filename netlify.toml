@@ -6,16 +6,57 @@
   command = ""                     # no build step needed — pure HTML/CSS/JS
   functions = "netlify/functions"  # serverless functions (e.g. Zoho subscribe)
 
-# Redirect root URL to the hub page
-[[redirects]]
-  from = "/"
-  to = "/opportunity-hub.html"
-  status = 200
+# Root serves the homepage (no redirect needed — index.html is now a full page)
 
-# Friendly URL for the chat interface
+# Friendly URLs
 [[redirects]]
   from = "/chat"
   to = "/fundfinder-chat.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/fundfinder-dashboard.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth-suite"
+  to = "/fundfinder-growth-suite.html"
+  status = 200
+
+[[redirects]]
+  from = "/hub"
+  to = "/opportunity-hub.html"
+  status = 200
+
+[[redirects]]
+  from = "/opportunities"
+  to = "/opportunity-hub.html"
+  status = 200
+
+[[redirects]]
+  from = "/login"
+  to = "/fundfinder-auth.html"
+  status = 200
+
+[[redirects]]
+  from = "/signup"
+  to = "/fundfinder-auth.html"
+  status = 200
+
+[[redirects]]
+  from = "/wallet"
+  to = "/fundfinder-wallet.html"
+  status = 200
+
+[[redirects]]
+  from = "/profile"
+  to = "/fundfinder-profile.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin-briefs.html"
   status = 200
 
 # Handle Netlify form submissions

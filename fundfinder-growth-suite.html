@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Suite — FundFinder AI</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a0a; --surface: #111; --surface2: #181818; --surface3: #222;
+  --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.12);
+  --text: #f0f0f0; --muted: rgba(255,255,255,0.5); --hint: rgba(255,255,255,0.28);
+  --gold: #FFD700; --gold-dim: rgba(255,215,0,0.1); --gold-border: rgba(255,215,0,0.25);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.1); --green-border: rgba(34,197,94,0.25);
+  --blue: #3b82f6; --blue-dim: rgba(59,130,246,0.1);
+  --amber: #f59e0b; --amber-dim: rgba(245,158,11,0.1);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.1);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.1);
+}
+body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* NAV */
+nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-size: 20px; font-weight: 900; letter-spacing: 1px; text-decoration: none; color: var(--text); }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-link { color: var(--muted); font-size: 13px; font-weight: 500; text-decoration: none; padding: 6px 12px; border-radius: 8px; transition: all 0.2s; }
+.nav-link:hover { color: var(--text); background: var(--surface2); }
+.nav-badge { background: var(--gold-dim); border: 1px solid var(--gold-border); color: var(--gold); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-right: 4px; }
+.nav-credit-badge { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 8px; text-decoration: none; }
+.nav-credit-badge:hover { border-color: var(--gold-border); color: var(--gold); }
+
+/* LAYOUT */
+.layout { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 60px); }
+
+/* SIDEBAR */
+aside { border-right: 1px solid var(--border); padding: 20px 12px; background: var(--surface); overflow-y: auto; }
+.sidebar-section { margin-bottom: 24px; }
+.sidebar-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; padding: 0 10px; }
+.module-btn {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+  padding: 12px 14px; border-radius: 10px; border: none; background: transparent;
+  color: var(--text); font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.15s;
+  margin-bottom: 2px;
+}
+.module-btn:hover { background: var(--surface2); }
+.module-btn.active { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+.module-btn .icon { font-size: 20px; width: 32px; text-align: center; flex-shrink: 0; }
+.module-btn .info { flex: 1; }
+.module-btn .title { font-weight: 700; font-size: 13px; }
+.module-btn .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.module-btn.active .sub { color: rgba(255,215,0,0.6); }
+.module-btn .pro-tag { font-size: 10px; font-weight: 700; background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); padding: 2px 7px; border-radius: 10px; flex-shrink: 0; }
+
+/* MAIN */
+main { padding: 32px; overflow-y: auto; }
+.view { display: none; }
+.view.active { display: block; }
+
+/* PAGE HEADER */
+.page-header { margin-bottom: 32px; }
+.page-header-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+.page-title { font-size: 24px; font-weight: 900; display: flex; align-items: center; gap: 12px; }
+.page-icon { font-size: 28px; }
+.page-desc { font-size: 14px; color: var(--muted); max-width: 600px; line-height: 1.6; }
+
+/* CARDS */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 20px; }
+.card-title { font-size: 14px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+/* INPUT STYLES */
+label { display: block; font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+input[type="text"], input[type="url"], select, textarea {
+  width: 100%; background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text); font-size: 14px; padding: 12px 16px; border-radius: 10px;
+  outline: none; transition: border-color 0.2s; font-family: inherit;
+}
+input:focus, select:focus, textarea:focus { border-color: rgba(255,215,0,0.5); }
+input::placeholder, textarea::placeholder { color: var(--muted); }
+textarea { resize: vertical; min-height: 100px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-group { margin-bottom: 16px; }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; border: none; transition: all 0.2s; text-decoration: none; }
+.btn-gold { background: var(--gold); color: #000; }
+.btn-gold:hover { opacity: 0.88; }
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+.btn-outline:hover { border-color: var(--gold-border); color: var(--gold); }
+.btn-sm { padding: 7px 14px; font-size: 13px; border-radius: 8px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* RESULTS */
+.results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.result-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: all 0.2s; }
+.result-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+.result-icon { font-size: 28px; margin-bottom: 12px; }
+.result-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.result-detail { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+.result-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-right: 6px; }
+.badge-green { background: var(--green-dim); color: var(--green); border: 1px solid var(--green-border); }
+.badge-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
+.badge-red { background: var(--red-dim); color: var(--red); border: 1px solid rgba(239,68,68,0.25); }
+.badge-blue { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(59,130,246,0.25); }
+.badge-purple { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(167,139,250,0.25); }
+
+/* SCORE METER */
+.score-wrap { margin: 16px 0; }
+.score-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px; }
+.score-bar-bg { background: var(--surface3); border-radius: 100px; height: 8px; overflow: hidden; }
+.score-bar { height: 100%; border-radius: 100px; transition: width 0.8s ease; }
+.score-green { background: linear-gradient(90deg, var(--green), #86efac); }
+.score-amber { background: linear-gradient(90deg, var(--amber), #fcd34d); }
+.score-red { background: linear-gradient(90deg, var(--red), #fca5a5); }
+
+/* AI OUTPUT AREA */
+.ai-output {
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; min-height: 120px; font-size: 14px; line-height: 1.7;
+  color: var(--text); white-space: pre-wrap;
+}
+.ai-output.loading { color: var(--muted); font-style: italic; animation: pulse 1.5s infinite; }
+.ai-output.empty { color: var(--hint); font-style: italic; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+/* TABS */
+.tabs { display: flex; gap: 4px; background: var(--surface2); border-radius: 10px; padding: 4px; margin-bottom: 24px; width: fit-content; }
+.tab { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; color: var(--muted); border: none; background: transparent; transition: all 0.2s; }
+.tab.active { background: var(--bg); color: var(--gold); border: 1px solid var(--gold-border); }
+
+/* CREDITS WARNING */
+.credits-warn { background: var(--amber-dim); border: 1px solid rgba(245,158,11,0.25); border-radius: 10px; padding: 14px 18px; font-size: 13px; color: var(--amber); display: none; margin-bottom: 16px; }
+
+/* RISK LEVELS */
+.risk-indicators { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.risk-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; flex: 1; min-width: 140px; }
+.risk-item .risk-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.risk-item .risk-val { font-size: 18px; font-weight: 900; }
+
+/* PRO GATE */
+.pro-gate { text-align: center; padding: 60px 24px; }
+.pro-gate-icon { font-size: 48px; margin-bottom: 16px; }
+.pro-gate h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.pro-gate p { font-size: 14px; color: var(--muted); margin-bottom: 24px; line-height: 1.6; max-width: 400px; margin-left: auto; margin-right: auto; }
+
+/* OVERVIEW GRID */
+.overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.overview-tile {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px; cursor: pointer; transition: all 0.2s; text-align: center;
+}
+.overview-tile:hover { border-color: var(--gold-border); transform: translateY(-3px); }
+.overview-tile .ot-icon { font-size: 36px; margin-bottom: 12px; }
+.overview-tile .ot-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.overview-tile .ot-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.overview-tile .ot-status { display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+.status-free { background: var(--green-dim); color: var(--green); border: 1px solid var(--green-border); }
+.status-pro { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  aside { display: none; }
+  main { padding: 16px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Fund<span>Finder</span> AI</a>
+  <div class="nav-links">
+    <span class="nav-badge">⚡ Growth Suite</span>
+    <a href="fundfinder-dashboard.html" class="nav-link">← Dashboard</a>
+    <a href="opportunity-hub.html" class="nav-link">Opportunities</a>
+    <a href="fundfinder-chat.html" class="nav-link">AI Chat</a>
+    <a href="fundfinder-wallet.html" class="nav-credit-badge" id="creditBadge">💳 — credits</a>
+  </div>
+</nav>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Growth Suite</div>
+      <button class="module-btn active" onclick="showModule('overview')">
+        <span class="icon">🏠</span>
+        <div class="info"><div class="title">Overview</div><div class="sub">All modules</div></div>
+      </button>
+      <button class="module-btn" onclick="showModule('supplier')">
+        <span class="icon">🔗</span>
+        <div class="info"><div class="title">Supplier Connect</div><div class="sub">Find vetted suppliers</div></div>
+      </button>
+      <button class="module-btn" onclick="showModule('contract')">
+        <span class="icon">📋</span>
+        <div class="info"><div class="title">Contract Radar</div><div class="sub">Live tender alerts</div></div>
+      </button>
+      <button class="module-btn" onclick="showModule('growth')">
+        <span class="icon">📣</span>
+        <div class="info"><div class="title">Growth Partners</div><div class="sub">PR, media &amp; marketing</div></div>
+      </button>
+      <button class="module-btn" onclick="showModule('risk')">
+        <span class="icon">🛡️</span>
+        <div class="info"><div class="title">Risk Desk</div><div class="sub">Before you commit</div></div>
+      </button>
+      <button class="module-btn" onclick="showModule('outreach')">
+        <span class="icon">✉️</span>
+        <div class="info"><div class="title">Outreach Engine</div><div class="sub">AI-drafted messages</div></div>
+        <span class="pro-tag">PRO</span>
+      </button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Your account</div>
+      <button class="module-btn" onclick="window.location='fundfinder-dashboard.html'">
+        <span class="icon">📊</span>
+        <div class="info"><div class="title">Dashboard</div><div class="sub">Overview &amp; matches</div></div>
+      </button>
+      <button class="module-btn" onclick="window.location='fundfinder-profile.html'">
+        <span class="icon">👤</span>
+        <div class="info"><div class="title">Business Profile</div><div class="sub">Edit your details</div></div>
+      </button>
+      <button class="module-btn" onclick="window.location='fundfinder-wallet.html'">
+        <span class="icon">💳</span>
+        <div class="info"><div class="title">Credits &amp; Wallet</div><div class="sub" id="sidebarCredits">— credits</div></div>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- ── OVERVIEW ───────────────────────────────────── -->
+    <div id="view-overview" class="view active">
+      <div class="page-header">
+        <div class="page-header-top">
+          <div class="page-title"><span class="page-icon">⚡</span>Growth Suite</div>
+        </div>
+        <div class="page-desc">Your AI-powered business operating system. Five modules that help you find suppliers, win contracts, grow your market, assess risk, and reach out — all without leaving FundFinder.</div>
+      </div>
+      <div class="overview-grid">
+        <div class="overview-tile" onclick="showModule('supplier')">
+          <div class="ot-icon">🔗</div>
+          <div class="ot-title">Supplier Connect</div>
+          <div class="ot-desc">AI-ranked supplier recommendations matched to your sector, spend, and procurement needs</div>
+          <span class="ot-status status-free">Free</span>
+        </div>
+        <div class="overview-tile" onclick="showModule('contract')">
+          <div class="ot-icon">📋</div>
+          <div class="ot-title">Contract Radar</div>
+          <div class="ot-desc">Live tender opportunities from BPP, state portals, and NCDMB matched to your capacity</div>
+          <span class="ot-status status-free">Free</span>
+        </div>
+        <div class="overview-tile" onclick="showModule('growth')">
+          <div class="ot-icon">📣</div>
+          <div class="ot-title">Growth Partners</div>
+          <div class="ot-desc">Find the right PR firms, media buyers, influencers, and B2B marketing partners for your business</div>
+          <span class="ot-status status-free">Free</span>
+        </div>
+        <div class="overview-tile" onclick="showModule('risk')">
+          <div class="ot-icon">🛡️</div>
+          <div class="ot-title">Risk Desk</div>
+          <div class="ot-desc">Before you sign, hire, or deploy — get a structured risk brief from the AI. Plain language. Actionable.</div>
+          <span class="ot-status status-pro">Credits</span>
+        </div>
+        <div class="overview-tile" onclick="showModule('outreach')">
+          <div class="ot-icon">✉️</div>
+          <div class="ot-title">Outreach Engine</div>
+          <div class="ot-desc">AI drafts your emails, DMs, and proposals. You read, approve, and send. Zero typing. Pro only.</div>
+          <span class="ot-status status-pro">Pro</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💡 How Growth Suite works</div>
+        <p style="font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:16px;">Each module uses your business profile to generate personalised recommendations. The more complete your profile, the sharper the matches. AI-powered modules consume credits — free browsing is always available.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="fundfinder-profile.html" class="btn btn-outline btn-sm">📝 Complete your profile</a>
+          <a href="fundfinder-wallet.html" class="btn btn-outline btn-sm">💳 Top up credits</a>
+          <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Ask the AI anything</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SUPPLIER CONNECT ────────────────────────────── -->
+    <div id="view-supplier" class="view">
+      <div class="page-header">
+        <div class="page-title"><span class="page-icon">🔗</span>Supplier Connect</div>
+        <div class="page-desc">Tell us what you need. Our AI analyses your business profile, sector, and procurement needs to surface ranked, vetted supplier matches — not a directory, a recommendation engine.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔍 What do you need?</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Procurement Category</label>
+            <select id="sup-category">
+              <option value="">Select category...</option>
+              <option>Raw materials &amp; ingredients</option>
+              <option>Packaging &amp; labelling</option>
+              <option>Machinery &amp; equipment</option>
+              <option>IT &amp; software services</option>
+              <option>Logistics &amp; distribution</option>
+              <option>Agricultural inputs</option>
+              <option>Textile &amp; fabric</option>
+              <option>Construction materials</option>
+              <option>Professional services</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Monthly Budget Range</label>
+            <select id="sup-budget">
+              <option value="">Select range...</option>
+              <option>Under ₦500,000</option>
+              <option>₦500K – ₦2M</option>
+              <option>₦2M – ₦10M</option>
+              <option>₦10M – ₦50M</option>
+              <option>Over ₦50M</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Specific Requirements (optional)</label>
+          <textarea id="sup-requirements" placeholder="E.g. Need a NAFDAC-certified food-grade packaging supplier in Lagos who can deliver in under 48 hours..."></textarea>
+        </div>
+        <div class="credits-warn" id="sup-credits-warn">⚠️ You need credits to run AI matching. <a href="fundfinder-wallet.html" style="color:var(--amber); font-weight:700;">Top up →</a></div>
+        <button class="btn btn-gold" onclick="runSupplierSearch()">🔍 Find Matching Suppliers →</button>
+      </div>
+
+      <div id="sup-results-area" style="display:none;">
+        <div class="card">
+          <div class="card-title">✅ AI Supplier Recommendations</div>
+          <div class="ai-output" id="sup-output">Searching...</div>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" onclick="copyToClipboard('sup-output')">📋 Copy results</button>
+            <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Ask AI for more detail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTRACT RADAR ─────────────────────────────── -->
+    <div id="view-contract" class="view">
+      <div class="page-header">
+        <div class="page-title"><span class="page-icon">📋</span>Contract Radar</div>
+        <div class="page-desc">Live tender opportunities matched to your business capacity, CAC registration, sector, and compliance status. See only what you can realistically win.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎯 Set your contract profile</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Primary Sector</label>
+            <select id="con-sector">
+              <option value="">Select sector...</option>
+              <option>Agriculture &amp; Agritech</option>
+              <option>Construction &amp; Engineering</option>
+              <option>Information Technology</option>
+              <option>Health &amp; Pharmaceuticals</option>
+              <option>Education &amp; Training</option>
+              <option>Oil &amp; Gas / Energy</option>
+              <option>Food &amp; Beverage</option>
+              <option>Logistics &amp; Transport</option>
+              <option>Financial Services</option>
+              <option>Manufacturing</option>
+              <option>Media &amp; Communications</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Contract Value Range</label>
+            <select id="con-value">
+              <option value="">Select range...</option>
+              <option>Under ₦5M</option>
+              <option>₦5M – ₦25M</option>
+              <option>₦25M – ₦100M</option>
+              <option>₦100M – ₦500M</option>
+              <option>Over ₦500M</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>CAC Registration?</label>
+            <select id="con-cac">
+              <option value="yes">Yes — registered</option>
+              <option value="no">Not yet registered</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>State / Location</label>
+            <select id="con-state">
+              <option value="">All Nigeria</option>
+              <option>Lagos</option><option>Abuja (FCT)</option><option>Rivers</option>
+              <option>Kano</option><option>Ogun</option><option>Delta</option>
+              <option>Anambra</option><option>Oyo</option><option>Kaduna</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-gold" onclick="runContractSearch()">📡 Scan for Open Tenders →</button>
+      </div>
+
+      <div id="con-results-area" style="display:none;">
+        <div class="card">
+          <div class="card-title">📋 Matched Contract Opportunities</div>
+          <div class="ai-output" id="con-output">Scanning...</div>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" onclick="copyToClipboard('con-output')">📋 Copy results</button>
+            <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Ask AI to help with bid prep</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GROWTH PARTNERS ─────────────────────────────── -->
+    <div id="view-growth" class="view">
+      <div class="page-header">
+        <div class="page-title"><span class="page-icon">📣</span>Growth Partners</div>
+        <div class="page-desc">Find the right PR firms, media buyers, influencers, trade promoters, and B2B marketing outfits for your business — ranked by fit, not by who paid to be listed.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📣 Who do you need?</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Growth Goal</label>
+            <select id="gp-goal">
+              <option value="">Select goal...</option>
+              <option>Build brand awareness</option>
+              <option>Generate B2B leads</option>
+              <option>Reach retail consumers</option>
+              <option>Export / enter new markets</option>
+              <option>Raise investment / funding</option>
+              <option>Drive online sales</option>
+              <option>Build distributor network</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Monthly Marketing Budget</label>
+            <select id="gp-budget">
+              <option value="">Select range...</option>
+              <option>Under ₦200,000</option>
+              <option>₦200K – ₦1M</option>
+              <option>₦1M – ₦5M</option>
+              <option>₦5M – ₦20M</option>
+              <option>Over ₦20M</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Target Audience</label>
+            <input type="text" id="gp-audience" placeholder="E.g. SME business owners in Lagos aged 30–50">
+          </div>
+          <div class="form-group">
+            <label>Your Business Sector</label>
+            <input type="text" id="gp-sector" placeholder="E.g. Agri-food processing">
+          </div>
+        </div>
+        <button class="btn btn-gold" onclick="runGrowthSearch()">🔍 Find Growth Partners →</button>
+      </div>
+
+      <div id="gp-results-area" style="display:none;">
+        <div class="card">
+          <div class="card-title">📣 Recommended Growth Partners</div>
+          <div class="ai-output" id="gp-output">Analysing...</div>
+          <div style="margin-top:14px;">
+            <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Get AI to draft an outreach message</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RISK DESK ───────────────────────────────────── -->
+    <div id="view-risk" class="view">
+      <div class="page-header">
+        <div class="page-title"><span class="page-icon">🛡️</span>Risk Desk</div>
+        <div class="page-desc">Before you sign a supplier contract, enter a new market, hire a key person, or deploy grant funds — run a structured risk assessment. AI analyses execution, financial, regulatory, counterparty, and timeline risk.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚠️ What are you about to do?</div>
+        <div class="form-group">
+          <label>Decision / Action</label>
+          <select id="risk-type" onchange="updateRiskContext()">
+            <option value="">Select action type...</option>
+            <option value="supplier">Sign a supplier contract</option>
+            <option value="market">Enter a new market / geography</option>
+            <option value="hire">Make a key hire or partnership</option>
+            <option value="grant">Deploy grant or loan funds</option>
+            <option value="contract">Bid for a government contract</option>
+            <option value="invest">Make a capital investment</option>
+            <option value="other">Other business decision</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Describe the Specific Situation</label>
+          <textarea id="risk-description" placeholder="E.g. I'm about to sign a 12-month exclusivity deal with XYZ Supplier Ltd to supply raw cocoa at ₦850/kg. They want 30% upfront. I've only worked with them twice before..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Amount at Stake (₦)</label>
+            <input type="text" id="risk-amount" placeholder="E.g. 2,500,000">
+          </div>
+          <div class="form-group">
+            <label>Timeline</label>
+            <select id="risk-timeline">
+              <option value="">Select...</option>
+              <option>Under 1 month</option>
+              <option>1–3 months</option>
+              <option>3–12 months</option>
+              <option>Over 1 year</option>
+            </select>
+          </div>
+        </div>
+        <div class="credits-warn" id="risk-credits-warn">⚠️ You need credits for AI risk analysis. <a href="fundfinder-wallet.html" style="color:var(--amber); font-weight:700;">Top up →</a></div>
+        <button class="btn btn-gold" onclick="runRiskDesk()">🛡️ Run Risk Assessment →</button>
+      </div>
+
+      <div id="risk-results-area" style="display:none;">
+        <div class="risk-indicators" id="risk-indicators"></div>
+        <div class="card">
+          <div class="card-title">🛡️ Risk Assessment Report</div>
+          <div class="ai-output" id="risk-output">Analysing...</div>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" onclick="copyToClipboard('risk-output')">📋 Copy report</button>
+            <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Discuss with AI</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── OUTREACH ENGINE ────────────────────────────── -->
+    <div id="view-outreach" class="view">
+      <div class="page-header">
+        <div class="page-title"><span class="page-icon">✉️</span>Outreach Engine <span style="font-size:14px; color:var(--gold); font-weight:700; background:var(--gold-dim); border:1px solid var(--gold-border); padding:3px 10px; border-radius:20px; vertical-align:middle;">PRO</span></div>
+        <div class="page-desc">Select a target — supplier, buyer, funder, or partner. AI drafts the perfect email, DM, or formal proposal. You read, approve, and send. No typing. No guessing.</div>
+      </div>
+
+      <div id="outreach-gate" class="card">
+        <div class="pro-gate">
+          <div class="pro-gate-icon">✉️</div>
+          <h3>Outreach Engine — Pro Feature</h3>
+          <p>This module requires Pro credits (300-credit package or above). AI drafts tailored messages — no cold, generic templates. Every message is written around your specific business and the specific target.</p>
+          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a href="fundfinder-wallet.html" class="btn btn-gold">💳 Upgrade to Pro →</a>
+            <a href="fundfinder-chat.html" class="btn btn-outline">🤖 Draft manually with AI Chat</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="outreach-form" style="display:none;">
+        <div class="card">
+          <div class="card-title">✉️ Draft an outreach message</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Message Type</label>
+              <select id="out-type">
+                <option>Email to a supplier</option>
+                <option>Email to a potential buyer / distributor</option>
+                <option>Grant program application cover letter</option>
+                <option>Partnership proposal</option>
+                <option>Investor outreach message</option>
+                <option>WhatsApp / DM message</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Target Name / Company</label>
+              <input type="text" id="out-target" placeholder="E.g. Shoprite Nigeria Procurement Team">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Your Goal (what do you want from this message?)</label>
+            <textarea id="out-goal" placeholder="E.g. I want them to agree to a meeting to discuss supplying my organic honey to their 15 Lagos locations..." style="min-height:80px;"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Key Points to Include</label>
+            <textarea id="out-points" placeholder="E.g. Been operating 3 years, NAFDAC certified, currently supplying 4 hotels, can deliver weekly..." style="min-height:80px;"></textarea>
+          </div>
+          <button class="btn btn-gold" onclick="runOutreachDraft()">✉️ Draft Message →</button>
+        </div>
+
+        <div id="out-results-area" style="display:none;">
+          <div class="card">
+            <div class="card-title">✉️ Your Outreach Draft</div>
+            <div class="ai-output" id="out-output">Drafting...</div>
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-gold btn-sm" onclick="copyToClipboard('out-output')">📋 Copy Message</button>
+              <button class="btn btn-outline btn-sm" onclick="runOutreachDraft()">🔄 Regenerate</button>
+              <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Refine with AI</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const SUPABASE_URL  = 'https://zrkxigbmlprrowiofhjy.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+let currentUser = null;
+let userCredits = 0;
+
+// ── INIT ────────────────────────────────────────────────
+async function init() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) {
+    window.location = 'fundfinder-auth.html';
+    return;
+  }
+  currentUser = session.user;
+  await loadCredits();
+}
+
+async function loadCredits() {
+  const { data } = await supabase
+    .from('wallets')
+    .select('balance_credits')
+    .eq('user_id', currentUser.id)
+    .single();
+  if (data) {
+    userCredits = data.balance_credits;
+    const badge = document.getElementById('creditBadge');
+    if (badge) badge.textContent = `💳 ${userCredits} credits`;
+    const sidebar = document.getElementById('sidebarCredits');
+    if (sidebar) sidebar.textContent = `${userCredits} credits`;
+    // Show outreach form if pro credits
+    if (userCredits >= 50) {
+      document.getElementById('outreach-gate').style.display = 'none';
+      document.getElementById('outreach-form').style.display = 'block';
+    }
+  }
+}
+
+// ── MODULE NAVIGATION ────────────────────────────────────
+function showModule(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.module-btn').forEach(b => b.classList.remove('active'));
+  const view = document.getElementById('view-' + id);
+  if (view) view.classList.add('active');
+  const btns = document.querySelectorAll('.module-btn');
+  btns.forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) {
+      b.classList.add('active');
+    }
+  });
+}
+
+// ── AI CALL ──────────────────────────────────────────────
+async function callAI(prompt, outputId, costCredits = 2) {
+  if (userCredits < costCredits) {
+    const warn = document.querySelector('.credits-warn:not([style*="none"])') || document.getElementById('sup-credits-warn');
+    if (warn) warn.style.display = 'block';
+    document.getElementById(outputId).textContent = '⚠️ Insufficient credits. Top up your wallet to continue.';
+    return false;
+  }
+
+  const outputEl = document.getElementById(outputId);
+  outputEl.className = 'ai-output loading';
+  outputEl.textContent = '🤖 AI is analysing... this takes a few seconds.';
+
+  try {
+    const response = await fetch('/.netlify/functions/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userId: currentUser.id,
+        messages: [{ role: 'user', content: prompt }],
+        systemPrompt: `You are FundFinder AI Growth Suite, a practical business intelligence assistant for Nigerian SMEs and entrepreneurs. Give specific, actionable, Nigeria-relevant advice. Be direct and structured. Use bullet points and clear sections. Always ground your recommendations in Nigerian business reality.`
+      })
+    });
+    const data = await response.json();
+    if (data.error) {
+      outputEl.className = 'ai-output';
+      outputEl.textContent = '⚠️ ' + (data.message || 'Something went wrong. Please try again.');
+      return false;
+    }
+    outputEl.className = 'ai-output';
+    outputEl.textContent = data.content || data.message || 'No response received.';
+    userCredits -= costCredits;
+    const badge = document.getElementById('creditBadge');
+    if (badge) badge.textContent = `💳 ${userCredits} credits`;
+    return true;
+  } catch (err) {
+    outputEl.className = 'ai-output';
+    outputEl.textContent = '⚠️ Network error. Please check your connection and try again.';
+    return false;
+  }
+}
+
+// ── SUPPLIER CONNECT ─────────────────────────────────────
+async function runSupplierSearch() {
+  const cat = document.getElementById('sup-category').value;
+  const budget = document.getElementById('sup-budget').value;
+  const reqs = document.getElementById('sup-requirements').value;
+  if (!cat) { alert('Please select a procurement category first.'); return; }
+
+  document.getElementById('sup-results-area').style.display = 'block';
+  const prompt = `I need supplier recommendations for a Nigerian SME.
+
+Procurement category: ${cat}
+Monthly budget: ${budget || 'Not specified'}
+Specific requirements: ${reqs || 'General needs'}
+
+Please provide:
+1. 4–6 specific, well-known Nigerian supplier companies or platforms in this category
+2. For each: name, what they supply, approximate price range, contact/website if known, pros and cons
+3. Key things to look for when vetting suppliers in this category in Nigeria
+4. Red flags to watch out for (common scams or quality issues)
+5. A negotiation tip specific to Nigerian supplier relationships
+
+Be specific — name real companies or supplier categories in Nigeria where possible.`;
+
+  await callAI(prompt, 'sup-output');
+}
+
+// ── CONTRACT RADAR ───────────────────────────────────────
+async function runContractSearch() {
+  const sector = document.getElementById('con-sector').value;
+  const value = document.getElementById('con-value').value;
+  const cac = document.getElementById('con-cac').value;
+  const state = document.getElementById('con-state').value;
+  if (!sector) { alert('Please select your primary sector.'); return; }
+
+  document.getElementById('con-results-area').style.display = 'block';
+  const prompt = `I'm looking for contract and tender opportunities for my Nigerian business.
+
+My sector: ${sector}
+Contract value I can handle: ${value || 'Not specified'}
+CAC registered: ${cac === 'yes' ? 'Yes' : 'No'}
+Target state/location: ${state || 'All Nigeria'}
+
+Please provide:
+1. Where to find government tenders in this sector in Nigeria (specific portals, agencies, BPP)
+2. 3–5 types of contracts/tenders commonly available in this sector right now
+3. Key eligibility requirements and documentation typically needed
+4. How the bidding process works for a Nigerian SME in this sector
+5. Insider tips on improving tender success rates in Nigeria
+6. Common mistakes Nigerian SMEs make when bidding
+
+Be specific and practical — this is for a real Nigerian business owner.`;
+
+  await callAI(prompt, 'con-output');
+}
+
+// ── GROWTH PARTNERS ──────────────────────────────────────
+async function runGrowthSearch() {
+  const goal = document.getElementById('gp-goal').value;
+  const budget = document.getElementById('gp-budget').value;
+  const audience = document.getElementById('gp-audience').value;
+  const sector = document.getElementById('gp-sector').value;
+  if (!goal) { alert('Please select your growth goal first.'); return; }
+
+  document.getElementById('gp-results-area').style.display = 'block';
+  const prompt = `I need growth partner recommendations for my Nigerian business.
+
+Goal: ${goal}
+Marketing budget: ${budget || 'Not specified'}
+Target audience: ${audience || 'Nigerian businesses/consumers'}
+My sector: ${sector || 'General'}
+
+Please provide:
+1. 4–6 specific types of growth partners I should work with to achieve this goal in Nigeria
+2. For each partner type: what they do, how to find them in Nigeria, typical pricing, and what to look for
+3. Which Nigerian media channels, platforms, or networks are most effective for reaching my target audience
+4. A suggested 90-day growth partnership strategy for my situation
+5. Budget allocation recommendation across the partner types
+
+Focus on practical, Nigeria-specific recommendations — real platforms, real channels, real approaches that work in the Nigerian market.`;
+
+  await callAI(prompt, 'gp-output');
+}
+
+// ── RISK DESK ────────────────────────────────────────────
+async function runRiskDesk() {
+  const type = document.getElementById('risk-type').value;
+  const desc = document.getElementById('risk-description').value;
+  const amount = document.getElementById('risk-amount').value;
+  const timeline = document.getElementById('risk-timeline').value;
+  if (!desc || desc.length < 30) { alert('Please describe your situation in more detail (at least a few sentences).'); return; }
+
+  document.getElementById('risk-results-area').style.display = 'block';
+
+  // Show risk indicator skeleton
+  document.getElementById('risk-indicators').innerHTML = `
+    <div class="risk-item"><div class="risk-label">Execution Risk</div><div class="risk-val" style="color:var(--muted);">Analysing...</div></div>
+    <div class="risk-item"><div class="risk-label">Financial Risk</div><div class="risk-val" style="color:var(--muted);">Analysing...</div></div>
+    <div class="risk-item"><div class="risk-label">Counterparty Risk</div><div class="risk-val" style="color:var(--muted);">Analysing...</div></div>
+    <div class="risk-item"><div class="risk-label">Regulatory Risk</div><div class="risk-val" style="color:var(--muted);">Analysing...</div></div>
+  `;
+
+  const prompt = `Please provide a structured risk assessment for a Nigerian entrepreneur.
+
+Decision type: ${type || 'Business decision'}
+Amount at stake: ${amount ? '₦' + amount : 'Not specified'}
+Timeline: ${timeline || 'Not specified'}
+Situation: ${desc}
+
+Provide a STRUCTURED RISK BRIEF with these exact sections:
+
+## RISK SUMMARY
+One-paragraph plain-language summary of the overall risk level and key concerns.
+
+## RISK SCORES (rate each 1-10, 10 = highest risk)
+- Execution Risk: [score/10] — [one-line explanation]
+- Financial Exposure Risk: [score/10] — [one-line explanation]
+- Counterparty Risk: [score/10] — [one-line explanation]
+- Regulatory / Compliance Risk: [score/10] — [one-line explanation]
+- Timeline Risk: [score/10] — [one-line explanation]
+
+## KEY CONCERNS
+List the 3–5 most important risk factors specific to this situation in the Nigerian context.
+
+## PROTECTIVE STEPS
+List 4–6 specific, actionable steps to reduce risk before proceeding. Be concrete — not generic advice.
+
+## OVERALL RECOMMENDATION
+Should they proceed? On what conditions? What's the one thing that would make this safe vs. unsafe?
+
+Be direct. A Nigerian entrepreneur's money is on the line.`;
+
+  const success = await callAI(prompt, 'risk-output', 3);
+  if (success) {
+    // Update risk indicators with placeholder scores (actual parsing would need more work)
+    document.getElementById('risk-indicators').innerHTML = `
+      <div class="risk-item"><div class="risk-label">Execution Risk</div><div class="risk-val">See report →</div></div>
+      <div class="risk-item"><div class="risk-label">Financial Risk</div><div class="risk-val">See report →</div></div>
+      <div class="risk-item"><div class="risk-label">Counterparty Risk</div><div class="risk-val">See report →</div></div>
+      <div class="risk-item"><div class="risk-label">Regulatory Risk</div><div class="risk-val">See report →</div></div>
+    `;
+  }
+}
+
+// ── OUTREACH ENGINE ──────────────────────────────────────
+async function runOutreachDraft() {
+  const type = document.getElementById('out-type').value;
+  const target = document.getElementById('out-target').value;
+  const goal = document.getElementById('out-goal').value;
+  const points = document.getElementById('out-points').value;
+  if (!goal) { alert('Please describe what you want from this outreach message.'); return; }
+
+  document.getElementById('out-results-area').style.display = 'block';
+  const prompt = `Please draft a professional outreach message for a Nigerian entrepreneur.
+
+Message type: ${type}
+Target: ${target || 'Recipient'}
+Goal: ${goal}
+Key points to include: ${points || 'As appropriate'}
+
+Write a complete, ready-to-send ${type.toLowerCase()} that:
+- Opens with a strong, specific hook (not generic)
+- Establishes credibility quickly
+- States the ask clearly and confidently
+- Uses professional but warm Nigerian business tone
+- Is concise (not more than 300 words for emails, 150 for DMs)
+- Ends with a clear call to action
+
+Write the full message ready to copy and send. Include subject line if it's an email.`;
+
+  await callAI(prompt, 'out-output', 2);
+}
+
+// ── UTILS ────────────────────────────────────────────────
+function copyToClipboard(id) {
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Copied to clipboard!');
+  }).catch(() => {
+    alert('Please manually select and copy the text.');
+  });
+}
+
+function updateRiskContext() {
+  const type = document.getElementById('risk-type').value;
+  const placeholders = {
+    supplier: 'E.g. I\'m about to sign a 12-month exclusivity deal with XYZ Supplier Ltd. They want 30% upfront payment of ₦2M...',
+    market: 'E.g. I\'m considering expanding my fashion brand from Lagos to Abuja. I\'d need to open a showroom and hire 3 staff...',
+    hire: 'E.g. I\'m about to take on a sales manager on a 25% commission structure. They\'ve shown me impressive previous results but I can\'t fully verify them...',
+    grant: 'E.g. I received a ₦5M grant that must be deployed in 6 months on equipment purchase and training...',
+    contract: 'E.g. I\'m bidding on a ₦25M LASU supply contract. I\'d need to front ₦3M for materials before payment...',
+    invest: 'E.g. I\'m considering buying a secondhand imported machine for ₦8M to expand production...',
+    other: 'Describe your business decision in as much detail as possible...'
+  };
+  if (type && placeholders[type]) {
+    document.getElementById('risk-description').placeholder = placeholders[type];
+  }
+}
+
+init();
+</script>
+</body>
+</html>

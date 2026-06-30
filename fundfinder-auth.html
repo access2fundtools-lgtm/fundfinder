@@ -63,7 +63,6 @@
   .back-link a { color: var(--muted); font-size: 13px; text-decoration: none; }
   .back-link a:hover { color: var(--gold); }
 
-  /* Notification preference toggle */
   .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
   .toggle-row:last-child { border-bottom: none; }
   .toggle-label { font-size: 13px; font-weight: 600; }
@@ -75,7 +74,6 @@
   .toggle input:checked + .toggle-slider { background: rgba(255,215,0,0.15); border-color: rgba(255,215,0,0.4); }
   .toggle input:checked + .toggle-slider:before { transform: translateX(20px); background: var(--gold); }
 
-  /* Loading spinner */
   @keyframes spin { to { transform: rotate(360deg); } }
   .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(0,0,0,0.3); border-top-color: #000; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 8px; }
 </style>
@@ -83,7 +81,7 @@
 <body>
 
 <div class="logo-wrap">
-  <a href="opportunity-hub.html" style="text-decoration:none; color:inherit;">
+  <a href="index.html" style="text-decoration:none; color:inherit;">
     <div class="logo-main">Fund<span>Finder</span> AI</div>
     <div class="logo-sub">by A2F Partners</div>
   </a>
@@ -91,18 +89,15 @@
 
 <div class="card">
 
-  <!-- FREE badge -->
   <div style="text-align:center; margin-bottom:20px;">
-    <span class="free-badge">✅ Signup is completely free</span>
+    <span class="free-badge">&#10003; Signup is completely free</span>
   </div>
 
-  <!-- Tab switcher -->
   <div class="tab-row">
     <button class="tab active" onclick="switchTab('signup')">Create Account</button>
     <button class="tab" onclick="switchTab('login')">Log In</button>
   </div>
 
-  <!-- SIGNUP FORM -->
   <div id="signupForm">
     <div class="input-row">
       <div class="form-group">
@@ -131,28 +126,27 @@
       <input type="password" id="signupPassword" placeholder="At least 8 characters" minlength="8" required>
     </div>
 
-    <!-- Notification preferences -->
     <div style="margin-bottom:18px;">
       <label style="margin-bottom:12px; display:block;">Alert Preferences</label>
       <div style="background:var(--surface2); border-radius:10px; padding:4px 14px;">
         <div class="toggle-row">
           <div>
-            <div class="toggle-label">📧 Email Alerts</div>
+            <div class="toggle-label">&#128231; Email Alerts</div>
             <div class="toggle-sub">New opportunities matching your profile</div>
           </div>
           <label class="toggle"><input type="checkbox" id="notifyEmail" checked><span class="toggle-slider"></span></label>
         </div>
         <div class="toggle-row">
           <div>
-            <div class="toggle-label">💬 WhatsApp Alerts</div>
-            <div class="toggle-sub">Faster — higher open rate</div>
+            <div class="toggle-label">&#128172; WhatsApp Alerts</div>
+            <div class="toggle-sub">Faster &mdash; higher open rate</div>
           </div>
           <label class="toggle"><input type="checkbox" id="notifyWhatsApp" checked><span class="toggle-slider"></span></label>
         </div>
       </div>
     </div>
 
-    <button class="btn-primary" onclick="handleSignup()">Create Free Account →</button>
+    <button class="btn-primary" onclick="handleSignup()">Create Free Account &rarr;</button>
 
     <div class="divider"><span>or</span></div>
     <button class="btn-google" onclick="handleGoogleAuth()">
@@ -160,10 +154,9 @@
       Continue with Google
     </button>
 
-    <p class="terms">By signing up you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. Signup is free — a funded wallet is required to use AI-powered features.</p>
+    <p class="terms">By signing up you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. Signup is free &mdash; a funded wallet is required to use AI-powered features.</p>
   </div>
 
-  <!-- LOGIN FORM -->
   <div id="loginForm" style="display:none;">
     <div class="form-group">
       <label>Email Address</label>
@@ -173,7 +166,7 @@
       <label>Password</label>
       <input type="password" id="loginPassword" placeholder="Your password" required>
     </div>
-    <button class="btn-primary" onclick="handleLogin()">Log In →</button>
+    <button class="btn-primary" onclick="handleLogin()">Log In &rarr;</button>
     <div style="text-align:center; margin-top:14px;">
       <a href="#" onclick="handleForgotPassword()" style="font-size:13px; color:var(--muted); text-decoration:none;">Forgot password?</a>
     </div>
@@ -189,24 +182,15 @@
 </div>
 
 <div class="back-link">
-  <a href="opportunity-hub.html">← Back to Opportunities Hub</a>
+  <a href="index.html">&larr; Back to FundFinder AI</a>
 </div>
 
-<!-- Supabase JS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// ============================================================
-// CONFIG — replace with your Supabase project values
-// Get these from: Supabase Dashboard → Settings → API
-// ============================================================
-const SUPABASE_URL  = 'https://zrkxigbmlprowiofhjy.supabase.co';
+const SUPABASE_URL  = 'https://zrkxigbmlprrowiofhjy.supabase.co';
 const SUPABASE_ANON = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
-
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-// ============================================================
-// UI helpers
-// ============================================================
 function switchTab(tab) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');
@@ -220,6 +204,7 @@ function showMsg(type, text) {
   const el = document.getElementById(type === 'success' ? 'msgSuccess' : 'msgError');
   el.textContent = text;
   el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 function hideMessages() {
   document.getElementById('msgSuccess').style.display = 'none';
@@ -231,9 +216,6 @@ function setBtnLoading(btnEl, loading, text) {
   btnEl.innerHTML = loading ? `<span class="spinner"></span>${text}` : text;
 }
 
-// ============================================================
-// SIGN UP
-// ============================================================
 async function handleSignup() {
   const btn = event.target;
   const firstName = document.getElementById('firstName').value.trim();
@@ -253,7 +235,7 @@ async function handleSignup() {
     return;
   }
 
-  setBtnLoading(btn, true, 'Creating account…');
+  setBtnLoading(btn, true, 'Creating account...');
 
   const { data, error } = await supabase.auth.signUp({
     email,
@@ -269,12 +251,11 @@ async function handleSignup() {
   });
 
   if (error) {
-    setBtnLoading(btn, false, 'Create Free Account →');
+    setBtnLoading(btn, false, 'Create Free Account &rarr;');
     showMsg('error', error.message);
     return;
   }
 
-  // Save extended profile
   if (data.user) {
     await supabase.from('user_profiles').upsert({
       user_id: data.user.id,
@@ -285,13 +266,10 @@ async function handleSignup() {
     });
   }
 
-  setBtnLoading(btn, false, 'Create Free Account →');
-  showMsg('success', '✅ Account created! Check your email to confirm, then come back to log in.');
+  setBtnLoading(btn, false, 'Create Free Account &rarr;');
+  showMsg('success', 'Account created! Check your email to confirm, then come back to log in.');
 }
 
-// ============================================================
-// LOG IN
-// ============================================================
 async function handleLogin() {
   const btn = event.target;
   const email    = document.getElementById('loginEmail').value.trim();
@@ -302,23 +280,19 @@ async function handleLogin() {
     return;
   }
 
-  setBtnLoading(btn, true, 'Logging in…');
+  setBtnLoading(btn, true, 'Logging in...');
 
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error) {
-    setBtnLoading(btn, false, 'Log In →');
+    setBtnLoading(btn, false, 'Log In &rarr;');
     showMsg('error', error.message);
     return;
   }
 
-  // Redirect to dashboard after login
   window.location.href = 'fundfinder-dashboard.html';
 }
 
-// ============================================================
-// GOOGLE AUTH
-// ============================================================
 async function handleGoogleAuth() {
   await supabase.auth.signInWithOAuth({
     provider: 'google',
@@ -326,9 +300,6 @@ async function handleGoogleAuth() {
   });
 }
 
-// ============================================================
-// FORGOT PASSWORD
-// ============================================================
 async function handleForgotPassword() {
   const email = document.getElementById('loginEmail').value.trim();
   if (!email) { showMsg('error', 'Enter your email address first.'); return; }
@@ -336,15 +307,28 @@ async function handleForgotPassword() {
     redirectTo: window.location.origin + '/fundfinder-auth.html'
   });
   if (error) { showMsg('error', error.message); }
-  else { showMsg('success', '📧 Password reset email sent — check your inbox.'); }
+  else { showMsg('success', 'Password reset email sent — check your inbox.'); }
 }
 
-// ============================================================
-// AUTO-REDIRECT if already logged in
-// ============================================================
 supabase.auth.getSession().then(({ data: { session } }) => {
   if (session) window.location.href = 'fundfinder-dashboard.html';
 });
+
+// Handle ?mode=login URL parameter to auto-switch to login tab
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('mode') === 'login') {
+    document.getElementById('signupForm').style.display = 'none';
+    document.getElementById('loginForm').style.display = 'block';
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(t => {
+      t.classList.remove('active');
+      if (t.textContent.toLowerCase().includes('log in') || t.textContent.toLowerCase().includes('login')) {
+        t.classList.add('active');
+      }
+    });
+  }
+})();
 </script>
 </body>
 </html>

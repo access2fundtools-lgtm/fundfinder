@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="FGN-ALAT Digital Skillnovation Programme 2026 — Up to ₦500,000 Grant" />
+  <meta property="og:description" content="Federal Government of Nigeria + Wema Bank ALAT: Up to ₦500,000 grants for Nigerian digital entrepreneurs. Apply at fg-skillnovation.alat.ng" />
+  <meta property="og:type" content="website" />
+  <title>FUNDING ALERT — FGN-ALAT Digital Skillnovation 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(150deg, #002200 0%, #004d00 45%, #006400 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 52px;
+    }
+
+    /* Decorative gold lines */
+    .deco-line {
+      position: absolute;
+      background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+      height: 2px;
+      width: 100%;
+      left: 0;
+    }
+    .deco-line-1 { top: 220px; }
+    .deco-line-2 { bottom: 200px; }
+
+    .circle-deco {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(255,215,0,0.08);
+    }
+    .circle-1 { width: 600px; height: 600px; top: -200px; right: -150px; }
+    .circle-2 { width: 350px; height: 350px; bottom: -100px; left: -80px; }
+
+    /* OPEN NOW banner */
+    .open-banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    }
+
+    /* Top */
+    .top {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,215,0,0.12);
+      border: 2px solid #FFD700;
+      border-radius: 50px;
+      padding: 10px 26px;
+      width: fit-content;
+    }
+    .badge span {
+      color: #FFD700;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo-box {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,215,0,0.3);
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFD700;
+    }
+
+    .title {
+      font-size: 62px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.05;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .title span {
+      color: #FFD700;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: rgba(255,255,255,0.82);
+      font-weight: 400;
+      max-width: 760px;
+      line-height: 1.5;
+    }
+
+    /* Amount block */
+    .amount-row {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+      position: relative;
+      z-index: 2;
+    }
+
+    .amount-main {
+      background: linear-gradient(135deg, rgba(255,215,0,0.18) 0%, rgba(255,165,0,0.12) 100%);
+      border: 2px solid #FFD700;
+      border-radius: 16px;
+      padding: 24px 36px;
+      flex: 1;
+    }
+    .amount-label {
+      font-size: 13px;
+      color: #FFD700;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .amount-value {
+      font-size: 58px;
+      font-weight: 900;
+      color: #FFD700;
+      line-height: 1;
+    }
+    .amount-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 6px;
+    }
+
+    .amount-extra {
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,215,0,0.25);
+      border-radius: 16px;
+      padding: 24px 30px;
+      flex: 1;
+    }
+    .amount-extra .amount-label {
+      margin-bottom: 6px;
+    }
+    .amount-extra-val {
+      font-size: 30px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    /* Facts row */
+    .facts-row {
+      display: flex;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .fact-chip {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,215,0,0.3);
+      border-radius: 10px;
+      padding: 14px 20px;
+      flex: 1;
+    }
+    .fact-label {
+      font-size: 12px;
+      color: #FFD700;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .fact-value {
+      font-size: 17px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Eligibility */
+    .eligibility {
+      position: relative;
+      z-index: 2;
+    }
+    .eligibility-title {
+      font-size: 15px;
+      color: #FFD700;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .bullet-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.4;
+    }
+    .bullet::before {
+      content: '✅';
+      flex-shrink: 0;
+      font-size: 16px;
+      margin-top: 2px;
+    }
+
+    /* CTA */
+    .cta-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #002200;
+      font-size: 26px;
+      font-weight: 900;
+      padding: 22px 52px;
+      border-radius: 60px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 32px rgba(255,215,0,0.35);
+      text-transform: uppercase;
+    }
+
+    .rolling-badge {
+      background: rgba(255,215,0,0.15);
+      border: 2px solid #FFD700;
+      color: #FFD700;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 10px 22px;
+      border-radius: 30px;
+      letter-spacing: 1px;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,215,0,0.2);
+      padding-top: 18px;
+      position: relative;
+      z-index: 2;
+    }
+    .footer-brand {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-brand strong {
+      color: #FFD700;
+    }
+    .footer-flag {
+      font-size: 34px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="open-banner"></div>
+    <div class="circle-deco circle-1"></div>
+    <div class="circle-deco circle-2"></div>
+    <div class="deco-line deco-line-1"></div>
+    <div class="deco-line deco-line-2"></div>
+
+    <!-- Top -->
+    <div class="top">
+      <div class="badge">
+        <span>🇳🇬 FUNDING ALERT</span>
+      </div>
+      <div class="logo-row">
+        <div class="logo-box">FGN</div>
+        <div class="logo-box">ALAT by Wema Bank</div>
+      </div>
+      <div class="title">Digital<br /><span>Skillnovation</span><br />Programme 2026</div>
+      <div class="subtitle">
+        Federal Government of Nigeria + Wema Bank ALAT empower Nigerian digital entrepreneurs with grants &amp; access to the ₦75 billion MSME fund.
+      </div>
+    </div>
+
+    <!-- Amounts -->
+    <div class="amount-row">
+      <div class="amount-main">
+        <div class="amount-label">Grant Award</div>
+        <div class="amount-value">₦500K</div>
+        <div class="amount-sub">Per qualifying business (non-dilutive)</div>
+      </div>
+      <div class="amount-extra">
+        <div class="amount-label">MSME Fund Access</div>
+        <div class="amount-extra-val">₦75 Billion<br />Intervention Fund</div>
+      </div>
+    </div>
+
+    <!-- Facts -->
+    <div class="facts-row">
+      <div class="fact-chip">
+        <div class="fact-label">🗓 Deadline</div>
+        <div class="fact-value">Rolling / Open Now</div>
+      </div>
+      <div class="fact-chip">
+        <div class="fact-label">🎯 Who Can Apply</div>
+        <div class="fact-value">Nigerian MSMEs & Youth</div>
+      </div>
+      <div class="fact-chip">
+        <div class="fact-label">🌍 Sector</div>
+        <div class="fact-value">Tech, Agri, Retail & More</div>
+      </div>
+      <div class="fact-chip">
+        <div class="fact-label">🏛 Funder</div>
+        <div class="fact-value">Federal Govt + Wema</div>
+      </div>
+    </div>
+
+    <!-- Eligibility -->
+    <div class="eligibility">
+      <div class="eligibility-title">Eligibility Requirements</div>
+      <div class="bullet-list">
+        <div class="bullet">Nigerian citizen with a tech-enabled business at seed or early stage in agri, retail, clean energy, transport, or digital services</div>
+        <div class="bullet">Business registered in Nigeria — individuals and SMEs both welcome to apply online today</div>
+        <div class="bullet">Complete the digital skills training &amp; business readiness assessment via the official portal</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <a class="cta-btn" href="https://fg-skillnovation.alat.ng/" target="_blank">
+        APPLY NOW →
+      </a>
+      <div class="rolling-badge">🟢 APPLICATIONS OPEN</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-brand">
+        Shared by <strong>FundFinder AI</strong> | A2F Partners | opportunities.a2fpartners.com
+      </div>
+      <div class="footer-flag">🇳🇬</div>
+    </div>
+  </div>
+</body>
+</html>

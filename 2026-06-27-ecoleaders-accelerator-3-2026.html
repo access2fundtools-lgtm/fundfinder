@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="🌿 Ecoleaders Accelerator 3.0 — Seed Funding for Nigerian Climate Entrepreneurs" />
+  <meta property="og:description" content="6-month program with seed funding, Deloitte mentorship & global summit exposure for Nigerian youth aged 18–35 building climate solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bit.ly/ecoleaders2026" />
+  <title>Ecoleaders Accelerator 3.0 — Nigeria Funding Alert</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(145deg, #003300 0%, #004d00 40%, #006400 70%, #1a7a1a 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    /* Background decorative elements */
+    .bg-circle-1 {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
+      top: -150px; right: -150px;
+    }
+    .bg-circle-2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,100,0.06) 0%, transparent 70%);
+      bottom: 100px; left: -100px;
+    }
+    .leaf-pattern {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,215,0,0.04) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(0,200,100,0.05) 0%, transparent 30%);
+    }
+
+    /* Header bar */
+    .header {
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      padding: 22px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    .badge {
+      background: #006400;
+      color: #FFD700;
+      font-size: 22px;
+      font-weight: 900;
+      padding: 8px 20px;
+      border-radius: 30px;
+      letter-spacing: 1px;
+      border: 2px solid #FFD700;
+    }
+    .flag-emoji {
+      font-size: 40px;
+    }
+    .open-tag {
+      background: #006400;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 8px 18px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      border: 2px solid #006400;
+    }
+
+    /* Main content */
+    .content {
+      flex: 1;
+      padding: 50px 60px 30px;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Funder row */
+    .funder-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .funder-badge {
+      background: rgba(255,215,0,0.15);
+      border: 2px solid rgba(255,215,0,0.4);
+      border-radius: 12px;
+      padding: 10px 20px;
+      color: #FFD700;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .deloitte-badge {
+      background: rgba(0,0,200,0.2);
+      border: 2px solid rgba(100,150,255,0.4);
+      border-radius: 12px;
+      padding: 10px 20px;
+      color: #aaccff;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    /* Program name */
+    .program-name {
+      color: #FFFFFF;
+      font-size: 70px;
+      font-weight: 900;
+      line-height: 1.05;
+      text-shadow: 2px 4px 20px rgba(0,0,0,0.5);
+    }
+    .program-name .highlight {
+      color: #FFD700;
+    }
+
+    /* Tagline */
+    .tagline {
+      color: rgba(255,255,255,0.85);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.5;
+      max-width: 900px;
+    }
+
+    /* Amount box */
+    .amount-box {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      border-radius: 20px;
+      padding: 24px 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      max-width: 700px;
+    }
+    .amount-icon {
+      font-size: 44px;
+    }
+    .amount-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .amount-label {
+      color: #003300;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .amount-value {
+      color: #003300;
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    /* Key facts grid */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .fact-card {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,215,0,0.25);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+    .fact-label {
+      color: #FFD700;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+    .fact-value {
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* Eligibility bullets */
+    .eligibility-title {
+      color: #FFD700;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .bullet-list li {
+      color: #fff;
+      font-size: 19px;
+      font-weight: 500;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.4;
+    }
+    .bullet-list li::before {
+      content: "🌿";
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* CTA */
+    .cta-section {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #003300;
+      font-size: 26px;
+      font-weight: 900;
+      padding: 22px 50px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 30px rgba(255,215,0,0.4);
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover { transform: scale(1.03); }
+    .deadline-urgent {
+      background: rgba(255,60,60,0.2);
+      border: 2px solid rgba(255,100,100,0.5);
+      border-radius: 12px;
+      padding: 14px 20px;
+    }
+    .deadline-urgent .label {
+      color: #ff9999;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .deadline-urgent .value {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(0,0,0,0.5);
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px solid rgba(255,215,0,0.25);
+      position: relative;
+      z-index: 10;
+    }
+    .footer-brand {
+      color: #FFD700;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .footer-url {
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+    }
+    .footer-right {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="bg-circle-1"></div>
+    <div class="bg-circle-2"></div>
+    <div class="leaf-pattern"></div>
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="badge">🇳🇬 FUNDING ALERT</div>
+      <div class="flag-emoji">🌿🌱</div>
+      <div class="open-tag">✅ OPEN NOW</div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+      <!-- Funder -->
+      <div class="funder-row">
+        <div class="funder-badge">🏛️ FABE International Foundation</div>
+        <div class="deloitte-badge">🤝 In Partnership with Deloitte</div>
+      </div>
+
+      <!-- Program name -->
+      <div class="program-name">
+        ECOLEADERS<br />
+        <span class="highlight">ACCELERATOR</span><br />
+        PROGRAM 3.0
+      </div>
+
+      <!-- Tagline -->
+      <div class="tagline">
+        Seed funding + 6-month intensive training + global summit exposure for Nigerian youth building climate solutions 🌍
+      </div>
+
+      <!-- Amount box -->
+      <div class="amount-box">
+        <div class="amount-icon">💰</div>
+        <div class="amount-text-group">
+          <div class="amount-label">What you receive</div>
+          <div class="amount-value">Seed Funding + Deloitte Mentorship + Global Summit</div>
+        </div>
+      </div>
+
+      <!-- Key facts -->
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-label">⏳ Deadline</div>
+          <div class="fact-value">Rolling — Apply Early</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">👤 Who can apply</div>
+          <div class="fact-value">Nigerian Residents, Age 18–35</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">🌿 Sector</div>
+          <div class="fact-value">Climate, Renewable Energy, Circular Economy</div>
+        </div>
+      </div>
+
+      <!-- Eligibility bullets -->
+      <div>
+        <div class="eligibility-title">✅ Key Eligibility Requirements</div>
+        <ul class="bullet-list">
+          <li>Must be a Nigerian resident aged 18–35 with passion for climate action</li>
+          <li>Working on waste management, renewable energy, circular economy, or agri-sustainability solutions</li>
+          <li>Ready to commit to 6-month intensive programme and hands-on project implementation</li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <a class="cta-btn" href="https://bit.ly/ecoleaders2026" target="_blank">
+          APPLY NOW →
+        </a>
+        <div class="deadline-urgent">
+          <div class="label">⚡ Application</div>
+          <div class="value">bit.ly/ecoleaders2026</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div>
+        <div class="footer-brand">FundFinder AI | A2F Partners</div>
+        <div class="footer-url">opportunities.a2fpartners.com</div>
+      </div>
+      <div class="footer-right">
+        June 27, 2026<br />
+        #NigeriaGrants #ClimateAction
+      </div>
+    </div>
+  </div>
+</body>
+</html>

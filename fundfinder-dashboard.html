@@ -226,6 +226,7 @@
     <a href="fundfinder-dashboard.html" class="nav-link active mobile-show">Dashboard</a>
     <a href="opportunity-hub.html" class="nav-link">Opportunities</a>
     <a href="fundfinder-chat.html" class="nav-link">AI Chat</a>
+    <a href="fundfinder-growth-suite.html" class="nav-link" style="color:var(--gold); font-weight:700;">⚡ Growth Suite</a>
     <a href="fundfinder-profile.html" class="nav-link">Profile</a>
     <div class="nav-avatar" id="navAvatar" title="Your account">?</div>
   </div>
@@ -299,6 +300,11 @@
       <div class="action-icon">⚙️</div>
       <div class="action-label">My Profile</div>
       <div class="action-sub">Business details</div>
+    </a>
+    <a href="fundfinder-growth-suite.html" class="action-btn" style="border-color: rgba(255,215,0,0.3); background: linear-gradient(135deg, rgba(255,215,0,0.08), transparent);">
+      <div class="action-icon">⚡</div>
+      <div class="action-label" style="color:var(--gold);">Growth Suite</div>
+      <div class="action-sub">5 business modules</div>
     </a>
   </div>
 
@@ -418,7 +424,7 @@
 
 <script>
 // ── CONFIG ──────────────────────────────────────────────────
-const SUPABASE_URL  = 'https://zrkxigbmlprowiofhjy.supabase.co';
+const SUPABASE_URL  = 'https://zrkxigbmlprrowiofhjy.supabase.co';
 const SUPABASE_ANON = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
@@ -632,18 +638,4 @@ function appendActivity(type, html, time) {
   feed.insertBefore(item, signup);
 }
 
-// ── SIGN OUT ──────────────────────────────────────────────────
-async function signOut() {
-  await sb.auth.signOut();
-  window.location.href = 'fundfinder-auth.html';
-}
-
-// ── AUTH CHANGE LISTENER ──────────────────────────────────────
-sb.auth.onAuthStateChange((event) => {
-  if (event === 'SIGNED_OUT') window.location.href = 'fundfinder-auth.html';
-});
-
-init();
-</script>
-</body>
-</html>
+// ── SIGN OUT ────────────────────────

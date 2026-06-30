@@ -1,11 +1,395 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=opportunity-hub.html">
-<title>Funding Opportunities | A2F Partners</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FundFinder AI — Nigeria's #1 Funding Intelligence Platform</title>
+<meta name="description" content="Discover grants, loans, accelerators and empowerment programs open to Nigerian entrepreneurs. AI-powered matching. Free daily alerts. Apply smarter.">
+<meta property="og:title" content="FundFinder AI — Nigeria's #1 Funding Intelligence Platform">
+<meta property="og:description" content="Find the right funding for your Nigerian business. AI-powered grant matching, daily alerts, and smart application support.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #080808; --surface: #111; --surface2: #181818; --surface3: #222;
+  --border: rgba(255,255,255,0.08); --text: #f0f0f0;
+  --muted: rgba(255,255,255,0.5); --hint: rgba(255,255,255,0.28);
+  --gold: #FFD700; --gold-dim: rgba(255,215,0,0.1); --gold-border: rgba(255,215,0,0.25);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(8,8,8,0.95); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px;
+}
+.nav-logo { font-size: 22px; font-weight: 900; letter-spacing: 1px; text-decoration: none; color: var(--text); }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-link { color: var(--muted); font-size: 14px; font-weight: 500; text-decoration: none; padding: 7px 14px; border-radius: 8px; transition: color 0.2s; }
+.nav-link:hover { color: var(--text); }
+.nav-cta { background: var(--gold); color: #000; font-size: 14px; font-weight: 900; padding: 9px 20px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; }
+.nav-cta:hover { opacity: 0.85; }
+.nav-login { color: var(--gold); font-size: 14px; font-weight: 700; text-decoration: none; padding: 9px 16px; }
+
+/* TICKER */
+.ticker-wrap { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 12px 0; }
+.ticker { display: flex; gap: 48px; animation: scroll 50s linear infinite; width: max-content; }
+.ticker-item { font-size: 13px; color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.ticker-item .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.dot-green { background: var(--green); } .dot-gold { background: var(--gold); }
+@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* HERO */
+.hero { padding: 100px 32px 80px; text-align: center; position: relative; overflow: hidden; }
+.hero::before {
+  content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 600px;
+  background: radial-gradient(ellipse at center, rgba(255,215,0,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold-dim); border: 1px solid var(--gold-border);
+  color: var(--gold); font-size: 13px; font-weight: 700;
+  padding: 7px 16px; border-radius: 50px; margin-bottom: 28px; letter-spacing: 0.5px;
+}
+.hero-badge .dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: blink 1.4s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+h1 { font-size: clamp(36px, 6vw, 72px); font-weight: 900; line-height: 1.1; letter-spacing: -2px; max-width: 900px; margin: 0 auto 24px; }
+h1 .gold { color: var(--gold); }
+.hero-sub { font-size: clamp(16px, 2vw, 20px); color: var(--muted); max-width: 580px; margin: 0 auto 40px; line-height: 1.6; }
+.hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: #000; font-size: 16px; font-weight: 900;
+  padding: 16px 32px; border-radius: 10px; text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s; box-shadow: 0 8px 32px rgba(255,215,0,0.25);
+}
+.btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; border: 1px solid var(--gold-border);
+  color: var(--gold); font-size: 16px; font-weight: 700;
+  padding: 16px 28px; border-radius: 10px; text-decoration: none; transition: all 0.2s;
+}
+.btn-secondary:hover { background: var(--gold-dim); border-color: rgba(255,215,0,0.5); }
+
+/* STATS BAR */
+.stats-bar { display: flex; justify-content: center; flex-wrap: wrap; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
+.stat { flex: 1; min-width: 160px; max-width: 240px; padding: 28px 24px; text-align: center; border-right: 1px solid var(--border); }
+.stat:last-child { border-right: none; }
+.stat-num { font-size: 36px; font-weight: 900; color: var(--gold); }
+.stat-lbl { font-size: 13px; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+/* SECTION */
+.section { padding: 80px 32px; max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+.section-title { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; }
+.section-sub { font-size: 17px; color: var(--muted); max-width: 560px; line-height: 1.6; margin-bottom: 48px; }
+
+/* STEPS */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+.step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; transition: border-color 0.2s, transform 0.2s; }
+.step:hover { border-color: var(--gold-border); transform: translateY(-4px); }
+.step-num { width: 44px; height: 44px; background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: var(--gold); margin-bottom: 18px; }
+.step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.step p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+/* FEATURES */
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.2s; }
+.feature-card:hover { border-color: var(--gold-border); }
+.feature-icon { font-size: 32px; margin-bottom: 16px; }
+.feature-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.feature-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.feature-badge { display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; }
+.badge-free { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+.badge-pro { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+
+/* FOR WHOM */
+.for-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.for-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; }
+.for-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.for-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.for-icon { font-size: 28px; margin-bottom: 12px; }
+
+/* PRICING */
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; max-width: 960px; }
+.pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; text-align: center; position: relative; transition: all 0.2s; }
+.pricing-card.popular { border-color: var(--gold-border); background: linear-gradient(145deg, rgba(255,215,0,0.05) 0%, var(--surface) 100%); }
+.popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 11px; font-weight: 900; padding: 4px 14px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+.pricing-name { font-size: 14px; font-weight: 700; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.pricing-price { font-size: 36px; font-weight: 900; margin-bottom: 4px; }
+.pricing-credits { font-size: 14px; color: var(--gold); font-weight: 700; margin-bottom: 20px; }
+.pricing-feature { font-size: 13px; color: var(--muted); margin-bottom: 8px; text-align: left; }
+.pricing-cta { display: block; margin-top: 24px; background: var(--gold); color: #000; font-size: 14px; font-weight: 900; padding: 12px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; }
+.pricing-cta:hover { opacity: 0.85; }
+.pricing-cta.outline { background: transparent; color: var(--gold); border: 1px solid var(--gold-border); }
+.pricing-cta.outline:hover { background: var(--gold-dim); }
+
+/* TESTIMONIALS */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.testimonial { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+.testimonial-text { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 20px; }
+.testimonial-text::before { content: '\201C'; color: var(--gold); font-size: 28px; line-height: 0; vertical-align: -0.5em; margin-right: 4px; }
+.testimonial-text::after { content: '\201D'; color: var(--gold); font-size: 28px; line-height: 0; vertical-align: -0.5em; margin-left: 4px; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--gold-dim); border: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.author-name { font-size: 14px; font-weight: 700; }
+.author-role { font-size: 12px; color: var(--muted); }
+
+/* CTA SECTION */
+.cta-section { padding: 80px 32px; text-align: center; position: relative; }
+.cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(255,215,0,0.06) 0%, transparent 65%); pointer-events: none; }
+.cta-card { background: var(--surface); border: 1px solid var(--gold-border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-card h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.2; margin-bottom: 16px; }
+.cta-card p { font-size: 17px; color: var(--muted); margin-bottom: 36px; line-height: 1.6; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 48px 32px 32px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; }
+.footer-brand .logo { font-size: 20px; font-weight: 900; margin-bottom: 10px; }
+.footer-brand .logo span { color: var(--gold); }
+.footer-brand p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 14px; color: var(--hint); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom { border-top: 1px solid var(--border); padding: 20px 32px; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.footer-bottom p { font-size: 13px; color: var(--hint); }
+.footer-bottom a { color: var(--hint); text-decoration: none; }
+.footer-bottom a:hover { color: var(--gold); }
+
+@media (max-width: 768px) {
+  nav { padding: 0 16px; }
+  .nav-link { display: none; }
+  .hero { padding: 60px 16px 48px; }
+  .stats-bar { flex-direction: column; }
+  .stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .section { padding: 48px 16px; }
+  footer { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
 </head>
 <body>
-<p>Redirecting... <a href="opportunity-hub.html">Click here if not redirected</a></p>
+
+<nav>
+  <a href="index.html" class="nav-logo">Fund<span>Finder</span> AI</a>
+  <div class="nav-links">
+    <a href="opportunity-hub.html" class="nav-link">Browse Opportunities</a>
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="fundfinder-auth.html?mode=login" class="nav-login">Log In</a>
+    <a href="fundfinder-auth.html" class="nav-cta">Get Started Free &rarr;</a>
+  </div>
+</nav>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="ticker-item"><span class="dot dot-green"></span>NEW: NSIA Prize for Innovation &mdash; $275,000 &middot; Deadline Jul 8</div>
+    <div class="ticker-item"><span class="dot dot-gold"></span>Lagos Agrithon 2026 &mdash; &#8358;200M Grant Pool &middot; Deadline Jul 19</div>
+    <div class="ticker-item"><span class="dot dot-green"></span>Accelerate Africa &mdash; Up to $500,000 Investment &middot; Deadline Jul 25</div>
+    <div class="ticker-item"><span class="dot dot-gold"></span>Africa Business Contest (Japan) &mdash; JPY 1,000,000 &middot; Deadline Jul 31</div>
+    <div class="ticker-item"><span class="dot dot-green"></span>Women in Tech Accelerator &mdash; $10,000 grants &middot; Deadline Jun 30</div>
+    <div class="ticker-item"><span class="dot dot-gold"></span>EcoLeaders Accelerator 3.0 &mdash; AI-climate startups &mdash; Open now</div>
+    <div class="ticker-item"><span class="dot dot-green"></span>NEW: NSIA Prize for Innovation &mdash; $275,000 &middot; Deadline Jul 8</div>
+    <div class="ticker-item"><span class="dot dot-gold"></span>Lagos Agrithon 2026 &mdash; &#8358;200M Grant Pool &middot; Deadline Jul 19</div>
+    <div class="ticker-item"><span class="dot dot-green"></span>Accelerate Africa &mdash; Up to $500,000 Investment &middot; Deadline Jul 25</div>
+    <div class="ticker-item"><span class="dot dot-gold"></span>Africa Business Contest (Japan) &mdash; JPY 1,000,000 &middot; Deadline Jul 31</div>
+    <div class="ticker-item"><span class="dot dot-green"></span>Women in Tech Accelerator &mdash; $10,000 grants &middot; Deadline Jun 30</div>
+    <div class="ticker-item"><span class="dot dot-gold"></span>EcoLeaders Accelerator 3.0 &mdash; AI-climate startups &mdash; Open now</div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span>&#127475;&#127468; Built for Nigerian entrepreneurs &middot; Updated daily</div>
+  <h1>Find the <span class="gold">right funding</span><br>for your <span class="gold">Nigerian business</span></h1>
+  <p class="hero-sub">FundFinder AI scans hundreds of sources daily to surface grants, loans, accelerators and empowerment programs you actually qualify for &mdash; matched to your business profile.</p>
+  <div class="hero-ctas">
+    <a href="fundfinder-auth.html" class="btn-primary">&#128640; Start for Free &mdash; No Credit Card</a>
+    <a href="opportunity-hub.html" class="btn-secondary">Browse Open Opportunities &rarr;</a>
+  </div>
+  <div style="display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap; color:var(--muted); font-size:13px;">
+    <span>&#10003; Free to join</span>
+    <span>&#10003; Daily email alerts</span>
+    <span>&#10003; AI-powered matching</span>
+    <span>&#10003; No commissions taken</span>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">22+</div><div class="stat-lbl">Opportunities Open Now</div></div>
+  <div class="stat"><div class="stat-num">$10M+</div><div class="stat-lbl">Total Funding Available</div></div>
+  <div class="stat"><div class="stat-num">Daily</div><div class="stat-lbl">New Opportunities Added</div></div>
+  <div class="stat"><div class="stat-num">Free</div><div class="stat-lbl">To Join &amp; Browse</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Nigeria-Filtered</div></div>
+</div>
+
+<div class="section" id="how-it-works">
+  <div class="section-label">How it works</div>
+  <div class="section-title">From signup to funded<br>in 4 simple steps</div>
+  <p class="section-sub">Our AI does the heavy lifting. You focus on running your business.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h3>Create your profile</h3><p>Tell us about your business &mdash; sector, stage, location, team size. Takes 3 minutes. Free forever.</p></div>
+    <div class="step"><div class="step-num">2</div><h3>AI matches you</h3><p>Our AI scans 200+ funding sources and surfaces only the opportunities you're actually eligible for.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Get daily alerts</h3><p>New matches land in your email every morning before 7am. Never miss a deadline again.</p></div>
+    <div class="step"><div class="step-num">4</div><h3>Apply with AI help</h3><p>Chat with FundFinder AI for application advice, eligibility checks, and document prep guidance.</p></div>
+  </div>
+</div>
+
+<div style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+<div class="section" id="features">
+  <div class="section-label">Platform features</div>
+  <div class="section-title">Everything you need<br>to get funded</div>
+  <p class="section-sub">The free tier gets you further than most paid tools.</p>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">&#128269;</div><div class="feature-title">Opportunity Hub</div><div class="feature-desc">Browse and filter 22+ live opportunities. Updated daily. Filter by sector, deadline, amount, and eligibility. No login required.</div><span class="feature-badge badge-free">Free Forever</span></div>
+    <div class="feature-card"><div class="feature-icon">&#129302;</div><div class="feature-title">AI Funding Advisor</div><div class="feature-desc">Ask anything: "Am I eligible for this grant?" "What documents do I need?" "Write my business summary." Powered by Claude AI.</div><span class="feature-badge badge-pro">Credits Required</span></div>
+    <div class="feature-card"><div class="feature-icon">&#128231;</div><div class="feature-title">Daily Email Alerts</div><div class="feature-desc">New grants and opportunities arrive in your inbox every morning. Filtered to match your business profile. Never miss a deadline.</div><span class="feature-badge badge-free">Free</span></div>
+    <div class="feature-card"><div class="feature-icon">&#127919;</div><div class="feature-title">Smart Profile Matching</div><div class="feature-desc">Build your business profile once. Our system continuously matches it against new opportunities and scores your eligibility.</div><span class="feature-badge badge-free">Free</span></div>
+    <div class="feature-card"><div class="feature-icon">&#128202;</div><div class="feature-title">Growth Suite</div><div class="feature-desc">Supplier Connect, Contract Radar, Growth Partners, Risk Desk, and Outreach Engine. The AI operating system for your business.</div><span class="feature-badge badge-pro">Pro Feature</span></div>
+    <div class="feature-card"><div class="feature-icon">&#127963;</div><div class="feature-title">Program Principal Portal</div><div class="feature-desc">For grant-makers, DFIs and government agencies: manage your capital program, receive applications, and track disbursements in one place.</div><span class="feature-badge badge-pro">Enterprise</span></div>
+  </div>
+</div>
+</div>
+
+<div class="section">
+  <div class="section-label">Who it's for</div>
+  <div class="section-title">Built for every stage<br>of the Nigerian entrepreneur journey</div>
+  <div class="for-grid">
+    <div class="for-card"><div class="for-icon">&#127807;</div><h3>Early-Stage Founders</h3><p>Just starting out? Find idea-stage grants, accelerator programs, and equity-free seed funding to get your business off the ground.</p></div>
+    <div class="for-card"><div class="for-icon">&#128640;</div><h3>Growing SMEs</h3><p>Ready to scale? Discover government loans, development finance, and strategic grants matched to your sector and growth stage.</p></div>
+    <div class="for-card"><div class="for-icon">&#128105;&#8205;&#128188;</div><h3>Women Entrepreneurs</h3><p>Access a curated list of women-specific funding programs, accelerators and business support tailored to female founders in Nigeria.</p></div>
+    <div class="for-card"><div class="for-icon">&#127806;</div><h3>Agribusiness &amp; Agritech</h3><p>Nigeria's biggest sector is also the most funded. Find NIRSAL, CBN, and international agriculture grants your business qualifies for.</p></div>
+    <div class="for-card"><div class="for-icon">&#128161;</div><h3>Tech &amp; Innovation Startups</h3><p>From Lagos to Abuja, find accelerators, VC programs and innovation challenges offering funding and market access for tech founders.</p></div>
+    <div class="for-card"><div class="for-icon">&#127891;</div><h3>Youth &amp; Students</h3><p>NYSC members, recent graduates, and student entrepreneurs &mdash; there are programs built specifically for you. We'll find them.</p></div>
+  </div>
+</div>
+
+<div style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+<div class="section" id="pricing">
+  <div class="section-label">Simple pricing</div>
+  <div class="section-title">Start free.<br>Upgrade when you're ready.</div>
+  <p class="section-sub">Credits power the AI chat. Everything else is free forever.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-name">Starter</div>
+      <div class="pricing-price">Free</div>
+      <div class="pricing-credits">20 free credits on signup</div>
+      <div class="pricing-feature">&#10003; Browse all opportunities</div>
+      <div class="pricing-feature">&#10003; Daily email alerts</div>
+      <div class="pricing-feature">&#10003; Business profile &amp; matching</div>
+      <div class="pricing-feature">&#10003; 20 AI chat messages</div>
+      <div class="pricing-feature">&#9634; Growth Suite modules</div>
+      <a href="fundfinder-auth.html" class="pricing-cta outline">Get Started Free &rarr;</a>
+    </div>
+    <div class="pricing-card popular">
+      <div class="popular-tag">&#11088; MOST POPULAR</div>
+      <div class="pricing-name">Growth</div>
+      <div class="pricing-price">&#8358;3,500</div>
+      <div class="pricing-credits">100 credits</div>
+      <div class="pricing-feature">&#10003; Everything in Starter</div>
+      <div class="pricing-feature">&#10003; 100 AI chat messages</div>
+      <div class="pricing-feature">&#10003; Growth Suite access</div>
+      <div class="pricing-feature">&#10003; Priority matching</div>
+      <div class="pricing-feature">&#10003; Application guidance</div>
+      <a href="fundfinder-auth.html" class="pricing-cta">Buy Credits &rarr;</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-name">Pro</div>
+      <div class="pricing-price">&#8358;8,000</div>
+      <div class="pricing-credits">300 credits</div>
+      <div class="pricing-feature">&#10003; Everything in Growth</div>
+      <div class="pricing-feature">&#10003; 300 AI chat messages</div>
+      <div class="pricing-feature">&#10003; Outreach Engine (Pro)</div>
+      <div class="pricing-feature">&#10003; Risk Desk analysis</div>
+      <div class="pricing-feature">&#10003; Dedicated support</div>
+      <a href="fundfinder-auth.html" class="pricing-cta">Buy Credits &rarr;</a>
+    </div>
+    <div class="pricing-card" style="border-color: rgba(255,215,0,0.2);">
+      <div class="pricing-name">Enterprise</div>
+      <div class="pricing-price" style="font-size:28px;">Custom</div>
+      <div class="pricing-credits">Program Principal Portal</div>
+      <div class="pricing-feature">&#10003; Program administration</div>
+      <div class="pricing-feature">&#10003; Application management</div>
+      <div class="pricing-feature">&#10003; Disbursement tracking</div>
+      <div class="pricing-feature">&#10003; White-label option</div>
+      <div class="pricing-feature">&#10003; SLA &amp; dedicated team</div>
+      <a href="program-principal-register.html" class="pricing-cta" style="background: linear-gradient(135deg,#FFD700,#FFA500);">Apply as Program Principal &rarr;</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section">
+  <div class="section-label">What founders say</div>
+  <div class="section-title">Real Nigerian entrepreneurs.<br>Real results.</div>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="testimonial-text">I found the NSIA Prize through FundFinder and applied within the week. The AI helped me structure my pitch and checklist. Couldn't have done it without this tool.</div>
+      <div class="testimonial-author"><div class="avatar">&#128105;</div><div><div class="author-name">Adaeze N.</div><div class="author-role">HealthTech Founder, Lagos</div></div></div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-text">Every morning I get a list of grants I actually qualify for. Before FundFinder, I spent hours searching and found nothing relevant. Now it comes to me.</div>
+      <div class="testimonial-author"><div class="avatar">&#128104;</div><div><div class="author-name">Emeka O.</div><div class="author-role">Agripreneur, Ogun State</div></div></div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-text">The Growth Suite's Risk Desk gave me a proper analysis of a supplier deal I was about to sign. Saved me from a bad contract. Worth every credit.</div>
+      <div class="testimonial-author"><div class="avatar">&#128105;</div><div><div class="author-name">Kemi A.</div><div class="author-role">Fashion &amp; Retail SME, Abuja</div></div></div>
+    </div>
+  </div>
+</div>
+
+<section class="cta-section">
+  <div class="cta-card">
+    <h2>Your next grant is already open.<br><span style="color:var(--gold);">Don't miss it.</span></h2>
+    <p>Join Nigerian entrepreneurs getting daily funding alerts matched to their business. Free to start. No credit card needed.</p>
+    <div class="cta-btns">
+      <a href="fundfinder-auth.html" class="btn-primary">&#128640; Create Free Account</a>
+      <a href="opportunity-hub.html" class="btn-secondary">Browse Opportunities First</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <div class="logo">Fund<span>Finder</span> AI</div>
+    <p>Nigeria's #1 funding intelligence platform. Helping entrepreneurs discover and win the capital they need to grow.</p>
+    <p style="margin-top:12px; font-size:12px; color:var(--hint);">A product of <strong style="color:var(--muted);">A2F Partners</strong></p>
+  </div>
+  <div class="footer-col">
+    <h4>Platform</h4>
+    <a href="opportunity-hub.html">Browse Opportunities</a>
+    <a href="fundfinder-auth.html">Sign Up Free</a>
+    <a href="fundfinder-chat.html">AI Chat</a>
+    <a href="fundfinder-dashboard.html">Dashboard</a>
+    <a href="fundfinder-wallet.html">Buy Credits</a>
+  </div>
+  <div class="footer-col">
+    <h4>For Businesses</h4>
+    <a href="program-principal-register.html">Program Principals</a>
+    <a href="fundfinder-growth-suite.html">Growth Suite</a>
+    <a href="#pricing">Pricing</a>
+    <a href="admin-briefs.html">Admin Portal</a>
+  </div>
+  <div class="footer-col">
+    <h4>Resources</h4>
+    <a href="opportunity-hub.html">Daily Opportunity Feed</a>
+    <a href="fundfinder-auth.html">Get Free Alerts</a>
+    <a href="mailto:hello@a2fpartners.com">Contact Us</a>
+    <a href="mailto:partnerships@a2fpartners.com">Partnerships</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>&copy; 2026 FundFinder AI &middot; A2F Partners &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Terms</a></p>
+  <p>Built for &#127475;&#127468; Nigerian entrepreneurs</p>
+</div>
+
 </body>
 </html>

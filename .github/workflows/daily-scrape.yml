@@ -1,0 +1,48 @@
+name: Daily Funding Opportunities Scraper
+
+on:
+  schedule:
+    # Runs at 06:00 UTC = 07:00 Nigeria time (WAT) every day
+    - cron: '0 6 * * *'
+  # Also lets you click "Run workflow" in the GitHub Actions tab for testing
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to commit and push back to the repo
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # 1. Check out the repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # 2. Set up Node.js (scraper uses no npm packages — pure built-ins)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Run the scraper
+      - name: Run FundFinder scraper
+        run: node scripts/scraper.js
+
+      # 4. Commit any new files and push (skips commit if nothing changed)
+      - name: Commit and push new opportunities
+        run: |
+          git config user.email "${{ secrets.GIT_EMAIL }}"
+          git config user.name "${{ secrets.GIT_NAME }}"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git add .
+          if git diff --staged --quiet; then
+            echo "Nothing new to commit today."
+          else
+            git commit -m "🤖 Daily funding update — $(date +'%Y-%m-%d')"
+            git push
+            echo "✅ Pushed to GitHub — Netlify will auto-deploy."
+          fi

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="BATN Foundation F4F Grant 2026 — Up to ₦10 Million for NYSC Agripreneurs">
+<meta property="og:description" content="British American Tobacco Nigeria Foundation opens Cohort 7 of the Farmers for the Future Grant. Up to ₦10M equity-free for NYSC serving agripreneurs.">
+<title>BATN Foundation F4F Grant 2026 | FundFinder AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; background: #0a0a0a; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+  .card {
+    width: 1080px; min-height: 1080px;
+    background: linear-gradient(145deg, #001800 0%, #003800 45%, #001200 100%);
+    border: 2px solid rgba(255,215,0,0.3);
+    border-radius: 24px; padding: 56px; position: relative; overflow: hidden;
+  }
+  .card::before { content:''; position:absolute; top:-100px; right:-100px; width:450px; height:450px; background:radial-gradient(circle,rgba(255,215,0,0.08) 0%,transparent 65%); border-radius:50%; }
+
+  .top-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; }
+  .badge { display:inline-flex; align-items:center; gap:10px; background:rgba(255,215,0,0.12); border:1.5px solid #FFD700; border-radius:100px; padding:10px 22px; }
+  .badge-flag { font-size:22px; }
+  .badge-text { color:#FFD700; font-size:14px; font-weight:800; letter-spacing:2px; text-transform:uppercase; }
+  .cohort-pill { background:rgba(255,215,0,0.1); border:1.5px solid rgba(255,215,0,0.5); color:#FFD700; font-size:12px; font-weight:800; padding:8px 18px; border-radius:20px; letter-spacing:1px; }
+
+  .org-row { display:flex; align-items:center; gap:16px; margin-bottom:18px; }
+  .org-logo { width:52px; height:52px; background:linear-gradient(135deg,#006400,#003d00); border:2px solid rgba(255,215,0,0.35); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; }
+  .org-name { color:rgba(255,255,255,0.55); font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+  .org-sub { color:rgba(255,255,255,0.35); font-size:11px; margin-top:2px; }
+
+  .title { color:#fff; font-size:48px; font-weight:900; line-height:1.1; margin-bottom:8px; }
+  .title span { color:#FFD700; }
+  .subtitle { color:rgba(255,255,255,0.5); font-size:16px; margin-bottom:36px; }
+
+  .amount-box { background:linear-gradient(135deg,rgba(255,215,0,0.14),rgba(255,215,0,0.04)); border:2px solid rgba(255,215,0,0.45); border-radius:20px; padding:32px 40px; margin-bottom:32px; }
+  .amount-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; }
+  .prize { text-align:center; padding:16px; background:rgba(255,255,255,0.03); border-radius:12px; border:1px solid rgba(255,255,255,0.07); }
+  .prize-rank { color:rgba(255,255,255,0.45); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+  .prize-medal { font-size:28px; margin-bottom:6px; }
+  .prize-amount { font-weight:900; font-size:28px; }
+  .prize-1 .prize-amount { color:#FFD700; }
+  .prize-2 .prize-amount { color:#C0C0C0; }
+  .prize-3 .prize-amount { color:#CD7F32; }
+  .prize-label { color:rgba(255,255,255,0.4); font-size:10px; margin-top:4px; }
+
+  .facts { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:32px; }
+  .fact { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); border-radius:14px; padding:18px; text-align:center; }
+  .fact-icon { font-size:22px; margin-bottom:8px; }
+  .fact-label { color:rgba(255,255,255,0.4); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
+  .fact-value { color:#fff; font-size:13px; font-weight:800; }
+
+  .target-note { background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:16px 20px; margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .target-note-icon { font-size:22px; }
+  .target-note-text { color:rgba(255,215,0,0.85); font-size:14px; font-weight:600; }
+
+  .eligibility { margin-bottom:32px; }
+  .elig-title { color:rgba(255,255,255,0.45); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:14px; }
+  .elig-item { display:flex; align-items:flex-start; gap:12px; margin-bottom:12px; color:rgba(255,255,255,0.82); font-size:15px; line-height:1.5; }
+  .elig-check { width:22px; height:22px; background:rgba(34,197,94,0.15); border:1.5px solid #22c55e; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#22c55e; font-size:12px; flex-shrink:0; margin-top:1px; }
+
+  .cta-btn { display:block; width:100%; padding:22px 40px; background:linear-gradient(135deg,#FFD700,#FFA500); color:#000; font-size:20px; font-weight:900; text-align:center; text-decoration:none; border-radius:14px; margin-bottom:28px; }
+  .footer { display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08); padding-top:24px; }
+  .footer-brand { color:rgba(255,255,255,0.4); font-size:12px; font-weight:600; }
+  .footer-brand span { color:#FFD700; }
+  .footer-url { color:rgba(255,215,0,0.5); font-size:12px; font-weight:600; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-row">
+    <div class="badge"><span class="badge-flag">🇳🇬</span><span class="badge-text">Funding Alert</span></div>
+    <span class="cohort-pill">🌱 COHORT 7 — OPEN NOW</span>
+  </div>
+
+  <div class="org-row">
+    <div class="org-logo">🌿</div>
+    <div>
+      <div class="org-name">BATN Foundation</div>
+      <div class="org-sub">British American Tobacco Nigeria Foundation · NYSC Partnership</div>
+    </div>
+  </div>
+
+  <h1 class="title">Farmers for the Future<br><span>F4F Grant 2026</span></h1>
+  <p class="subtitle">Equity-free agribusiness grants for NYSC corps members building agri-enterprises</p>
+
+  <div class="amount-box">
+    <div style="text-align:center; margin-bottom:20px;">
+      <div style="color:rgba(255,255,255,0.45); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">💰 Total Grant Pool</div>
+      <div style="color:#FFD700; font-size:56px; font-weight:900; line-height:1;">₦10 Million</div>
+      <div style="color:rgba(255,215,0,0.6); font-size:15px; font-weight:600; margin-top:4px;">Equity-free · No repayment required</div>
+    </div>
+    <div class="amount-grid">
+      <div class="prize prize-1"><div class="prize-rank">1st Prize</div><div class="prize-medal">🥇</div><div class="prize-amount">₦3M</div><div class="prize-label">+ Training & Mentorship</div></div>
+      <div class="prize prize-2"><div class="prize-rank">2nd Prize</div><div class="prize-medal">🥈</div><div class="prize-amount">₦2M</div><div class="prize-label">+ Business Support</div></div>
+      <div class="prize prize-3"><div class="prize-rank">3rd Prize</div><div class="prize-medal">🥉</div><div class="prize-amount">₦1M</div><div class="prize-label">+ Market Access</div></div>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><div class="fact-icon">📅</div><div class="fact-label">Applications Open</div><div class="fact-value">June 12, 2026</div></div>
+    <div class="fact"><div class="fact-icon">🎯</div><div class="fact-label">Who Qualifies</div><div class="fact-value">NYSC Corps Members</div></div>
+    <div class="fact"><div class="fact-icon">🌾</div><div class="fact-label">Sector</div><div class="fact-value">Agriculture / Agribusiness</div></div>
+  </div>
+
+  <div class="target-note">
+    <span class="target-note-icon">⚠️</span>
+    <div class="target-note-text">This grant is exclusively for currently serving NYSC members with viable agribusiness ventures. If you're on NYSC, this is for you!</div>
+  </div>
+
+  <div class="eligibility">
+    <div class="elig-title">✅ Eligibility Requirements</div>
+    <div class="elig-item"><div class="elig-check">✓</div><span>Currently serving NYSC corps member with an agribusiness venture</span></div>
+    <div class="elig-item"><div class="elig-check">✓</div><span>Business must be viable, innovative, and agriculture-focused</span></div>
+    <div class="elig-item"><div class="elig-check">✓</div><span>Willingness to participate in virtual bootcamp and mentorship sessions</span></div>
+  </div>
+
+  <a class="cta-btn" href="https://f4f.wealthishere.org/apply/" target="_blank">APPLY NOW → f4f.wealthishere.org/apply</a>
+
+  <div class="footer">
+    <div class="footer-brand">Shared by <span>FundFinder AI</span> | A2F Partners</div>
+    <span style="font-size:26px;">🌿</span>
+    <div class="footer-url">opportunities.a2fpartners.com</div>
+  </div>
+</div>
+</body>
+</html>
