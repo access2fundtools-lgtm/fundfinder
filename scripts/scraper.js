@@ -22,8 +22,25 @@ const ROOT = path.resolve(__dirname, '..');          // repo root
 const DATA_DIR = path.join(ROOT, 'data');
 const SEEN_FILE = path.join(DATA_DIR, 'seen-ids.json');
 const MANUAL_FILE = path.join(DATA_DIR, 'manual-opportunities.json');
+const LAST_RUN_FILE = path.join(DATA_DIR, 'last-run.json');
 const HUB_FILE = path.join(ROOT, 'opportunity-hub.html');
 const SUMMARY_DIR = path.join(ROOT, 'summaries');
+
+// Titles containing these phrases are aggregator articles, not individual opportunities — skip them
+const GARBAGE_PATTERNS = [
+  /^\d+ grants?\b/i,
+  /^\d+ funding/i,
+  /best grants in/i,
+  /list of grants/i,
+  /top \d+ /i,
+  /complete guide/i,
+  /how to apply for grants/i,
+  /free funding for/i,
+  /ongoing grants in nigeria/i,
+  /grants? and funding opportunities for/i,
+  /verified list/i,
+  /updated (monthly|weekly|daily)/i,
+];
 
 // Marker comment in opportunity-hub.html where new cards get injected
 const HUB_INSERT_MARKER = '<!-- SCRAPER_AUTO_INSERT -->';
@@ -31,70 +48,63 @@ const HUB_INSERT_MARKER = '<!-- SCRAPER_AUTO_INSERT -->';
 const TODAY = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
 // ─── Sources ──────────────────────────────────────────────────────────────────
-// Each source has a fetch strategy: 'rss', 'page', or 'manual'
+// RSS feeds from sites that publish individual opportunities (not aggregator lists)
 const SOURCES = [
   {
-    id: 'tef',
-    name: 'Tony Elumelu Foundation',
-    url: 'https://tonyelumelufoundation.org/tef-programme/',
-    strategy: 'page',
-    selector: 'h1, h2, h3',
-    keywords: ['application', 'programme', 'grant', 'fund', 'open', 'apply'],
-  },
-  {
-    id: 'boi',
-    name: 'Bank of Industry',
-    url: 'https://www.boi.ng/products/',
-    strategy: 'page',
-    selector: 'h2, h3, .product-title, .entry-title',
-    keywords: ['loan', 'fund', 'financing', 'grant', 'msme', 'sme'],
-  },
-  {
-    id: 'nirsal',
-    name: 'NIRSAL',
-    url: 'https://nirsal.com/products/',
-    strategy: 'page',
-    selector: 'h2, h3, .product-name',
-    keywords: ['facility', 'loan', 'fund', 'agriculture', 'agric'],
-  },
-  {
-    id: 'nitda',
-    name: 'NITDA',
-    url: 'https://nitda.gov.ng/ncc/',
-    strategy: 'page',
-    selector: 'h2, h3, a',
-    keywords: ['fund', 'grant', 'startup', 'tech', 'call', 'open'],
-  },
-  {
-    id: 'lsetf',
-    name: 'Lagos State Employment Trust Fund',
-    url: 'https://lsetf.ng/loan-and-grants',
-    strategy: 'page',
-    selector: 'h2, h3, .title',
-    keywords: ['loan', 'grant', 'fund', 'apply', 'open'],
-  },
-  {
-    id: 'smedan',
-    name: 'SMEDAN',
-    url: 'https://smedan.gov.ng/programmes/',
-    strategy: 'page',
-    selector: 'h2, h3, .entry-title',
-    keywords: ['programme', 'fund', 'grant', 'loan', 'support'],
-  },
-  // Google News RSS — catches press releases from CBN, FMITI, NDE, YouWiN
-  {
-    id: 'gnews-ng-funding',
-    name: 'Google News — Nigeria Funding',
-    url: 'https://news.google.com/rss/search?q=Nigeria+grant+fund+entrepreneurs+2025+OR+2026&hl=en-NG&gl=NG&ceid=NG:en',
+    id: 'msme-africa',
+    name: 'MSME Africa',
+    url: 'https://msmeafricaonline.com/feed/',
     strategy: 'rss',
-    keywords: ['grant', 'fund', 'loan', 'empowerment', 'sme', 'msme', 'startup', 'entrepreneur'],
+    keywords: ['grant', 'fund', 'loan', 'apply', 'call for applications', 'deadline', 'nigeria', 'entrepreneur', 'startup', 'sme', 'msme'],
   },
   {
-    id: 'gnews-cbn',
-    name: 'Google News — CBN Schemes',
-    url: 'https://news.google.com/rss/search?q=CBN+SMEDAN+BOI+Nigeria+SME+fund+2026&hl=en-NG&gl=NG&ceid=NG:en',
+    id: 'opportunity-desk',
+    name: 'Opportunity Desk',
+    url: 'https://opportunitydesk.org/feed/',
     strategy: 'rss',
-    keywords: ['cbn', 'smedan', 'boi', 'fund', 'grant', 'loan', 'nigeria'],
+    keywords: ['nigeria', 'africa', 'grant', 'fund', 'apply', 'call for applications', 'entrepreneur', 'startup', 'business'],
+  },
+  {
+    id: 'funds-for-ngos',
+    name: 'Funds for NGOs',
+    url: 'https://www2.fundsforngos.org/feed/',
+    strategy: 'rss',
+    keywords: ['nigeria', 'grant', 'fund', 'apply', 'entrepreneur', 'sme', 'business', 'startup'],
+  },
+  {
+    id: 'entrepreneurs-ng',
+    name: 'Entrepreneurs.ng',
+    url: 'https://entrepreneurs.ng/feed/',
+    strategy: 'rss',
+    keywords: ['grant', 'fund', 'loan', 'apply', 'call for applications', 'deadline', 'entrepreneur'],
+  },
+  {
+    id: 'nigeria-startup-act',
+    name: 'Nigeria Startup Act',
+    url: 'https://www.nigeriastartupact.ng/feed/',
+    strategy: 'rss',
+    keywords: ['grant', 'fund', 'apply', 'call for applications', 'deadline', 'startup', 'innovation'],
+  },
+  {
+    id: 'afterschool-africa',
+    name: 'Afterschool Africa',
+    url: 'https://www.afterschoolafrica.com/feed/',
+    strategy: 'rss',
+    keywords: ['nigeria', 'africa', 'grant', 'fund', 'apply', 'entrepreneur', 'startup', 'business', 'naira', '₦', '$'],
+  },
+  {
+    id: 'gnews-call-for-applications',
+    name: 'Google News — Call for Applications Nigeria',
+    url: 'https://news.google.com/rss/search?q=%22call+for+applications%22+%22Nigeria%22+%22grant%22+OR+%22fund%22+OR+%22naira%22&hl=en-NG&gl=NG&ceid=NG:en',
+    strategy: 'rss',
+    keywords: ['call for applications', 'apply now', 'grant', 'fund', 'nigeria'],
+  },
+  {
+    id: 'gnews-ng-deadline',
+    name: 'Google News — Nigeria Funding Deadlines',
+    url: 'https://news.google.com/rss/search?q=%22apply+now%22+%22Nigeria%22+%22deadline%22+%22grant+OR+fund+OR+startup%22&hl=en-NG&gl=NG&ceid=NG:en',
+    strategy: 'rss',
+    keywords: ['deadline', 'apply now', 'grant', 'fund', 'nigeria', 'startup', 'entrepreneur'],
   },
 ];
 
@@ -371,12 +381,19 @@ function generateCard(opp) {
 
 // ─── Main scraper logic ───────────────────────────────────────────────────────
 
+function isGarbage(title) {
+  return GARBAGE_PATTERNS.some((p) => p.test(title));
+}
+
 async function scrapeRSS(source) {
   console.log(`  [RSS] ${source.name}`);
   const xml = await fetch(source.url);
   const items = parseRSS(xml);
   const matches = items.filter((item) =>
-    containsKeywords(item.title + ' ' + item.desc, source.keywords)
+    containsKeywords(item.title + ' ' + item.desc, source.keywords) &&
+    !isGarbage(item.title) &&
+    item.title.length > 15 &&   // too short = probably a section heading
+    item.title.length < 180     // too long = probably a sentence
   );
   return matches.map((item) => ({
     id: slugify(item.title) + '-' + source.id,
@@ -465,6 +482,14 @@ async function main() {
     console.log(`\n📋 ${newManual.length} manual opportunities to publish`);
     discovered.push(...newManual);
   }
+
+  // Always write last-run.json — guarantees git always has something to commit
+  fs.writeFileSync(LAST_RUN_FILE, JSON.stringify({
+    lastRun: new Date().toISOString(),
+    date: TODAY,
+    newOpportunities: discovered.length,
+  }, null, 2), 'utf8');
+  console.log(`  💾 Updated data/last-run.json`);
 
   // Always update the "Last Run" date in opportunity-hub.html
   if (fs.existsSync(HUB_FILE)) {
