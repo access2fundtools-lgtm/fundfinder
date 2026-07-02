@@ -466,8 +466,22 @@ async function main() {
     discovered.push(...newManual);
   }
 
+  // Always update the "Last Run" date in opportunity-hub.html
+  if (fs.existsSync(HUB_FILE)) {
+    let hub = fs.readFileSync(HUB_FILE, 'utf8');
+    const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const now = new Date();
+    const dateStr = `${monthNames[now.getUTCMonth()]} ${now.getUTCDate()}`;
+    hub = hub.replace(
+      /(<div class="stat-num" id="last-run-date">)[^<]*/,
+      `$1${dateStr}`
+    );
+    fs.writeFileSync(HUB_FILE, hub, 'utf8');
+    console.log(`  📅 Updated "Last Run" date to ${dateStr}`);
+  }
+
   if (discovered.length === 0) {
-    console.log('\n✅ No new opportunities today — hub unchanged.\n');
+    console.log('\n✅ No new opportunities today — hub date updated.\n');
     // Still write a summary
     fs.writeFileSync(
       path.join(SUMMARY_DIR, `${TODAY}-summary.md`),
