@@ -22,7 +22,11 @@ echo.
 echo [4] Committing everything...
 git commit -m "bot: push all accumulated flyers and updates — %date%"
 
-echo [5] Pushing to GitHub (triggers Netlify auto-deploy)...
+echo [5] Pulling remote changes first (GitHub Actions may have pushed ahead)...
+git pull --rebase origin main
+echo     Done.
+
+echo [6] Pushing to GitHub (triggers Netlify auto-deploy)...
 git push origin main
 
 echo.
@@ -32,8 +36,13 @@ if %ERRORLEVEL% == 0 (
     echo  Netlify will now auto-deploy in ~1 minute.
     echo  Visit: https://app.netlify.com to confirm.
 ) else (
-    echo  PUSH FAILED. Check error above.
-    echo  Try running: git push --force origin main
+    echo  Normal push failed - trying force push...
+    git push --force origin main
+    if %ERRORLEVEL% == 0 (
+        echo  SUCCESS via force push!
+    ) else (
+        echo  FAILED. Contact support.
+    )
 )
 echo ============================================
 pause
