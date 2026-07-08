@@ -1,0 +1,1 @@
+2026-07-05 | Git push: ❌ SKIPPED — git index corrupted (stale rebase-merge state + locked index files on NTFS, cannot remove). Manual git repair needed on local repo. | GitHub Actions trigger: ✅ SUCCESS — daily-scrape.yml dispatched on main branch.

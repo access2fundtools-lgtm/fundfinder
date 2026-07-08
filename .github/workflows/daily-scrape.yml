@@ -44,5 +44,8 @@ jobs:
           else
             git commit -m "🤖 Daily funding update — $(date +'%Y-%m-%d')"
             git push
-            echo "✅ Pushed to GitHub — Netlify will auto-deploy."
+            echo "✅ Pushed to GitHub."
           fi
+
+      # 5. Cloudflare Pages auto-deploys whenever a push lands on main.
+      #    No explicit deploy step needed — the push in step 4 triggers it automatically.

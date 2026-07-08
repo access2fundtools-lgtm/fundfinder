@@ -10,802 +10,754 @@
     --bg: #0a0a0a; --surface: #111; --surface2: #1a1a1a; --surface3: #222;
     --border: rgba(255,255,255,0.08); --text: #f0f0f0;
     --muted: rgba(255,255,255,0.45); --gold: #FFD700;
-    --green: #22c55e; --red: #ef4444; --orange: #f97316;
-    --purple: #a78bfa; --blue: #60a5fa;
+    --green: #22c55e; --red: #ef4444;
   }
   body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-  /* NAV */
   nav { border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: rgba(10,10,10,0.96); backdrop-filter: blur(12px); z-index: 200; }
   .nav-logo { font-size: 18px; font-weight: 900; text-decoration: none; color: var(--text); }
   .nav-logo span { color: var(--gold); }
   .nav-right { display: flex; align-items: center; gap: 12px; }
-  .nav-credit-badge { background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.25); color: var(--gold); font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 20px; cursor: pointer; text-decoration: none; }
+  .nav-badge { background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.25); color: var(--gold); font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 20px; text-decoration: none; }
   .nav-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 8px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
   .nav-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
 
-  /* LAYOUT */
-  .page { max-width: 960px; margin: 0 auto; padding: 36px 24px 80px; display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+  .page { max-width: 960px; margin: 0 auto; padding: 36px 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 24px; }
   @media (max-width: 768px) { .page { grid-template-columns: 1fr; } }
 
-  /* LEFT COLUMN */
   .page-title { font-size: 26px; font-weight: 900; margin-bottom: 6px; }
   .page-title span { color: var(--gold); }
   .page-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
 
-  /* PROFILE SECTION CARD */
-  .section-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; margin-bottom: 16px; overflow: hidden;
-    transition: border-color 0.2s;
-  }
-  .section-card.active { border-color: rgba(255,215,0,0.35); }
-  .section-head {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 22px; cursor: pointer; user-select: none;
-  }
+  /* SECTION CARDS */
+  .section-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 16px; overflow: hidden; transition: border-color 0.3s; }
+  .section-card.saved { border-color: rgba(34,197,94,0.5); }
+  .section-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; cursor: pointer; user-select: none; }
   .section-head-left { display: flex; align-items: center; gap: 12px; }
   .section-icon { font-size: 20px; width: 36px; text-align: center; flex-shrink: 0; }
   .section-title-text { font-size: 15px; font-weight: 700; }
   .section-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
   .section-head-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-
-  /* Status dots */
   .status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .dot-complete { background: var(--green); box-shadow: 0 0 6px rgba(34,197,94,0.5); }
-  .dot-partial  { background: var(--gold); box-shadow: 0 0 6px rgba(255,215,0,0.5); }
-  .dot-empty    { background: var(--red);  box-shadow: 0 0 6px rgba(239,68,68,0.5); }
+  .dot-partial  { background: var(--gold);  box-shadow: 0 0 6px rgba(255,215,0,0.5); }
+  .dot-empty    { background: var(--red);   box-shadow: 0 0 6px rgba(239,68,68,0.4); }
+  .chevron { color: var(--muted); font-size: 14px; transition: transform 0.2s; }
+  .section-card.open > .section-head .chevron { transform: rotate(180deg); }
 
-  /* Edit with AI chip */
-  .edit-chip {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(255,215,0,0.07); border: 1px solid rgba(255,215,0,0.25);
-    color: var(--gold); font-size: 11px; font-weight: 700;
-    padding: 5px 12px; border-radius: 20px; cursor: pointer;
-    transition: all 0.2s; white-space: nowrap;
+  /* FORM */
+  .section-body { display: none; padding: 0 22px 24px; border-top: 1px solid var(--border); }
+  .section-card.open > .section-body { display: block; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 20px; }
+  @media (max-width: 500px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+  .form-input, .form-select, .form-textarea {
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text); font-size: 14px; padding: 10px 14px;
+    border-radius: 10px; outline: none; transition: border-color 0.2s; font-family: inherit; width: 100%;
   }
-  .edit-chip:hover { background: rgba(255,215,0,0.14); border-color: rgba(255,215,0,0.5); }
-  .edit-chip svg { width: 12px; height: 12px; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: rgba(255,215,0,0.4); }
+  .form-select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='rgba(255,255,255,0.35)' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+  .form-select option { background: #1a1a1a; }
+  .form-textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
 
-  /* Section content (fields grid) */
-  .section-body { padding: 0 22px 20px; border-top: 1px solid var(--border); }
-  .fields-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 18px; }
-  @media (max-width: 500px) { .fields-grid { grid-template-columns: 1fr; } }
-  .field { }
-  .field-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-  .field-value { font-size: 14px; font-weight: 600; color: var(--text); }
-  .field-value.empty { color: rgba(255,255,255,0.2); font-style: italic; font-weight: 400; }
-  .field-full { grid-column: 1 / -1; }
+  .toggle-field { display: flex; align-items: center; justify-content: space-between; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; }
+  .toggle-field-label { font-size: 14px; color: var(--text); }
+  .toggle { position: relative; width: 42px; height: 23px; flex-shrink: 0; }
+  .toggle input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider { position: absolute; cursor: pointer; inset: 0; background: var(--surface3); border-radius: 23px; transition: 0.2s; border: 1px solid var(--border); }
+  .toggle-slider:before { content:""; position:absolute; height:17px; width:17px; left:2px; bottom:2px; background:var(--muted); border-radius:50%; transition:0.2s; }
+  .toggle input:checked + .toggle-slider { background: rgba(255,215,0,0.15); border-color: rgba(255,215,0,0.4); }
+  .toggle input:checked + .toggle-slider:before { transform:translateX(19px); background:var(--gold); }
 
-  /* AI EDIT PANEL */
-  .ai-panel {
-    background: #0a1200; border: 1px solid rgba(255,215,0,0.3);
-    border-radius: 12px; padding: 18px; margin: 0 22px 20px;
-    display: none;
-  }
-  .ai-panel.open { display: block; }
-  .ai-panel-label { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .ai-panel-label .pulse { width: 8px; height: 8px; background: var(--green); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.3)} }
+  .save-row { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .save-btn { background: var(--gold); color: #000; font-size: 13px; font-weight: 900; padding: 11px 28px; border-radius: 10px; border: none; cursor: pointer; transition: opacity 0.2s; display: flex; align-items: center; gap: 8px; }
+  .save-btn:hover { opacity: 0.85; }
+  .save-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .save-status { font-size: 13px; color: var(--muted); }
+  .save-status.ok  { color: var(--green); }
+  .save-status.err { color: var(--red); }
 
-  .ai-suggestions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-  .ai-suggestion { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-size: 12px; padding: 5px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
-  .ai-suggestion:hover { border-color: rgba(255,215,0,0.3); color: var(--gold); }
-
-  .ai-input-row { display: flex; gap: 10px; }
-  .ai-input {
-    flex: 1; background: var(--surface2); border: 1px solid rgba(255,215,0,0.2);
-    color: var(--text); font-size: 14px; padding: 11px 16px; border-radius: 10px;
-    outline: none; transition: border-color 0.2s;
-  }
-  .ai-input:focus { border-color: rgba(255,215,0,0.5); }
-  .ai-input::placeholder { color: var(--muted); }
-  .ai-send-btn {
-    background: var(--gold); color: #000; font-size: 13px; font-weight: 900;
-    padding: 11px 18px; border-radius: 10px; border: none; cursor: pointer;
-    transition: opacity 0.2s; white-space: nowrap;
-  }
-  .ai-send-btn:hover { opacity: 0.85; }
-  .ai-send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-  .ai-response { background: var(--surface2); border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 13px; line-height: 1.6; display: none; }
-  .ai-response.show { display: block; }
-  .ai-response-actions { display: flex; gap: 10px; margin-top: 12px; }
-  .btn-accept { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: var(--green); font-size: 12px; font-weight: 700; padding: 7px 16px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
-  .btn-accept:hover { background: rgba(34,197,94,0.18); }
-  .btn-discard { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 12px; font-weight: 600; padding: 7px 16px; border-radius: 8px; cursor: pointer; }
-
-  /* RIGHT COLUMN: Profile score + preferences */
-  .sidebar { }
-
+  /* SIDEBAR */
   .score-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 16px; }
-  .score-title { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .card-title { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
   .score-circle-wrap { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
-  .score-circle { width: 72px; height: 72px; border-radius: 50%; background: conic-gradient(var(--gold) 0% 72%, var(--surface2) 72% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; }
-  .score-circle::before { content: ''; position: absolute; width: 54px; height: 54px; background: var(--surface); border-radius: 50%; }
+  .score-circle { width: 72px; height: 72px; border-radius: 50%; background: conic-gradient(var(--gold) 0% 0%, var(--surface2) 0% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; transition: background 0.4s; }
+  .score-circle::before { content:''; position:absolute; width:54px; height:54px; background:var(--surface); border-radius:50%; }
   .score-num { font-size: 20px; font-weight: 900; color: var(--gold); position: relative; z-index: 1; }
   .score-info-title { font-size: 15px; font-weight: 800; }
   .score-info-sub { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
-
   .score-items { display: flex; flex-direction: column; gap: 10px; }
   .score-item { display: flex; align-items: center; gap: 10px; font-size: 13px; }
-  .score-item-icon { width: 20px; text-align: center; font-size: 14px; flex-shrink: 0; }
+  .score-item-icon { width: 20px; text-align: center; }
   .score-item-text { flex: 1; color: var(--muted); }
   .score-item-val { font-size: 12px; font-weight: 700; }
-  .val-done { color: var(--green); }
-  .val-warn { color: var(--gold); }
-  .val-miss { color: var(--red); }
+  .val-done { color: var(--green); } .val-warn { color: var(--gold); } .val-miss { color: var(--red); }
 
-  /* PREFERENCES CARD */
   .pref-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; margin-bottom: 16px; }
-  .pref-title { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-
-  .pref-mode-row { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
-  .pref-option { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: all 0.2s; }
+  .pref-option { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; cursor: pointer; margin-bottom: 8px; transition: all 0.2s; }
   .pref-option.selected { border-color: rgba(255,215,0,0.4); background: rgba(255,215,0,0.04); }
-  .pref-option input[type="radio"] { display: none; }
   .pref-option-title { font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
-  .pref-option-title .radio-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; transition: all 0.2s; }
+  .radio-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; transition: all 0.2s; }
   .pref-option.selected .radio-dot { border-color: var(--gold); background: var(--gold); }
   .pref-option-desc { font-size: 11px; color: var(--muted); line-height: 1.4; padding-left: 22px; }
-
   .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--border); }
   .toggle-label-text { font-size: 13px; font-weight: 600; }
-  .toggle-sub-text { font-size: 11px; color: var(--muted); margin-top: 1px; }
-  .toggle { position: relative; width: 42px; height: 23px; flex-shrink: 0; }
-  .toggle input { opacity: 0; width: 0; height: 0; }
-  .toggle-slider { position: absolute; cursor: pointer; inset: 0; background: var(--surface2); border-radius: 23px; transition: 0.2s; border: 1px solid var(--border); }
-  .toggle-slider:before { content: ""; position: absolute; height: 17px; width: 17px; left: 2px; bottom: 2px; background: var(--muted); border-radius: 50%; transition: 0.2s; }
-  .toggle input:checked + .toggle-slider { background: rgba(255,215,0,0.15); border-color: rgba(255,215,0,0.4); }
-  .toggle input:checked + .toggle-slider:before { transform: translateX(19px); background: var(--gold); }
+  .toggle-sub { font-size: 11px; color: var(--muted); }
 
-  /* MATCHES CARD */
   .matches-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
-  .matches-title { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
-  .match-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .match-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
   .match-row:last-child { border-bottom: none; }
-  .match-name { font-size: 13px; font-weight: 600; max-width: 160px; }
-  .match-score { font-size: 12px; font-weight: 800; padding: 3px 10px; border-radius: 20px; }
-  .match-high  { background: rgba(34,197,94,0.1); color: var(--green); }
-  .match-med   { background: rgba(255,215,0,0.1); color: var(--gold); }
+  .match-badge { font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 20px; flex-shrink: 0; }
+  .badge-high { background: rgba(34,197,94,0.12); color: var(--green); }
+  .badge-med  { background: rgba(255,215,0,0.12); color: var(--gold); }
+  .match-name { font-size: 12px; font-weight: 600; flex: 1; line-height: 1.3; }
 
-  /* Spinner */
   @keyframes spin { to { transform: rotate(360deg); } }
-  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,215,0,0.2); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 6px; }
-
-  .loading-overlay { text-align: center; padding: 60px; color: var(--muted); font-size: 14px; }
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(0,0,0,0.2); border-top-color: #000; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; }
+  .loading-state { text-align: center; padding: 80px; color: var(--muted); font-size: 14px; }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="opportunity-hub.html" class="nav-logo">Fund<span>Finder</span> AI</a>
+  <a href="fundfinder-dashboard.html" class="nav-logo">Fund<span>Finder</span> AI</a>
   <div class="nav-right">
-    <a href="fundfinder-wallet.html" class="nav-credit-badge" id="creditBadge">💳 — credits</a>
-    <a href="fundfinder-chat.html" class="nav-btn">🤖 Chat</a>
+    <a href="fundfinder-wallet.html" class="nav-badge" id="creditBadge">💳 — credits</a>
+    <a href="fundfinder-dashboard.html" class="nav-btn">Dashboard</a>
     <a href="opportunity-hub.html" class="nav-btn">Browse</a>
     <button class="nav-btn" onclick="handleLogout()">Log Out</button>
   </div>
 </nav>
 
-<div id="loadingOverlay" class="loading-overlay">Loading your profile…</div>
+<div id="loadingState" class="loading-state">Loading your profile…</div>
 
 <div class="page" id="mainPage" style="display:none;">
 
-  <!-- LEFT: Profile sections -->
+  <!-- LEFT: Editable sections -->
   <div>
     <div class="page-title">Your <span>Profile</span></div>
-    <p class="page-sub">A stronger profile = more accurate matches. Each section takes 30 seconds to complete.</p>
+    <p class="page-sub">Fill each section and tap Save — your matches update automatically.</p>
 
-    <!-- ── SECTION 1: Personal Info ── -->
-    <div class="section-card" id="sec-personal">
+    <!-- PERSONAL -->
+    <div class="section-card open" id="sec-personal">
       <div class="section-head" onclick="toggleSection('personal')">
         <div class="section-head-left">
           <div class="section-icon">👤</div>
           <div>
             <div class="section-title-text">Personal Information</div>
-            <div class="section-subtitle" id="sub-personal">Name · Contact · Location</div>
+            <div class="section-subtitle">Name · Contact · Age · Gender · Location</div>
           </div>
         </div>
         <div class="section-head-right">
-          <div class="status-dot dot-partial" id="dot-personal"></div>
-          <div class="edit-chip" onclick="openAI(event,'personal')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            Edit with AI
-          </div>
+          <div class="status-dot dot-empty" id="dot-personal"></div>
+          <span class="chevron">▾</span>
         </div>
       </div>
-      <div class="section-body" id="body-personal" style="display:none;">
-        <div class="fields-grid">
-          <div class="field"><div class="field-label">Full Name</div><div class="field-value" id="f-fullName">—</div></div>
-          <div class="field"><div class="field-label">Email</div><div class="field-value" id="f-email">—</div></div>
-          <div class="field"><div class="field-label">WhatsApp</div><div class="field-value" id="f-whatsapp">—</div></div>
-          <div class="field"><div class="field-label">State / City</div><div class="field-value empty" id="f-location">Not set</div></div>
-          <div class="field"><div class="field-label">Age Range</div><div class="field-value empty" id="f-age">Not set</div></div>
-          <div class="field"><div class="field-label">Gender</div><div class="field-value empty" id="f-gender">Not set</div></div>
-        </div>
-      </div>
-      <div class="ai-panel" id="ai-personal">
-        <div class="ai-panel-label"><span class="pulse"></span>FundFinder AI — Personal Info</div>
-        <div class="ai-suggestions">
-          <span class="ai-suggestion" onclick="fillPrompt('personal','I am based in Lagos, Ikeja')">📍 Add my location</span>
-          <span class="ai-suggestion" onclick="fillPrompt('personal','I am between 26-35 years old, male')">🪪 Add age & gender</span>
-          <span class="ai-suggestion" onclick="fillPrompt('personal','Update my WhatsApp to +234...')">📱 Update WhatsApp</span>
-        </div>
-        <div class="ai-input-row">
-          <input class="ai-input" id="input-personal" placeholder="e.g. I'm based in Abuja, I'm 28, female…" onkeydown="if(event.key==='Enter') sendAI('personal')">
-          <button class="ai-send-btn" id="btn-personal" onclick="sendAI('personal')">Update →</button>
-        </div>
-        <div class="ai-response" id="resp-personal">
-          <div id="resp-text-personal"></div>
-          <div class="ai-response-actions">
-            <button class="btn-accept" onclick="applyUpdate('personal')">✅ Apply Changes</button>
-            <button class="btn-discard" onclick="closeAI('personal')">Discard</button>
+      <div class="section-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input class="form-input" id="p-fullName" type="text" placeholder="e.g. Amaka Okonkwo">
           </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp Number</label>
+            <input class="form-input" id="p-whatsapp" type="tel" placeholder="+234 801 234 5678">
+          </div>
+          <div class="form-group">
+            <label class="form-label">State of Residence</label>
+            <select class="form-select" id="p-location">
+              <option value="">— Select state —</option>
+              <option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option>
+              <option>Bauchi</option><option>Bayelsa</option><option>Benue</option><option>Borno</option>
+              <option>Cross River</option><option>Delta</option><option>Ebonyi</option><option>Edo</option>
+              <option>Ekiti</option><option>Enugu</option><option>FCT — Abuja</option><option>Gombe</option>
+              <option>Imo</option><option>Jigawa</option><option>Kaduna</option><option>Kano</option>
+              <option>Katsina</option><option>Kebbi</option><option>Kogi</option><option>Kwara</option>
+              <option>Lagos</option><option>Nasarawa</option><option>Niger</option><option>Ogun</option>
+              <option>Ondo</option><option>Osun</option><option>Oyo</option><option>Plateau</option>
+              <option>Rivers</option><option>Sokoto</option><option>Taraba</option><option>Yobe</option>
+              <option>Zamfara</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">City / LGA</label>
+            <input class="form-input" id="p-city" type="text" placeholder="e.g. Ikeja">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Age Range</label>
+            <select class="form-select" id="p-age">
+              <option value="">— Select —</option>
+              <option value="18-25">18 – 25</option>
+              <option value="26-35">26 – 35</option>
+              <option value="36-45">36 – 45</option>
+              <option value="46+">46 and above</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Gender</label>
+            <select class="form-select" id="p-gender">
+              <option value="">— Select —</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Prefer not to say</option>
+            </select>
+          </div>
+        </div>
+        <div class="save-row">
+          <span class="save-status" id="status-personal"></span>
+          <button class="save-btn" id="btn-personal" onclick="saveSection('personal')">Save Personal Info</button>
         </div>
       </div>
     </div>
 
-    <!-- ── SECTION 2: Business Info ── -->
+    <!-- BUSINESS -->
     <div class="section-card" id="sec-business">
       <div class="section-head" onclick="toggleSection('business')">
         <div class="section-head-left">
           <div class="section-icon">🏢</div>
           <div>
             <div class="section-title-text">Business Information</div>
-            <div class="section-subtitle" id="sub-business">Sector · Stage · Registration · Revenue</div>
+            <div class="section-subtitle">Sector · Stage · Registration · Revenue</div>
           </div>
         </div>
         <div class="section-head-right">
           <div class="status-dot dot-empty" id="dot-business"></div>
-          <div class="edit-chip" onclick="openAI(event,'business')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            Edit with AI
-          </div>
+          <span class="chevron">▾</span>
         </div>
       </div>
-      <div class="section-body" id="body-business" style="display:none;">
-        <div class="fields-grid">
-          <div class="field"><div class="field-label">Business Name</div><div class="field-value empty" id="f-bizName">Not set</div></div>
-          <div class="field"><div class="field-label">Sector</div><div class="field-value empty" id="f-bizSector">Not set</div></div>
-          <div class="field"><div class="field-label">Stage</div><div class="field-value empty" id="f-bizStage">Not set</div></div>
-          <div class="field"><div class="field-label">Years Operating</div><div class="field-value empty" id="f-bizYears">Not set</div></div>
-          <div class="field"><div class="field-label">Team Size</div><div class="field-value empty" id="f-bizTeam">Not set</div></div>
-          <div class="field"><div class="field-label">CAC Registered</div><div class="field-value empty" id="f-bizReg">Not set</div></div>
-          <div class="field"><div class="field-label">Annual Revenue</div><div class="field-value empty" id="f-bizRevenue">Not set</div></div>
-          <div class="field"><div class="field-label">State / LGA</div><div class="field-value empty" id="f-bizLocation">Not set</div></div>
-        </div>
-      </div>
-      <div class="ai-panel" id="ai-business">
-        <div class="ai-panel-label"><span class="pulse"></span>FundFinder AI — Business Info</div>
-        <div class="ai-suggestions">
-          <span class="ai-suggestion" onclick="fillPrompt('business','My business is a fashion tech startup in Lagos, 3 years old, 5 staff, CAC registered')">🚀 Quick setup</span>
-          <span class="ai-suggestion" onclick="fillPrompt('business','Update team size to 8 people')">👥 Update team</span>
-          <span class="ai-suggestion" onclick="fillPrompt('business','We are now in the growth stage with ₦5M annual revenue')">📈 Update stage</span>
-        </div>
-        <div class="ai-input-row">
-          <input class="ai-input" id="input-business" placeholder="e.g. My business is a food processing SME in Kano, 4 years, CAC registered…" onkeydown="if(event.key==='Enter') sendAI('business')">
-          <button class="ai-send-btn" id="btn-business" onclick="sendAI('business')">Update →</button>
-        </div>
-        <div class="ai-response" id="resp-business">
-          <div id="resp-text-business"></div>
-          <div class="ai-response-actions">
-            <button class="btn-accept" onclick="applyUpdate('business')">✅ Apply Changes</button>
-            <button class="btn-discard" onclick="closeAI('business')">Discard</button>
+      <div class="section-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Business Name</label>
+            <input class="form-input" id="b-name" type="text" placeholder="e.g. AgroFresh Nigeria Ltd">
           </div>
+          <div class="form-group">
+            <label class="form-label">Sector / Industry</label>
+            <select class="form-select" id="b-sector">
+              <option value="">— Select sector —</option>
+              <option value="agriculture">Agriculture / Agri-tech</option>
+              <option value="technology">Technology / Software</option>
+              <option value="fashion">Fashion / Clothing / Textiles</option>
+              <option value="food">Food Processing / Catering</option>
+              <option value="health">Health / Medical / Pharma</option>
+              <option value="education">Education / EdTech</option>
+              <option value="creative">Creative Arts / Media</option>
+              <option value="finance">Finance / Fintech</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="retail">Retail / E-commerce</option>
+              <option value="energy">Energy / Cleantech</option>
+              <option value="construction">Construction / Real Estate</option>
+              <option value="logistics">Logistics / Transport</option>
+              <option value="services">Professional Services</option>
+              <option value="ngo">NGO / Non-profit</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Business Stage</label>
+            <select class="form-select" id="b-stage">
+              <option value="">— Select stage —</option>
+              <option value="idea">Idea / Pre-launch</option>
+              <option value="startup">Early Startup (pre-revenue)</option>
+              <option value="early">Early Revenue (0–2 years)</option>
+              <option value="growth">Growth Stage (2–5 years)</option>
+              <option value="established">Established (5+ years)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Years Operating</label>
+            <select class="form-select" id="b-years">
+              <option value="">— Select —</option>
+              <option value="0">Less than 1 year</option>
+              <option value="1">1 year</option>
+              <option value="2">2 years</option>
+              <option value="3">3 years</option>
+              <option value="4">4 years</option>
+              <option value="5">5 years</option>
+              <option value="7">6–10 years</option>
+              <option value="10">10+ years</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Team Size</label>
+            <select class="form-select" id="b-team">
+              <option value="">— Select —</option>
+              <option value="solo">Solo founder</option>
+              <option value="2-5">2 – 5 people</option>
+              <option value="6-20">6 – 20 people</option>
+              <option value="21-50">21 – 50 people</option>
+              <option value="50+">50+ people</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Annual Revenue (approx.)</label>
+            <select class="form-select" id="b-revenue">
+              <option value="">— Select —</option>
+              <option value="pre-revenue">Pre-revenue (₦0)</option>
+              <option value="under-1m">Under ₦1 million</option>
+              <option value="1m-5m">₦1M – ₦5M</option>
+              <option value="5m-20m">₦5M – ₦20M</option>
+              <option value="20m-100m">₦20M – ₦100M</option>
+              <option value="100m+">₦100M+</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">CAC Registration</label>
+            <div class="toggle-field">
+              <span class="toggle-field-label">Business is CAC registered</span>
+              <label class="toggle"><input type="checkbox" id="b-registered"><span class="toggle-slider"></span></label>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">What will you use funding for?</label>
+            <textarea class="form-textarea" id="b-purpose" placeholder="e.g. Purchase cold storage equipment, hire 3 processors, expand to Abuja…"></textarea>
+          </div>
+        </div>
+        <div class="save-row">
+          <span class="save-status" id="status-business"></span>
+          <button class="save-btn" id="btn-business" onclick="saveSection('business')">Save Business Info</button>
         </div>
       </div>
     </div>
 
-    <!-- ── SECTION 3: Academic / Student ── -->
+    <!-- ACADEMIC -->
     <div class="section-card" id="sec-academic">
       <div class="section-head" onclick="toggleSection('academic')">
         <div class="section-head-left">
           <div class="section-icon">🎓</div>
           <div>
             <div class="section-title-text">Academic / Student Profile</div>
-            <div class="section-subtitle" id="sub-academic">For scholarships &amp; fellowships — skip if not applicable</div>
+            <div class="section-subtitle">For scholarships & fellowships — skip if not applicable</div>
           </div>
         </div>
         <div class="section-head-right">
           <div class="status-dot dot-empty" id="dot-academic"></div>
-          <div class="edit-chip" onclick="openAI(event,'academic')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            Edit with AI
-          </div>
+          <span class="chevron">▾</span>
         </div>
       </div>
-      <div class="section-body" id="body-academic" style="display:none;">
-        <div class="fields-grid">
-          <div class="field"><div class="field-label">Level</div><div class="field-value empty" id="f-acaLevel">Not set</div></div>
-          <div class="field"><div class="field-label">Field of Study</div><div class="field-value empty" id="f-acaField">Not set</div></div>
-          <div class="field"><div class="field-label">Institution</div><div class="field-value empty" id="f-acaInstitution">Not set</div></div>
-          <div class="field"><div class="field-label">Expected Graduation</div><div class="field-value empty" id="f-acaGrad">Not set</div></div>
-          <div class="field"><div class="field-label">GPA / Class</div><div class="field-value empty" id="f-acaGpa">Not set</div></div>
-          <div class="field"><div class="field-label">Country of Interest</div><div class="field-value empty" id="f-acaCountry">Not set</div></div>
-        </div>
-      </div>
-      <div class="ai-panel" id="ai-academic">
-        <div class="ai-panel-label"><span class="pulse"></span>FundFinder AI — Academic Profile</div>
-        <div class="ai-suggestions">
-          <span class="ai-suggestion" onclick="fillPrompt('academic','I am a final year Computer Science student at UNILAG, graduating 2026, second class upper')">📖 Quick setup</span>
-          <span class="ai-suggestion" onclick="fillPrompt('academic','I am interested in scholarships in the UK and Canada')">🌍 Target countries</span>
-        </div>
-        <div class="ai-input-row">
-          <input class="ai-input" id="input-academic" placeholder="e.g. I'm a Masters student in Public Health at UNIABUJA, graduating 2026…" onkeydown="if(event.key==='Enter') sendAI('academic')">
-          <button class="ai-send-btn" id="btn-academic" onclick="sendAI('academic')">Update →</button>
-        </div>
-        <div class="ai-response" id="resp-academic">
-          <div id="resp-text-academic"></div>
-          <div class="ai-response-actions">
-            <button class="btn-accept" onclick="applyUpdate('academic')">✅ Apply Changes</button>
-            <button class="btn-discard" onclick="closeAI('academic')">Discard</button>
+      <div class="section-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Study Level</label>
+            <select class="form-select" id="a-level">
+              <option value="">— Select —</option>
+              <option value="undergraduate">Undergraduate (OND / HND / BSc)</option>
+              <option value="postgraduate">Postgraduate (MSc / MBA / PGD)</option>
+              <option value="phd">PhD / Doctorate</option>
+              <option value="not-student">Not currently a student</option>
+            </select>
           </div>
+          <div class="form-group">
+            <label class="form-label">Field of Study</label>
+            <input class="form-input" id="a-field" type="text" placeholder="e.g. Agricultural Economics">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Institution</label>
+            <input class="form-input" id="a-institution" type="text" placeholder="e.g. University of Lagos">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Expected Graduation Year</label>
+            <input class="form-input" id="a-grad" type="number" placeholder="e.g. 2027" min="2024" max="2035">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Countries of interest (for scholarships)</label>
+            <input class="form-input" id="a-countries" type="text" placeholder="e.g. UK, Canada, USA, Germany">
+          </div>
+        </div>
+        <div class="save-row">
+          <span class="save-status" id="status-academic"></span>
+          <button class="save-btn" id="btn-academic" onclick="saveSection('academic')">Save Academic Info</button>
         </div>
       </div>
     </div>
 
-    <!-- ── SECTION 4: Funding History ── -->
-    <div class="section-card" id="sec-funding">
-      <div class="section-head" onclick="toggleSection('funding')">
-        <div class="section-head-left">
-          <div class="section-icon">💰</div>
-          <div>
-            <div class="section-title-text">Funding &amp; Application History</div>
-            <div class="section-subtitle" id="sub-funding">Past grants received · Applications in progress</div>
-          </div>
-        </div>
-        <div class="section-head-right">
-          <div class="status-dot dot-empty" id="dot-funding"></div>
-          <div class="edit-chip" onclick="openAI(event,'funding')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            Edit with AI
-          </div>
-        </div>
-      </div>
-      <div class="section-body" id="body-funding" style="display:none;">
-        <div class="fields-grid">
-          <div class="field field-full"><div class="field-label">Past Grants / Funding Received</div><div class="field-value empty" id="f-fundHistory">Not set — telling us this improves match quality</div></div>
-          <div class="field"><div class="field-label">Total Funding Received</div><div class="field-value empty" id="f-fundTotal">Not set</div></div>
-          <div class="field"><div class="field-label">Currently Applying To</div><div class="field-value empty" id="f-fundCurrent">Not set</div></div>
-          <div class="field field-full"><div class="field-label">What will you use funding for?</div><div class="field-value empty" id="f-fundPurpose">Not set</div></div>
-        </div>
-      </div>
-      <div class="ai-panel" id="ai-funding">
-        <div class="ai-panel-label"><span class="pulse"></span>FundFinder AI — Funding History</div>
-        <div class="ai-suggestions">
-          <span class="ai-suggestion" onclick="fillPrompt('funding','I received a Tony Elumelu grant in 2022 and a SMEDAN loan in 2023')">📋 Add past grants</span>
-          <span class="ai-suggestion" onclick="fillPrompt('funding','I want to use funding to buy equipment and hire 3 more staff')">🎯 Add purpose</span>
-        </div>
-        <div class="ai-input-row">
-          <input class="ai-input" id="input-funding" placeholder="e.g. I got a ₦1M MSME grant in 2023 and I need ₦5M to expand…" onkeydown="if(event.key==='Enter') sendAI('funding')">
-          <button class="ai-send-btn" id="btn-funding" onclick="sendAI('funding')">Update →</button>
-        </div>
-        <div class="ai-response" id="resp-funding">
-          <div id="resp-text-funding"></div>
-          <div class="ai-response-actions">
-            <button class="btn-accept" onclick="applyUpdate('funding')">✅ Apply Changes</button>
-            <button class="btn-discard" onclick="closeAI('funding')">Discard</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── SECTION 5: Documents ── -->
+    <!-- DOCUMENTS -->
     <div class="section-card" id="sec-docs">
       <div class="section-head" onclick="toggleSection('docs')">
         <div class="section-head-left">
           <div class="section-icon">📄</div>
           <div>
-            <div class="section-title-text">Documents &amp; ID</div>
-            <div class="section-subtitle" id="sub-docs">CAC · NIN · Bank details — for auto-application pre-fill</div>
+            <div class="section-title-text">Documents & IDs</div>
+            <div class="section-subtitle">For application pre-fill — stored securely</div>
           </div>
         </div>
         <div class="section-head-right">
           <div class="status-dot dot-empty" id="dot-docs"></div>
-          <div class="edit-chip" onclick="openAI(event,'docs')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            Edit with AI
-          </div>
+          <span class="chevron">▾</span>
         </div>
       </div>
-      <div class="section-body" id="body-docs" style="display:none;">
-        <div class="fields-grid">
-          <div class="field"><div class="field-label">CAC Number</div><div class="field-value empty" id="f-docCac">Not set</div></div>
-          <div class="field"><div class="field-label">NIN</div><div class="field-value empty" id="f-docNin">Not set</div></div>
-          <div class="field"><div class="field-label">BVN (last 4 digits)</div><div class="field-value empty" id="f-docBvn">Not set</div></div>
-          <div class="field"><div class="field-label">Bank Name</div><div class="field-value empty" id="f-docBank">Not set</div></div>
-        </div>
-        <p style="font-size:12px; color:rgba(255,255,255,0.25); margin-top:14px; line-height:1.5;">🔒 Stored encrypted. Used only to pre-fill application forms on your behalf. Never shared with third parties.</p>
-      </div>
-      <div class="ai-panel" id="ai-docs">
-        <div class="ai-panel-label"><span class="pulse"></span>FundFinder AI — Documents</div>
-        <div class="ai-suggestions">
-          <span class="ai-suggestion" onclick="fillPrompt('docs','My CAC number is RC123456, my bank is GTBank')">📋 Add CAC & bank</span>
-        </div>
-        <div class="ai-input-row">
-          <input class="ai-input" id="input-docs" placeholder="e.g. My CAC number is RC123456, my bank is GTBank…" onkeydown="if(event.key==='Enter') sendAI('docs')">
-          <button class="ai-send-btn" id="btn-docs" onclick="sendAI('docs')">Update →</button>
-        </div>
-        <div class="ai-response" id="resp-docs">
-          <div id="resp-text-docs"></div>
-          <div class="ai-response-actions">
-            <button class="btn-accept" onclick="applyUpdate('docs')">✅ Apply Changes</button>
-            <button class="btn-discard" onclick="closeAI('docs')">Discard</button>
+      <div class="section-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">CAC Number</label>
+            <input class="form-input" id="d-cac" type="text" placeholder="e.g. RC1234567">
           </div>
+          <div class="form-group">
+            <label class="form-label">Bank Name</label>
+            <select class="form-select" id="d-bank">
+              <option value="">— Select bank —</option>
+              <option>Access Bank</option><option>Fidelity Bank</option><option>First Bank</option>
+              <option>FCMB</option><option>GTBank</option><option>Keystone Bank</option>
+              <option>Kuda Bank</option><option>Moniepoint</option><option>OPay</option>
+              <option>Palmpay</option><option>Polaris Bank</option><option>Stanbic IBTC</option>
+              <option>Sterling Bank</option><option>Union Bank</option><option>UBA</option>
+              <option>Unity Bank</option><option>Wema Bank</option><option>Zenith Bank</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">NIN (optional)</label>
+            <input class="form-input" id="d-nin" type="text" placeholder="11-digit NIN">
+          </div>
+          <div class="form-group">
+            <label class="form-label">BVN — last 4 digits only</label>
+            <input class="form-input" id="d-bvn" type="text" placeholder="e.g. 7823" maxlength="4">
+          </div>
+        </div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:14px;line-height:1.5;">🔒 Stored encrypted. Used only to pre-fill application forms. Never shared with third parties.</p>
+        <div class="save-row">
+          <span class="save-status" id="status-docs"></span>
+          <button class="save-btn" id="btn-docs" onclick="saveSection('docs')">Save Documents</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- RIGHT: Sidebar -->
-  <div class="sidebar">
+  <div>
 
-    <!-- Profile Score -->
     <div class="score-card">
-      <div class="score-title">Profile Score</div>
+      <div class="card-title">Profile Score</div>
       <div class="score-circle-wrap">
-        <div class="score-circle"><span class="score-num" id="scoreNum">0%</span></div>
+        <div class="score-circle" id="scoreCircle"><span class="score-num" id="scoreNum">0%</span></div>
         <div>
           <div class="score-info-title" id="scoreLabel">Just getting started</div>
-          <div class="score-info-sub" id="scoreSub">Complete your profile to unlock more accurate funding matches.</div>
+          <div class="score-info-sub" id="scoreSub">Fill each section to unlock funding matches.</div>
         </div>
       </div>
       <div class="score-items">
-        <div class="score-item"><span class="score-item-icon">👤</span><span class="score-item-text">Personal info</span><span class="score-item-val val-warn" id="si-personal">Partial</span></div>
+        <div class="score-item"><span class="score-item-icon">👤</span><span class="score-item-text">Personal info</span><span class="score-item-val val-miss" id="si-personal">Missing</span></div>
         <div class="score-item"><span class="score-item-icon">🏢</span><span class="score-item-text">Business info</span><span class="score-item-val val-miss" id="si-business">Missing</span></div>
-        <div class="score-item"><span class="score-item-icon">🎓</span><span class="score-item-text">Academic profile</span><span class="score-item-val val-miss" id="si-academic">Missing</span></div>
-        <div class="score-item"><span class="score-item-icon">💰</span><span class="score-item-text">Funding history</span><span class="score-item-val val-miss" id="si-funding">Missing</span></div>
-        <div class="score-item"><span class="score-item-icon">📄</span><span class="score-item-text">Documents</span><span class="score-item-val val-miss" id="si-docs">Missing</span></div>
+        <div class="score-item"><span class="score-item-icon">🎓</span><span class="score-item-text">Academic profile</span><span class="score-item-val val-miss" id="si-academic">Optional</span></div>
+        <div class="score-item"><span class="score-item-icon">📄</span><span class="score-item-text">Documents</span><span class="score-item-val val-miss" id="si-docs">Optional</span></div>
       </div>
     </div>
 
-    <!-- Application Preferences -->
     <div class="pref-card">
-      <div class="pref-title">Application Mode</div>
-      <div class="pref-mode-row">
-        <label class="pref-option selected" id="pref-alert" onclick="setPrefMode('alert')">
-          <input type="radio" name="appMode" value="alert" checked>
-          <div class="pref-option-title"><span class="radio-dot"></span>🔔 Alert me first</div>
-          <div class="pref-option-desc">FundFinder AI notifies you when you match. You decide whether to apply.</div>
-        </label>
-        <label class="pref-option" id="pref-review" onclick="setPrefMode('review')">
-          <input type="radio" name="appMode" value="review">
-          <div class="pref-option-title"><span class="radio-dot"></span>📋 Fill, then I review</div>
-          <div class="pref-option-desc">AI pre-fills your application. You review and approve before anything is submitted.</div>
-        </label>
-        <label class="pref-option" id="pref-auto" onclick="setPrefMode('auto')">
-          <input type="radio" name="appMode" value="auto">
-          <div class="pref-option-title"><span class="radio-dot"></span>🤖 Auto-submit</div>
-          <div class="pref-option-desc">AI applies automatically when you qualify. You get a confirmation after. Requires 80%+ profile score.</div>
-        </label>
+      <div class="card-title">Match Alerts</div>
+      <div class="pref-option selected" id="pref-alert" onclick="setPref('alert')">
+        <div class="pref-option-title"><span class="radio-dot"></span>🔔 Alert me first</div>
+        <div class="pref-option-desc">Notify when you match — you decide whether to apply.</div>
+      </div>
+      <div class="pref-option" id="pref-review" onclick="setPref('review')">
+        <div class="pref-option-title"><span class="radio-dot"></span>📋 Pre-fill for review</div>
+        <div class="pref-option-desc">AI drafts your application — you approve before submitting.</div>
       </div>
       <div class="toggle-row">
-        <div><div class="toggle-label-text">📧 Email alerts</div><div class="toggle-sub-text">New matches & updates</div></div>
+        <div><div class="toggle-label-text">📧 Email alerts</div><div class="toggle-sub">New matches & deadlines</div></div>
         <label class="toggle"><input type="checkbox" id="tog-email" checked onchange="savePref()"><span class="toggle-slider"></span></label>
       </div>
       <div class="toggle-row">
-        <div><div class="toggle-label-text">💬 WhatsApp alerts</div><div class="toggle-sub-text">Higher open rate</div></div>
+        <div><div class="toggle-label-text">💬 WhatsApp alerts</div><div class="toggle-sub">Faster notifications</div></div>
         <label class="toggle"><input type="checkbox" id="tog-wa" checked onchange="savePref()"><span class="toggle-slider"></span></label>
       </div>
     </div>
 
-    <!-- Top matches -->
     <div class="matches-card">
-      <div class="matches-title">🎯 Your Top Matches</div>
+      <div class="card-title" style="margin-bottom:14px;">🎯 Your Top Matches</div>
       <div id="matchesList">
-        <div style="font-size:13px; color:var(--muted); padding:10px 0; text-align:center; line-height:1.5;">Complete your business profile to see opportunities you qualify for.</div>
+        <div style="font-size:13px;color:var(--muted);text-align:center;padding:14px 0;line-height:1.5;">Save your business profile to see opportunities you qualify for.</div>
       </div>
-      <a href="fundfinder-chat.html" style="display:block; margin-top:14px; background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.2); color:var(--gold); text-align:center; padding:10px; border-radius:10px; text-decoration:none; font-size:13px; font-weight:700;">🤖 Chat for better matches →</a>
+      <a href="fundfinder-dashboard.html" style="display:block;margin-top:14px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.2);color:var(--gold);text-align:center;padding:10px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;">View all matches →</a>
     </div>
-
   </div>
 </div>
 
-<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// ── CONFIG ──────────────────────────────────────────────────
 const SUPABASE_URL  = 'https://zrkxigbmlprrowiofhjy.supabase.co';
 const SUPABASE_ANON = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-let currentUser = null;
-let profile = {};
-let pendingUpdates = {}; // staged AI updates per section
+let currentUser = null, profile = {};
 
-// ── INIT ────────────────────────────────────────────────────
 async function init() {
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { session } } = await sb.auth.getSession();
   if (!session) { window.location.href = 'fundfinder-auth.html'; return; }
   currentUser = session.user;
 
-  // Load wallet balance for nav badge
-  const { data: wallet } = await supabase.from('wallets').select('balance_credits').eq('user_id', currentUser.id).single();
+  const { data: wallet } = await sb.from('wallets').select('balance_credits').eq('user_id', currentUser.id).single();
   if (wallet) document.getElementById('creditBadge').textContent = `💳 ${wallet.balance_credits} credits`;
 
-  // Load profile
-  const { data: prof } = await supabase.from('user_profiles').select('*').eq('user_id', currentUser.id).single();
-  if (prof) { profile = prof; renderProfile(); }
+  const { data: prof } = await sb.from('user_profiles').select('*').eq('user_id', currentUser.id).single();
+  profile = prof || {};
+  populateForms();
+  updateScore();
+  loadMatches();
 
-  document.getElementById('loadingOverlay').style.display = 'none';
+  document.getElementById('loadingState').style.display = 'none';
   document.getElementById('mainPage').style.display = 'grid';
 }
 
-// ── RENDER PROFILE ──────────────────────────────────────────
-function renderProfile() {
-  const set = (id, val) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (val) { el.textContent = val; el.classList.remove('empty'); }
-    else { el.classList.add('empty'); }
-  };
+function populateForms() {
+  setVal('p-fullName',    profile.full_name);
+  setVal('p-whatsapp',   profile.whatsapp);
+  setVal('p-location',   profile.business_location);
+  setVal('p-city',       profile.city);
+  setVal('p-age',        profile.age_range);
+  setVal('p-gender',     profile.gender);
 
-  // Personal
-  set('f-fullName', profile.full_name || currentUser.email);
-  set('f-email', currentUser.email);
-  set('f-whatsapp', profile.whatsapp);
-  set('f-location', profile.business_location);
-  set('f-age', profile.age_range);
+  setVal('b-name',       profile.business_name);
+  setVal('b-sector',     profile.business_sector);
+  setVal('b-stage',      profile.business_stage);
+  setVal('b-years',      profile.years_operating != null ? String(profile.years_operating) : '');
+  setVal('b-team',       profile.team_size);
+  setVal('b-revenue',    profile.annual_revenue);
+  setVal('b-purpose',    profile.funding_purpose);
+  if (profile.is_registered != null) document.getElementById('b-registered').checked = profile.is_registered;
 
-  // Business
-  set('f-bizName', profile.business_name);
-  set('f-bizSector', profile.business_sector);
-  set('f-bizStage', profile.business_stage);
-  set('f-bizYears', profile.years_operating ? `${profile.years_operating} years` : null);
-  set('f-bizTeam', profile.team_size);
-  set('f-bizReg', profile.is_registered ? '✅ Yes — CAC Registered' : (profile.is_registered === false ? '❌ Not registered' : null));
-  set('f-bizLocation', profile.business_location);
+  setVal('a-level',      profile.student_level);
+  setVal('a-field',      profile.field_of_study);
+  setVal('a-institution',profile.institution);
+  setVal('a-grad',       profile.graduation_year ? String(profile.graduation_year) : '');
+  setVal('a-countries',  profile.scholarship_countries);
 
-  // Academic
-  set('f-acaLevel', profile.student_level);
-  set('f-acaField', profile.field_of_study);
-  set('f-acaInstitution', profile.institution);
-  set('f-acaGrad', profile.graduation_year ? String(profile.graduation_year) : null);
+  setVal('d-cac',  profile.cac_number);
+  setVal('d-bank', profile.bank_name);
+  setVal('d-nin',  profile.nin);
+  setVal('d-bvn',  profile.bvn_last4);
 
-  // Update application mode
-  if (profile.application_mode) setPrefMode(profile.application_mode, true);
-  if (profile.notify_email !== undefined) document.getElementById('tog-email').checked = profile.notify_email;
-  if (profile.notify_whatsapp !== undefined) document.getElementById('tog-wa').checked = profile.notify_whatsapp;
-
-  updateScore();
+  if (profile.application_mode) setPref(profile.application_mode, true);
+  if (profile.notify_email != null)    document.getElementById('tog-email').checked = profile.notify_email;
+  if (profile.notify_whatsapp != null) document.getElementById('tog-wa').checked = profile.notify_whatsapp;
 }
 
-// ── SECTION TOGGLE ──────────────────────────────────────────
+function setVal(id, val) {
+  const el = document.getElementById(id);
+  if (el && val != null) el.value = val;
+}
+
 function toggleSection(id) {
-  const body = document.getElementById(`body-${id}`);
-  const card = document.getElementById(`sec-${id}`);
-  const isOpen = body.style.display !== 'none';
-  body.style.display = isOpen ? 'none' : 'block';
-  card.classList.toggle('active', !isOpen);
+  document.getElementById(`sec-${id}`).classList.toggle('open');
 }
 
-// ── AI EDIT PANEL ───────────────────────────────────────────
-function openAI(e, section) {
-  e.stopPropagation();
-  // Close all other panels first
-  ['personal','business','academic','funding','docs'].forEach(s => {
-    if (s !== section) document.getElementById(`ai-${s}`).classList.remove('open');
-  });
-  // Open this section body + panel
-  document.getElementById(`body-${section}`).style.display = 'block';
-  document.getElementById(`sec-${section}`).classList.add('active');
-  const panel = document.getElementById(`ai-${section}`);
-  panel.classList.toggle('open');
-  if (panel.classList.contains('open')) {
-    setTimeout(() => document.getElementById(`input-${section}`).focus(), 100);
-  }
-}
-
-function closeAI(section) {
-  document.getElementById(`ai-${section}`).classList.remove('open');
-  document.getElementById(`resp-${section}`).classList.remove('show');
-}
-
-function fillPrompt(section, text) {
-  document.getElementById(`input-${section}`).value = text;
-  document.getElementById(`input-${section}`).focus();
-}
-
-// ── AI SEND ─────────────────────────────────────────────────
-async function sendAI(section) {
-  const input = document.getElementById(`input-${section}`);
-  const btn = document.getElementById(`btn-${section}`);
-  const respBox = document.getElementById(`resp-${section}`);
-  const respText = document.getElementById(`resp-text-${section}`);
-  const userText = input.value.trim();
-
-  if (!userText) return;
-
+async function saveSection(section) {
+  const btn   = document.getElementById(`btn-${section}`);
+  const stat  = document.getElementById(`status-${section}`);
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>Thinking…';
-  respBox.classList.remove('show');
+  btn.innerHTML = '<span class="spinner"></span>Saving…';
+  stat.textContent = ''; stat.className = 'save-status';
 
-  try {
-    const res = await fetch('/.netlify/functions/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        userId: currentUser.id,
-        sessionId: `profile-${section}`,
-        messages: [{ role: 'user', content: userText }],
-        systemPrompt: buildProfileSystemPrompt(section)
-      })
-    });
+  const updates = getSectionData(section);
+  updates.updated_at = new Date().toISOString();
 
-    const data = await res.json();
-
-    if (res.status === 402) {
-      respText.innerHTML = `⚠️ ${data.message} <a href="fundfinder-wallet.html" style="color:var(--gold);">Top up →</a>`;
-      respBox.classList.add('show');
-    } else if (data.response) {
-      // Parse structured update from response
-      pendingUpdates[section] = parseAIUpdate(data.response, section);
-      respText.innerHTML = formatAIResponse(data.response);
-      respBox.classList.add('show');
-      // Update credit badge
-      if (data.balanceRemaining !== undefined) {
-        document.getElementById('creditBadge').textContent = `💳 ${data.balanceRemaining} credits`;
-      }
-    }
-  } catch (err) {
-    respText.textContent = 'Could not connect to AI. Please try again.';
-    respBox.classList.add('show');
-  }
-
-  btn.disabled = false;
-  btn.textContent = 'Update →';
-  input.value = '';
-}
-
-// ── APPLY UPDATE ────────────────────────────────────────────
-async function applyUpdate(section) {
-  const updates = pendingUpdates[section];
-  if (!updates || Object.keys(updates).length === 0) {
-    closeAI(section); return;
-  }
-
-  const { error } = await supabase.from('user_profiles')
-    .update({ ...updates, updated_at: new Date().toISOString() })
-    .eq('user_id', currentUser.id);
+  const { error } = await sb.from('user_profiles').update(updates).eq('user_id', currentUser.id);
 
   if (!error) {
     profile = { ...profile, ...updates };
-    renderProfile();
     updateScore();
-    closeAI(section);
-    // Flash the section card green briefly
+    runMatching();
+    stat.textContent = '✅ Saved!'; stat.className = 'save-status ok';
     const card = document.getElementById(`sec-${section}`);
-    card.style.borderColor = 'rgba(34,197,94,0.6)';
-    setTimeout(() => card.style.borderColor = '', 1500);
+    card.classList.add('saved');
+    setTimeout(() => { card.classList.remove('saved'); stat.textContent = ''; }, 3000);
+  } else {
+    stat.textContent = '❌ Save failed — check connection.'; stat.className = 'save-status err';
+    console.error(error);
   }
-  pendingUpdates[section] = {};
+
+  btn.disabled = false;
+  const labels = { personal:'Personal Info', business:'Business Info', academic:'Academic Info', docs:'Documents' };
+  btn.textContent = `Save ${labels[section] || section}`;
 }
 
-// ── PROFILE SCORE ────────────────────────────────────────────
+function getSectionData(section) {
+  switch (section) {
+    case 'personal': return {
+      full_name:         document.getElementById('p-fullName').value.trim(),
+      whatsapp:          document.getElementById('p-whatsapp').value.trim(),
+      business_location: document.getElementById('p-location').value,
+      city:              document.getElementById('p-city').value.trim(),
+      age_range:         document.getElementById('p-age').value,
+      gender:            document.getElementById('p-gender').value,
+    };
+    case 'business': return {
+      business_name:    document.getElementById('b-name').value.trim(),
+      business_sector:  document.getElementById('b-sector').value,
+      business_stage:   document.getElementById('b-stage').value,
+      years_operating:  parseInt(document.getElementById('b-years').value) || null,
+      team_size:        document.getElementById('b-team').value,
+      annual_revenue:   document.getElementById('b-revenue').value,
+      is_registered:    document.getElementById('b-registered').checked,
+      funding_purpose:  document.getElementById('b-purpose').value.trim(),
+    };
+    case 'academic': return {
+      is_student:            document.getElementById('a-level').value !== 'not-student' && document.getElementById('a-level').value !== '',
+      student_level:         document.getElementById('a-level').value,
+      field_of_study:        document.getElementById('a-field').value.trim(),
+      institution:           document.getElementById('a-institution').value.trim(),
+      graduation_year:       parseInt(document.getElementById('a-grad').value) || null,
+      scholarship_countries: document.getElementById('a-countries').value.trim(),
+    };
+    case 'docs': return {
+      cac_number: document.getElementById('d-cac').value.trim(),
+      bank_name:  document.getElementById('d-bank').value,
+      nin:        document.getElementById('d-nin').value.trim(),
+      bvn_last4:  document.getElementById('d-bvn').value.trim(),
+    };
+    default: return {};
+  }
+}
+
 function updateScore() {
   let score = 0;
-  const checks = {
-    personal: [profile.full_name, profile.whatsapp, profile.age_range],
-    business: [profile.business_name, profile.business_sector, profile.business_stage, profile.team_size],
-    academic: [profile.student_level, profile.field_of_study],
-    funding:  [profile.business_location],
-    docs:     []
-  };
+  const hasPersonal = profile.full_name && profile.business_location && profile.age_range;
+  const partPersonal = profile.full_name || profile.whatsapp;
+  if (hasPersonal)      { score += 30; setSI('personal','✅ Done','val-done'); setDot('personal','complete'); }
+  else if (partPersonal){ score += 15; setSI('personal','Partial','val-warn'); setDot('personal','partial'); }
+  else                  { setSI('personal','Missing','val-miss'); setDot('personal','empty'); }
 
-  // Personal: 15 pts if at least 2 fields
-  const personalFilled = checks.personal.filter(Boolean).length;
-  if (personalFilled >= 3) { score += 25; updateDot('personal','complete'); updateSI('personal','✅ Done','val-done'); }
-  else if (personalFilled > 0) { score += 12; updateDot('personal','partial'); updateSI('personal','Partial','val-warn'); }
-  else { updateDot('personal','empty'); updateSI('personal','Missing','val-miss'); }
+  const hasBusiness = profile.business_sector && profile.business_stage && profile.business_name;
+  const partBusiness = profile.business_sector || profile.business_name;
+  if (hasBusiness)      { score += 50; setSI('business','✅ Done','val-done'); setDot('business','complete'); }
+  else if (partBusiness){ score += 25; setSI('business','Partial','val-warn'); setDot('business','partial'); }
+  else                  { setSI('business','Missing','val-miss'); setDot('business','empty'); }
 
-  // Business: 40 pts
-  const bizFilled = checks.business.filter(Boolean).length;
-  if (bizFilled >= 4) { score += 40; updateDot('business','complete'); updateSI('business','✅ Done','val-done'); }
-  else if (bizFilled > 0) { score += 20; updateDot('business','partial'); updateSI('business','Partial','val-warn'); }
-  else { updateDot('business','empty'); updateSI('business','Missing','val-miss'); }
+  if (profile.student_level && profile.student_level !== 'not-student') {
+    score += 10; setSI('academic','✅ Done','val-done'); setDot('academic','complete');
+  } else { setSI('academic','Optional','val-miss'); setDot('academic','empty'); }
 
-  // Academic: 15 pts (optional — only if is_student)
-  const acaFilled = checks.academic.filter(Boolean).length;
-  if (acaFilled >= 2) { score += 15; updateDot('academic','complete'); updateSI('academic','✅ Done','val-done'); }
-  else if (acaFilled > 0) { score += 7; updateDot('academic','partial'); updateSI('academic','Partial','val-warn'); }
-  else { updateDot('academic','empty'); updateSI('academic','Optional','val-miss'); }
-
-  // Funding: 10 pts
-  if (profile.business_location) { score += 10; updateDot('funding','complete'); updateSI('funding','✅ Done','val-done'); }
-  else { updateDot('funding','empty'); updateSI('funding','Missing','val-miss'); }
-
-  // Docs: 10 pts
-  updateDot('docs','empty'); updateSI('docs','Optional','val-miss');
+  if (profile.cac_number || profile.bank_name) {
+    score += 10; setSI('docs','✅ Done','val-done'); setDot('docs','complete');
+  } else { setSI('docs','Optional','val-miss'); setDot('docs','empty'); }
 
   const pct = Math.min(100, score);
   document.getElementById('scoreNum').textContent = `${pct}%`;
-  const circle = document.querySelector('.score-circle');
-  circle.style.background = `conic-gradient(var(--gold) 0% ${pct}%, var(--surface2) ${pct}% 100%)`;
+  document.getElementById('scoreCircle').style.background =
+    `conic-gradient(var(--gold) 0% ${pct}%, var(--surface2) ${pct}% 100%)`;
 
-  if (pct >= 80) { document.getElementById('scoreLabel').textContent = 'Excellent profile'; document.getElementById('scoreSub').textContent = 'You qualify for the most matches. Auto-submit mode available.'; }
-  else if (pct >= 50) { document.getElementById('scoreLabel').textContent = 'Good — keep going'; document.getElementById('scoreSub').textContent = 'Add business details and funding history to unlock more matches.'; }
-  else { document.getElementById('scoreLabel').textContent = 'Just getting started'; document.getElementById('scoreSub').textContent = 'Complete your profile to unlock accurate funding matches.'; }
+  if (pct >= 80) {
+    document.getElementById('scoreLabel').textContent = 'Excellent — fully matched';
+    document.getElementById('scoreSub').textContent = 'You qualify for the most opportunities.';
+  } else if (pct >= 40) {
+    document.getElementById('scoreLabel').textContent = 'Good — keep going';
+    document.getElementById('scoreSub').textContent = 'Add business details to unlock more matches.';
+  } else {
+    document.getElementById('scoreLabel').textContent = 'Just getting started';
+    document.getElementById('scoreSub').textContent = 'Fill each section to unlock funding matches.';
+  }
 }
 
-function updateDot(section, state) {
-  const dot = document.getElementById(`dot-${section}`);
-  dot.className = `status-dot dot-${state}`;
-}
-function updateSI(section, text, cls) {
-  const el = document.getElementById(`si-${section}`);
-  el.textContent = text;
-  el.className = `score-item-val ${cls}`;
+function setDot(sec, state) { document.getElementById(`dot-${sec}`).className = `status-dot dot-${state}`; }
+function setSI(sec, text, cls) { const el = document.getElementById(`si-${sec}`); el.textContent = text; el.className = `score-item-val ${cls}`; }
+
+// ── MATCHING ENGINE ───────────────────────────────────────────
+async function runMatching() {
+  if (!profile.business_sector && !profile.business_stage) return;
+
+  const { data: opps } = await sb.from('opportunities')
+    .select('id, title, deadline, capital_type, sectors, eligibility, apply_url')
+    .eq('is_active', true)
+    .order('deadline', { ascending: true })
+    .limit(200);
+
+  if (!opps || opps.length === 0) return;
+
+  const scored = opps
+    .map(o => ({ ...o, score: scoreMatch(o) }))
+    .filter(o => o.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 20);
+
+  const upserts = scored.map(o => ({
+    user_id: currentUser.id,
+    opportunity_id: o.id,
+    opportunity_title: o.title,
+    match_score: o.score,
+    capital_type: o.capital_type,
+    deadline: o.deadline,
+    apply_url: o.apply_url,
+    matched_at: new Date().toISOString(),
+    status: 'new'
+  }));
+
+  await sb.from('opportunity_matches').upsert(upserts, { onConflict: 'user_id,opportunity_id' });
+  loadMatches();
 }
 
-// ── PREFS ────────────────────────────────────────────────────
-function setPrefMode(mode, silent = false) {
-  ['alert','review','auto'].forEach(m => {
-    document.getElementById(`pref-${m}`).classList.toggle('selected', m === mode);
-  });
+function scoreMatch(opp) {
+  let score = 0;
+  const elig    = (opp.eligibility || '').toLowerCase();
+  const sectors = (opp.sectors || []).map(s => s.toLowerCase());
+
+  // Sector match
+  if (profile.business_sector && sectors.includes(profile.business_sector)) score += 40;
+  else if (sectors.length === 0 || sectors.includes('all')) score += 15;
+
+  // Stage match
+  if (profile.business_stage) {
+    if (['startup','idea','early'].includes(profile.business_stage) && (elig.includes('startup') || elig.includes('early stage'))) score += 20;
+    if (profile.business_stage === 'growth' && elig.includes('growth')) score += 20;
+    if (elig.includes('sme') || elig.includes('msme') || elig.includes('all stages') || elig === '') score += 10;
+  }
+
+  // Registration
+  if (profile.is_registered && (elig.includes('registered') || elig.includes('cac'))) score += 15;
+  if (!profile.is_registered && elig.includes('unregistered')) score += 10;
+
+  // Gender targeting
+  if (profile.gender === 'female' && (elig.includes('women') || elig.includes('female'))) score += 20;
+
+  // Youth targeting
+  if (['18-25','26-35'].includes(profile.age_range) && elig.includes('youth')) score += 15;
+
+  // State match
+  if (profile.business_location && elig.includes(profile.business_location.toLowerCase())) score += 10;
+
+  return Math.min(100, score);
+}
+
+async function loadMatches() {
+  const { data: matches } = await sb.from('opportunity_matches')
+    .select('opportunity_title, match_score, deadline')
+    .eq('user_id', currentUser.id)
+    .order('match_score', { ascending: false })
+    .limit(5);
+
+  const list = document.getElementById('matchesList');
+  if (!matches || matches.length === 0) return;
+
+  list.innerHTML = matches.map(m => {
+    const cls = m.match_score >= 70 ? 'badge-high' : 'badge-med';
+    const dl  = m.deadline ? new Date(m.deadline).toLocaleDateString('en-NG',{day:'numeric',month:'short'}) : 'Open';
+    return `<div class="match-row">
+      <span class="match-badge ${cls}">${m.match_score}%</span>
+      <span class="match-name">${m.opportunity_title || 'Opportunity'}</span>
+      <span style="font-size:11px;color:var(--muted);flex-shrink:0">${dl}</span>
+    </div>`;
+  }).join('');
+}
+
+function setPref(mode, silent = false) {
+  ['alert','review'].forEach(m => document.getElementById(`pref-${m}`)?.classList.toggle('selected', m === mode));
   if (!silent) savePref();
 }
-
 async function savePref() {
   if (!currentUser) return;
-  const mode = document.querySelector('input[name="appMode"]:checked')?.value ||
-               document.querySelector('.pref-option.selected')?.querySelector('input')?.value || 'alert';
-  await supabase.from('user_profiles').update({
+  const mode = document.querySelector('.pref-option.selected')?.id?.replace('pref-','') || 'alert';
+  await sb.from('user_profiles').update({
     application_mode: mode,
     notify_email: document.getElementById('tog-email').checked,
     notify_whatsapp: document.getElementById('tog-wa').checked
   }).eq('user_id', currentUser.id);
 }
 
-// ── HELPERS ──────────────────────────────────────────────────
-function buildProfileSystemPrompt(section) {
-  const sectionDescriptions = {
-    personal: 'personal details like name, location, age range, gender',
-    business: 'business information like business name, sector, stage, team size, years operating, CAC registration status',
-    academic: 'academic profile like student level, field of study, institution, graduation year',
-    funding: 'funding history, past grants received, current funding need and purpose',
-    docs: 'document identifiers like CAC number, bank name (do NOT store full NIN/BVN, just confirm receipt)'
-  };
+async function handleLogout() { await sb.auth.signOut(); window.location.href = 'fundfinder-auth.html'; }
 
-  const fieldMap = {
-    personal: ['full_name','business_location','age_range'],
-    business: ['business_name','business_sector','business_stage','years_operating','team_size','is_registered','business_location'],
-    academic: ['is_student','student_level','field_of_study','institution','graduation_year'],
-    funding:  ['business_location'],
-    docs:     ['business_name']
-  };
-
-  return `You are FundFinder AI helping a user update their ${sectionDescriptions[section]} profile section.
-
-Extract the relevant information from the user's message and return a JSON object of fields to update. Use these exact field names: ${fieldMap[section].join(', ')}.
-
-Always respond in this format:
-1. A brief confirmation of what you understood (1-2 sentences, friendly)
-2. Then on a new line: <UPDATE>{"field_name": "value", ...}</UPDATE>
-
-Only include fields the user actually mentioned. For boolean fields like is_registered, is_student use true/false.
-For years_operating use a number. For team_size use "1", "2-5", "6-20", or "20+".
-For business_stage use: "idea", "startup", "growth", or "established".
-For student_level use: "undergraduate", "postgraduate", "phd", or "professional".
-
-Keep all responses scoped to business profile and funding — reject anything unrelated.`;
-}
-
-function parseAIUpdate(responseText, section) {
-  const match = responseText.match(/<UPDATE>([\s\S]*?)<\/UPDATE>/);
-  if (!match) return {};
-  try { return JSON.parse(match[1]); }
-  catch { return {}; }
-}
-
-function formatAIResponse(responseText) {
-  return responseText.replace(/<UPDATE>[\s\S]*?<\/UPDATE>/g, '').trim()
-    .replace(/\n/g, '<br>');
-}
-
-async function handleLogout() {
-  await supabase.auth.signOut();
-  window.location.href = 'fundfinder-auth.html';
-}
-
-// ── START ───────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>

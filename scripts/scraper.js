@@ -16,6 +16,10 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+// ─── Supabase Config ──────────────────────────────────────────────────────────
+const SUPABASE_URL  = process.env.SUPABASE_URL  || 'https://zrkxigbmlprrowiofhjy.supabase.co';
+const SUPABASE_KEY  = process.env.SUPABASE_ANON_KEY || 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
+
 // ─── Config ──────────────────────────────────────────────────────────────────
 
 const ROOT = path.resolve(__dirname, '..');          // repo root
@@ -28,8 +32,14 @@ const SUMMARY_DIR = path.join(ROOT, 'summaries');
 
 // Titles containing these phrases are aggregator articles, not individual opportunities — skip them
 const GARBAGE_PATTERNS = [
-  /^\d+ grants?\b/i,
-  /^\d+ funding/i,
+  // "100 grants", "100 open grant opportunities", "100 funding opportunities"
+  /^\d+\s+\w*\s*(grant|funding)\b/i,
+  // "Explore 60 funding", "Discover 50 grants"
+  /\b(explore|discover|check out|here are)\s+\d+\s+(grant|funding|opportunit)/i,
+  // "most impactful donors", "top donors willing to fund"
+  /most impactful donors/i,
+  /donors (that are |who are )?willing to fund/i,
+  // roundup/listicle patterns
   /best grants in/i,
   /list of grants/i,
   /top \d+ /i,
@@ -40,6 +50,18 @@ const GARBAGE_PATTERNS = [
   /grants? and funding opportunities for/i,
   /verified list/i,
   /updated (monthly|weekly|daily)/i,
+  // jobs listings, not funding
+  /\bngo jobs\b/i,
+  // "300 grant opportunities closing", "15 innovative grants to empower"
+  /^\d+\s+(innovative|open|new|verified|active|live|available|current)\s+(grant|funding|opportunit)/i,
+  // aggregator articles with "opportunities" in plural listicle form
+  /\d+\s+(grant|funding)\s+opportunit(ies|y)\s+(closing|open|for|in|across|available)/i,
+  // "could threaten X jobs" — news not a funding opportunity
+  /could threaten .* jobs/i,
+  // "seeking a [job title]" — job posts
+  /seeking a .*(coordinator|manager|officer|director|analyst|associate)\b/i,
+  // textile/trade news
+  /import ban/i,
 ];
 
 // Marker comment in opportunity-hub.html where new cards get injected
@@ -135,6 +157,105 @@ function fetch(url, timeoutMs = 15000) {
     req.on('error', reject);
     req.on('timeout', () => { req.destroy(); reject(new Error('Timeout: ' + url)); });
   });
+}
+
+// ─── Supabase helpers ─────────────────────────────────────────────────────────
+
+/** POST/upsert records to a Supabase REST endpoint. Returns parsed JSON or null on error. */
+function supabasePost(table, records) {
+  return new Promise((resolve) => {
+    const body = JSON.stringify(records);
+    const u = new URL(`/rest/v1/${table}`, SUPABASE_URL);
+    const options = {
+      hostname: u.hostname,
+      path: u.pathname,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(body),
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Prefer': 'resolution=merge-duplicates,return=minimal',
+      },
+    };
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', (c) => (data += c));
+      res.on('end', () => {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          resolve({ ok: true });
+        } else {
+          console.warn(`  ⚠️  Supabase ${table} upsert failed [${res.statusCode}]: ${data.slice(0, 200)}`);
+          resolve({ ok: false, status: res.statusCode, body: data });
+        }
+      });
+    });
+    req.on('error', (e) => {
+      console.warn(`  ⚠️  Supabase request error: ${e.message}`);
+      resolve({ ok: false, error: e.message });
+    });
+    req.write(body);
+    req.end();
+  });
+}
+
+/** Map a scraper opp object → Supabase opportunities row */
+function CAPITAL_TYPE_MAP(category) {
+  return { grants: 'grant', loans: 'loan', investment: 'equity', training: 'training', empowerment: 'grant' }[category] || 'grant';
+}
+
+function parseDeadlineDate(text) {
+  // Returns ISO date string if parseable, else null
+  if (!text || ['See source', 'See official site', 'Open', 'Rolling', 'TBA'].includes(text)) return null;
+  const d = new Date(text);
+  return isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+}
+
+function detectGenderTarget(title, desc) {
+  const t = (title + ' ' + desc).toLowerCase();
+  if (/\b(women|female|girl|she)\b/.test(t)) return 'female';
+  return 'all';
+}
+
+function requiresCac(title, desc) {
+  const t = (title + ' ' + desc).toLowerCase();
+  return /\b(cac|registered (business|company)|incorporation)\b/.test(t);
+}
+
+function requiresStudent(title, desc) {
+  const t = (title + ' ' + desc).toLowerCase();
+  return /\b(student|undergraduate|postgraduate|academic|university|college)\b/.test(t);
+}
+
+/** Convert an array of opp objects to Supabase opportunity rows and upsert in one batch */
+async function upsertOpportunitiesToSupabase(opps) {
+  if (!opps.length) return;
+  const rows = opps.map((opp) => ({
+    slug:             opp.slug,
+    title:            opp.title,
+    source_url:       opp.applyUrl || null,
+    apply_url:        opp.applyUrl || null,
+    organiser:        opp.funder   || null,
+    summary:          (opp.description || '').slice(0, 600),
+    capital_type:     CAPITAL_TYPE_MAP(opp.category),
+    sectors:          [],            // will be enriched later
+    amount_text:      opp.amount !== 'See details' ? opp.amount : null,
+    eligibility:      opp.eligibility || '',
+    gender_target:    detectGenderTarget(opp.title, opp.description),
+    requires_cac:     requiresCac(opp.title, opp.description),
+    requires_student: requiresStudent(opp.title, opp.description),
+    target_states:    [],
+    target_sectors:   [],
+    deadline:         parseDeadlineDate(opp.deadline),
+    scraped_at:       TODAY,
+    is_active:        true,
+  }));
+
+  console.log(`\n  📤 Upserting ${rows.length} opportunities to Supabase…`);
+  const result = await supabasePost('opportunities', rows);
+  if (result.ok) {
+    console.log(`  ✅ Supabase upsert OK (${rows.length} records)`);
+  }
 }
 
 function slugify(text) {
@@ -542,6 +663,9 @@ async function main() {
       console.warn(`  ${HUB_INSERT_MARKER}`);
     }
   }
+
+  // Upsert new opportunities to Supabase (slug used as unique key for merge-duplicates)
+  await upsertOpportunitiesToSupabase(discovered);
 
   // Save updated seen IDs
   fs.writeFileSync(SEEN_FILE, JSON.stringify([...seenIds], null, 2));

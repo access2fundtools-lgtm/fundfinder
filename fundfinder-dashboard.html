@@ -122,6 +122,13 @@
   .match-tag.equity   { background: var(--amber-dim); color: var(--amber); }
   .match-deadline { font-size: 11px; color: var(--hint); margin-top: 4px; }
   .match-deadline.urgent { color: var(--red); }
+  .match-apply {
+    display: inline-block; margin-top: 6px; font-size: 11px; font-weight: 700;
+    color: var(--gold); text-decoration: none; padding: 3px 8px;
+    border: 1px solid var(--gold-border); border-radius: 5px;
+    background: var(--gold-dim); transition: opacity 0.15s;
+  }
+  .match-apply:hover { opacity: 0.8; }
 
   /* ── SIDEBAR PANELS ──────────────────────────────────────── */
   .sidebar { display: flex; flex-direction: column; gap: 20px; }
@@ -322,7 +329,7 @@
         <div id="matchesList">
           <div class="panel-empty">
             <div class="empty-icon">🎯</div>
-            <div>No matches yet — chat with the AI to find opportunities tailored to your business.</div>
+            <div>No matches yet — <a href="fundfinder-profile.html" style="color:var(--gold);">complete your profile</a> to get matched automatically.</div>
           </div>
         </div>
       </div>
@@ -542,10 +549,10 @@ async function loadWallet(userId) {
 async function loadMatches(userId) {
   const { data, error } = await sb
     .from('opportunity_matches')
-    .select('*')
+    .select('opportunity_title, capital_type, match_score, deadline, apply_url, matched_at, status')
     .eq('user_id', userId)
-    .order('created_at', { ascending: false })
-    .limit(6);
+    .order('match_score', { ascending: false })
+    .limit(8);
 
   const count = data?.length || 0;
   document.getElementById('statMatches').textContent = count;
@@ -555,21 +562,24 @@ async function loadMatches(userId) {
   const html = data.map(m => {
     const urgency = deadlineUrgency(m.deadline);
     const urgentClass = urgency.includes('⚠️') || urgency === 'Expired' ? 'urgent' : '';
-    const scoreVal = m.match_score || m.ai_score || null;
+    const scoreVal = m.match_score || null;
+    const applyBtn = m.apply_url
+      ? `<a class="match-apply" href="${m.apply_url}" target="_blank" rel="noopener">Apply →</a>`
+      : '';
     return `
       <div class="match-item">
-        <div class="match-score ${scoreClass(scoreVal)}">${scoreVal ? scoreVal + '%' : '—'}</div>
+        <div class="match-score ${scoreClass(scoreVal)}">${scoreVal != null ? scoreVal + '%' : '—'}</div>
         <div class="match-info">
-          <div class="match-title">${m.opportunity_title || m.title || 'Unnamed opportunity'}<span class="match-tag ${capitalTag(m.capital_type)}">${capitalType(m.capital_type)}</span></div>
-          <div class="match-meta">${m.funder_name || m.organisation || ''}</div>
+          <div class="match-title">${m.opportunity_title || 'Unnamed opportunity'}<span class="match-tag ${capitalTag(m.capital_type)}">${capitalType(m.capital_type)}</span></div>
           ${urgency ? `<div class="match-deadline ${urgentClass}">${urgency}</div>` : ''}
+          ${applyBtn}
         </div>
       </div>`;
   }).join('');
   document.getElementById('matchesList').innerHTML = html;
 
-  // Activity
-  appendActivity('match', `AI matched you with <strong>${count} opportunit${count === 1 ? 'y' : 'ies'}</strong>`, timeAgo(data[0]?.created_at));
+  const newest = data.reduce((a, b) => (a.matched_at > b.matched_at ? a : b), data[0]);
+  appendActivity('match', `Matched with <strong>${count} opportunit${count === 1 ? 'y' : 'ies'}</strong>`, timeAgo(newest?.matched_at));
 }
 
 // ── CHATS ─────────────────────────────────────────────────────
@@ -639,3 +649,18 @@ function appendActivity(type, html, time) {
 }
 
 // ── SIGN OUT ────────────────────────
+async function signOut() {
+  await sb.auth.signOut();
+  window.location.href = 'fundfinder-auth.html';
+}
+
+// ── BOOT ─────────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
+��─────────────
+init();
+</script>
+</body>
+</html>
