@@ -1,0 +1,4 @@
+FundFinder daily sync — 2026-07-08 ~08:25 UTC
+Push: SUCCEEDED (2b470e8 pushed to origin/main — Netlify auto-deploy triggered)
+GitHub Actions trigger: SUCCEEDED (HTTP 204)
+Notes: repo was stuck in an interrupted rebase with merge conflicts from 07-02; resolved by union-merging data/seen-ids.json (377 ids), taking newest data/last-run.json (07-07), and keeping the full 315-card opportunity-hub.html over the 4-card remote version. Merge/push done via a temp clone because the synced folder blocks git file deletion; local repo re-pointed to pushed commit and now clean.
