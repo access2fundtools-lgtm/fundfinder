@@ -168,7 +168,8 @@ function extractDeadline(text) {
 
 /** Guess the organisation running it from the headline (e.g. "BATN Foundation" from "BATN Foundation Grant 2026") */
 function extractFunder(title, fallback) {
-  const m = title.match(/^(?:apply(?: now)?[:!]?\s*|call for applications[:!]?\s*)?(.{3,50}?)\s+(?:launches|announces|opens|unveils|introduces|invites|grant|prize|fund|programme|program|award|scholarship|fellowship|initiative|competition|challenge|bootcamp|accelerator)\b/i);
+  const stripped = title.replace(/^(?:apply(?: now)?(?: for(?: the)?)?[:!]?\s*|call for (?:applications?|entries|proposals?)[:!]?\s*|calling all \w+[:!]?\s*)/i, '');
+  const m = stripped.match(/^(.{3,50}?)\s+(?:launches|announces|opens|unveils|introduces|invites|grant|prize|fund|programme|program|award|scholarship|fellowship|initiative|competition|challenge|bootcamp|accelerator)\b/i);
   if (m) {
     const org = m[1].replace(/^(the|a)\s+/i, '').trim();
     if (org.length >= 3 && !/^\d/.test(org) && org.split(' ').length <= 6) return org;
@@ -370,6 +371,16 @@ async function upsertOpportunitiesToSupabase(opps) {
   }
 }
 
+/** Slug for cross-source dedupe: drops boilerplate prefixes and amounts */
+function titleSlugOf(title) {
+  return slugify(
+    title
+      .replace(/^(?:apply(?: now)?(?: for(?: the)?)?[:!]?\s*|call for (?:applications?|entries|proposals?)[:!]?\s*|calling all \w+[:!]?\s*)/i, '')
+      .replace(/[\u20a6$][\d,.]+\s*(?:million|billion|M|B|k)?/gi, '')
+      .replace(/\(.*?\)/g, '')
+  );
+}
+
 function slugify(text) {
   return text
     .toLowerCase()
@@ -456,8 +467,9 @@ function categorize(title) {
 }
 
 function extractAmount(text) {
-  const naira = text.match(/₦[\d,]+(?:\s*(?:million|billion|M|B))?/i);
-  if (naira) return naira[0];
+  const range = text.match(/(?:up to\s+)?[\u20a6$][\d,]+(?:\.\d+)?\s*(?:million|billion|M|B|k)?(?:\s*[\u2013\u2014-]\s*[\u20a6$]?[\d,]+(?:\.\d+)?\s*(?:million|billion|M|B|k)?)?/i);
+  if (range) return range[0].trim();
+
   const dollar = text.match(/\$[\d,]+(?:\s*(?:million|billion|M|B|k))?/i);
   if (dollar) return dollar[0];
   const spelled = text.match(/(\d+(?:\.\d+)?)\s*(million|billion)\s*(naira|dollars?|USD|NGN)/i);
@@ -612,6 +624,27 @@ function generateCard(opp) {
     </a>`;
 }
 
+// ─── Social caption generator (plain text, used by the social poster) ────────
+
+function generateCaption(opp) {
+  const lines = [
+    '🚨 NEW FUNDING OPPORTUNITY 🇳🇬',
+    '',
+    opp.title,
+    '',
+  ];
+  if (opp.amount && opp.amount !== 'See details') lines.push('💰 ' + opp.amount);
+  if (opp.deadline && opp.deadline !== 'Check official page') lines.push('⏰ Deadline: ' + opp.deadline);
+  if (opp.funder) lines.push('🏛️ ' + opp.funder);
+  lines.push('');
+  lines.push('👉 Apply here: https://opportunities.a2fpartners.com/' + opp.slug + '.html');
+  lines.push('');
+  lines.push('More funding for Nigerian entrepreneurs → https://opportunities.a2fpartners.com');
+  lines.push('');
+  lines.push('#Funding #Grants #Nigeria #SME #Entrepreneurs');
+  return lines.join('\n');
+}
+
 // ─── Main scraper logic ───────────────────────────────────────────────────────
 
 function isGarbage(title) {
@@ -632,7 +665,7 @@ async function scrapeRSS(source) {
     const fullText = title + ' ' + desc;
     results.push({
       id: slugify(item.title) + '-' + source.id,   // keep old id scheme so seen-ids.json stays valid
-      titleSlug: slugify(title),                    // used for cross-source dedupe
+      titleSlug: titleSlugOf(title),                    // used for cross-source dedupe
       title,
       funder: extractFunder(title, ''),             // '' = unknown; templates handle it gracefully
       amount: extractAmount(fullText),
@@ -669,7 +702,7 @@ async function scrapePage(source) {
     if (!isRealOpportunity(title, '')) continue;
     results.push({
       id,
-      titleSlug: slugify(title),
+      titleSlug: titleSlugOf(title),
       title,
       funder: extractFunder(title, ''),
       amount: extractAmount(title),
@@ -777,6 +810,18 @@ async function main() {
     newCards.push(generateCard(opp));
     seenIds.add(opp.id);
     if (opp.titleSlug) seenIds.add(opp.titleSlug); // dedupe same story from other feeds in future runs
+  }
+
+  // Write social caption files for the top opportunities (max 3/day).
+  // The social poster picks up files named <YYYY-MM-DD>-*.txt
+  const ranked = [...discovered].sort((a, b) => {
+    const score = (o) => (o.amount !== 'See details' ? 2 : 0) + (o.deadline !== 'Check official page' ? 1 : 0);
+    return score(b) - score(a);
+  });
+  for (const opp of ranked.slice(0, 3)) {
+    const capPath = path.join(ROOT, `${TODAY}-${slugify(opp.title).slice(0, 50)}.txt`);
+    fs.writeFileSync(capPath, generateCaption(opp), 'utf8');
+    console.log(`  📣 Caption written: ${path.basename(capPath)}`);
   }
 
   // Inject cards into opportunity-hub.html
