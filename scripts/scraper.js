@@ -62,7 +62,119 @@ const GARBAGE_PATTERNS = [
   /seeking a .*(coordinator|manager|officer|director|analyst|associate)\b/i,
   // textile/trade news
   /import ban/i,
+  // listicles starting with a count like "10+", "100+", "14 Open Programmes" (but NOT a year like "2026 ...")
+  /^(?!(19|20)\d{2}\b)\d+\+?\s+.*\b(grants?|funds?|funding|opportunit|programmes?|programs?)\b/i,
+  /\bnewly announced grant/i,
+  /\bnews items\b/i,
+  /closing this \w+/i,
+  /don'?t miss out/i,
+  /\bnew\s*&(amp;)?\s*ongoing\b/i,
+  // listicles without a leading number
+  /\bcurated list\b/i,
+  /\blist of\b.*\b(grants?|opportunit|funds?)/i,
+  // "grants" as a verb in news headlines: "Grenada Grants Visa-Free Entry"
+  /\bgrants? (visa|entry|approval|licen[cs]e|amnesty|waiver|permission|access)\b/i,
 ];
+
+// Headlines that are NEWS about money (already given, warnings, reports) — not something you can apply for
+const NEWS_PATTERNS = [
+  /\b(warns?|warned|cautions?|condemns?|denies|refutes|reacts?|arrests?|probes?|sues?|slams)\b/i,
+  /\b(disburses?d?|has (disbursed|awarded|paid|selected|empowered)|empowers|hands? over)\b/i,
+  /\bbeneficiaries (selected|announced|emerge|receive)\b/i,
+  /\b(gets?|got|receives?|received|secures?d?|wins?|won|bags?|raises?d?)\b.{0,40}\b(grant|fund|loan|prize|million|billion|\$|₦)/i,
+  /\bwinners? (announced|emerge|unveiled|revealed)\b/i,
+  /\b(banknote|naira (falls|gains|drops)|exchange rate|inflation)\b/i,
+  /\bfirst beneficiaries\b/i,
+];
+
+// A real opportunity must have BOTH a funding word AND an "act now" word
+const FUNDING_SIGNAL = /\b(grants?|funds?|funding|loans?|prizes?|awards?|scholarships?|fellowships?|accelerators?|incubat\w*|competitions?|challenges?|investments?|equity|bootcamps?|programmes?|programs?)\b/i;
+const ACTION_SIGNAL = /\b(apply|application|applications? (open|invited|close|closing)|call for (applications?|proposals?|entries)|now open|accepting|deadline|register|submit|entries|enrol?l)\b/i;
+
+const THIS_YEAR = new Date().getFullYear();
+
+function decodeEntities(s) {
+  let prev;
+  do {
+    prev = s;
+    s = s
+      .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'").replace(/&nbsp;/g, ' ')
+      .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
+      .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)));
+  } while (s !== prev);
+  return s;
+}
+
+/** Clean a raw feed headline: decode entities, drop " - Publisher" suffix, tidy whitespace */
+function cleanTitle(raw) {
+  let t = decodeEntities(raw).replace(/<[^>]+>/g, '').trim();
+  // Google News appends " - Publisher"; WordPress feeds append " - SiteName". Drop the last short dash-segment.
+  const parts = t.split(/\s+[-\u2013\u2014]\s+/);
+  if (parts.length > 1 && parts[parts.length - 1].length <= 40 && !FUNDING_SIGNAL.test(parts[parts.length - 1])) {
+    parts.pop();
+    t = parts.join(' \u2014 ');
+  }
+  return t.replace(/\s+/g, ' ').trim();
+}
+
+/** Clean a feed description into plain readable sentences (no HTML, no boilerplate) */
+function sanitizeDesc(raw, title) {
+  let d = decodeEntities(raw || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/The post .* appeared first on .*/i, '')
+    .replace(/View Full Coverage on Google News/i, '')
+    .replace(/\[\u2026\]|\[\.\.\.\]|\u2026\s*$/g, '')
+    .replace(/https?:\/\/\S+/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  // If what's left is junk (too short, or just the title repeated), write a clean fallback
+  const tNorm = (title || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  const dNorm = d.toLowerCase().replace(/[^a-z0-9]+/g, '');
+  if (d.length < 60 || dNorm === tNorm || dNorm.includes(tNorm)) {
+    return `${title} is now open. Visit the official page for full details on who can apply, what you'll receive, and how to submit your application.`;
+  }
+  // Trim to ~400 chars, ending at a sentence boundary
+  if (d.length > 400) {
+    const cut = d.slice(0, 400);
+    const lastStop = cut.lastIndexOf('. ');
+    d = lastStop > 150 ? cut.slice(0, lastStop + 1) : cut + '\u2026';
+  }
+  return d;
+}
+
+/** True if this looks like a genuine, current, apply-able opportunity */
+function isRealOpportunity(title, desc) {
+  const text = title + ' ' + desc;
+  if (isGarbage(title)) return false;
+  if (NEWS_PATTERNS.some((p) => p.test(title))) return false;
+  if (!FUNDING_SIGNAL.test(text)) return false;
+  if (!ACTION_SIGNAL.test(text)) return false;
+  // Reject stale items: title mentions an old year and never the current/next year
+  const years = (title.match(/\b(19|20)\d{2}\b/g) || []).map(Number);
+  if (years.length && Math.max(...years) < THIS_YEAR) return false;
+  return true;
+}
+
+/** Try to pull a real deadline out of the text; else a plain-language fallback */
+function extractDeadline(text) {
+  const m =
+    text.match(/deadline(?:\s+is)?[:\s]*([A-Z][a-z]+ \d{1,2},? \d{4})/i) ||
+    text.match(/closes? (?:on |by )?([A-Z][a-z]+ \d{1,2},? \d{4})/i) ||
+    text.match(/apply (?:before|by) ([A-Z][a-z]+ \d{1,2},? \d{4})/i) ||
+    text.match(/on or before ([A-Z][a-z]+ \d{1,2},? \d{4})/i);
+  return m ? m[1].replace(/,?\s+/g, ' ').trim() : 'Check official page';
+}
+
+/** Guess the organisation running it from the headline (e.g. "BATN Foundation" from "BATN Foundation Grant 2026") */
+function extractFunder(title, fallback) {
+  const m = title.match(/^(?:apply(?: now)?[:!]?\s*|call for applications[:!]?\s*)?(.{3,50}?)\s+(?:launches|announces|opens|unveils|introduces|invites|grant|prize|fund|programme|program|award|scholarship|fellowship|initiative|competition|challenge|bootcamp|accelerator)\b/i);
+  if (m) {
+    const org = m[1].replace(/^(the|a)\s+/i, '').trim();
+    if (org.length >= 3 && !/^\d/.test(org) && org.split(' ').length <= 6) return org;
+  }
+  return fallback || '';
+}
 
 // Marker comment in opportunity-hub.html where new cards get injected
 const HUB_INSERT_MARKER = '<!-- SCRAPER_AUTO_INSERT -->';
@@ -419,9 +531,9 @@ function generateFlyer(opp) {
 
 <div class="hero">
   <div class="hero-tag">🇳🇬 Nigeria Funding Opportunity</div>
-  <div class="hero-amount">${opp.amount}</div>
+  ${opp.amount !== 'See details' ? `<div class="hero-amount">${opp.amount}</div>` : ''}
   <div class="hero-title">${opp.title}</div>
-  <div class="hero-funder">by ${opp.funder}</div>
+  ${opp.funder ? `<div class="hero-funder">by ${opp.funder}</div>` : ''}
 </div>
 
 <div class="content">
@@ -431,8 +543,8 @@ function generateFlyer(opp) {
     <ul class="meta-list">
       <li><span class="icon">⏰</span><span><strong>Deadline:</strong> ${opp.deadline}</span></li>
       <li><span class="icon">👤</span><span><strong>Who can apply:</strong> ${opp.eligibility}</span></li>
-      <li><span class="icon">💰</span><span><strong>Amount:</strong> ${opp.amount}</span></li>
-      <li><span class="icon">🏛️</span><span><strong>Funder:</strong> ${opp.funder}</span></li>
+      <li><span class="icon">💰</span><span><strong>Amount:</strong> ${opp.amount !== 'See details' ? opp.amount : 'Check official page'}</span></li>
+      <li><span class="icon">🏛️</span><span><strong>Funder:</strong> ${opp.funder || 'See official page'}</span></li>
       <li><span class="icon">🌍</span><span><strong>Scope:</strong> ${opp.scope || 'Nigeria'}</span></li>
     </ul>
     <div class="tag-row">
@@ -480,19 +592,19 @@ function generateCard(opp) {
     <!-- AUTO: ${opp.id} | ${TODAY} -->
     <a class="card" href="${opp.slug}.html">
       <div class="card-top ${catClass}">
-        <div class="card-amount">${opp.amount}</div>
+        <div class="card-amount">${opp.amount !== 'See details' ? opp.amount : 'Open Now'}</div>
         <div class="card-badges">
           <span class="badge ${badgeColor}">${opp.category.charAt(0).toUpperCase() + opp.category.slice(1)}</span>
           <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
         </div>
-        <div class="card-funder">${opp.funder}</div>
+        ${opp.funder ? `<div class="card-funder">${opp.funder}</div>` : ''}
         <div class="card-title">${opp.title}</div>
       </div>
       <div class="card-body">
         <div class="card-meta">
           <div class="meta-row">⏰ <span><strong>Deadline:</strong> ${opp.deadline}</span></div>
           <div class="meta-row">👤 <span>${opp.eligibility}</span></div>
-          <div class="meta-row">💰 <span>${opp.amount}</span></div>
+          <div class="meta-row">💰 <span>${opp.amount !== 'See details' ? opp.amount : 'Check official page'}</span></div>
           <div class="meta-row">🌍 <span>${opp.scope || 'Nigeria eligible'}</span></div>
         </div>
         <span class="card-cta">View Details &amp; Apply →</span>
@@ -510,26 +622,31 @@ async function scrapeRSS(source) {
   console.log(`  [RSS] ${source.name}`);
   const xml = await fetch(source.url);
   const items = parseRSS(xml);
-  const matches = items.filter((item) =>
-    containsKeywords(item.title + ' ' + item.desc, source.keywords) &&
-    !isGarbage(item.title) &&
-    item.title.length > 15 &&   // too short = probably a section heading
-    item.title.length < 180     // too long = probably a sentence
-  );
-  return matches.map((item) => ({
-    id: slugify(item.title) + '-' + source.id,
-    title: item.title,
-    funder: source.name,
-    amount: extractAmount(item.title + ' ' + item.desc),
-    deadline: 'See source',
-    eligibility: 'Nigerian entrepreneurs and businesses',
-    category: categorize(item.title + ' ' + item.desc),
-    description: item.desc.slice(0, 500) || item.title,
-    applyUrl: item.link,
-    scope: 'Nigeria',
-    source: source.id,
-    discoveredOn: TODAY,
-  }));
+  const results = [];
+  for (const item of items) {
+    const title = cleanTitle(item.title);
+    if (title.length < 16 || title.length > 180) continue;
+    if (!containsKeywords(title + ' ' + item.desc, source.keywords)) continue;
+    const desc = sanitizeDesc(item.desc, title);
+    if (!isRealOpportunity(title, desc)) continue;
+    const fullText = title + ' ' + desc;
+    results.push({
+      id: slugify(item.title) + '-' + source.id,   // keep old id scheme so seen-ids.json stays valid
+      titleSlug: slugify(title),                    // used for cross-source dedupe
+      title,
+      funder: extractFunder(title, ''),             // '' = unknown; templates handle it gracefully
+      amount: extractAmount(fullText),
+      deadline: extractDeadline(fullText),
+      eligibility: 'See who qualifies on the official page',
+      category: categorize(fullText),
+      description: desc,
+      applyUrl: item.link,
+      scope: 'Nigeria',
+      source: source.id,
+      discoveredOn: TODAY,
+    });
+  }
+  return results.slice(0, 5); // cap per source per day
 }
 
 async function scrapePage(source) {
@@ -548,15 +665,18 @@ async function scrapePage(source) {
     const id = slugify(item.text) + '-' + source.id;
     if (seen.has(id)) continue;
     seen.add(id);
+    const title = cleanTitle(item.text);
+    if (!isRealOpportunity(title, '')) continue;
     results.push({
       id,
-      title: item.text,
-      funder: source.name,
-      amount: extractAmount(item.text),
-      deadline: 'See official site',
-      eligibility: 'Nigerian businesses and entrepreneurs',
-      category: categorize(item.text),
-      description: `${source.name} has announced: "${item.text}". Visit the official site for full details, eligibility criteria, and how to apply.`,
+      titleSlug: slugify(title),
+      title,
+      funder: extractFunder(title, ''),
+      amount: extractAmount(title),
+      deadline: extractDeadline(title),
+      eligibility: 'See who qualifies on the official page',
+      category: categorize(title),
+      description: `${title} is now open. Visit the official page for full details on who can apply, what you'll receive, and how to submit your application.`,
       applyUrl: item.url,
       scope: 'Nigeria',
       source: source.id,
@@ -574,6 +694,9 @@ async function main() {
 
   // Load seen IDs
   const seenIds = new Set(loadJson(SEEN_FILE, []));
+  // Title-slugs of everything already seen (ids are "<title-slug>-<source-id>")
+  const SOURCE_ID_SUFFIX = new RegExp('-(' + SOURCES.map((s) => s.id).join('|') + ')$');
+  const seenTitleSlugs = new Set([...seenIds].map((id) => id.replace(SOURCE_ID_SUFFIX, '')));
 
   // Load manual opportunities (never auto-scraped, always included)
   const manualOpps = loadJson(MANUAL_FILE, []);
@@ -588,8 +711,14 @@ async function main() {
       } else if (source.strategy === 'page') {
         items = await scrapePage(source);
       }
-      // Filter out already seen
-      const newItems = items.filter((i) => !seenIds.has(i.id));
+      // Filter out already seen (by id, and by title-slug so the same story
+      // from a different feed doesn't become a duplicate flyer)
+      const newItems = items.filter(
+        (i) =>
+          !seenIds.has(i.id) &&
+          !(i.titleSlug && seenTitleSlugs.has(i.titleSlug)) &&
+          !discovered.some((d) => d.titleSlug && d.titleSlug === i.titleSlug)
+      );
       console.log(`  → ${newItems.length} new from ${source.name}`);
       discovered.push(...newItems);
     } catch (err) {
@@ -647,6 +776,7 @@ async function main() {
     console.log(`  ✅ Created ${opp.slug}.html`);
     newCards.push(generateCard(opp));
     seenIds.add(opp.id);
+    if (opp.titleSlug) seenIds.add(opp.titleSlug); // dedupe same story from other feeds in future runs
   }
 
   // Inject cards into opportunity-hub.html
