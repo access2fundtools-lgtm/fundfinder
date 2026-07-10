@@ -253,7 +253,7 @@ function fetch(url, timeoutMs = 15000) {
       {
         headers: {
           'User-Agent':
-            'Mozilla/5.0 (compatible; FundFinderBot/1.0; +https://opportunities.a2fpartners.com)',
+            'Mozilla/5.0 (compatible; FundFinderBot/1.0; +https://fundfinder.ng)',
           Accept: 'text/html,application/xhtml+xml,application/rss+xml,*/*',
         },
         timeout: timeoutMs,
@@ -493,6 +493,7 @@ function generateFlyer(opp) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>if(location.hostname==='opportunities.a2fpartners.com')location.replace('https://fundfinder.ng'+location.pathname+location.search);</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${opp.title} — FundFinder AI | A2F Partners</title>
 <meta property="og:title" content="${opp.title} — FundFinder AI">
@@ -637,9 +638,9 @@ function generateCaption(opp) {
   if (opp.deadline && opp.deadline !== 'Check official page') lines.push('⏰ Deadline: ' + opp.deadline);
   if (opp.funder) lines.push('🏛️ ' + opp.funder);
   lines.push('');
-  lines.push('👉 Apply here: https://opportunities.a2fpartners.com/' + opp.slug + '.html');
+  lines.push('👉 Apply here: https://fundfinder.ng/' + opp.slug + '.html');
   lines.push('');
-  lines.push('More funding for Nigerian entrepreneurs → https://opportunities.a2fpartners.com');
+  lines.push('More funding for Nigerian entrepreneurs → https://fundfinder.ng');
   lines.push('');
   lines.push('#Funding #Grants #Nigeria #SME #Entrepreneurs');
   return lines.join('\n');
@@ -856,7 +857,7 @@ async function main() {
         `- **${o.title}** (${o.funder}) — ${o.amount} — [Apply](${o.applyUrl})`
     ),
     '',
-    `_Scraped automatically by FundFinder AI. Live at [opportunities.a2fpartners.com](https://opportunities.a2fpartners.com)_`,
+    `_Scraped automatically by FundFinder AI. Live at [fundfinder.ng](https://fundfinder.ng)_`,
   ];
   fs.writeFileSync(
     path.join(SUMMARY_DIR, `${TODAY}-summary.md`),

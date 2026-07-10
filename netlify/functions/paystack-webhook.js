@@ -1,7 +1,7 @@
 // FundFinder AI — Paystack Webhook Handler
 // Paystack calls this URL when a payment is verified
 // Set this in Paystack Dashboard → Settings → API Keys & Webhooks
-// Webhook URL: https://opportunities.a2fpartners.com/.netlify/functions/paystack-webhook
+// Webhook URL: https://fundfinder.ng/.netlify/functions/paystack-webhook
 //
 // Required env vars:
 //   PAYSTACK_SECRET_KEY  — from Paystack Dashboard → Settings → API Keys
