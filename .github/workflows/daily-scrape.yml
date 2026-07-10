@@ -2,8 +2,8 @@ name: Daily Funding Opportunities Scraper
 
 on:
   schedule:
-    # Runs at 06:00 UTC = 07:00 Nigeria time (WAT) every day
-    - cron: '0 6 * * *'
+    # Runs at 06:00 UTC = 07:00 Nigeria time (WAT) on Mondays and Thursdays
+    - cron: '0 6 * * 1,4'
   # Also lets you click "Run workflow" in the GitHub Actions tab for testing
   workflow_dispatch:
 
