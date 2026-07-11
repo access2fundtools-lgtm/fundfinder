@@ -112,9 +112,9 @@ function dt(s){ return s ? new Date(s).toLocaleDateString('en-NG',{day:'numeric'
 async function boot(){
   const { data:{ session } } = await sb.auth.getSession();
   if(!session){ location.href = 'fundfinder-auth.html'; return; }
-  const { data: adminRow } = await sb.from('admins').select('user_id').eq('user_id', session.user.id).maybeSingle();
+  const { data: isAdmin } = await sb.rpc('is_admin', { uid: session.user.id });
   document.getElementById('loading').style.display = 'none';
-  if(!adminRow){ document.getElementById('denied').style.display = 'flex'; return; }
+  if(!isAdmin){ document.getElementById('denied').style.display = 'flex'; return; }
   document.getElementById('app').classList.remove('hidden');
   document.getElementById('adminEmail').textContent = session.user.email;
   await loadAll();
