@@ -301,4 +301,12 @@ async function handleLogout() {
 
 // ============================================================
 // START
-// =========================================================
+// ============================================================
+init().catch(function (err) {
+  console.error('Wallet init failed:', err);
+  document.getElementById('loadingState').textContent =
+    'Something went wrong loading your wallet. Please refresh, or log in again.';
+});
+</script>
+</body>
+</html>

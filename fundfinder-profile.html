@@ -554,7 +554,8 @@ async function saveSection(section) {
   const updates = getSectionData(section);
   updates.updated_at = new Date().toISOString();
 
-  const { error } = await sb.from('user_profiles').update(updates).eq('user_id', currentUser.id);
+  const { error } = await sb.from('user_profiles')
+    .upsert({ user_id: currentUser.id, ...updates }, { onConflict: 'user_id' });
 
   if (!error) {
     profile = { ...profile, ...updates };
@@ -565,7 +566,7 @@ async function saveSection(section) {
     card.classList.add('saved');
     setTimeout(() => { card.classList.remove('saved'); stat.textContent = ''; }, 3000);
   } else {
-    stat.textContent = '❌ Save failed — check connection.'; stat.className = 'save-status err';
+    stat.textContent = '❌ ' + (error.message || 'Save failed — please try again.'); stat.className = 'save-status err';
     console.error(error);
   }
 

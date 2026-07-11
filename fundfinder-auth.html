@@ -250,7 +250,9 @@ document.addEventListener('DOMContentLoaded', function() {
       email: email,
       password: password,
       options: {
+        emailRedirectTo: window.location.origin + '/fundfinder-auth.html?mode=login',
         data: {
+          account_type: 'personal',
           full_name: firstName + ' ' + lastName,
           whatsapp: whatsapp,
           notify_email: notifyEmail,

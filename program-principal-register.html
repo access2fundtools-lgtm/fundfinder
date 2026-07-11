@@ -503,37 +503,37 @@ async function submitRegistration() {
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span>Registering…';
 
-  // 1. Create auth account
-  const { data: authData, error: authError } = await sb.auth.signUp({ email, password: pwd });
+  // Create the auth account WITH all organisation details as signup
+  // metadata. A database trigger (handle_new_user) reads this metadata
+  // and creates the program_principals record server-side, so it works
+  // even when email confirmation is on and there is no session yet.
+  const { data: authData, error: authError } = await sb.auth.signUp({
+    email,
+    password: pwd,
+    options: {
+      emailRedirectTo: window.location.origin + '/fundfinder-auth.html?mode=login',
+      data: {
+        account_type: 'org',
+        full_name:           document.getElementById('contactName').value.trim(),
+        org_name:            document.getElementById('orgName').value.trim(),
+        org_type:            document.getElementById('orgType').value,
+        registration_number: document.getElementById('regNum').value.trim() || null,
+        website:             document.getElementById('orgWebsite').value.trim() || null,
+        contact_name:        document.getElementById('contactName').value.trim(),
+        contact_email:       document.getElementById('contactEmail').value.trim(),
+        contact_phone:       document.getElementById('contactPhone').value.trim() || null,
+        program_name:        document.getElementById('programName').value.trim(),
+        capital_type:        selectedCapType || null,
+        target_beneficiary:  document.getElementById('targetBeneficiary').value,
+        eligibility_notes:   document.getElementById('eligibilityNotes').value.trim() || null,
+        ngx_pathway_active:  document.getElementById('ngxActive').checked,
+        ngx_pathway_notes:   document.getElementById('ngxNotes').value.trim() || null
+      }
+    }
+  });
   if (authError) {
     btn.disabled = false; btn.innerHTML = 'Submit Registration →';
     err.textContent = authError.message; err.className = 'msg error'; return;
-  }
-
-  // 2. Save Program Principal record
-  const ppPayload = {
-    user_id: authData.user?.id,
-    org_name: document.getElementById('orgName').value.trim(),
-    org_type: document.getElementById('orgType').value,
-    registration_number: document.getElementById('regNum').value.trim() || null,
-    website: document.getElementById('orgWebsite').value.trim() || null,
-    contact_name: document.getElementById('contactName').value.trim(),
-    contact_email: document.getElementById('contactEmail').value.trim(),
-    contact_phone: document.getElementById('contactPhone').value.trim() || null,
-    program_name: document.getElementById('programName').value.trim(),
-    capital_type: selectedCapType || null,
-    target_beneficiary: document.getElementById('targetBeneficiary').value,
-    eligibility_notes: document.getElementById('eligibilityNotes').value.trim() || null,
-    ngx_pathway_active: document.getElementById('ngxActive').checked,
-    ngx_pathway_notes: document.getElementById('ngxNotes').value.trim() || null,
-    onboarding_complete: true,
-    onboarding_step: 4
-  };
-
-  const { error: ppError } = await sb.from('program_principals').insert([ppPayload]);
-  if (ppError) {
-    console.warn('PP record error (non-fatal):', ppError.message);
-    // Don't block — auth account created, PP record can be completed on first login
   }
 
   // Show success
@@ -541,4 +541,6 @@ async function submitRegistration() {
   document.getElementById('successScreen').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-</
+</script>
+</body>
+</html>
