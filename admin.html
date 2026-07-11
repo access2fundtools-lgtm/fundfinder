@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — FundFinder AI</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{--bg:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--border:rgba(255,255,255,0.08);
+    --text:#f0f0f0;--muted:rgba(255,255,255,0.5);--gold:#FFD700;--green:#22c55e;--red:#ef4444;--blue:#3b82f6;}
+  body{font-family:'Segoe UI',-apple-system,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+  nav{border-bottom:1px solid var(--border);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(10,10,10,0.96);backdrop-filter:blur(12px);z-index:100;}
+  .logo{font-size:18px;font-weight:900;} .logo span{color:var(--gold);}
+  .nav-r{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--muted);}
+  .btn{background:transparent;border:1px solid var(--border);color:var(--muted);font-size:13px;padding:7px 14px;border-radius:8px;cursor:pointer;}
+  .btn:hover{border-color:var(--gold);color:var(--gold);}
+  .page{max-width:1200px;margin:0 auto;padding:28px 24px;}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:28px;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;}
+  .stat-num{font-size:30px;font-weight:900;color:var(--gold);line-height:1;}
+  .stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:8px;}
+  .tabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap;}
+  .tab{padding:9px 18px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;color:var(--muted);border:1px solid var(--border);background:var(--surface);}
+  .tab.active{background:rgba(255,215,0,0.1);color:var(--gold);border-color:rgba(255,215,0,0.4);}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th{background:var(--surface2);text-align:left;padding:11px 14px;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);position:sticky;top:57px;}
+  td{padding:11px 14px;border-top:1px solid var(--border);vertical-align:middle;}
+  tr:hover td{background:rgba(255,255,255,0.02);}
+  .mono{font-family:monospace;font-size:11px;color:var(--muted);}
+  .pill{font-size:11px;font-weight:700;padding:3px 10px;border-radius:30px;display:inline-block;}
+  .pill.green{background:rgba(34,197,94,0.12);color:var(--green);}
+  .pill.gold{background:rgba(255,215,0,0.12);color:var(--gold);}
+  .pill.red{background:rgba(239,68,68,0.12);color:var(--red);}
+  .pill.blue{background:rgba(59,130,246,0.12);color:var(--blue);}
+  .act{background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.3);color:var(--gold);font-size:12px;font-weight:700;padding:5px 12px;border-radius:7px;cursor:pointer;}
+  .act:hover{background:rgba(255,215,0,0.2);}
+  .act.green{background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.3);color:var(--green);}
+  .search{width:100%;max-width:320px;background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:14px;padding:10px 14px;border-radius:9px;outline:none;margin-bottom:14px;}
+  .hidden{display:none;}
+  .empty{padding:36px;text-align:center;color:var(--muted);font-size:14px;}
+  #denied{display:none;min-height:100vh;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;}
+  #loading{min-height:100vh;display:flex;align-items:center;justify-content:center;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<div id="loading">Loading admin…</div>
+
+<div id="denied">
+  <div style="font-size:40px;">&#128274;</div>
+  <h2>Admin access only</h2>
+  <p style="color:var(--muted);max-width:420px;">This account isn't an administrator. If you believe this is a mistake, contact the site owner.</p>
+  <a href="index.html" class="btn" style="text-decoration:none;">&larr; Back to site</a>
+</div>
+
+<div id="app" class="hidden">
+  <nav>
+    <div class="logo">Fund<span>Finder</span> AI · Admin</div>
+    <div class="nav-r">
+      <span id="adminEmail"></span>
+      <button class="btn" onclick="location.reload()">&#8635; Refresh</button>
+      <button class="btn" onclick="logout()">Log out</button>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="stats" id="stats"></div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="users" onclick="showTab('users')">Users</button>
+      <button class="tab" data-tab="txns" onclick="showTab('txns')">Transactions</button>
+      <button class="tab" data-tab="orgs" onclick="showTab('orgs')">Organisations</button>
+    </div>
+
+    <div id="tab-users">
+      <input class="search" id="userSearch" placeholder="Search by email, name, business…" oninput="renderUsers()">
+      <div class="card"><table>
+        <thead><tr><th>Email</th><th>Name</th><th>WhatsApp</th><th>Business</th><th>Credits</th><th>Joined</th><th>Action</th></tr></thead>
+        <tbody id="usersBody"></tbody>
+      </table></div>
+    </div>
+
+    <div id="tab-txns" class="hidden">
+      <div class="card"><table>
+        <thead><tr><th>Date</th><th>User</th><th>Credits</th><th>Amount</th><th>Ref</th><th>Status</th></tr></thead>
+        <tbody id="txnsBody"></tbody>
+      </table></div>
+    </div>
+
+    <div id="tab-orgs" class="hidden">
+      <div class="card"><table>
+        <thead><tr><th>Organisation</th><th>Type</th><th>Contact</th><th>Program</th><th>Verified</th><th>Action</th></tr></thead>
+        <tbody id="orgsBody"></tbody>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL  = 'https://zrkxigbmlprrowiofhjy.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+let USERS = [], WALLETS = {}, TXNS = [], ORGS = [];
+
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function money(n){ return '₦' + (Number(n)||0).toLocaleString(); }
+function dt(s){ return s ? new Date(s).toLocaleDateString('en-NG',{day:'numeric',month:'short',year:'numeric'}) : '—'; }
+
+async function boot(){
+  const { data:{ session } } = await sb.auth.getSession();
+  if(!session){ location.href = 'fundfinder-auth.html'; return; }
+  const { data: adminRow } = await sb.from('admins').select('user_id').eq('user_id', session.user.id).maybeSingle();
+  document.getElementById('loading').style.display = 'none';
+  if(!adminRow){ document.getElementById('denied').style.display = 'flex'; return; }
+  document.getElementById('app').classList.remove('hidden');
+  document.getElementById('adminEmail').textContent = session.user.email;
+  await loadAll();
+}
+
+async function loadAll(){
+  const [pRes, wRes, tRes, oRes] = await Promise.all([
+    sb.from('user_profiles').select('user_id,email,full_name,whatsapp,business_name,business_sector,business_location,created_at').order('created_at',{ascending:false}),
+    sb.from('wallets').select('user_id,balance_credits,total_credits_purchased,total_credits_used'),
+    sb.from('transactions').select('*').order('created_at',{ascending:false}).limit(300),
+    sb.from('program_principals').select('*').order('created_at',{ascending:false})
+  ]);
+  USERS = pRes.data || [];
+  TXNS  = tRes.data || [];
+  ORGS  = oRes.data || [];
+  WALLETS = {};
+  (wRes.data || []).forEach(w => { WALLETS[w.user_id] = w; });
+  renderStats(); renderUsers(); renderTxns(); renderOrgs();
+}
+
+function renderStats(){
+  const outstanding = Object.values(WALLETS).reduce((a,w)=>a+(w.balance_credits||0),0);
+  const revenue = TXNS.filter(t=>t.status==='success').reduce((a,t)=>a+(t.amount_ngn||0),0);
+  const paid = TXNS.filter(t=>t.status==='success').length;
+  const cards = [
+    ['Total Users', USERS.length],
+    ['Credits Outstanding', outstanding.toLocaleString()],
+    ['Revenue (paid)', money(revenue)],
+    ['Successful Payments', paid],
+    ['Organisations', ORGS.length]
+  ];
+  document.getElementById('stats').innerHTML = cards.map(c=>
+    `<div class="stat"><div class="stat-num">${c[1]}</div><div class="stat-label">${c[0]}</div></div>`).join('');
+}
+
+function renderUsers(){
+  const q = (document.getElementById('userSearch').value||'').toLowerCase();
+  const rows = USERS.filter(u => !q ||
+    (u.email||'').toLowerCase().includes(q) ||
+    (u.full_name||'').toLowerCase().includes(q) ||
+    (u.business_name||'').toLowerCase().includes(q));
+  const body = document.getElementById('usersBody');
+  if(!rows.length){ body.innerHTML = '<tr><td colspan="7" class="empty">No users found.</td></tr>'; return; }
+  body.innerHTML = rows.map(u=>{
+    const w = WALLETS[u.user_id] || {};
+    const cr = (w.balance_credits!=null) ? w.balance_credits : '—';
+    return `<tr>
+      <td>${esc(u.email)||'<span class="mono">no email</span>'}</td>
+      <td>${esc(u.full_name)||'—'}</td>
+      <td>${esc(u.whatsapp)||'—'}</td>
+      <td>${esc(u.business_name)||'—'}${u.business_sector?` <span class="mono">· ${esc(u.business_sector)}</span>`:''}</td>
+      <td><span class="pill gold">${cr}</span></td>
+      <td>${dt(u.created_at)}</td>
+      <td><button class="act" onclick="grant('${u.user_id}','${esc(u.email)}')">Adjust credits</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function renderTxns(){
+  const emailById = {}; USERS.forEach(u=>emailById[u.user_id]=u.email);
+  const body = document.getElementById('txnsBody');
+  if(!TXNS.length){ body.innerHTML = '<tr><td colspan="6" class="empty">No transactions yet.</td></tr>'; return; }
+  body.innerHTML = TXNS.map(t=>{
+    const cls = t.status==='success'?'green':(t.status==='failed'?'red':'gold');
+    return `<tr>
+      <td>${dt(t.created_at)}</td>
+      <td>${esc(emailById[t.user_id]||'')||'<span class="mono">'+esc(t.user_id||'').slice(0,8)+'</span>'}</td>
+      <td>+${t.credits_added||0}</td>
+      <td>${money(t.amount_ngn)}</td>
+      <td class="mono">${esc(t.paystack_ref||'')}</td>
+      <td><span class="pill ${cls}">${esc(t.status||'')}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function renderOrgs(){
+  const body = document.getElementById('orgsBody');
+  if(!ORGS.length){ body.innerHTML = '<tr><td colspan="6" class="empty">No organisations registered yet.</td></tr>'; return; }
+  body.innerHTML = ORGS.map(o=>`
+    <tr>
+      <td>${esc(o.org_name)||'—'}</td>
+      <td><span class="pill blue">${esc(o.org_type||'—')}</span></td>
+      <td>${esc(o.contact_name)||'—'}<br><span class="mono">${esc(o.contact_email||'')}</span></td>
+      <td>${esc(o.program_name)||'—'}</td>
+      <td>${o.verified?'<span class="pill green">Verified</span>':'<span class="pill gold">Pending</span>'}</td>
+      <td>${o.verified?'—':`<button class="act green" onclick="verifyOrg('${o.id}')">Verify</button>`}</td>
+    </tr>`).join('');
+}
+
+async function grant(userId, email){
+  const raw = prompt(`Adjust credits for ${email}\nEnter a number to ADD (use a negative number to deduct):`, '');
+  if(raw===null) return;
+  const delta = parseInt(raw, 10);
+  if(isNaN(delta)){ alert('Please enter a whole number.'); return; }
+  const { data, error } = await sb.rpc('admin_adjust_credits', { p_user_id: userId, p_delta: delta });
+  if(error){ alert('Failed: ' + error.message); return; }
+  alert(`Done. New balance: ${data} credits.`);
+  await loadAll();
+}
+
+async function verifyOrg(id){
+  if(!confirm('Mark this organisation as verified?')) return;
+  const { error } = await sb.from('program_principals').update({ verified:true, verified_at:new Date().toISOString() }).eq('id', id);
+  if(error){ alert('Failed: ' + error.message); return; }
+  await loadAll();
+}
+
+function showTab(name){
+  ['users','txns','orgs'].forEach(t=>{
+    document.getElementById('tab-'+t).classList.toggle('hidden', t!==name);
+  });
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
+}
+
+async function logout(){ await sb.auth.signOut(); location.href='fundfinder-auth.html'; }
+
+boot();
+</script>
+</body>
+</html>
