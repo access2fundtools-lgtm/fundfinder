@@ -666,24 +666,33 @@ async function callAI(prompt, outputId, costCredits = 2) {
   outputEl.textContent = '🤖 AI is analysing... this takes a few seconds.';
 
   try {
-    const response = await fetch('/.netlify/functions/chat', {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) { window.location.href = 'fundfinder-auth.html'; return false; }
+    const response = await fetch('/api/chat', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + session.access_token
+      },
       body: JSON.stringify({
-        userId: currentUser.id,
         messages: [{ role: 'user', content: prompt }],
         systemPrompt: `You are FundFinder AI Growth Suite, a practical business intelligence assistant for Nigerian SMEs and entrepreneurs. Give specific, actionable, Nigeria-relevant advice. Be direct and structured. Use bullet points and clear sections. Always ground your recommendations in Nigerian business reality.`
       })
     });
-    const data = await response.json();
-    if (data.error) {
+    const data = await response.json().catch(() => ({}));
+    if (response.status === 402) {
+      outputEl.className = 'ai-output';
+      outputEl.textContent = '💳 ' + (data.message || 'Out of credits. Top up your wallet to continue.');
+      return false;
+    }
+    if (!response.ok || data.error) {
       outputEl.className = 'ai-output';
       outputEl.textContent = '⚠️ ' + (data.message || 'Something went wrong. Please try again.');
       return false;
     }
     outputEl.className = 'ai-output';
-    outputEl.textContent = data.content || data.message || 'No response received.';
-    userCredits -= costCredits;
+    outputEl.textContent = data.response || 'No response received.';
+    if (typeof data.balanceRemaining === 'number') { userCredits = data.balanceRemaining; }
     const badge = document.getElementById('creditBadge');
     if (badge) badge.textContent = `💳 ${userCredits} credits`;
     return true;
