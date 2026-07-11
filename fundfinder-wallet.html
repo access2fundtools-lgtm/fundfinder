@@ -146,11 +146,11 @@
 // ============================================================
 // CONFIG — replace with your actual values
 // ============================================================
-const SUPABASE_URL   = 'https://zrkxigbmlprrowiofhjy.supabase.co';
+const SUPABASE_URL   = 'https://zrkxigbmlprrowiofhjy.sbc.co';
 const SUPABASE_ANON  = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
 const PAYSTACK_KEY   = 'pk_live_6dfab876a6d59af7accc7ff8b109ab27dc0c5fc4'; // Paystack public key
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+const sbc = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
 let currentUser = null;
 let selectedPackage = null;
@@ -159,7 +159,7 @@ let selectedPackage = null;
 // INIT
 // ============================================================
 async function init() {
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { session } } = await sbc.auth.getSession();
   if (!session) {
     window.location.href = 'fundfinder-auth.html';
     return;
@@ -175,7 +175,7 @@ async function init() {
 // LOAD WALLET
 // ============================================================
 async function loadWallet() {
-  const { data } = await supabase
+  const { data } = await sbc
     .from('wallets')
     .select('balance_credits, total_credits_purchased, total_credits_used')
     .eq('user_id', currentUser.id)
@@ -192,7 +192,7 @@ async function loadWallet() {
 // LOAD PACKAGES
 // ============================================================
 async function loadPackages() {
-  const { data: packages } = await supabase
+  const { data: packages } = await sbc
     .from('credit_packages')
     .select('*')
     .eq('is_active', true)
@@ -254,7 +254,7 @@ function initiatePayment() {
 }
 
 async function recordPendingTransaction(ref, pkg) {
-  await supabase.from('transactions').insert({
+  await sbc.from('transactions').insert({
     user_id: currentUser.id,
     paystack_ref: ref,
     amount_ngn: pkg.price,
@@ -268,7 +268,7 @@ async function recordPendingTransaction(ref, pkg) {
 // TRANSACTION HISTORY
 // ============================================================
 async function loadTransactions() {
-  const { data } = await supabase
+  const { data } = await sbc
     .from('transactions')
     .select('*')
     .eq('user_id', currentUser.id)
@@ -295,7 +295,7 @@ async function loadTransactions() {
 // LOGOUT
 // ============================================================
 async function handleLogout() {
-  await supabase.auth.signOut();
+  await sbc.auth.signOut();
   window.location.href = 'fundfinder-auth.html';
 }
 
