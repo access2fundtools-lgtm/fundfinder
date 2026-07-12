@@ -54,8 +54,18 @@ export async function onRequestPost(context) {
 
   // Credit check
   const wRes = await svc(`wallets?user_id=eq.${userId}&select=balance_credits`);
-  const wallet = (wRes.ok ? await wRes.json() : [])[0];
-  if (!wallet) return json({ error: 'wallet_not_found', message: 'Could not load your wallet.' }, 403);
+  const wText = await wRes.text();
+  let wArr = []; try { wArr = JSON.parse(wText); } catch (_) {}
+  const wallet = Array.isArray(wArr) ? wArr[0] : null;
+  if (!wallet) return json({ error: 'wallet_not_found', message: 'Could not load your wallet.', _debug: {
+    wStatus: wRes.status,
+    wBody: String(wText).slice(0, 140),
+    uid: String(userId).slice(0, 8),
+    svcLen: (env.SUPABASE_SERVICE_KEY || '').length,
+    svcPrefix: (env.SUPABASE_SERVICE_KEY || '').slice(0, 10),
+    anonPrefix: (env.SUPABASE_ANON_KEY || '').slice(0, 10),
+    urlHasSupabase: (env.SUPABASE_URL || '').includes('supabase.co')
+  } }, 403);
   if (wallet.balance_credits < CREDITS_PER_MESSAGE)
     return json({ error: 'insufficient_credits', message: "You're out of credits. Top up your wallet to keep chatting.", balance: wallet.balance_credits }, 402);
 
