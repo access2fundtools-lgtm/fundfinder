@@ -20,6 +20,11 @@ const json = (obj, status = 200) =>
   new Response(JSON.stringify(obj), { status, headers: { 'Content-Type': 'application/json' } });
 
 export async function onRequestPost(context) {
+  try { return await handleChat(context); }
+  catch (err) { return json({ error: 'server_error', message: String((err && err.message) || err), stack: String((err && err.stack) || '').slice(0, 400) }, 500); }
+}
+
+async function handleChat(context) {
   const { request, env } = context;
 
   let messages, systemPrompt, sessionId;
