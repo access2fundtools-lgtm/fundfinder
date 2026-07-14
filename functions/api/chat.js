@@ -34,8 +34,6 @@ async function handleChat(context) {
   const userId = user.id;
   if (!userId) return json({ error: 'unauthorized', message: 'Could not verify your account.' }, 401);
 
-  const probe = (() => { try { return new URL(request.url).searchParams.get('probe'); } catch { return null; } })();
-
   const svc = (path, init = {}) =>
     fetch(`${env.SUPABASE_URL}/rest/v1/${path}`, {
       ...init,
@@ -64,12 +62,8 @@ async function handleChat(context) {
   } catch (err) { console.error('Gemini fetch error', err); return json({ error: 'ai_error', message: 'Could not reach AI service.' }, 502); }
 
 
-  if (probe === 'aftergemini') return json({ stage: 'aftergemini', respLen: aiResponse.length }, 200);
-
   const dRes = await svc('rpc/deduct_credits', { method: 'POST', body: JSON.stringify({ p_user_id: userId, p_credits: CREDITS_PER_MESSAGE }) });
   if (!dRes.ok) console.error('deduct_credits failed', await dRes.text());
-
-  if (probe === 'afterdeduct') return json({ stage: 'afterdeduct', deductOk: dRes.ok, deductStatus: dRes.status }, 200);
 
   return json({ response: aiResponse, creditsUsed: CREDITS_PER_MESSAGE, balanceRemaining: Math.max(0, wallet.balance_credits - CREDITS_PER_MESSAGE) });
 }
