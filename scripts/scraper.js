@@ -455,10 +455,22 @@ const LINK_EXCLUDE_DOMAINS = [
   'youtube.com', 'youtu.be', 'addtoany.com', 'wp.com', 'gravatar.com', 'w3.org', 'schema.org',
   'googleapis.com', 'gstatic.com', 'google.com', 'news.google.com', 'doubleclick.net',
   'googlesyndication.com', 'amazon-adsystem.com', 'wordpress.com', 'wordpress.org',
+  // Aggregator-family sister sites/tools that show up in footers/sidebars, not real org links.
+  'fundsforngos.ai', 'ngos.ai', 'fundsforngospremium.com', 'eepurl.com', 'cookiedatabase.org',
+  'apps.apple.com', 'play.google.com',
 ];
 
 function hostnameOf(url) {
-  try { return new URL(url).hostname.replace(/^www\./i, '').toLowerCase(); } catch { return ''; }
+  try { return new URL(url).hostname.toLowerCase(); } catch { return ''; }
+}
+
+// Compare by registrable base domain (last two labels), not exact hostname — aggregator sites
+// often mix subdomains (www.fundsforngos.org vs www2.fundsforngos.org) and a naive exact-match
+// treats those as different sites, letting the source's own nav links slip through as if they
+// were a real outbound org link.
+function baseDomainOf(host) {
+  const parts = host.split('.').filter(Boolean);
+  return parts.length <= 2 ? host : parts.slice(-2).join('.');
 }
 
 function isExcludedLinkDomain(host) {
@@ -467,7 +479,7 @@ function isExcludedLinkDomain(host) {
 
 /** Pull candidate outbound (off-domain) links with their anchor text out of a post's HTML */
 function extractOutboundLinks(html, postUrl) {
-  const sourceHost = hostnameOf(postUrl);
+  const sourceBase = baseDomainOf(hostnameOf(postUrl));
   const results = [];
   const regex = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
   let m;
@@ -475,7 +487,7 @@ function extractOutboundLinks(html, postUrl) {
     const href = decodeEntities(m[1]).trim();
     if (!/^https?:\/\//i.test(href)) continue;
     const host = hostnameOf(href);
-    if (!host || host === sourceHost || isExcludedLinkDomain(host)) continue;
+    if (!host || baseDomainOf(host) === sourceBase || isExcludedLinkDomain(host)) continue;
     const text = decodeEntities(m[2].replace(/<[^>]+>/g, '').trim());
     results.push({ href, text, host });
   }
