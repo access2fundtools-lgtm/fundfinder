@@ -1,0 +1,14 @@
+FundFinder AI — Daily Sync Log
+Date/time: 2026-07-13 06:51 UTC
+
+STEP 3 (commit + merge): Local sync-log commit created and merged with origin/main via /tmp clone. Fetch from GitHub succeeded (public repo, read works unauthenticated). Merge succeeded cleanly, pulling in: admin.html, functions/api/chat.js, functions/api/paystack-webhook.js, fundfinder-auth.html, fundfinder-chat.html, fundfinder-growth-suite.html, fundfinder-profile.html, fundfinder-wallet.html, program-principal-register.html, supabase-admin.sql, supabase-migration-fixes-2026-07.sql.
+
+PUSH RESULT: FAILED. "remote: Invalid username or token. Password authentication is not supported for Git operations." The embedded PAT (ghp_aP2D...) is rejected.
+
+TRIGGER RESULT: FAILED. GitHub API returned 401 "Bad credentials" for both a plain repo read and the workflow-dispatch call. Confirms the token itself is invalid/expired/revoked — not a scope or push-specific issue.
+
+MOUNT SYNC: Performed locally as a best-effort — merged file contents (the 11 files above) were written into the local mount so downstream tasks (e.g. facebook-poster) have the latest content. However, this local commit (SYNC-LOG file) was NOT pushed to GitHub, so the remote repo does not yet have today's sync commit, and the scraper workflow was NOT triggered.
+
+CAPTION FILES: 0 new caption .txt files landed — the scraper workflow never ran because the dispatch call was rejected.
+
+ACTION NEEDED: The GitHub PAT ([REDACTED - token was invalid/revoked]) must be regenerated/replaced. Until then, pushes and workflow triggers will keep failing.

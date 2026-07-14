@@ -227,21 +227,13 @@ const SOURCES = [
     strategy: 'rss',
     keywords: ['nigeria', 'africa', 'grant', 'fund', 'apply', 'entrepreneur', 'startup', 'business', 'naira', '₦', '$'],
   },
-  {
-    id: 'gnews-call-for-applications',
-    name: 'Google News — Call for Applications Nigeria',
-    url: 'https://news.google.com/rss/search?q=%22call+for+applications%22+%22Nigeria%22+%22grant%22+OR+%22fund%22+OR+%22naira%22&hl=en-NG&gl=NG&ceid=NG:en',
-    strategy: 'rss',
-    keywords: ['call for applications', 'apply now', 'grant', 'fund', 'nigeria'],
-  },
-  {
-    id: 'gnews-ng-deadline',
-    name: 'Google News — Nigeria Funding Deadlines',
-    url: 'https://news.google.com/rss/search?q=%22apply+now%22+%22Nigeria%22+%22deadline%22+%22grant+OR+fund+OR+startup%22&hl=en-NG&gl=NG&ceid=NG:en',
-    strategy: 'rss',
-    keywords: ['deadline', 'apply now', 'grant', 'fund', 'nigeria', 'startup', 'entrepreneur'],
-  },
 ];
+// NOTE (2026-07-14): Removed the two Google News sources (gnews-call-for-applications,
+// gnews-ng-deadline). Their RSS <link> is a news.google.com redirect wrapper that (a) bounces
+// through a cookie-consent redirect loop for headless fetches and (b) even when it resolves,
+// lands on a news publisher's article ABOUT the funding — not the program principal's own
+// site. That double indirection was the main source of flyers linking to blogs/news instead of
+// the real application page. See resolveApplyUrl() below for how remaining sources are handled.
 
 // ─── Utilities ────────────────────────────────────────────────────────────────
 
@@ -447,6 +439,126 @@ function extractLinks(html, baseUrl) {
     }
   }
   return results;
+}
+
+// ─── Apply-link resolution ────────────────────────────────────────────────────
+// Aggregator/blog RSS feeds (Opportunity Desk, Funds for NGOs, MSME Africa, etc.) publish
+// their OWN post URL as <link> — that's the blog article about the opportunity, not the
+// program principal's application page. Most of these posts contain an outbound link to the
+// real org site ("Click here to apply", the org name, or a bare URL). We fetch the post and
+// pull that link out; if we can't find a confident one, we drop the item rather than publish
+// a flyer that points back at the blog (the exact bug this fixes).
+
+const LINK_EXCLUDE_DOMAINS = [
+  'facebook.com', 'twitter.com', 'x.com', 'whatsapp.com', 'wa.me', 'linkedin.com',
+  'pinterest.com', 't.me', 'telegram.me', 'feedburner.com', 'reddit.com', 'instagram.com',
+  'youtube.com', 'youtu.be', 'addtoany.com', 'wp.com', 'gravatar.com', 'w3.org', 'schema.org',
+  'googleapis.com', 'gstatic.com', 'google.com', 'news.google.com', 'doubleclick.net',
+  'googlesyndication.com', 'amazon-adsystem.com', 'wordpress.com', 'wordpress.org',
+];
+
+function hostnameOf(url) {
+  try { return new URL(url).hostname.replace(/^www\./i, '').toLowerCase(); } catch { return ''; }
+}
+
+function isExcludedLinkDomain(host) {
+  return !host || LINK_EXCLUDE_DOMAINS.some((d) => host === d || host.endsWith('.' + d));
+}
+
+/** Pull candidate outbound (off-domain) links with their anchor text out of a post's HTML */
+function extractOutboundLinks(html, postUrl) {
+  const sourceHost = hostnameOf(postUrl);
+  const results = [];
+  const regex = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = regex.exec(html)) !== null) {
+    const href = decodeEntities(m[1]).trim();
+    if (!/^https?:\/\//i.test(href)) continue;
+    const host = hostnameOf(href);
+    if (!host || host === sourceHost || isExcludedLinkDomain(host)) continue;
+    const text = decodeEntities(m[2].replace(/<[^>]+>/g, '').trim());
+    results.push({ href, text, host });
+  }
+  return results;
+}
+
+const APPLY_ANCHOR_RE = /\b(apply|application\s*form|register|registration|official\s*(site|website|page)|submit\s*(your|an)?\s*application|click here)\b/i;
+const JUNK_ANCHOR_RE = /\b(share|read more|comment|related (post|article)s?|leave a reply|source|photo|image credit|advertisement|subscribe)\b/i;
+
+/**
+ * Some aggregator themes (WordPress "infinite scroll" templates) render the NEXT article's full
+ * content on the same page below the one you asked for — so a single fetched URL can contain
+ * several distinct opportunities back to back, each under its own <h1-3> heading. If we don't
+ * scope the search, we can grab another opportunity's "APPLY HERE" link by mistake. This finds
+ * the heading that matches this specific title and trims the HTML down to just that section
+ * (from its heading up to the next heading of the same or higher level).
+ */
+function scopeToArticleSection(html, title) {
+  if (!title) return html;
+  const words = title
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length > 3)
+    .slice(0, 5);
+  if (words.length < 2) return html;
+
+  const pattern = words.map((w) => w.replace(/[-\[\]{}()*+?.,\\^$|#\s]/g, '\\$&')).join('[\\s\\S]{0,60}');
+  let wordsRe;
+  try {
+    wordsRe = new RegExp(pattern, 'i');
+  } catch {
+    return html;
+  }
+
+  // Anchor specifically to the <h1> that carries THIS title, not any earlier mention in
+  // <title>/meta tags or "related posts"/mega-menu widgets (those match the title text too,
+  // just not inside an <h1>, and matching them instead points the scope at the wrong section).
+  const h1Re = /<h1[^>]*>([\s\S]*?)<\/h1>/gi;
+  let m;
+  let sectionStart = -1;
+  let matchLen = 0;
+  while ((m = h1Re.exec(html)) !== null) {
+    const innerText = m[1].replace(/<[^>]+>/g, ' ');
+    if (wordsRe.test(innerText)) {
+      sectionStart = m.index;
+      matchLen = m[0].length;
+      break;
+    }
+  }
+  if (sectionStart === -1) return html; // couldn't confidently anchor; fall back to whole page
+
+  const afterStart = sectionStart + matchLen;
+  const nextIdx = html.slice(afterStart).search(/<h1[^>]*>/i); // next article's <h1> = end of this one
+  const sectionEnd = nextIdx === -1 ? html.length : afterStart + nextIdx;
+  return html.slice(sectionStart, sectionEnd);
+}
+
+/** Fetch a blog/aggregator post and try to find the real program-principal apply link. Null if unresolved. */
+async function resolveApplyUrl(postUrl, title) {
+  try {
+    const html = await fetch(postUrl, 10000);
+    const scoped = scopeToArticleSection(html, title);
+    let candidates = extractOutboundLinks(scoped, postUrl);
+    if (!candidates.length && scoped !== html) candidates = extractOutboundLinks(html, postUrl);
+    if (!candidates.length) return null;
+
+    // Highest confidence: anchor text explicitly says "apply" / "register" / "click here" etc.
+    const applyMatch = candidates.find((c) => APPLY_ANCHOR_RE.test(c.text));
+    if (applyMatch) return applyMatch.href;
+
+    // Next: anchor text that's just the destination URL itself (common "official page" pattern)
+    const urlAsText = candidates.find((c) => c.text.replace(/^https?:\/\//i, '').startsWith(c.host));
+    if (urlAsText) return urlAsText.href;
+
+    // Fallback: last non-junk outbound link (posts usually end with the real CTA link)
+    const clean = candidates.filter((c) => !JUNK_ANCHOR_RE.test(c.text));
+    if (clean.length) return clean[clean.length - 1].href;
+
+    return null;
+  } catch {
+    return null;
+  }
 }
 
 // ─── Opportunity detection ────────────────────────────────────────────────────
@@ -658,12 +770,23 @@ async function scrapeRSS(source) {
   const items = parseRSS(xml);
   const results = [];
   for (const item of items) {
+    if (results.length >= 5) break; // cap per source per day — stop resolving once we have enough
     const title = cleanTitle(item.title);
     if (title.length < 16 || title.length > 180) continue;
     if (!containsKeywords(title + ' ' + item.desc, source.keywords)) continue;
     const desc = sanitizeDesc(item.desc, title);
     if (!isRealOpportunity(title, desc)) continue;
     const fullText = title + ' ' + desc;
+
+    // Resolve the real program-principal apply link out of the aggregator's post.
+    // If we can't confidently find one, skip this item — better to publish fewer,
+    // correct flyers than ones that just point back at the blog/news post.
+    const applyUrl = await resolveApplyUrl(item.link, title);
+    if (!applyUrl) {
+      console.log(`    ⏭️  Skipped (no resolvable apply link): ${title}`);
+      continue;
+    }
+
     results.push({
       id: slugify(item.title) + '-' + source.id,   // keep old id scheme so seen-ids.json stays valid
       titleSlug: titleSlugOf(title),                    // used for cross-source dedupe
@@ -674,13 +797,14 @@ async function scrapeRSS(source) {
       eligibility: 'See who qualifies on the official page',
       category: categorize(fullText),
       description: desc,
-      applyUrl: item.link,
+      applyUrl,
+      sourceUrl: item.link, // the aggregator post this was discovered on, kept for reference/debugging
       scope: 'Nigeria',
       source: source.id,
       discoveredOn: TODAY,
     });
   }
-  return results.slice(0, 5); // cap per source per day
+  return results;
 }
 
 async function scrapePage(source) {
