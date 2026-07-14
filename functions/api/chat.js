@@ -3,7 +3,7 @@
 // Env: GEMINI_API_KEY, GEMINI_MODEL(optional), SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_ANON_KEY
 
 const CREDITS_PER_MESSAGE = 1;
-const DEFAULT_MODEL = 'gemini-flash-latest';
+const DEFAULT_MODEL = 'gemini-2.0-flash';
 
 const json = (obj, status = 200) =>
   new Response(JSON.stringify(obj), { status, headers: { 'Content-Type': 'application/json' } });
@@ -34,8 +34,6 @@ async function handleChat(context) {
   const userId = user.id;
   if (!userId) return json({ error: 'unauthorized', message: 'Could not verify your account.' }, 401);
 
-  const probe = (() => { try { return new URL(request.url).searchParams.get('probe'); } catch { return null; } })();
-
   const svc = (path, init = {}) =>
     fetch(`${env.SUPABASE_URL}/rest/v1/${path}`, {
       ...init,
@@ -47,7 +45,6 @@ async function handleChat(context) {
   if (!wallet) return json({ error: 'wallet_not_found', message: 'Could not load your wallet.' }, 403);
   if (wallet.balance_credits < CREDITS_PER_MESSAGE)
     return json({ error: 'insufficient_credits', message: "You're out of credits. Top up your wallet to keep chatting.", balance: wallet.balance_credits }, 402);
-  if (probe === 'afterwallet') return json({ stage: 'afterwallet', balance: wallet.balance_credits }, 200);
 
   const model = env.GEMINI_MODEL || DEFAULT_MODEL;
   const contents = messages.map((m) => ({ role: m.role === 'assistant' ? 'model' : 'user', parts: [{ text: String(m.content || '') }] }));
@@ -64,7 +61,6 @@ async function handleChat(context) {
     if (!aiResponse) return json({ error: 'ai_error', message: 'The assistant could not respond to that. Please rephrase and try again.' }, 502);
   } catch (err) { console.error('Gemini fetch error', err); return json({ error: 'ai_error', message: 'Could not reach AI service.' }, 502); }
 
-  if (probe === 'aftergemini') return json({ stage: 'aftergemini', respLen: aiResponse.length, sample: aiResponse.slice(0, 60) }, 200);
 
   const dRes = await svc('rpc/deduct_credits', { method: 'POST', body: JSON.stringify({ p_user_id: userId, p_credits: CREDITS_PER_MESSAGE }) });
   if (!dRes.ok) console.error('deduct_credits failed', await dRes.text());
