@@ -34,6 +34,8 @@ async function handleChat(context) {
   const userId = user.id;
   if (!userId) return json({ error: 'unauthorized', message: 'Could not verify your account.' }, 401);
 
+  const probe = (() => { try { return new URL(request.url).searchParams.get('probe'); } catch { return null; } })();
+
   const svc = (path, init = {}) =>
     fetch(`${env.SUPABASE_URL}/rest/v1/${path}`, {
       ...init,
@@ -45,6 +47,7 @@ async function handleChat(context) {
   if (!wallet) return json({ error: 'wallet_not_found', message: 'Could not load your wallet.' }, 403);
   if (wallet.balance_credits < CREDITS_PER_MESSAGE)
     return json({ error: 'insufficient_credits', message: "You're out of credits. Top up your wallet to keep chatting.", balance: wallet.balance_credits }, 402);
+  if (probe === 'afterwallet') return json({ stage: 'afterwallet', balance: wallet.balance_credits }, 200);
 
   const model = env.GEMINI_MODEL || DEFAULT_MODEL;
   const contents = messages.map((m) => ({ role: m.role === 'assistant' ? 'model' : 'user', parts: [{ text: String(m.content || '') }] }));
@@ -61,17 +64,12 @@ async function handleChat(context) {
     if (!aiResponse) return json({ error: 'ai_error', message: 'The assistant could not respond to that. Please rephrase and try again.' }, 502);
   } catch (err) { console.error('Gemini fetch error', err); return json({ error: 'ai_error', message: 'Could not reach AI service.' }, 502); }
 
+  if (probe === 'aftergemini') return json({ stage: 'aftergemini', respLen: aiResponse.length, sample: aiResponse.slice(0, 60) }, 200);
+
   const dRes = await svc('rpc/deduct_credits', { method: 'POST', body: JSON.stringify({ p_user_id: userId, p_credits: CREDITS_PER_MESSAGE }) });
   if (!dRes.ok) console.error('deduct_credits failed', await dRes.text());
 
-  try {
-    await svc('chat_logs', { method: 'POST', headers: { Prefer: 'return=minimal' },
-      body: JSON.stringify({ user_id: userId, session_id: sessionId, message_role: 'assistant', credits_charged: CREDITS_PER_MESSAGE }) });
-  } catch (_) {}
-
-  const uRes = await svc(`wallets?user_id=eq.${userId}&select=balance_credits`);
-  const updated = uRes.ok ? (await uRes.json())[0] : null;
-  return json({ response: aiResponse, creditsUsed: CREDITS_PER_MESSAGE, balanceRemaining: updated?.balance_credits ?? (wallet.balance_credits - CREDITS_PER_MESSAGE) });
+  return json({ response: aiResponse, creditsUsed: CREDITS_PER_MESSAGE, balanceRemaining: Math.max(0, wallet.balance_credits - CREDITS_PER_MESSAGE) });
 }
 
 export async function onRequest(context) {
