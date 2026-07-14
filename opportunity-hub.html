@@ -1225,10 +1225,10 @@ document.getElementById('subscribeForm').addEventListener('submit', async functi
   btn.disabled = true;
   btn.textContent = 'Subscribing...';
   try {
-    const res = await fetch('/.netlify/functions/subscribe', {
+    const res = await fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email, source: 'hub-bottom-banner' })
     });
     const data = await res.json();
     if (data.success || res.ok) {
@@ -1569,21 +1569,16 @@ catBtns.forEach(btn => {
 </footer>
 
 <script>
-async function submitToZoho(email) {
-  // Posts straight to Supabase (site runs on Cloudflare Pages — no Netlify functions).
-  // Requires: GRANT INSERT ON public.newsletter_subscribers TO anon; + permissive INSERT RLS policy.
+async function submitToZoho(email, source) {
+  // Single consolidated endpoint (Cloudflare Pages Function) — records the lead
+  // in Supabase and pushes it to Zoho Campaigns for the auto-follow-up email.
   try {
-    const res = await fetch('https://zrkxigbmlprrowiofhjy.supabase.co/rest/v1/newsletter_subscribers', {
+    const res = await fetch('/api/subscribe', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54',
-        'Authorization': 'Bearer sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54',
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({ email: email })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source })
     });
-    return res.ok || res.status === 409; // 409 = already subscribed
+    return res.ok;
   } catch (e) { return false; }
 }
 function handleSubscribe(e) {
@@ -1593,7 +1588,7 @@ function handleSubscribe(e) {
   const btn = form.querySelector('button[type="submit"]');
   btn.textContent = 'Adding you…';
   btn.disabled = true;
-  submitToZoho(email)
+  submitToZoho(email, 'hub-top-banner')
     .finally(() => { form.style.display = 'none'; document.getElementById('subscribeSuccess').style.display = 'block'; });
 }
 function handleSubscribe2(e) {
@@ -1603,7 +1598,7 @@ function handleSubscribe2(e) {
   const btn = form.querySelector('button[type="submit"]');
   btn.textContent = 'Adding you…';
   btn.disabled = true;
-  submitToZoho(email)
+  submitToZoho(email, 'hub-mid-banner')
     .finally(() => { form.style.display = 'none'; document.getElementById('subscribeSuccess2').style.display = 'block'; });
 }
 // Category filter highlight on scroll

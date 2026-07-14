@@ -71,6 +71,7 @@
       <button class="tab active" data-tab="users" onclick="showTab('users')">Users</button>
       <button class="tab" data-tab="txns" onclick="showTab('txns')">Transactions</button>
       <button class="tab" data-tab="orgs" onclick="showTab('orgs')">Organisations</button>
+      <button class="tab" data-tab="leads" onclick="showTab('leads')">Leads</button>
     </div>
 
     <div id="tab-users">
@@ -94,6 +95,15 @@
         <tbody id="orgsBody"></tbody>
       </table></div>
     </div>
+
+    <div id="tab-leads" class="hidden">
+      <p style="color:var(--muted);font-size:13px;margin-bottom:14px;">Emails captured from the "Get Alerts" forms on the opportunity hub — not yet full accounts. Zoho Campaigns handles the auto-follow-up email; this is just visibility into who's dropped their email.</p>
+      <input class="search" id="leadSearch" placeholder="Search by email or source…" oninput="renderLeads()">
+      <div class="card"><table>
+        <thead><tr><th>Email</th><th>Source</th><th>Confirmed</th><th>Dropped</th></tr></thead>
+        <tbody id="leadsBody"></tbody>
+      </table></div>
+    </div>
   </div>
 </div>
 
@@ -103,7 +113,7 @@ const SUPABASE_URL  = 'https://zrkxigbmlprrowiofhjy.supabase.co';
 const SUPABASE_ANON = 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-let USERS = [], WALLETS = {}, TXNS = [], ORGS = [];
+let USERS = [], WALLETS = {}, TXNS = [], ORGS = [], LEADS = [];
 
 function esc(s){ return (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function money(n){ return '₦' + (Number(n)||0).toLocaleString(); }
@@ -121,18 +131,20 @@ async function boot(){
 }
 
 async function loadAll(){
-  const [pRes, wRes, tRes, oRes] = await Promise.all([
+  const [pRes, wRes, tRes, oRes, lRes] = await Promise.all([
     sb.from('user_profiles').select('user_id,email,full_name,whatsapp,business_name,business_sector,business_location,created_at').order('created_at',{ascending:false}),
     sb.from('wallets').select('user_id,balance_credits,total_credits_purchased,total_credits_used'),
     sb.from('transactions').select('*').order('created_at',{ascending:false}).limit(300),
-    sb.from('program_principals').select('*').order('created_at',{ascending:false})
+    sb.from('program_principals').select('*').order('created_at',{ascending:false}),
+    sb.from('newsletter_subscribers').select('email,source,confirmed,created_at').order('created_at',{ascending:false})
   ]);
   USERS = pRes.data || [];
   TXNS  = tRes.data || [];
   ORGS  = oRes.data || [];
+  LEADS = lRes.data || [];
   WALLETS = {};
   (wRes.data || []).forEach(w => { WALLETS[w.user_id] = w; });
-  renderStats(); renderUsers(); renderTxns(); renderOrgs();
+  renderStats(); renderUsers(); renderTxns(); renderOrgs(); renderLeads();
 }
 
 function renderStats(){
@@ -144,10 +156,27 @@ function renderStats(){
     ['Credits Outstanding', outstanding.toLocaleString()],
     ['Revenue (paid)', money(revenue)],
     ['Successful Payments', paid],
-    ['Organisations', ORGS.length]
+    ['Organisations', ORGS.length],
+    ['Leads (not yet signed up)', LEADS.length]
   ];
   document.getElementById('stats').innerHTML = cards.map(c=>
     `<div class="stat"><div class="stat-num">${c[1]}</div><div class="stat-label">${c[0]}</div></div>`).join('');
+}
+
+function renderLeads(){
+  const q = (document.getElementById('leadSearch').value||'').toLowerCase();
+  const rows = LEADS.filter(l => !q ||
+    (l.email||'').toLowerCase().includes(q) ||
+    (l.source||'').toLowerCase().includes(q));
+  const body = document.getElementById('leadsBody');
+  if(!rows.length){ body.innerHTML = '<tr><td colspan="4" class="empty">No leads captured yet.</td></tr>'; return; }
+  body.innerHTML = rows.map(l=>`
+    <tr>
+      <td>${esc(l.email)}</td>
+      <td><span class="mono">${esc(l.source)||'hub'}</span></td>
+      <td>${l.confirmed?'<span class="pill green">Yes</span>':'<span class="pill gold">No</span>'}</td>
+      <td>${dt(l.created_at)}</td>
+    </tr>`).join('');
 }
 
 function renderUsers(){
@@ -223,7 +252,7 @@ async function verifyOrg(id){
 }
 
 function showTab(name){
-  ['users','txns','orgs'].forEach(t=>{
+  ['users','txns','orgs','leads'].forEach(t=>{
     document.getElementById('tab-'+t).classList.toggle('hidden', t!==name);
   });
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
