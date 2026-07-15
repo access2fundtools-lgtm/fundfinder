@@ -22,7 +22,7 @@ This replaces the old Netlify-based setup (the site now runs on **Cloudflare Pag
 3. Sender name: `FundFinder AI by A2F Partners`
 4. Sender email: `funding@a2fpartners.com`
 5. Click **Save**
-6. Open the list — the URL looks like `https://campaigns.zoho.com/campaigns/org.../mailing-lists/XXXXXXXXXX/details` — the number at the end is your **List Key**. Copy it.
+6. Open the list → **Setup** tab → scroll to **List Key**. Click the copy icon rather than manually selecting the text — the field visually truncates the value (looks ~50 characters, is actually ~67+), and a partial copy will fail silently with a Zoho "Invalid Listkey" error later. If in doubt, verify against the API directly: `GET https://campaigns.zoho.com/api/v1.1/getmailinglists` (with your access token) returns the exact `listkey` field for every list.
 
 ---
 
@@ -38,8 +38,9 @@ Zoho access tokens expire after 1 hour, so instead of using one directly, the si
 4. Go to the **Generate Code** tab
 5. Scope field, enter exactly:
    ```
-   ZohoCampaigns.contact.CREATE,ZohoCampaigns.contact.READ
+   ZohoCampaigns.contact.ALL
    ```
+   (The subscribe API specifically requires the `UPDATE` scope — `CREATE,READ` alone returns a 401. `ALL` covers create/update/delete/read so nothing else needs regenerating later.)
 6. Time duration: **10 minutes** (expires fast — do the next step immediately)
 7. Click **Create** → copy the code shown
 

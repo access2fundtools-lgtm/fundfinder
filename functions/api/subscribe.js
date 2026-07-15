@@ -77,9 +77,12 @@ async function handleSubscribe(context) {
           listkey: listKey,
           contactinfo: JSON.stringify({ 'Contact Email': email }),
         });
-        await fetch(`https://campaigns.zoho.com/api/v1.1/json/listsubscribe?authtoken=${accessToken}`, {
+        await fetch(`https://campaigns.zoho.com/api/v1.1/json/listsubscribe`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: `Zoho-oauthtoken ${accessToken}`,
+          },
           body: params.toString(),
         });
         // Zoho's own response codes (success / ContactAlreadyExists) are both fine —
