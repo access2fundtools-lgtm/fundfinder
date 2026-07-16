@@ -49,8 +49,6 @@ Headless-browser auto-submission (e.g., driving a real browser to fill and click
 3. Gemini-based extraction + answer drafting for everything else (org's own pages).
 4. Applications tracking UI in the dashboard.
 
-## Open questions for you
+## Decisions (2026-07-16)
 
-- Credit cost for an auto-apply run — same 1 credit as chat, or more given it's a higher-value action?
-- Where should document uploads live — Supabase Storage (simplest, same project) is the default assumption above.
-- Should gaps the user fills in during review always be saved back to their profile automatically, or ask first each time?
+**Profile filling/updating is free, always.** Saving `user_profiles` / `profile_facts` / `user_documents` is a plain database write — no AI call happens at save time, so there's nothing to charge for. The AI only ever touches the data at the moment a user clicks "Apply from my profile" on a *specific* opportunity — that's when it reads th
