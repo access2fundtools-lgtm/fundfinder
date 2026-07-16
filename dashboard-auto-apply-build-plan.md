@@ -48,7 +48,23 @@ Headless-browser auto-submission (e.g., driving a real browser to fill and click
 2. Question extraction wired into the scraper for the two form platforms (Google Forms, JotForm) — fastest to ship, directly usable via prefill links, no LLM extraction needed for those two.
 3. Gemini-based extraction + answer drafting for everything else (org's own pages).
 4. Applications tracking UI in the dashboard.
-
 ## Decisions (2026-07-16)
 
-**Profile filling/updating is free, always.** Saving `user_profiles` / `profile_facts` / `user_documents` is a plain database write — no AI call happens at save time, so there's nothing to charge for. The AI only ever touches the data at the moment a user clicks "Apply from my profile" on a *specific* opportunity — that's when it reads th
+**Profile filling/updating is free, always.** Saving `user_profiles` / `profile_facts` / `user_documents` is a plain database write — no AI call happens at save time, so there's nothing to charge for. The AI only ever touches the data at the moment a user clicks "Apply from my profile" on a *specific* opportunity — that's when it reads the stored facts and drafts answers shaped for that program's actual questions. Profile completeness (or later edits) never triggers an AI call on its own.
+
+**Credit charge = the auto-apply draft generation step only** (Step 2 in the pipeline above, `functions/api/auto-apply.js`). This is the one place a Gemini call actually happens, so it's the one paid action — same pattern as `chat.js` charging 1 credit per AI message. Proposed: 2 credits per auto-apply run (higher than a chat message since it reads more context and produces a full drafted application, not a short reply) — flag if you'd rather keep it at 1.
+
+**Gap autosave:** defaulting to auto-save silently — if a user fills in something during review that wasn't in their profile, it's written back to `profile_facts` immediately so the next application benefits, no extra prompt. Low risk (it's their own data, they just typed it themselves) and matches "don't make them retype things" being the whole point. Say so if you'd rather confirm each time before saving.
+
+**Document uploads:** Supabase Storage (same project) — unchanged from the original plan.
+
+## Phase 2/3 idea: a standing auto-apply agent (raised 2026-07-16)
+
+Dayo's ask: since browser-automation agents (like the one driving this Zoho Campaigns work) can now navigate and fill in arbitrary web forms, could FundFinder run one continuously — watching for newly-qualified users x newly-scraped opportunities and filling applications on their behalf automatically?
+
+Directionally right, and the browser-automation piece is real and already in use elsewhere in this project. Two things keep it from being "constantly auto-fill and submit, fully unattended," and they're not arbitrary caution — they're the same limits that apply to any agent handling personal data on someone's behalf:
+
+- These forms carry NIN, BVN, CAC numbers, bank details — submitting one wrong, duplicated, or malformed is a real harm to a real applicant's chance at funding, not a reversible mistake. A human should see the filled form before it goes anywhere, every time.
+- It's fragile per-site: CAPTCHAs (can't be bypassed — a hard line, not a technical gap), logins, file uploads, and orgs that change their form layout without notice all break blind automation silently.
+
+The version of this worth building: a background watcher that, whenever a user newly qualifies for an opportunity, auto-drafts the application immediately (same Step 2 logic) and *notifies* the user (email/WhatsApp, reusing the existing Zoho pipe) that it's ready for one-click review-and-send — rather than the user having to remember to check the dashboard. Same proactive value ("stop making me hunt for this"), same one-click final step, no blind submission. Worth scoping properly once the core drafting pipeline (Steps 1-3) is live and proven on real applications — flagging here so it doesn't get lost, not building it yet.
