@@ -1,0 +1,18 @@
+FundFinder Sync Log — 2026-07-16 (automated run)
+
+PUSH: No local changes to push; local and remote were already in sync at start (98df692).
+TRIGGER: daily-scrape.yml dispatched successfully — HTTP 204.
+POST-SCRAPE SYNC: Waited ~90s, pulled scraper commit 6743993 into local folder.
+
+New files landed (6 changed):
+- 2026-07-16-bindzu-youth-fund-opens-applications-to-empower-yo.txt  (1 new caption file for the facebook-poster task)
+- opportunity-bindzu-youth-fund-opens-applications-to-empower-young-africa-2026-07-16.html
+- summaries/2026-07-16-summary.md
+- data/last-run.json, data/seen-ids.json, opportunity-hub.html (updated)
+
+REPAIRS PERFORMED (mount git repo):
+- Parked a stale zero-byte junk ref (refs/remotes/origin/main.lock.stale.*) that was breaking fetches.
+- refs/heads/main briefly held a literal "FETCH_HEAD" string after the failed fetch; restored to the correct commit hash from the /tmp clone.
+- Git index became corrupt during final add; moved aside and rebuilt via read-tree. Repo now healthy: HEAD=6743993, status clean.
+
+TOKEN: PAT working (push + workflow dispatch both succeeded). No action needed.
