@@ -265,7 +265,28 @@ document.addEventListener('DOMContentLoaded', function() {
         showMsg('error', res.error.message);
         return;
       }
-      showMsg('success', '✓ Account created! Check your email inbox (and spam folder) for a confirmation link, then come back to log in.');
+
+      // Fire-and-forget: add to the mailing list so the Zoho "Welcome / How to
+      // use FundFinder AI" workflow sends a real welcome email. Never blocks
+      // the signup UX — if this fails the account still exists and works.
+      try {
+        fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, source: 'signup' })
+        }).catch(function() {});
+      } catch (e) {}
+
+      // No email confirmation gate — log the user straight in and send them
+      // to their dashboard.
+      if (res.data && res.data.session) {
+        window.location.href = 'fundfinder-dashboard.html';
+      } else {
+        // Extremely rare fallback (e.g. Supabase still requires confirmation
+        // server-side) — tell them plainly instead of leaving them stuck.
+        showMsg('success', '✓ Account created! Log in below to get started.');
+        showTab('login');
+      }
     }).catch(function(err) {
       setBtnLoading(btn, false, 'Create Free Account →');
       showMsg('error', err.message || 'Signup failed. Please try again.');
