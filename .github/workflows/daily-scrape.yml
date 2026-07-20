@@ -32,6 +32,10 @@ jobs:
       - name: Run FundFinder scraper
         run: node scripts/scraper.js
 
+      # 3b. Regenerate sitemap.xml so newly added opportunity pages get indexed by Google
+      - name: Regenerate sitemap
+        run: node scripts/gen-sitemap.js
+
       # 4. Commit any new files and push (skips commit if nothing changed)
       - name: Commit and push new opportunities
         run: |

@@ -623,6 +623,17 @@ function generateFlyer(opp) {
 <meta property="og:title" content="${opp.title} — FundFinder AI">
 <meta property="og:description" content="${opp.description}">
 <meta name="description" content="${opp.description}">
+<link rel="canonical" href="https://fundfinder.ng/${opp.slug}.html">
+<meta property="og:url" content="https://fundfinder.ng/${opp.slug}.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://fundfinder.ng/og-image.png">
+<meta property="og:site_name" content="FundFinder AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${opp.title} — FundFinder AI">
+<meta name="twitter:description" content="${opp.description}">
+<meta name="twitter:image" content="https://fundfinder.ng/og-image.png">
+<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://fundfinder.ng/'},{'@type':'ListItem',position:2,name:'Funding Opportunities',item:'https://fundfinder.ng/opportunity-hub.html'},{'@type':'ListItem',position:3,name:opp.title,item:`https://fundfinder.ng/${opp.slug}.html`}]}).replace(/</g,'\\u003c')}</script>
+<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',name:opp.title,description:opp.description,url:`https://fundfinder.ng/${opp.slug}.html`,datePublished:TODAY,inLanguage:'en-NG',isPartOf:{'@id':'https://fundfinder.ng/#website'},publisher:{'@id':'https://fundfinder.ng/#org'}}).replace(/</g,'\\u003c')}</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {

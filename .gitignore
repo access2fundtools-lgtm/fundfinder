@@ -4,3 +4,5 @@ FundFinder-Pitch-Deck.pdf
 SYNC-LOG-*.txt
 ~$*
 *.tmp
+_removed/
+*.zip
