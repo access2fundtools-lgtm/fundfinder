@@ -1,32 +1,6 @@
-# FundFinder AI — Git Ignore Rules
-
-# Netlify local cache
-.netlify/
-
-# Windows system files
-Thumbs.db
-desktop.ini
-$RECYCLE.BIN/
-
-# macOS system files
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Temporary zip files
-*.zip
-zi*
-
-# Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
-*.log
-npm-debug.log*
-
-# Node (if we add a build step later)
-node_modules/
-_removed/
+deck_grid.jpg
+ff_badge.png
+FundFinder-Pitch-Deck.pdf
+SYNC-LOG-*.txt
+~$*
+*.tmp

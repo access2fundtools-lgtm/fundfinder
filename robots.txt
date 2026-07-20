@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /admin-briefs.html
+Disallow: /admin.html
+Disallow: /export-flyers.html
+Disallow: /fundfinder-auth.html
+Disallow: /fundfinder-chat.html
+Disallow: /fundfinder-dashboard.html
+Disallow: /fundfinder-growth-suite.html
+Disallow: /fundfinder-profile.html
+Disallow: /fundfinder-wallet.html
+Disallow: /program-principal-register.html
+
+Sitemap: https://fundfinder.ng/sitemap.xml
