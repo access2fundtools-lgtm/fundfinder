@@ -28,8 +28,11 @@ jobs:
         with:
           node-version: '20'
 
-      # 3. Run the scraper
+      # 3. Run the scraper (also fires WhatsApp alerts if the broadcast secret is set)
       - name: Run FundFinder scraper
+        env:
+          FF_BASE_URL: https://fundfinder.ng
+          WHATSAPP_BROADCAST_SECRET: ${{ secrets.WHATSAPP_BROADCAST_SECRET }}
         run: node scripts/scraper.js
 
       # 3b. Regenerate sitemap.xml so newly added opportunity pages get indexed by Google

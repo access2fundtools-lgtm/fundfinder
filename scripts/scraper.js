@@ -19,6 +19,8 @@ const path = require('path');
 // ─── Supabase Config ──────────────────────────────────────────────────────────
 const SUPABASE_URL  = process.env.SUPABASE_URL  || 'https://zrkxigbmlprrowiofhjy.supabase.co';
 const SUPABASE_KEY  = process.env.SUPABASE_ANON_KEY || 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
+const FF_BASE_URL   = process.env.FF_BASE_URL || 'https://fundfinder.ng';
+const WHATSAPP_BROADCAST_SECRET = process.env.WHATSAPP_BROADCAST_SECRET || '';
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
@@ -301,6 +303,37 @@ function supabasePost(table, records) {
     });
     req.write(body);
     req.end();
+  });
+}
+
+/** Fire the WhatsApp alert broadcast to opted-in subscribers via the Cloudflare Function.
+ *  No-op unless WHATSAPP_BROADCAST_SECRET is set (so runs are safe before Meta setup). */
+function triggerWhatsAppBroadcast(count, headline) {
+  return new Promise((resolve) => {
+    if (!WHATSAPP_BROADCAST_SECRET) { resolve({ skipped: true }); return; }
+    const body = JSON.stringify({ count, headline });
+    let u;
+    try { u = new URL('/api/whatsapp-broadcast', FF_BASE_URL); } catch (e) { resolve({ ok: false, error: 'bad_url' }); return; }
+    const options = {
+      hostname: u.hostname,
+      path: u.pathname,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(body),
+        'Authorization': `Bearer ${WHATSAPP_BROADCAST_SECRET}`,
+      },
+    };
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', (c) => (data += c));
+      res.on('end', () => {
+        console.log(`  \ud83d\udcac WhatsApp broadcast [${res.statusCode}]: ${String(data).slice(0, 160)}`);
+        resolve({ ok: res.statusCode >= 200 && res.statusCode < 300, status: res.statusCode });
+      });
+    });
+    req.on('error', (e) => { console.warn(`  \u26a0\ufe0f  WhatsApp broadcast error: ${e.message}`); resolve({ ok: false, error: e.message }); });
+    req.write(body); req.end();
   });
 }
 
@@ -989,6 +1022,9 @@ async function main() {
 
   // Upsert new opportunities to Supabase (slug used as unique key for merge-duplicates)
   await upsertOpportunitiesToSupabase(discovered);
+
+  // Send WhatsApp alerts to opted-in subscribers (no-op unless WHATSAPP_BROADCAST_SECRET is set)
+  await triggerWhatsAppBroadcast(discovered.length, (discovered[0] && discovered[0].title) || '');
 
   // Save updated seen IDs
   fs.writeFileSync(SEEN_FILE, JSON.stringify([...seenIds], null, 2));
