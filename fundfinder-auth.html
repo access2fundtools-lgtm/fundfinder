@@ -278,9 +278,9 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (e) {}
 
       // No email confirmation gate — log the user straight in and send them
-      // to their dashboard.
+      // to complete their profile (drives matching + cuts post-signup bounce).
       if (res.data && res.data.session) {
-        window.location.href = 'fundfinder-dashboard.html';
+        window.location.href = 'fundfinder-profile.html';
       } else {
         // Extremely rare fallback (e.g. Supabase still requires confirmation
         // server-side) — tell them plainly instead of leaving them stuck.
