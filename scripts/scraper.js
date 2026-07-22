@@ -19,6 +19,9 @@ const path = require('path');
 // ─── Supabase Config ──────────────────────────────────────────────────────────
 const SUPABASE_URL  = process.env.SUPABASE_URL  || 'https://zrkxigbmlprrowiofhjy.supabase.co';
 const SUPABASE_KEY  = process.env.SUPABASE_ANON_KEY || 'sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
+// Writes (opportunities upsert) use the service-role key when provided in CI so they
+// bypass RLS; falls back to the anon key (read-only) if the secret isn't set yet.
+const SUPABASE_WRITE_KEY = process.env.SUPABASE_SERVICE_KEY || SUPABASE_KEY;
 const FF_BASE_URL   = process.env.FF_BASE_URL || 'https://fundfinder.ng';
 const WHATSAPP_BROADCAST_SECRET = process.env.WHATSAPP_BROADCAST_SECRET || '';
 
@@ -280,8 +283,8 @@ function supabasePost(table, records) {
       headers: {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(body),
-        'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'apikey': SUPABASE_WRITE_KEY,
+        'Authorization': `Bearer ${SUPABASE_WRITE_KEY}`,
         'Prefer': 'resolution=merge-duplicates,return=minimal',
       },
     };

@@ -33,6 +33,7 @@ jobs:
         env:
           FF_BASE_URL: https://fundfinder.ng
           WHATSAPP_BROADCAST_SECRET: ${{ secrets.WHATSAPP_BROADCAST_SECRET }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: node scripts/scraper.js
 
       # 3b. Regenerate sitemap.xml so newly added opportunity pages get indexed by Google
