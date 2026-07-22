@@ -163,6 +163,17 @@ async function handleAutoApply(context) {
     creditsCharged: cost,
     balanceRemaining: Math.max(0, wallet.balance_credits - cost),
     answers: draft.answers,
+    // Questions (id + text) so the UI can show each question paired with its
+    // drafted answer in the review-before-submit step.
+    questions: questions.map((q) => ({ id: q.id, question_text: q.question_text })),
+    // Program details for the "what you're applying for" review panel.
+    opportunity: {
+      title: opportunity.title,
+      summary: opportunity.summary,
+      eligibility: opportunity.eligibility,
+      capital_type: opportunity.capital_type,
+      amount_text: opportunity.amount_text,
+    },
     prefillUrl: prefillUrl || null,
     applyUrl: opportunity.apply_url,
   });

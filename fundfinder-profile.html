@@ -814,11 +814,26 @@ async function runAutoApply(opportunityId, btn) {
     } else if (data.error === 'not_supported') {
       resultEl.innerHTML = `<div class="apply-result error">${data.message}</div>`;
     } else if (data.status === 'ok') {
-      const qa = Object.entries(data.answers || {}).map(([qid, ans]) => `<div class="apply-qa">${ans}</div>`).join('');
-      resultEl.innerHTML = `<div class="apply-result">
-        <b>Drafted (${data.creditsCharged} credits used, ${data.balanceRemaining} left)</b>
-        ${qa}
-        ${data.prefillUrl ? `<div style="margin-top:8px;"><a href="${data.prefillUrl}" target="_blank" rel="noopener" style="color:var(--gold);font-weight:700;">Continue to prefilled form →</a></div>` : `<div style="margin-top:8px;"><a href="${data.applyUrl}" target="_blank" rel="noopener" style="color:var(--gold);font-weight:700;">Copy these into the official form →</a></div>`}
+      // ── Review-before-submit: show the program + each question paired with
+      //    its editable drafted answer. FundFinder never auto-submits.
+      const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      const opp = data.opportunity || {};
+      const qmap = {}; (data.questions || []).forEach((q) => { qmap[q.id] = q.question_text; });
+      const qaRows = Object.entries(data.answers || {}).map(([qid, ans]) => `
+        <div style="margin:10px 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">${esc(qmap[qid] || 'Question')}</div>
+          <textarea style="width:100%;min-height:58px;background:var(--surface2,#1a1a1a);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:8px;line-height:1.5;box-sizing:border-box;">${esc(ans)}</textarea>
+        </div>`).join('');
+      const link = data.prefillUrl || data.applyUrl || '#';
+      const linkLabel = data.prefillUrl ? 'Continue to prefilled form →' : 'Copy answers & open the official form →';
+      resultEl.innerHTML = `<div class="apply-result" style="border:1px solid rgba(255,215,0,0.28);">
+        <div style="font-size:14px;font-weight:800;color:var(--gold);margin-bottom:4px;">📋 Review before you apply</div>
+        <div style="font-size:13px;font-weight:700;">${esc(opp.title || 'This program')}${opp.amount_text ? ` <span style=\"color:var(--muted);font-weight:500;\">· ${esc(opp.amount_text)}</span>` : ''}</div>
+        ${opp.eligibility ? `<div style="font-size:12px;color:var(--muted);margin:6px 0;"><b>Eligibility:</b> ${esc(opp.eligibility)}</div>` : ''}
+        <div style="font-size:12px;color:var(--muted);margin:8px 0;">Your AI-drafted answers — edit anything, then copy them into the official form. <b>FundFinder never submits for you.</b></div>
+        ${qaRows}
+        <div style="margin-top:12px;"><a href="${esc(link)}" target="_blank" rel="noopener" style="display:inline-block;background:var(--gold);color:#000;font-weight:800;padding:9px 18px;border-radius:10px;text-decoration:none;font-size:13px;">${linkLabel}</a></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:8px;">${data.creditsCharged} credits used · ${data.balanceRemaining} left</div>
       </div>`;
       const { data: wallet } = await sb.from('wallets').select('balance_credits').eq('user_id', currentUser.id).single();
       if (wallet) document.getElementById('creditBadge').textContent = `💳 ${wallet.balance_credits} credits`;
