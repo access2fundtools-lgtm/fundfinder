@@ -507,6 +507,7 @@ async function init() {
   populateForms();
   updateScore();
   loadMatches();
+  runMatching();   // refresh matches against current opportunities on load
 
   document.getElementById('loadingState').style.display = 'none';
   document.getElementById('mainPage').style.display = 'grid';
@@ -670,7 +671,7 @@ async function runMatching() {
   if (!profile.business_sector && !profile.business_stage) return;
 
   const { data: opps } = await sb.from('opportunities')
-    .select('id, title, deadline, capital_type, sectors, eligibility, apply_url')
+    .select('id, title, deadline, capital_type, sectors, summary, eligibility, apply_url')
     .eq('is_active', true)
     .order('deadline', { ascending: true })
     .limit(200);
@@ -703,9 +704,25 @@ function scoreMatch(opp) {
   let score = 0;
   const elig    = (opp.eligibility || '').toLowerCase();
   const sectors = (opp.sectors || []).map(s => s.toLowerCase());
+  const text    = ((opp.title||'') + ' ' + (opp.summary||'') + ' ' + (opp.eligibility||'')).toLowerCase();
+  const uSector = (profile.business_sector || '').toLowerCase();
 
-  // Sector match
-  if (profile.business_sector && sectors.includes(profile.business_sector)) score += 40;
+  // Sector match. Structured sectors[] are usually empty today, so fall back to
+  // keyword-matching the user's sector (and common synonyms) against the opp text.
+  const SECTOR_KEYWORDS = {
+    agric:['agric','agri','agro','farm','crop','livestock','poultry'],
+    tech:['tech','ict','digital','software','startup','fintech','innovation'],
+    fashion:['fashion','textile','garment','apparel','tailor'],
+    food:['food','catering','restaurant','processing','beverage'],
+    health:['health','medic','pharma','care','wellness'],
+    education:['education','edtech','school','training','learning'],
+    creative:['creative','media','art','music','film','entertainment','content'],
+    retail:['retail','trade','commerce','market','sme','msme'],
+    manufacturing:['manufactur','production','factory','industrial'],
+    energy:['energy','solar','power','renewable','climate'],
+  };
+  if (uSector && sectors.includes(uSector)) score += 40;
+  else if (uSector && (SECTOR_KEYWORDS[uSector] || [uSector]).some(k => text.includes(k))) score += 30;
   else if (sectors.length === 0 || sectors.includes('all')) score += 15;
 
   // Stage match
