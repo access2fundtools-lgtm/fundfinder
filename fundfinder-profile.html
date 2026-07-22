@@ -770,7 +770,7 @@ async function loadMatches() {
       </div>
       <div style="display:flex;gap:8px;align-items:center;">
         <button class="apply-btn" onclick="runAutoApply('${m.opportunity_id}', this)">✨ Apply with AI</button>
-        ${m.apply_url ? `<a href="${m.apply_url}" target="_blank" rel="noopener" style="font-size:11px;color:var(--muted);">Apply directly →</a>` : ''}
+        ${m.apply_url ? `<button class="apply-btn" style="background:transparent;border:1px solid var(--border);color:var(--muted);" onclick="reviewManualApply('${m.opportunity_id}')">Apply directly →</button>` : ''}
       </div>
       <div id="${rid}"></div>
     </div>`;
@@ -782,6 +782,29 @@ async function loadMatches() {
 // otherwise drafts the application for 20 credits (or 30 if a working
 // prefill link could be generated — see functions/api/auto-apply.js for
 // why that's rare today). Never submits anything on the user's behalf.
+// Manual-apply review: show what the program is + eligibility BEFORE sending
+// the user to the official form. FundFinder never submits on their behalf.
+async function reviewManualApply(oppId) {
+  const resultEl = document.getElementById(`apply-result-${oppId}`);
+  if (!resultEl) return;
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  resultEl.innerHTML = `<div class="apply-result">Loading program details…</div>`;
+  const { data: o } = await sb.from('opportunities')
+    .select('title,summary,eligibility,capital_type,amount_text,deadline,apply_url')
+    .eq('id', oppId).single();
+  if (!o) { resultEl.innerHTML = `<div class="apply-result error">Could not load this program. Please try again.</div>`; return; }
+  const dl = o.deadline ? new Date(o.deadline).toLocaleDateString('en-NG', {day:'numeric', month:'short', year:'numeric'}) : 'Rolling / open';
+  resultEl.innerHTML = `<div class="apply-result" style="border:1px solid rgba(255,215,0,0.28);">
+    <div style="font-size:14px;font-weight:800;color:var(--gold);margin-bottom:4px;">📋 Before you apply</div>
+    <div style="font-size:13px;font-weight:700;">${esc(o.title || 'This program')}${o.amount_text ? ` <span style=\"color:var(--muted);font-weight:500;\">· ${esc(o.amount_text)}</span>` : ''}</div>
+    <div style="font-size:12px;color:var(--muted);margin:4px 0;">Deadline: ${esc(dl)}</div>
+    ${o.summary ? `<div style="font-size:12px;margin:8px 0;line-height:1.5;">${esc(o.summary)}</div>` : ''}
+    ${o.eligibility ? `<div style="font-size:12px;color:var(--muted);margin:6px 0;"><b>Eligibility:</b> ${esc(o.eligibility)}</div>` : ''}
+    <div style="font-size:12px;color:var(--muted);margin:8px 0;">Make sure you meet the eligibility, then continue to the official application. <b>FundFinder never submits for you.</b></div>
+    <div style="margin-top:10px;"><a href="${esc(o.apply_url || '#')}" target="_blank" rel="noopener" style="display:inline-block;background:var(--gold);color:#000;font-weight:800;padding:9px 18px;border-radius:10px;text-decoration:none;font-size:13px;">Continue to the official application →</a></div>
+  </div>`;
+}
+
 async function runAutoApply(opportunityId, btn) {
   const resultEl = document.getElementById(`apply-result-${opportunityId}`);
   btn.disabled = true;
