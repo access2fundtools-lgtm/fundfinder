@@ -525,6 +525,10 @@ async function submitRegistration() {
         program_name:        document.getElementById('programName').value.trim(),
         capital_type:        selectedCapType || null,
         target_beneficiary:  document.getElementById('targetBeneficiary').value,
+        funding_min:         document.getElementById('fundMin').value.trim() || null,
+        funding_max:         document.getElementById('fundMax').value.trim() || null,
+        deadline:            document.getElementById('deadline').value || null,
+        target_geography:    document.getElementById('targetGeo').value || null,
         eligibility_notes:   document.getElementById('eligibilityNotes').value.trim() || null,
         ngx_pathway_active:  document.getElementById('ngxActive').checked,
         ngx_pathway_notes:   document.getElementById('ngxNotes').value.trim() || null
