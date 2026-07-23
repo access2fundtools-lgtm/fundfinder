@@ -354,30 +354,6 @@
     
     
 
-    <!-- AUTO: tef-entrepreneurship-programme-tef | 2026-06-30 -->
-    <a class="card" href="opportunity-tef-entrepreneurship-programme-2026-06-30.html">
-      <div class="card-top grants">
-        <div class="card-amount">See details</div>
-        <div class="card-badges">
-          <span class="badge badge-green">Grants</span>
-          <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
-        </div>
-        <div class="card-funder">Tony Elumelu Foundation</div>
-        <div class="card-title">TEF Entrepreneurship Programme</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <div class="meta-row">⏰ <span><strong>Deadline:</strong> See official site</span></div>
-          <div class="meta-row">👤 <span>Nigerian businesses and entrepreneurs</span></div>
-          <div class="meta-row">💰 <span>See details</span></div>
-          <div class="meta-row">🌍 <span>Nigeria</span></div>
-        </div>
-        <span class="card-cta">View Details &amp; Apply →</span>
-      </div>
-    </a>
-
-    
-
     <!-- AUTO: msme-loan-programme-lsetf | 2026-06-30 -->
     <a class="card" href="opportunity-msme-loan-programme-2026-06-30.html">
       <div class="card-top loans">
@@ -452,7 +428,6 @@
           <span class="badge badge-green">Grants</span>
           <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
         </div>
-        <div class="card-funder">MSME Africa</div>
         <div class="card-title">Call For Applications: Nexa Global Climate × Health Innovation Challenge 2026 (Up to USD 2 Million in Funding)</div>
       </div>
       <div class="card-body">
@@ -474,7 +449,6 @@
           <span class="badge badge-green">Grants</span>
           <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
         </div>
-        <div class="card-funder">MSME Africa</div>
         <div class="card-title">Call For Applications: Reckitt Catalyst Global Accelerator Program 2026/2027 for Social Innovators</div>
       </div>
       <div class="card-body">
@@ -496,7 +470,6 @@
           <span class="badge badge-purple">Investment</span>
           <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
         </div>
-        <div class="card-funder">MSME Africa</div>
         <div class="card-title">Call for Applications: Wetech PitchHer 2026 Investment Readiness Programme ( Up To ₦8.5 Million Funding)</div>
       </div>
       <div class="card-body">
@@ -628,7 +601,6 @@
           <span class="badge badge-green">Grants</span>
           <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
         </div>
-        <div class="card-funder">MSME Africa</div>
         <div class="card-title">Call For Applications: PIBBSS Winter Fellowship Program 2026–2027 in South Africa ($3,000 Monthly Stipend, Free Accommodation, Flights, and Mentorship)</div>
       </div>
       <div class="card-body">
@@ -650,7 +622,6 @@
           <span class="badge badge-green">Grants</span>
           <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
         </div>
-        <div class="card-funder">MSME Africa</div>
         <div class="card-title">Call For Applications: AGFUND Development Programme 2026 for Diana Award Recipients in Africa</div>
       </div>
       <div class="card-body">
@@ -696,7 +667,6 @@
           <span class="badge badge-green">Grants</span>
           <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
         </div>
-        <div class="card-funder">MSME Africa</div>
         <div class="card-title">Call For Applications: UNDP Timbuktoo Launchpad Programme 2026 for African CreativeTech Entrepreneurs</div>
       </div>
       <div class="card-body">
@@ -718,7 +688,6 @@
           <span class="badge badge-green">Grants</span>
           <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
         </div>
-        <div class="card-funder">MSME Africa</div>
         <div class="card-title">Call For Applications: Shell Assessed Internship Programme 2027 (Worldwide)</div>
       </div>
       <div class="card-body">
@@ -740,7 +709,6 @@
           <span class="badge badge-orange">Empowerment</span>
           <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
         </div>
-        <div class="card-funder">MSME Africa</div>
         <div class="card-title">Call For Applications: ECOWAS Youth and Women Entrepreneurship Programme (EYWEP) for Young Entrepreneurs</div>
       </div>
       <div class="card-body">
@@ -2017,6 +1985,31 @@ function fmReset(){
   document.querySelectorAll('#fmAud .fm-opt').forEach(function(x){x.classList.remove('sel');});
   document.querySelectorAll('#fmCat .fm-opt').forEach(function(x){x.classList.toggle('sel',x.dataset.v==='any');});
 }
+</script>
+<script>
+/* FF_DEADLINE_SORT: order opportunity cards by application deadline, furthest first; undated last */
+(function(){
+  var first=document.querySelector('.grid .card')||document.querySelector('.card');
+  if(!first) return;
+  var grid=first.parentElement;
+  var cards=[].slice.call(grid.querySelectorAll(':scope > .card'));
+  function dl(card){
+    var m=(card.textContent||'').match(/Deadline:\s*([^\n]+?)(?:\s{2,}|$)/i);
+    if(!m) return null;
+    var s=m[1].trim();
+    if(/see|check|rolling|open|ongoing|tba|varies|n\/?a|official/i.test(s)) return null;
+    var d=Date.parse(s);
+    return isNaN(d)?null:d;
+  }
+  cards.map(function(c){return {c:c,d:dl(c)};})
+    .sort(function(a,b){
+      if(a.d===null&&b.d===null) return 0;
+      if(a.d===null) return 1;
+      if(b.d===null) return -1;
+      return b.d-a.d;            /* furthest deadline first */
+    })
+    .forEach(function(o){ grid.appendChild(o.c); });
+})();
 </script>
 </body>
 </html>
