@@ -230,7 +230,7 @@
           <div class="section-icon">🏢</div>
           <div>
             <div class="section-title-text">Business Information</div>
-            <div class="section-subtitle">Sector · Stage · Registration · Revenue</div>
+            <div class="section-subtitle">What you do · Sector · Stage · Traction · Funding need</div>
           </div>
         </div>
         <div class="section-head-right">
@@ -243,6 +243,18 @@
           <div class="form-group">
             <label class="form-label">Business Name</label>
             <input class="form-input" id="b-name" type="text" placeholder="e.g. AgroFresh Nigeria Ltd">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">What does your business do? (1–2 sentences)</label>
+            <textarea class="form-textarea" id="b-description" placeholder="e.g. We process and cold-store fresh tomatoes for restaurants across Lagos, cutting post-harvest losses for 40+ smallholder farmers."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Website / Social link (optional)</label>
+            <input class="form-input" id="b-website" type="text" placeholder="e.g. https://agrofresh.ng or IG @agrofresh">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Funding amount sought (₦)</label>
+            <input class="form-input" id="b-amount" type="text" placeholder="e.g. ₦5,000,000">
           </div>
           <div class="form-group">
             <label class="form-label">Sector / Industry</label>
@@ -324,6 +336,10 @@
           <div class="form-group full">
             <label class="form-label">What will you use funding for?</label>
             <textarea class="form-textarea" id="b-purpose" placeholder="e.g. Purchase cold storage equipment, hire 3 processors, expand to Abuja…"></textarea>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Traction so far (customers, revenue, milestones)</label>
+            <textarea class="form-textarea" id="b-traction" placeholder="e.g. 120 paying customers, ₦2.4M revenue in 2025, 3 corporate contracts, MVP live since Jan 2026."></textarea>
           </div>
         </div>
         <div class="save-row">
@@ -528,6 +544,10 @@ function populateForms() {
   setVal('b-team',       profile.team_size);
   setVal('b-revenue',    profile.annual_revenue);
   setVal('b-purpose',    profile.funding_purpose);
+  setVal('b-description', profile.business_description);
+  setVal('b-website',     profile.website);
+  setVal('b-amount',      profile.funding_amount);
+  setVal('b-traction',    profile.traction);
   if (profile.is_registered != null) document.getElementById('b-registered').checked = profile.is_registered;
 
   setVal('a-level',      profile.student_level);
@@ -605,6 +625,10 @@ function getSectionData(section) {
       annual_revenue:   document.getElementById('b-revenue').value,
       is_registered:    document.getElementById('b-registered').checked,
       funding_purpose:  document.getElementById('b-purpose').value.trim(),
+      business_description: document.getElementById('b-description').value.trim(),
+      website:          document.getElementById('b-website').value.trim(),
+      funding_amount:   document.getElementById('b-amount').value.trim(),
+      traction:         document.getElementById('b-traction').value.trim(),
     };
     case 'academic': return {
       is_student:            document.getElementById('a-level').value !== 'not-student' && document.getElementById('a-level').value !== '',

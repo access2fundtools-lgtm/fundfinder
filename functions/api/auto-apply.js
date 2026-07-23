@@ -245,6 +245,8 @@ function buildKnownFacts(profile, documents) {
     graduation_year: profile.graduation_year, city: profile.city, gender: profile.gender,
     annual_revenue: profile.annual_revenue, funding_purpose: profile.funding_purpose,
     cac_number: profile.cac_number, bank_name: profile.bank_name,
+    business_description: profile.business_description, website: profile.website,
+    funding_amount: profile.funding_amount, traction: profile.traction,
   };
   const facts = { ...scalar, ...(profile.profile_facts || {}) };
   Object.keys(facts).forEach((k) => { if (facts[k] === null || facts[k] === undefined || facts[k] === '') delete facts[k]; });
