@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>if(location.hostname==='opportunities.a2fpartners.com')location.replace('https://fundfinder.ng'+location.pathname+location.search);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Form an SPV — FundFinder AI</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--border:rgba(255,255,255,0.08);--text:#f0f0f0;--muted:rgba(255,255,255,0.5);--gold:#FFD700;--green:#22c55e}
+  body{font-family:'Segoe UI',-apple-system,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh}
+  nav{border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(10,10,10,0.96);backdrop-filter:blur(12px);z-index:100}
+  .nav-logo{font-size:18px;font-weight:900;letter-spacing:1px;text-decoration:none;color:var(--text)}
+  .nav-logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:6px;align-items:center}
+  .nav-link{color:var(--muted);font-size:13px;font-weight:600;text-decoration:none;padding:7px 12px;border-radius:8px}
+  .nav-link:hover{color:var(--text)}
+  .wrap{max-width:920px;margin:0 auto;padding:34px 24px 80px}
+  .hero-tag{display:inline-block;background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.25);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:14px}
+  h1{font-size:30px;font-weight:900;margin-bottom:8px}
+  h1 span{color:var(--gold)}
+  .sub{font-size:15px;color:var(--muted);max-width:640px;margin-bottom:26px}
+  .bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+  .btn{background:var(--gold);color:#000;font-weight:800;font-size:13px;padding:10px 18px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+  .btn:hover{opacity:.9}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:14px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .score{width:64px;height:64px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;border:3px solid var(--green);color:var(--green)}
+  .score.mid{border-color:var(--gold);color:var(--gold)}
+  .c-body{flex:1;min-width:200px}
+  .c-title{font-size:15px;font-weight:800}
+  .c-meta{font-size:12px;color:var(--muted);margin-top:2px}
+  .c-why{font-size:12px;color:var(--muted);margin-top:6px;font-style:italic}
+  .msg{font-size:13px;padding:12px 14px;border-radius:10px;margin:10px 0}
+  .msg.ok{background:rgba(34,197,94,0.1);color:var(--green)}
+  .msg.err{background:rgba(255,80,80,0.1);color:#ff8080}
+  .invite{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:22px}
+  .invite input{width:100%;max-width:360px;background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:9px;padding:10px;font-size:13px;margin:8px 0}
+  .empty{color:var(--muted);font-size:14px;padding:24px 0;text-align:center}
+  .note{font-size:12px;color:var(--muted);margin-top:6px}
+</style>
+</head>
+<body>
+<nav>
+  <a href="fundfinder-dashboard.html" class="nav-logo">Fund<span>Finder</span> AI</a>
+  <div class="nav-links">
+    <a href="fundfinder-dashboard.html" class="nav-link">Dashboard</a>
+    <a href="opportunity-hub.html" class="nav-link">Opportunities</a>
+    <a href="fundfinder-profile.html" class="nav-link">Profile</a>
+  </div>
+</nav>
+<div class="wrap" id="loading" style="text-align:center;padding-top:80px;color:var(--muted)">Loading…</div>
+<div class="wrap" id="main" style="display:none">
+  <div class="hero-tag">🤝 A2F SPV · Consolidation</div>
+  <h1>Form a stronger <span>SPV</span> together</h1>
+  <p class="sub">Some funders back consolidated vehicles, not single businesses. FundFinder finds 2–5 complementary businesses whose combined strength and market impact make a stronger case to backers. Below are your best potential partners — identities stay private until both sides are interested.</p>
+
+  <div class="bar">
+    <button class="btn" onclick="expressOpen()">✋ I'm open to consolidating</button>
+    <a class="btn ghost" href="fundfinder-profile.html">Improve my profile for better matches →</a>
+  </div>
+  <div id="openMsg"></div>
+
+  <h2 style="font-size:16px;margin:22px 0 4px">Suggested partners</h2>
+  <div class="note">Ranked by combined value proposition + market impact. Anonymized on purpose.</div>
+  <div id="list" style="margin-top:14px"></div>
+
+  <div class="invite">
+    <div style="font-weight:800;font-size:14px">Know a business you'd consolidate with?</div>
+    <div class="note">Invite them by email — we'll reach out and, if they join, add them to your SPV.</div>
+    <input type="email" id="inviteEmail" placeholder="partner@theirbusiness.com">
+    <div><button class="btn" onclick="sendInvite()">Send invite</button></div>
+    <div id="inviteMsg"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL='https://zrkxigbmlprrowiofhjy.supabase.co';
+  const SUPABASE_ANON='sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54';
+  const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON);
+  let session=null;
+  const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const titleCase=s=>s?String(s).replace(/(^|\s|-)\w/g,m=>m.toUpperCase()):'';
+
+  async function api(body){
+    const r=await fetch('/api/spv',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${session.access_token}`},body:JSON.stringify(body)});
+    return r.json();
+  }
+  async function init(){
+    const {data:{session:s}}=await sb.auth.getSession();
+    if(!s){location.href='fundfinder-auth.html';return;}
+    session=s;
+    document.getElementById('loading').style.display='none';
+    document.getElementById('main').style.display='block';
+    const data=await api({action:'suggest'});
+    const list=document.getElementById('list');
+    if(data.status==='incomplete_profile'){list.innerHTML=`<div class="empty">${esc(data.message)} <a href="fundfinder-profile.html" style="color:var(--gold)">Complete profile →</a></div>`;return;}
+    if(!data.suggestions||!data.suggestions.length){list.innerHTML=`<div class="empty">No partner suggestions yet — as more businesses join FundFinder, we'll surface your best SPV matches here. In the meantime, tap "I'm open to consolidating" so A2F can pair you.</div>`;return;}
+    list.innerHTML=data.suggestions.map(c=>{
+      const cls=c.combined_score>=70?'':'mid';
+      const meta=[titleCase(c.stage)||'—',titleCase(c.location)||'—',c.size_band].filter(Boolean).join(' · ');
+      return `<div class="card">
+        <div class="score ${cls}">${c.combined_score}</div>
+        <div class="c-body">
+          <div class="c-title">${esc(titleCase(c.sector)||'Business')}</div>
+          <div class="c-meta">${esc(meta)}</div>
+          <div class="c-why">${esc(c.rationale)}</div>
+        </div>
+        <button class="btn" onclick="likeCandidate('${esc(c.candidate_ref)}',this)">I'm interested →</button>
+      </div>`;
+    }).join('');
+  }
+  async function likeCandidate(ref,btn){
+    btn.disabled=true;btn.textContent='Sent ✓';
+    await api({action:'interest',kind:'candidate',candidate_user_id:ref});
+  }
+  async function expressOpen(){
+    const m=document.getElementById('openMsg');
+    const r=await api({action:'interest',kind:'open'});
+    m.innerHTML=r.success?`<div class="msg ok">✓ Noted — you're on A2F's consolidation shortlist. We'll pair you as strong partners appear.</div>`:`<div class="msg err">Could not save. Please try again.</div>`;
+  }
+  async function sendInvite(){
+    const email=document.getElementById('inviteEmail').value.trim();
+    const m=document.getElementById('inviteMsg');
+    if(!email||!email.includes('@')){m.innerHTML=`<div class="msg err">Enter a valid email.</div>`;return;}
+    const r=await api({action:'interest',kind:'invite',invited_email:email});
+    m.innerHTML=r.success?`<div class="msg ok">✓ Invite recorded for ${esc(email)}. We'll reach out to them.</div>`:`<div class="msg err">Could not send. Please try again.</div>`;
+  }
+  init();
+</script>
+</body>
+</html>

@@ -8,7 +8,7 @@ const SITE = 'https://fundfinder.ng';
 const NOINDEX = new Set([
   'admin.html','admin-briefs.html','export-flyers.html','fundfinder-auth.html',
   'fundfinder-chat.html','fundfinder-dashboard.html','fundfinder-growth-suite.html',
-  'fundfinder-profile.html','fundfinder-wallet.html','program-principal-register.html'
+  'fundfinder-profile.html','fundfinder-wallet.html','fundfinder-spv.html','program-principal-register.html'
 ]);
 const isOpp = fn => fn.startsWith('opportunity-') || /^20\d{2}-/.test(fn);
 const dateFromName = (fn) => {
