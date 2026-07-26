@@ -542,21 +542,21 @@ const JUNK_ANCHOR_RE = /\b(share|read more|comment|related (post|article)s?|leav
  * (from its heading up to the next heading of the same or higher level).
  */
 function scopeToArticleSection(html, title) {
-  if (!title) return html;
+  if (!title) return null;
   const words = title
     .replace(/[\u2018\u2019]/g, "'")
     .replace(/[^\p{L}\p{N}\s]/gu, ' ')
     .split(/\s+/)
     .filter((w) => w.length > 3)
     .slice(0, 5);
-  if (words.length < 2) return html;
+  if (words.length < 2) return null;
 
   const pattern = words.map((w) => w.replace(/[-\[\]{}()*+?.,\\^$|#\s]/g, '\\$&')).join('[\\s\\S]{0,60}');
   let wordsRe;
   try {
     wordsRe = new RegExp(pattern, 'i');
   } catch {
-    return html;
+    return null;
   }
 
   // Anchor specifically to the <h1> that carries THIS title, not any earlier mention in
@@ -574,7 +574,11 @@ function scopeToArticleSection(html, title) {
       break;
     }
   }
-  if (sectionStart === -1) return html; // couldn't confidently anchor; fall back to whole page
+  // Couldn't confidently anchor to THIS article's own heading. Returning the whole page here
+  // used to let resolveApplyUrl() pick the "last outbound link" from a neighbouring article,
+  // which published several flyers per run all pointing at one unrelated funder. Signal failure
+  // instead so the item is skipped (see resolveApplyUrl).
+  if (sectionStart === -1) return null;
 
   const afterStart = sectionStart + matchLen;
   const nextIdx = html.slice(afterStart).search(/<h1[^>]*>/i); // next article's <h1> = end of this one
@@ -587,8 +591,10 @@ async function resolveApplyUrl(postUrl, title) {
   try {
     const html = await fetch(postUrl, 10000);
     const scoped = scopeToArticleSection(html, title);
-    let candidates = extractOutboundLinks(scoped, postUrl);
-    if (!candidates.length && scoped !== html) candidates = extractOutboundLinks(html, postUrl);
+    // No confident scope = no confident apply link. Never scan the whole page: on aggregator
+    // index/multi-article templates that returns a link belonging to a DIFFERENT opportunity.
+    if (!scoped) return null;
+    const candidates = extractOutboundLinks(scoped, postUrl);
     if (!candidates.length) return null;
 
     // Highest confidence: anchor text explicitly says "apply" / "register" / "click here" etc.

@@ -14,3 +14,13 @@ FundFinder-Pitch-Deck.pptx
 ff_logo_wordmark.png
 
 QA-REPORT-*.txt
+
+# Internal working files & private business documents — never publish to the live site
+execution-board.html
+check-tasks.mjs
+A2F-*.docx
+AFAN_S_*.DOC
+fundfinder-flag.png
+data/backfill-preview.json
+*.DOC
+

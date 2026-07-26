@@ -8,7 +8,16 @@ const SITE = 'https://fundfinder.ng';
 const NOINDEX = new Set([
   'admin.html','admin-briefs.html','export-flyers.html','fundfinder-auth.html',
   'fundfinder-chat.html','fundfinder-dashboard.html','fundfinder-growth-suite.html',
-  'fundfinder-profile.html','fundfinder-wallet.html','fundfinder-spv.html','program-principal-register.html'
+  'fundfinder-profile.html','fundfinder-wallet.html','fundfinder-spv.html','program-principal-register.html',
+  // Internal-only dashboard — never index.
+  'execution-board.html',
+  // Withdrawn 2026-07-26: these flyers were published with a mis-resolved apply link
+  // (they inherited a neighbouring article's URL before the resolveApplyUrl scoping fix).
+  // Cards removed from the hub; keep them out of the sitemap until the correct official
+  // application URL is confirmed for each.
+  'opportunity-abia-awards-100m-startup-grants-to-100-polytechnic-graduate-2026-07-16.html',
+  'opportunity-call-for-applications-herskills-mentorship-programme-2026-fo-2026-07-16.html',
+  'opportunity-call-for-applications-youthconnekt-africa-export-accelerator-2026-07-20.html'
 ]);
 const isOpp = fn => fn.startsWith('opportunity-') || /^20\d{2}-/.test(fn);
 const dateFromName = (fn) => {
