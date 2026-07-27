@@ -9,8 +9,8 @@ const NOINDEX = new Set([
   'admin.html','admin-briefs.html','export-flyers.html','fundfinder-auth.html',
   'fundfinder-chat.html','fundfinder-dashboard.html','fundfinder-growth-suite.html',
   'fundfinder-profile.html','fundfinder-wallet.html','fundfinder-spv.html','program-principal-register.html',
-  // Internal-only dashboard — never index.
-  'execution-board.html',
+  // Internal-only dashboards/consoles — never index.
+  'execution-board.html','outreach-console.html',
   // Withdrawn 2026-07-26: these flyers were published with a mis-resolved apply link
   // (they inherited a neighbouring article's URL before the resolveApplyUrl scoping fix).
   // Cards removed from the hub; keep them out of the sitemap until the correct official

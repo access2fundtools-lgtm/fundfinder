@@ -1,0 +1,53 @@
+name: Backfill opportunities to Supabase (manual)
+
+# One-off / occasional repair job. NEVER runs on a schedule — click "Run workflow"
+# in the Actions tab. Defaults to a DRY RUN; you must type "commit" to write.
+#
+# Why this exists: scripts/scraper.js only upserts the opportunities it discovers
+# on that run, so every page published before SUPABASE_SERVICE_KEY was added to CI
+# exists on the site but has no row in public.opportunities — the matcher can't
+# offer those to users. This replays them from the published hub.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Type "commit" to actually write to Supabase. Anything else = dry run.'
+        required: true
+        default: 'dry-run'
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Dry run (always)
+        run: node scripts/backfill-opportunities.js
+
+      - name: Commit to Supabase
+        if: ${{ github.event.inputs.mode == 'commit' }}
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_SERVICE_KEY" ]; then
+            echo "::error::SUPABASE_SERVICE_KEY secret is not set — cannot write. Add it in Settings → Secrets → Actions."
+            exit 1
+          fi
+          node scripts/backfill-opportunities.js --commit
+
+      - name: Verify row count
+        if: ${{ github.event.inputs.mode == 'commit' }}
+        run: |
+          curl -s -o /dev/null -w "active opportunities now: %{size_download} bytes\n" \
+            "https://zrkxigbmlprrowiofhjy.supabase.co/rest/v1/opportunities?is_active=eq.true&select=slug" \
+            -H "apikey: sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54" \
+            -H "Authorization: Bearer sb_publishable_bLh6vRkyGXTZD2253Ll1wA_BSPy3S54"
