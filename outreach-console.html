@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2F — Organiser Outreach Protocol</title>
+<style>
+  :root{color-scheme:dark;--surface-1:#1a1a19;--plane:#0d0d0d;--ink-1:#fff;--ink-2:#c3c2b7;
+    --ink-muted:#898781;--hair:#2c2c2a;--rule:#383835;--ring:rgba(255,255,255,.10);
+    --good:#0ca30c;--warning:#fab219;--serious:#ec835a;--critical:#d03b3b;--accent:#3987e5}
+  :root[data-theme="light"]{color-scheme:light;--surface-1:#fcfcfb;--plane:#f9f9f7;--ink-1:#0b0b0b;
+    --ink-2:#52514e;--ink-muted:#898781;--hair:#e1e0d9;--rule:#c3c2b7;--ring:rgba(11,11,11,.10);--accent:#2a78d6}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--plane);color:var(--ink-1);
+       font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;padding:24px 20px 64px}
+  .wrap{max-width:1160px;margin:0 auto}
+  header{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
+  h1{font-size:22px;margin:0;letter-spacing:-.01em}
+  .sub{color:var(--ink-muted);font-size:13px;margin-top:4px;max-width:70ch}
+  h2{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-muted);
+     margin:34px 0 12px;font-weight:600}
+  button{font:inherit;font-size:12px;padding:5px 11px;border-radius:7px;border:1px solid var(--ring);
+         background:var(--surface-1);color:var(--ink-2);cursor:pointer}
+  button:hover{color:var(--ink-1);border-color:var(--rule)}
+  .card{background:var(--surface-1);border:1px solid var(--ring);border-radius:12px;padding:14px 16px}
+  .grid{display:grid;gap:12px}
+  .tiles{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+  .lab{font-size:12px;color:var(--ink-muted);margin-bottom:6px}
+  .val{font-size:29px;font-weight:650;letter-spacing:-.02em;line-height:1.1}
+  .val.sm{font-size:15px;font-weight:600;padding-top:9px}
+  .note{font-size:12px;color:var(--ink-2);margin-top:5px}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:650;
+        padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+  .p-critical{color:var(--critical);border-color:var(--critical)}
+  .p-serious{color:var(--serious);border-color:var(--serious)}
+  .p-warning{color:var(--warning);border-color:var(--warning)}
+  .p-good{color:var(--good);border-color:var(--good)}
+  .p-idle{color:var(--ink-muted);border-color:var(--rule)}
+  .org{background:var(--surface-1);border:1px solid var(--ring);border-radius:12px;
+       padding:15px 17px;margin-bottom:12px}
+  .org h3{margin:0 0 3px;font-size:16px;letter-spacing:-.01em}
+  .meta{font-size:12px;color:var(--ink-muted);margin-bottom:9px}
+  .routes{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0}
+  .route{font-size:12px;padding:4px 9px;border:1px solid var(--hair);border-radius:7px;
+         background:var(--plane);color:var(--ink-2);text-decoration:none;display:inline-flex;gap:6px}
+  .route b{color:var(--ink-1);font-weight:600}
+  .route.primary{border-color:var(--accent);color:var(--ink-1)}
+  .angle{font-size:13px;color:var(--ink-2);border-left:2px solid var(--accent);padding-left:10px;margin-top:9px}
+  .flag{font-size:12.5px;color:var(--serious);margin-top:8px;display:flex;gap:6px;align-items:flex-start}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted);
+     font-weight:600;padding:9px 12px;border-bottom:1px solid var(--rule)}
+  td{padding:10px 12px;border-bottom:1px solid var(--hair);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  .day{font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}
+  .tpl{background:var(--surface-1);border:1px solid var(--ring);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .tpl .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;
+           padding:11px 15px;border-bottom:1px solid var(--hair);flex-wrap:wrap}
+  .tpl .hd b{font-size:13.5px}
+  .tpl .hd span{font-size:11.5px;color:var(--ink-muted)}
+  .tpl pre{margin:0;padding:14px 16px;white-space:pre-wrap;word-wrap:break-word;
+           font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink-2)}
+  .tok{color:var(--warning);font-weight:600}
+  code{font:12.5px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--plane);
+       border:1px solid var(--hair);border-radius:4px;padding:1px 5px}
+  .foot{margin-top:32px;font-size:12px;color:var(--ink-muted);line-height:1.65}
+  .foot b{color:var(--ink-2)}
+  input[type=date]{font:inherit;font-size:13px;background:var(--surface-1);color:var(--ink-1);
+                   border:1px solid var(--ring);border-radius:7px;padding:5px 9px}
+  @media(max-width:640px){td,th{padding:8px 9px}}
+</style>
+</head>
+<body><div class="wrap">
+
+<header>
+  <div>
+    <h1>Organiser Outreach Protocol</h1>
+    <div class="sub">Every organiser currently live on fundfinder.ng, the verified way to reach them,
+      and the sequence. Contacts were read off live pages on 26 Jul 2026 — nothing here is a guessed address.</div>
+  </div>
+  <button onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'">◐ Theme</button>
+</header>
+
+<h2>What we're actually working with</h2>
+<div class="grid tiles" id="tiles"></div>
+
+<h2>The offer — one sentence, used in every message</h2>
+<div class="card" style="border-color:var(--accent)">
+  <div style="font-size:16px;font-weight:600;margin-bottom:6px">
+    We already list your programme, and we route pre-screened, eligibility-matched applicants to it — free.</div>
+  <div style="font-size:13.5px;color:var(--ink-2)">
+    This is not a cold pitch and must never be written as one. We are already doing the thing; the message
+    reports it and offers to do more of it. That is what earns a reply from an institution that ignores vendors.
+    The deployment ask (an agent configured to their eligibility rules, feeding only qualifying applicants)
+    comes <b>second</b>, after they have accepted free value.
+  </div>
+</div>
+
+<h2>Priority order — pitch top to bottom, not all at once</h2>
+<div id="orgs"></div>
+
+<h2>The cadence — 5 touches over 12 days, then stop</h2>
+<div class="card" style="padding:0;overflow:hidden">
+  <div style="padding:12px 15px;border-bottom:1px solid var(--hair);display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <span style="font-size:13px;color:var(--ink-2)">Start date</span>
+    <input type="date" id="start" onchange="renderCadence()">
+    <span style="font-size:12px;color:var(--ink-muted)">Dates below recalculate. Weekend sends shift to the next weekday automatically.</span>
+  </div>
+  <table id="cadence"></table>
+</div>
+
+<h2>Templates</h2>
+<div id="templates"></div>
+
+<div class="foot">
+  <b>Rules that keep this from backfiring.</b>
+  Send from the dedicated outreach domain only — never <code>fundfinder@a2fpartners.com</code>, whose
+  reputation now carries your signup confirmations. Warm the new domain for ~2 weeks at low volume before
+  touch 1. Seven organisers is not a campaign; send them by hand, spaced out, never as a batch.<br>
+  <b>WhatsApp is used once.</b> Only AM-Steve House publishes a Nigerian mobile and reads as a peer
+  operation. Cold-messaging the other six on WhatsApp would breach Meta's opt-in rule and put the pending
+  <code>new_funding_alert</code> template and the whole WABA at risk before it launches.<br>
+  <b>X/Twitter is amplification, never a pitch.</b> Touch 3 posts their open call to your audience and tags
+  them. It is a genuine favour that creates a legitimate reason for touch 4 — do not DM a pitch on X.<br>
+  <b>Log every touch</b> in <code>outreach_log</code> (migration <code>supabase-migration-2026-07-26-organiser-outreach.sql</code>)
+  so status is derived, never hand-maintained.
+</div>
+
+</div>
+<script>
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pill=(k,l)=>`<span class="pill p-${k}">${{critical:'●',serious:'▲',warning:'▲',good:'✓',idle:'○'}[k]} ${l}</span>`;
+
+const ORGS=[
+ {tier:1,kind:'good',name:'AM-Steve House Capital — InvestoVilla IPDPE',
+  meta:'Private venture builder · Lagos, Nigeria · first cohort Aug 2026',
+  routes:[{t:'Email',v:'info@amstevehouse.com',href:'mailto:info@amstevehouse.com',p:1},
+          {t:'WhatsApp',v:'+234 903 320 5259',href:'https://wa.me/2349033205259',p:1},
+          {t:'LinkedIn',v:'AM-Steve House Capital',href:'https://www.linkedin.com/company/am-steve-house-capital-limited/'},
+          {t:'Named',v:'Dr. Ugwumsinachi Okorie — Program Lead'}],
+  angle:'Highest-probability conversion of the seven. A brand-new pilot launching its first cohort next month needs applicants more than anything else you could offer. Lagos-to-Lagos, founder-to-founder — this is the one where you write as a peer, not a vendor, and the only one where WhatsApp is appropriate.'},
+
+ {tier:1,kind:'good',name:'Kenya Climate Innovation Center — Cleantech Innovation Competition',
+  meta:'Foundation · Nairobi, Kenya · applications close 10 Aug 2026',
+  routes:[{t:'Email',v:'info@kenyacic.org',href:'mailto:info@kenyacic.org',p:1},
+          {t:'Phone',v:'+254 703 034 701'},
+          {t:'LinkedIn',v:'kenyaclimateinnovationcenter',href:'https://ke.linkedin.com/company/kenyaclimateinnovationcenter'},
+          {t:'X',v:'@KenyaCIC',href:'https://x.com/KenyaCIC'}],
+  angle:'Timing is the entire pitch — their intake window is open right now and closes 10 Aug. An offer of qualified applicant flow lands differently when they have two weeks left to fill a cohort. Backed by the Swiss Embassy and Strathmore, so they answer to funders on cohort quality. No named contact published; go to the general inbox with a specific subject line.'},
+
+ {tier:2,kind:'warning',name:'African Plant Nutrition Institute — Outreach Fellowship',
+  meta:'Research institute · Benguérir, Morocco · Nairobi regional office',
+  routes:[{t:'LinkedIn',v:'Dr. Thomas Oberthür — Director, Business & Partnerships',href:'https://www.linkedin.com/company/african-plant-nutrition-institute/',p:1},
+          {t:'Email',v:'info@apni.net',href:'mailto:info@apni.net'},
+          {t:'X',v:'@PlantAfrican',href:'https://twitter.com/PlantAfrican'}],
+  angle:'The only organiser with a named partnerships director, which makes LinkedIn the primary channel here rather than email — a titled "Director, Business & Partnerships" exists precisely to take this conversation. Agri focus also opens the FarmID verification angle on a second call, but do not raise it in touch 1.'},
+
+ {tier:2,kind:'warning',name:'MUSON / MTN Foundation — Music Scholars Programme',
+  meta:'Corporate CSR + arts institution · Lagos, Nigeria',
+  routes:[{t:'Email',v:'sponsorship@muson.org',href:'mailto:sponsorship@muson.org',p:1},
+          {t:'Email',v:'info@muson.org',href:'mailto:info@muson.org'},
+          {t:'X',v:'@MUSON_Centre',href:'https://twitter.com/MUSON_Centre'},
+          {t:'Named',v:'Mrs. Odunayo Sanya — ED, MTN Nigeria Foundation'}],
+  angle:'Go via MUSON, not MTN. sponsorship@muson.org is a partnerships inbox that a human reads; info@mtn.ng is a telco switchboard serving millions of subscribers and your message will die there. Note this is a music scholarship — applicant fit from a funding platform is narrower, so lead with reach into Nigerian youth rather than generic pipeline.'},
+
+ {tier:3,kind:'serious',name:'Green Earth Action Foundation — Ambassador Programme',
+  meta:'Foundation · Geneva, Switzerland · UNEP-accredited',
+  routes:[{t:'Email',v:'info@geaf.foundation',href:'mailto:info@geaf.foundation',p:1},
+          {t:'LinkedIn',v:'geaforg',href:'https://www.linkedin.com/company/geaforg'},
+          {t:'X',v:'@geaforg',href:'https://x.com/geaforg'},
+          {t:'Named',v:'Baptistelle Paldino — Head of Geneva Office and Projects'}],
+  flag:'The HubSpot landing page we scraped returns 404. Confirm the call is still open before sending anything — pitching a dead programme costs you the relationship.',
+  angle:'Geneva NGO, so expect formality and slow cycles. Worth a single well-written email, not a cadence.'},
+
+ {tier:3,kind:'serious',name:'Development Innovation Ventures (DIV)',
+  meta:'DFI-style innovation fund · Washington DC',
+  routes:[{t:'Email',v:'hello@div.fund',href:'mailto:hello@div.fund',p:1},
+          {t:'Contact',v:'div.fund/contact',href:'https://www.div.fund/contact'}],
+  flag:'DIV state publicly they cannot give applicants time before submission. Approach ONLY as an ecosystem partner offering them pipeline — one word that reads like an applicant query and it is binned.',
+  angle:'Lowest effort, non-zero payoff. One precise email positioning A2F as a sourcing channel for African applicants. Do not follow up more than once.'},
+
+ {tier:4,kind:'critical',name:'GEF Small Grants Programme — UNDP Zimbabwe',
+  meta:'UN agency · Harare, Zimbabwe',
+  routes:[{t:'Email',v:'gefsgpzimgrants.zw@undp.org',href:'mailto:gefsgpzimgrants.zw@undp.org'},
+          {t:'Email',v:'registry.zw@undp.org',href:'mailto:registry.zw@undp.org'},
+          {t:'Named',v:'Tsitsi Wutawunashe — National Coordinator'}],
+  flag:'This call CLOSED 22 May 2026 but is live on fundfinder.ng with no deadline set. Fix the listing first — it is currently showing your users an expired opportunity.',
+  angle:'Do not run the cadence here. UN agencies procure through formal channels and cold approaches to a National Coordinator read as noise. The real route is UNDP vendor registration, which is a separate project. Hold.'}
+];
+
+const CADENCE=[
+ {d:0, ch:'Email', who:'Primary verified inbox', what:'Touch 1 — the value-first opener. States we already list them and are routing applicants. One ask: permission to configure eligibility filtering for their call.', tpl:'E1'},
+ {d:1, ch:'LinkedIn', who:'Named human, where one exists', what:'Connection request with a 200-character note. No pitch, no link — just context so the name is familiar when touch 4 lands.', tpl:'L1'},
+ {d:3, ch:'X / Twitter', who:'Public, tag their handle', what:'Post their open call to your audience from the FundFinder account. A real favour, publicly visible, and the reason touch 4 exists.', tpl:'X1'},
+ {d:6, ch:'Email', who:'Same thread, reply to touch 1', what:'Touch 2 — carries NEW information: how many people viewed or matched their call since touch 1. Never "just following up".', tpl:'E2'},
+ {d:12,ch:'LinkedIn DM / Email', who:'Named human if connected, else the inbox', what:'Touch 3 and final. Names the close, gives an easy no, leaves the door open. Then stop.', tpl:'C1'}
+];
+
+const TEMPLATES=[
+ {id:'E1',name:'Touch 1 — Email, institutional',use:'KCIC, APNI, MUSON, GEAF, DIV',
+  body:`Subject: We're already sending applicants to {{PROGRAMME}} — offering to filter them for you
+
+{{NAME_OR_TEAM}},
+
+FundFinder lists {{PROGRAMME}} to our Nigerian and pan-African user base, and we route
+people to your application page. That is already happening — this note is to offer to make
+what reaches you better rather than just more.
+
+We can configure our matching agent against your published eligibility rules, so that only
+applicants who actually qualify are pointed at your call. What that changes on your side:
+
+  · Fewer ineligible submissions to screen out
+  · Applicants arrive having already completed a structured business profile
+  · A monthly count of who we sent and how many qualified, if that is useful for reporting
+
+It costs you nothing and needs no integration — we work from your public criteria. If it is
+useful, reply with your eligibility rules in whatever form you have them and we will configure
+against them this week. If it is not, no reply needed and we will keep listing you as we do now.
+
+{{ONEUP_PROOF}}
+
+Dayo Akin
+Access2Fund Partners · fundfinder.ng`},
+
+ {id:'E1b',name:'Touch 1 — Email, peer / founder-to-founder',use:'AM-Steve House only',
+  body:`Subject: Sending applicants to your August IPDPE cohort — want them filtered?
+
+Dr. Okorie,
+
+I run FundFinder (fundfinder.ng) — we aggregate funding calls for Nigerian founders and route
+matched applicants to them. IPDPE is listed on our platform and people are landing on your
+application page from it.
+
+You are filling a first cohort next month. I would rather send you twenty applicants who fit
+than two hundred who do not, so: give me your eligibility criteria and I will configure our
+matching agent to only surface IPDPE to founders who actually meet them.
+
+No cost, no integration, no catch. We make money elsewhere in the stack — our interest is that
+the programmes we list actually convert, because that is what makes the platform worth using.
+
+If it is easier to talk it through, I am on WhatsApp on this number.
+
+{{ONEUP_PROOF}}
+
+Dayo Akin
+Access2Fund Partners · fundfinder.ng`},
+
+ {id:'L1',name:'Touch 2 — LinkedIn connection note',use:'Max 200 characters — LinkedIn hard-truncates',
+  body:`{{FIRST_NAME}} — we list {{PROGRAMME}} on FundFinder and route matched applicants to it.
+Sent a note to {{INBOX}} about filtering them against your criteria. Connecting for context.`},
+
+ {id:'X1',name:'Touch 3 — X / Twitter amplification',use:'Post publicly, tag them. Never a DM.',
+  body:`{{DEADLINE_LINE}}
+
+{{PROGRAMME}} is open — {{ONE_LINE_WHAT_IT_FUNDS}}.
+
+Who qualifies, what you need, and the application link:
+fundfinder.ng
+
+{{HANDLE}}`},
+
+ {id:'E2',name:'Touch 4 — Email bump, must carry new information',use:'Reply in the touch-1 thread',
+  body:`Subject: Re: We're already sending applicants to {{PROGRAMME}}
+
+{{NAME_OR_TEAM}},
+
+Quick data point rather than a follow-up: since I wrote, {{N}} people on FundFinder have viewed
+{{PROGRAMME}} and {{M}} matched its criteria on profile.
+
+That is the group I would rather filter properly before they reach you. If you send the
+eligibility rules I will configure against them; if the timing is wrong, tell me and I will
+come back when your next call opens.
+
+Dayo Akin
+Access2Fund Partners · fundfinder.ng`},
+
+ {id:'C1',name:'Touch 5 — Close the file',use:'Final touch. Then stop for 90 days.',
+  body:`Subject: Closing this off — {{PROGRAMME}}
+
+{{NAME_OR_TEAM}},
+
+I will stop here so this does not become noise.
+
+We will keep listing {{PROGRAMME}} either way — that does not depend on us working together.
+If filtering applicants against your criteria ever becomes useful, this thread is the way back
+and there is no expiry on the offer.
+
+Good luck with the cohort.
+
+Dayo Akin
+Access2Fund Partners · fundfinder.ng`},
+
+ {id:'W1',name:'WhatsApp — AM-Steve House only',use:'Only after they reply to email, or if the number is publicly listed as business contact',
+  body:`Good morning Dr. Okorie — Dayo from Access2Fund / FundFinder. I emailed info@amstevehouse.com
+about IPDPE. Short version: we list your programme and route applicants to it, and I would like
+to filter them against your criteria so you only get founders who fit the August cohort.
+Happy to send the details here if easier.`}
+];
+
+/* ---------- render ---------- */
+document.getElementById('tiles').innerHTML=[
+ ['7','External organisers','Of 12 live rows — the other 5 are A2F\'s own programmes'],
+ ['2','Listings flagged','GEF call closed 22 May; GEAF page 404s. Fix before pitching.'],
+ ['1','WhatsApp-eligible','Only AM-Steve House. The other six would be a policy breach.'],
+ ['4','Named humans found','APNI, MUSON/MTN, GEAF, UNDP — the LinkedIn targets'],
+ ['0','Guessed addresses','Every address was read off a live page or left blank']
+].map(([v,l,n])=>`<div class="card"><div class="lab">${l}</div><div class="val">${v}</div><div class="note">${esc(n)}</div></div>`).join('');
+
+document.getElementById('orgs').innerHTML=ORGS.map(o=>`
+ <div class="org">
+   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:2px">
+     ${pill(o.kind,'Tier '+o.tier)}<h3>${esc(o.name)}</h3></div>
+   <div class="meta">${esc(o.meta)}</div>
+   <div class="routes">${o.routes.map(r=>r.href
+     ?`<a class="route ${r.p?'primary':''}" href="${r.href}" target="_blank"><b>${r.t}</b> ${esc(r.v)}</a>`
+     :`<span class="route ${r.p?'primary':''}"><b>${r.t}</b> ${esc(r.v)}</span>`).join('')}</div>
+   ${o.flag?`<div class="flag"><span>▲</span><span>${esc(o.flag)}</span></div>`:''}
+   <div class="angle">${esc(o.angle)}</div>
+ </div>`).join('');
+
+function shift(d){ const x=new Date(d); const g=x.getDay();
+  if(g===6) x.setDate(x.getDate()+2); if(g===0) x.setDate(x.getDate()+1); return x; }
+
+function renderCadence(){
+  let prevDate=new Date(0);
+  const base=new Date(document.getElementById('start').value||Date.now());
+  document.getElementById('cadence').innerHTML=
+   '<thead><tr><th>Day</th><th>Date</th><th>Channel</th><th>Target</th><th>What it does</th><th>Template</th></tr></thead><tbody>'+
+   CADENCE.map((c,i)=>{
+     let d=shift(new Date(base.getTime()+c.d*864e5));
+     // Weekend-shifting can collapse two touches onto one day (e.g. a Sunday start
+     // pushes D+0 and D+1 both to Monday). Keep them strictly ordered.
+     if(i>0){ while(d<=prevDate){ d=shift(new Date(d.getTime()+864e5)); } }
+     prevDate=d;
+     return `<tr><td class="day">D+${c.d}</td>
+       <td class="day">${d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})}</td>
+       <td><b>${c.ch}</b></td><td style="color:var(--ink-muted)">${esc(c.who)}</td>
+       <td>${esc(c.what)}</td><td><code>${c.tpl}</code></td></tr>`;
+   }).join('')+'</tbody>';
+}
+
+document.getElementById('templates').innerHTML=TEMPLATES.map(t=>`
+ <div class="tpl">
+   <div class="hd"><div><b>${t.id} · ${esc(t.name)}</b><br><span>${esc(t.use)}</span></div>
+     <button onclick="copyTpl('${t.id}')" id="btn-${t.id}">Copy</button></div>
+   <pre id="tpl-${t.id}">${esc(t.body).replace(/\{\{([A-Z_0-9]+)\}\}/g,'<span class="tok">{{$1}}</span>')}</pre>
+ </div>`).join('');
+
+function copyTpl(id){
+  const txt=TEMPLATES.find(t=>t.id===id).body;
+  const done=()=>{const b=document.getElementById('btn-'+id);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1400)};
+  if(navigator.clipboard) navigator.clipboard.writeText(txt).then(done).catch(fallback);
+  else fallback();
+  function fallback(){const a=document.createElement('textarea');a.value=txt;document.body.appendChild(a);
+    a.select();try{document.execCommand('copy')}catch(e){}a.remove();done();}
+}
+
+document.getElementById('start').value=new Date().toISOString().slice(0,10);
+renderCadence();
+</script>
+</body></html>
