@@ -582,7 +582,7 @@ async function saveSection(section) {
   btn.innerHTML = '<span class="spinner"></span>Saving…';
   stat.textContent = ''; stat.className = 'save-status';
 
-  const updates = getSectionData(section);
+  let updates = getSectionData(section);
   updates.updated_at = new Date().toISOString();
 
   let { error } = await sb.from('user_profiles')
