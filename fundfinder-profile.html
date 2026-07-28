@@ -582,11 +582,28 @@ async function saveSection(section) {
   btn.innerHTML = '<span class="spinner"></span>Saving…';
   stat.textContent = ''; stat.className = 'save-status';
 
-  const updates = getSectionData(section);
+  let updates = getSectionData(section);
   updates.updated_at = new Date().toISOString();
 
-  const { error } = await sb.from('user_profiles')
+  let { error } = await sb.from('user_profiles')
     .upsert({ user_id: currentUser.id, ...updates }, { onConflict: 'user_id' });
+
+  // Fallback: if the DB doesn't yet have a column we sent (schema-cache error),
+  // strip the offending/new fields and retry so the user is never blocked.
+  if (error && /schema cache|column/i.test(error.message || '')) {
+    const NEW_FIELDS = ['business_description', 'website', 'funding_amount', 'traction'];
+    const m = (error.message || '').match(/'([a-z_]+)' column/i);
+    const drop = m ? [m[1], ...NEW_FIELDS] : NEW_FIELDS;
+    const slim = { ...updates };
+    drop.forEach((k) => delete slim[k]);
+    const retry = await sb.from('user_profiles')
+      .upsert({ user_id: currentUser.id, ...slim }, { onConflict: 'user_id' });
+    if (!retry.error) {
+      error = null;
+      updates = slim;
+      console.warn('Saved without new profile columns (migration pending):', drop.join(', '));
+    }
+  }
 
   if (!error) {
     profile = { ...profile, ...updates };
