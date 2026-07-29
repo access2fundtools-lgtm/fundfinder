@@ -113,11 +113,11 @@
   <div class="cta" id="cta" style="display:none">
     <h2>We can file your outstanding annual returns</h2>
     <p>A2F Partners helps companies regularise with CAC before the deadline — annual returns, Persons with Significant Control records, and the compliance evidence CAC requires. You pay the official CAC fees plus a transparent service fee.</p>
-    <div class="form">
-      <input id="lead-email" type="email" placeholder="Your email address" />
-      <button onclick="sendLead()">Get help filing</button>
-    </div>
-    <div class="ok-msg" id="ok-msg">✅ Got it — we'll contact you shortly with next steps.</div>
+    <a id="wa-cta" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#08240f;border-radius:10px;padding:15px 28px;font-weight:900;font-size:16px;text-decoration:none">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="#08240f"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.6-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg>
+      Chat with us on WhatsApp
+    </a>
+    <div style="margin-top:14px;font-size:14px;color:var(--muted)">Prefer email? <a href="mailto:hello@a2fpartners.com?subject=CAC%20annual%20returns%20filing" style="color:var(--gold)">hello@a2fpartners.com</a></div>
     <div class="fineprint">No obligation. We'll confirm your company's status and send a clear quote (CAC fees stated separately) before any work begins.</div>
   </div>
 
@@ -189,7 +189,7 @@ async function doSearch(){
     res.innerHTML='<div class="card safe"><span class="status ok">Not found in this batch</span>'
       +'<h3>No match for “'+esc(raw)+'” on the Batch 6 list</h3>'
       +'<p style="color:var(--muted);font-size:15px;margin-top:8px">Good news — but this is only Batch 6. If your company has unfiled annual returns, it can still appear in a later batch. Filing now is what keeps you clear.</p></div>';
-    document.getElementById('cta').style.display='block';
+    document.getElementById('cta').style.display='block'; refreshWa();
     return;
   }
   res.innerHTML=hits.map(r=>{
@@ -202,10 +202,19 @@ async function doSearch(){
     +'<div>Years unfiled</div><div>'+esc(r[3])+' consecutive years</div></div>'
     +'<p style="margin-top:14px;font-size:15px">This company must file its outstanding annual returns and PSC records, and send evidence to struckoffcompanies@cac.gov.ng, before <b>13 October 2026</b>.</p></div>';
   }).join('');
-  document.getElementById('cta').style.display='block';
+  document.getElementById('cta').style.display='block'; refreshWa();
 }
 document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
 
+function waLink(){
+  const base='https://wa.me/2348062085464?text=';
+  let msg='Hello A2F Partners — I checked the CAC strike-off list on FundFinder.';
+  if(lastHit) msg+=' My company '+lastHit[0]+' (RC '+lastHit[1]+') is on the list with '+lastHit[3]+' years of unfiled returns.';
+  else { const q=document.getElementById('q').value.trim(); if(q) msg+=' I searched for "'+q+'".'; }
+  msg+=' I would like help filing my annual returns.';
+  return base+encodeURIComponent(msg);
+}
+function refreshWa(){ const a=document.getElementById('wa-cta'); if(a) a.href=waLink(); }
 async function sendLead(){
   const email=document.getElementById('lead-email').value.trim();
   if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}

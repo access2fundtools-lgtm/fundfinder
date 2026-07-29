@@ -165,13 +165,6 @@ textarea { resize: vertical; min-height: 100px; }
   .form-row { grid-template-columns: 1fr; }
 }
 </style>
-
-<style id="pricing-removed-2026-07-29">
-/* Pricing removed 2026-07-29 — markup retained, hidden. Delete this block to restore. */
-#creditBadge, .nav-credit-badge, .credits-card, .credits-warn,
-.pkg-card, .pkg-credits, .pkg-credits-label, .buy-btn,
-.wallet-card, .wallet-stats, .credit-packages, #creditPackages, .usage-guide { display: none !important; }
-</style>
 </head>
 <body>
 
@@ -181,8 +174,7 @@ textarea { resize: vertical; min-height: 100px; }
     <span class="nav-badge">⚡ Growth Suite</span>
     <a href="fundfinder-dashboard.html" class="nav-link">← Dashboard</a>
     <a href="opportunity-hub.html" class="nav-link">Opportunities</a>
-    <a href="fundfinder-chat.html" class="nav-link">AI Chat</a>
-    <a href="fundfinder-wallet.html" class="nav-credit-badge">&#128172; Application help</a>
+    <a href="fundfinder-wallet.html" class="nav-credit-badge" id="creditBadge">💳 — credits</a>
   </div>
 </nav>
 
@@ -229,7 +221,7 @@ textarea { resize: vertical; min-height: 100px; }
       </button>
       <button class="module-btn" onclick="window.location='fundfinder-wallet.html'">
         <span class="icon">💳</span>
-        <div class="info"><div class="title">Application Help</div><div class="sub">We help you apply</div></div>
+        <div class="info"><div class="title">Credits &amp; Wallet</div><div class="sub" id="sidebarCredits">— credits</div></div>
       </button>
     </div>
   </aside>
@@ -268,7 +260,7 @@ textarea { resize: vertical; min-height: 100px; }
           <div class="ot-icon">🛡️</div>
           <div class="ot-title">Risk Desk</div>
           <div class="ot-desc">Before you sign, hire, or deploy — get a structured risk brief from the AI. Plain language. Actionable.</div>
-          <span class="ot-status status-pro">Free</span>
+          <span class="ot-status status-pro">Credits</span>
         </div>
         <div class="overview-tile" onclick="showModule('outreach')">
           <div class="ot-icon">✉️</div>
@@ -280,11 +272,10 @@ textarea { resize: vertical; min-height: 100px; }
 
       <div class="card">
         <div class="card-title">💡 How Growth Suite works</div>
-        <p style="font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:16px;">Each module uses your business profile to generate personalised recommendations. The more complete your profile, the sharper the matches. Every module is free to use.</p>
+        <p style="font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:16px;">Each module uses your business profile to generate personalised recommendations. The more complete your profile, the sharper the matches. AI-powered modules consume credits — free browsing is always available.</p>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a href="fundfinder-profile.html" class="btn btn-outline btn-sm">📝 Complete your profile</a>
-          <a href="fundfinder-wallet.html" class="btn btn-outline btn-sm">&#128172; Get application help</a>
-          <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Ask the AI anything</a>
+          <a href="fundfinder-wallet.html" class="btn btn-outline btn-sm">💳 Top up credits</a>
         </div>
       </div>
     </div>
@@ -341,7 +332,6 @@ textarea { resize: vertical; min-height: 100px; }
           <div class="ai-output" id="sup-output">Searching...</div>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-outline btn-sm" onclick="copyToClipboard('sup-output')">📋 Copy results</button>
-            <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Ask AI for more detail</a>
           </div>
         </div>
       </div>
@@ -415,7 +405,6 @@ textarea { resize: vertical; min-height: 100px; }
           <div class="ai-output" id="con-output">Scanning...</div>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-outline btn-sm" onclick="copyToClipboard('con-output')">📋 Copy results</button>
-            <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Ask AI to help with bid prep</a>
           </div>
         </div>
       </div>
@@ -474,7 +463,6 @@ textarea { resize: vertical; min-height: 100px; }
           <div class="card-title">📣 Recommended Growth Partners</div>
           <div class="ai-output" id="gp-output">Analysing...</div>
           <div style="margin-top:14px;">
-            <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Get AI to draft an outreach message</a>
           </div>
         </div>
       </div>
@@ -533,7 +521,6 @@ textarea { resize: vertical; min-height: 100px; }
           <div class="ai-output" id="risk-output">Analysing...</div>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-outline btn-sm" onclick="copyToClipboard('risk-output')">📋 Copy report</button>
-            <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Discuss with AI</a>
           </div>
         </div>
       </div>
@@ -553,7 +540,6 @@ textarea { resize: vertical; min-height: 100px; }
           <p>This module requires Pro credits (300-credit package or above). AI drafts tailored messages — no cold, generic templates. Every message is written around your specific business and the specific target.</p>
           <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
             <a href="fundfinder-wallet.html" class="btn btn-gold">💳 Upgrade to Pro →</a>
-            <a href="fundfinder-chat.html" class="btn btn-outline">🤖 Draft manually with AI Chat</a>
           </div>
         </div>
       </div>
@@ -596,7 +582,6 @@ textarea { resize: vertical; min-height: 100px; }
             <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
               <button class="btn btn-gold btn-sm" onclick="copyToClipboard('out-output')">📋 Copy Message</button>
               <button class="btn btn-outline btn-sm" onclick="runOutreachDraft()">🔄 Regenerate</button>
-              <a href="fundfinder-chat.html" class="btn btn-outline btn-sm">🤖 Refine with AI</a>
             </div>
           </div>
         </div>

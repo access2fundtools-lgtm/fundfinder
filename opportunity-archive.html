@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>if(location.hostname==='opportunities.a2fpartners.com')location.replace('https://fundfinder.ng'+location.pathname+location.search);</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="FundFinder AI — Live Funding Opportunities for Nigerian Entrepreneurs | A2F Partners">
+<meta property="og:description" content="FundFinder AI by A2F Partners. Our AI agent scrapes the internet, public groups and social media daily to surface grants, empowerment programs, loans and investments open right now for Nigerian entrepreneurs. Updated every morning.">
+<title>Archive — FundFinder AI — Funding for Nigerian Entrepreneurs | A2F Partners</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --surface: #111; --surface2: #1a1a1a;
+    --border: rgba(255,255,255,0.08); --text: #f0f0f0;
+    --muted: rgba(255,255,255,0.5); --gold: #FFD700;
+    --green: #22c55e; --red: #ef4444; --orange: #f97316;
+  }
+  body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+
+  nav { border-bottom: 1px solid var(--border); padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: rgba(10,10,10,0.96); backdrop-filter: blur(12px); z-index: 100; }
+  .nav-logo { font-size: 18px; font-weight: 800; letter-spacing: 1px; text-decoration: none; color: var(--text); display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo .logo-main { font-size: 20px; font-weight: 900; letter-spacing: 1px; }
+  .nav-logo .logo-main span { color: var(--gold); }
+  .nav-logo .logo-sub { font-size: 10px; font-weight: 600; letter-spacing: 2px; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+  /* HERO */
+  .hero { padding: 72px 40px 48px; max-width: 1100px; margin: 0 auto; }
+  .hero-label { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 30px; margin-bottom: 22px; }
+  .hero h1 { font-size: clamp(34px, 5vw, 58px); font-weight: 900; line-height: 1.05; letter-spacing: -1px; margin-bottom: 18px; }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: 17px; color: var(--muted); max-width: 580px; margin-bottom: 32px; }
+  .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+  .stat-num { font-size: 30px; font-weight: 900; color: var(--gold); }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* SUBSCRIBE BANNER */
+  .subscribe-banner {
+    background: linear-gradient(135deg, #001a00 0%, #003300 50%, #002600 100%);
+    border-top: 1px solid rgba(255,215,0,0.15);
+    border-bottom: 1px solid rgba(255,215,0,0.15);
+    padding: 40px;
+    margin-bottom: 0;
+  }
+  .subscribe-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .subscribe-text h2 { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+  .subscribe-text h2 span { color: var(--gold); }
+  .subscribe-text p { font-size: 14px; color: var(--muted); max-width: 420px; }
+  .subscribe-form { display: flex; gap: 10px; flex-wrap: wrap; flex: 1; min-width: 280px; max-width: 480px; }
+  .subscribe-form input[type="email"] {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,215,0,0.25);
+    color: var(--text);
+    font-size: 14px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s;
+    min-width: 200px;
+  }
+  .subscribe-form input[type="email"]::placeholder { color: var(--muted); }
+  .subscribe-form input[type="email"]:focus { border-color: rgba(255,215,0,0.6); }
+  .subscribe-form input[type="text"] {
+    display: none;
+  }
+  .subscribe-btn {
+    background: var(--gold);
+    color: #000;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .subscribe-btn:hover { background: #ffe555; transform: translateY(-1px); }
+  .subscribe-success { display: none; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: var(--green); padding: 12px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; }
+
+  /* CATEGORY NAV */
+  .cat-nav { max-width: 1100px; margin: 0 auto; padding: 32px 40px 0; display: flex; gap: 10px; flex-wrap: wrap; }
+  .cat-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 30px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .cat-btn.active, .cat-btn:hover { border-color: rgba(255,215,0,0.4); color: var(--gold); background: rgba(255,215,0,0.07); }
+  .cat-btn[data-cat="empowerment"].active, .cat-btn[data-cat="empowerment"]:hover { border-color: rgba(249,115,22,0.4); color: var(--orange); background: rgba(249,115,22,0.07); }
+  .cat-btn[data-cat="grants"].active, .cat-btn[data-cat="grants"]:hover { border-color: rgba(34,197,94,0.4); color: var(--green); background: rgba(34,197,94,0.07); }
+  .cat-btn[data-cat="investment"].active, .cat-btn[data-cat="investment"]:hover { border-color: rgba(196,181,253,0.4); color: #c4b5fd; background: rgba(196,181,253,0.07); }
+  .cat-btn[data-cat="training"].active, .cat-btn[data-cat="training"]:hover { border-color: rgba(100,200,255,0.4); color: #64c8ff; background: rgba(100,200,255,0.07); }
+  .cat-btn[data-cat="scholarships"].active, .cat-btn[data-cat="scholarships"]:hover { border-color: rgba(167,139,250,0.4); color: #a78bfa; background: rgba(167,139,250,0.07); }
+  .cat-btn[data-cat="career"].active, .cat-btn[data-cat="career"]:hover { border-color: rgba(251,191,36,0.4); color: #fbbf24; background: rgba(251,191,36,0.07); }
+
+  /* SECTIONS */
+  .section-wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; padding: 36px 0 20px; }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+  .section-title { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+  .section-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .badge-urgent { background: var(--red); color: #fff; }
+  .badge-green { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+  .badge-orange { background: rgba(249,115,22,0.15); color: var(--orange); border: 1px solid rgba(249,115,22,0.3); }
+  .badge-purple { background: rgba(196,181,253,0.15); color: #c4b5fd; border: 1px solid rgba(196,181,253,0.3); }
+  .badge-blue { background: rgba(100,200,255,0.15); color: #64c8ff; border: 1px solid rgba(100,200,255,0.3); }
+
+  /* GRID */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 18px; }
+
+  /* CARD */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+  .card:hover { border-color: rgba(255,215,0,0.35); transform: translateY(-3px); }
+  .card-top { padding: 22px; position: relative; }
+  .card-top.grants { background: linear-gradient(135deg, #002200 0%, #004d00 100%); }
+  .card-top.empowerment { background: linear-gradient(135deg, #1a0a00 0%, #3d1500 100%); }
+  .card-top.investment { background: linear-gradient(135deg, #0d001a 0%, #1a0033 100%); }
+  .card-top.training { background: linear-gradient(135deg, #000d1a 0%, #001433 100%); }
+  .card-top.loans { background: linear-gradient(135deg, #0a0a00 0%, #2a2a00 100%); }
+  .card-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 12px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .badge-red { background: var(--red); color: #fff; }
+  .badge-open { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+  .badge-nigeria { background: rgba(255,215,0,0.12); color: var(--gold); border: 1px solid rgba(255,215,0,0.3); }
+  .badge-agri { background: rgba(134,239,172,0.12); color: #86efac; border: 1px solid rgba(134,239,172,0.3); }
+  .badge-ai { background: rgba(100,200,255,0.12); color: #64c8ff; border: 1px solid rgba(100,200,255,0.3); }
+  .badge-startup { background: rgba(196,181,253,0.12); color: #c4b5fd; border: 1px solid rgba(196,181,253,0.3); }
+  .badge-emp { background: rgba(249,115,22,0.12); color: var(--orange); border: 1px solid rgba(249,115,22,0.3); }
+  .card-funder { font-size: 11px; color: rgba(255,215,0,0.65); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; font-weight: 700; }
+  .card-title { font-size: 18px; font-weight: 800; color: #fff; line-height: 1.2; }
+  .card-amount { position: absolute; top: 20px; right: 20px; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.25); color: var(--gold); font-size: 16px; font-weight: 900; padding: 5px 10px; border-radius: 8px; }
+  .card-body { padding: 18px 22px; flex: 1; display: flex; flex-direction: column; }
+  .card-meta { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; flex: 1; }
+  .meta-row { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: var(--muted); }
+  .meta-row strong { color: var(--text); }
+  .card-cta { display: block; background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,165,0,0.08)); border: 1px solid rgba(255,215,0,0.25); color: var(--gold); text-align: center; padding: 11px; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; transition: all 0.2s; text-decoration: none; }
+  .card:hover .card-cta { background: rgba(255,215,0,0.2); border-color: rgba(255,215,0,0.5); }
+
+  /* EMPTY SECTION */
+  .section-empty { color: var(--muted); font-size: 14px; padding: 24px; background: var(--surface2); border: 1px dashed var(--border); border-radius: 12px; text-align: center; }
+
+  /* COMING SOON */
+  .coming-soon { display: flex; flex-direction: column; gap: 12px; }
+  .cs-card { background: var(--surface2); border: 1px dashed var(--border); border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+  .cs-icon { font-size: 28px; flex-shrink: 0; }
+  .cs-title { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+  .cs-desc { font-size: 13px; color: var(--muted); }
+
+  /* VISION SECTION */
+  .vision-section {
+    background: linear-gradient(160deg, #050f05 0%, #0a1a0a 50%, #050f05 100%);
+    border-top: 1px solid rgba(255,215,0,0.12);
+    border-bottom: 1px solid rgba(255,215,0,0.12);
+    padding: 64px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .vision-section::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,215,0,0.04) 0%, transparent 70%);
+    top: -200px; right: -200px;
+    pointer-events: none;
+  }
+  .vision-inner { max-width: 1100px; margin: 0 auto; }
+  .vision-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,215,0,0.08); border: 1px solid rgba(255,215,0,0.25);
+    color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: 2.5px;
+    text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .vision-headline {
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 900; line-height: 1.1;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .vision-headline span { color: var(--gold); }
+  .vision-lead {
+    font-size: 16px; color: var(--muted); max-width: 660px;
+    line-height: 1.7; margin-bottom: 44px;
+  }
+  .vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 44px;
+  }
+  .vision-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 24px 22px;
+    transition: border-color 0.2s;
+  }
+  .vision-card:hover { border-color: rgba(255,215,0,0.25); }
+  .vision-card-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .vision-card-title { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+  .vision-card-title span { color: var(--gold); }
+  .vision-card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .vision-card.highlight {
+    border-color: rgba(255,215,0,0.2);
+    background: linear-gradient(135deg, rgba(255,215,0,0.06) 0%, rgba(0,100,0,0.1) 100%);
+  }
+  .vision-roadmap {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 28px 32px;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .vision-roadmap-title {
+    font-size: 12px; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+  }
+  .roadmap-row {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+  }
+  .roadmap-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .roadmap-pill {
+    flex-shrink: 0;
+    font-size: 10px; font-weight: 800; letter-spacing: 1px;
+    text-transform: uppercase; padding: 4px 12px; border-radius: 20px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .pill-live { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+  .pill-next { background: rgba(255,215,0,0.1); color: var(--gold); border: 1px solid rgba(255,215,0,0.25); }
+  .pill-future { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid rgba(255,255,255,0.1); }
+  .roadmap-text-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .roadmap-text-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  footer p { font-size: 13px; color: var(--muted); }
+  footer p span { color: var(--gold); }
+
+  @media (max-width: 640px) { nav { padding: 14px 20px; } .nav-links { display: none; } .hero, .section-wrap, .cat-nav { padding-left: 20px; padding-right: 20px; } .hero { padding-top: 44px; } .subscribe-banner { padding: 28px 20px; } .grid { grid-template-columns: 1fr; } footer { flex-direction: column; text-align: center; } }
+</style>
+<link rel="canonical" href="https://fundfinder.ng/opportunity-hub.html">
+<meta name="description" content="FundFinder AI by A2F Partners. Our AI agent scrapes the internet, public groups and social media daily to surface grants, empowerment programs, loans and investments open right now for Nigerian entrepreneurs. Updated every morning.">
+<meta property="og:url" content="https://fundfinder.ng/opportunity-hub.html">
+<meta property="og:image" content="https://fundfinder.ng/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="FundFinder AI">
+<meta name="twitter:title" content="FundFinder AI — Funding for Nigerian Entrepreneurs | A2F Partners">
+<meta name="twitter:description" content="FundFinder AI by A2F Partners. Our AI agent scrapes the internet, public groups and social media daily to surface grants, empowerment programs, loans and investments open right now for Nigerian entrepreneurs. Updated every morning.">
+<meta name="twitter:image" content="https://fundfinder.ng/og-image.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org","@type": "CollectionPage","url": "https://fundfinder.ng/opportunity-hub.html","name": "FundFinder AI — Funding for Nigerian Entrepreneurs | A2F Partners","description": "FundFinder AI by A2F Partners. Our AI agent scrapes the internet, public groups and social media daily to surface grants, empowerment programs, loans and investments open right now for Nigerian entrepreneurs. Updated every morning.","inLanguage": "en-NG","isPartOf": {"@id": "https://fundfinder.ng/#website"},"about": ["grants for Nigerian entrepreneurs","business loans Nigeria","startup accelerators","agriculture funding"],"publisher": {"@id": "https://fundfinder.ng/#org"}}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-main">Fund<span>Finder</span> AI</span>
+    <span class="logo-sub">by A2F Partners</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="#" class="active">Opportunities</a>
+    <a href="fundfinder-growth-suite.html">⚡ Growth Suite</a>
+    <a href="program-principal-register.html">For Organisations</a>
+    <a href="fundfinder-auth.html" style="background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.3);color:var(--gold);padding:7px 16px;border-radius:20px;font-weight:700;">Sign Up Free →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="section-wrap">
+  <div class="section-header"><div class="section-line"></div>
+  <div class="section-title">🗄️ Archive <span class="section-badge">Closed</span></div>
+  <div class="section-line"></div></div>
+  <p style="text-align:center;color:var(--muted);max-width:60ch;margin:0 auto 30px;font-size:15px">These programmes have passed their published deadline. Many reopen annually — check the official page.</p>
+  <div class="grid">
+        <a class="card" href="2026-06-28-accelerate-africa-startup-2026.html">
+      <div class="card-top grants">
+        <div class="card-amount">$500K</div>
+        <div class="card-badges">
+          <span class="badge badge-open">⏳ Jul 25</span>
+          <span class="badge badge-nigeria">🌍 Africa</span>
+        </div>
+        <div class="card-funder">Acceler8 Africa — Pan-African Accelerator</div>
+        <div class="card-title">Accelerate Africa Startup Programme 2026</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="meta-row">⏰ <span><strong>Deadline:</strong> July 25, 2026</span></div>
+          <div class="meta-row">👤 <span>African early-stage startups with 2+ co-founders — Nigeria eligible</span></div>
+          <div class="meta-row">💰 <span>$250,000 – $500,000 investment per startup</span></div>
+          <div class="meta-row">🌍 <span>No application fee · No upfront equity required</span></div>
+        </div>
+        <span class="card-cta">View Details &amp; Apply →</span>
+      </div>
+    </a>
+
+    <a class="card" href="2026-06-13-ycombinator-fall-2026.html">
+      <div class="card-top investment">
+        <div class="card-amount">$500K</div>
+        <div class="card-badges">
+          <span class="badge badge-red">⚡ July 27</span>
+          <span class="badge badge-startup">Startup</span>
+        </div>
+        <div class="card-funder">Y Combinator</div>
+        <div class="card-title">Y Combinator Fall 2026 Batch</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="meta-row">⏰ <span><strong>Deadline:</strong> July 27, 2026</span></div>
+          <div class="meta-row">👤 <span>Any early-stage startup — Nigerians welcome</span></div>
+          <div class="meta-row">💰 <span>$500,000 for 7% equity — world's top accelerator</span></div>
+          <div class="meta-row">🌍 <span>Global program • Remote-friendly</span></div>
+        </div>
+        <span class="card-cta">View Details &amp; Apply →</span>
+      </div>
+    </a>
+
+        
+
+    <a class="card" href="opportunity-mest-ai-2027.html">
+      <div class="card-top training">
+        <div class="card-amount">$100K</div>
+        <div class="card-badges">
+          <span class="badge badge-red">⚡ July 20</span>
+          <span class="badge badge-ai">AI / Tech</span>
+        </div>
+        <div class="card-funder">MEST Africa</div>
+        <div class="card-title">MEST AI Startup Program — Class of 2027</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="meta-row">⏰ <span><strong>Deadline:</strong> July 20, 2026</span></div>
+          <div class="meta-row">✈️ <span>Fully funded — flights + accommodation covered</span></div>
+          <div class="meta-row">💰 <span>Up to $100K pre-seed investment at graduation</span></div>
+          <div class="meta-row">📍 <span>12-month programme in Accra, Ghana</span></div>
+        </div>
+        <span class="card-cta">View Details &amp; Apply →</span>
+      </div>
+    </a>
+
+    <a class="card" href="2026-06-13-helpmum-carecode-hackathon-2026.html">
+      <div class="card-top training">
+        <div class="card-amount">₦10M</div>
+        <div class="card-badges">
+          <span class="badge badge-red">⚡ July 20</span>
+          <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
+          <span class="badge badge-ai">HealthTech</span>
+        </div>
+        <div class="card-funder">HelpMum Nigeria</div>
+        <div class="card-title">CareCode Hackathon 2.0 — Maternal &amp; Infant Health Tech</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="meta-row">⏰ <span><strong>Deadline:</strong> July 20, 2026</span></div>
+          <div class="meta-row">👤 <span>Developers, designers &amp; innovators in Nigeria</span></div>
+          <div class="meta-row">💰 <span>₦10M total prize pool — ₦5M first prize</span></div>
+          <div class="meta-row">💡 <span>Build life-saving maternal &amp; infant health technology</span></div>
+        </div>
+        <span class="card-cta">View Details &amp; Apply →</span>
+      </div>
+    </a>
+
+  </div>
+  <div style="text-align:center;margin:44px 0"><a href="opportunity-hub.html" style="color:var(--gold);font-weight:700;text-decoration:none">← Back to open opportunities</a></div>
+</div>
+</body></html>
