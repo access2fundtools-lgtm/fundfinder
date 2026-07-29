@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Free Business Funding Diagnostic — Find Your Cheapest Path to Capital | FundFinder</title>
+<meta name="description" content="Answer 6 questions. Get an instant, free diagnosis of the funding paths open to your Nigerian business right now — single-digit intervention funds, grants, commercial paper, NGX listing or SPV consolidation. No sign-up." />
+<link rel="canonical" href="https://fundfinder.ng/business-diagnostic.html" />
+<meta property="og:title" content="Stop borrowing at 30%. Find your real funding path in 90 seconds." />
+<meta property="og:description" content="Free diagnostic for Nigerian businesses — the cheapest capital you actually qualify for, right now." />
+<meta property="og:image" content="https://fundfinder.ng/og-image.png" />
+<meta property="og:url" content="https://fundfinder.ng/business-diagnostic.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#0a0a0a;--surface:#121214;--surface2:#1a1a1e;--border:rgba(255,255,255,.09);
+        --gold:#FFD700;--green:#22c55e;--red:#ef4444;--text:#f0f0f0;--muted:#9a9aa2}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.62}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  nav{border-bottom:1px solid var(--border);padding:15px 0;position:sticky;top:0;background:rgba(10,10,10,.96);backdrop-filter:blur(10px);z-index:50}
+  .nav-in{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-weight:900;font-size:18px;color:#fff;text-decoration:none}.logo span{color:var(--gold)}
+  .nav-link{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+
+  header{padding:46px 0 10px;text-align:center}
+  .pill{display:inline-block;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);color:var(--gold);
+    font-size:11.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:7px 16px;border-radius:30px;margin-bottom:18px}
+  h1{font-size:clamp(26px,5vw,42px);font-weight:900;line-height:1.14;margin-bottom:14px}
+  h1 em{font-style:normal;color:var(--gold)}
+  .sub{color:var(--muted);font-size:16.5px;max-width:58ch;margin:0 auto}
+
+  .thesis{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:12px;padding:22px 24px;margin:30px 0}
+  .thesis p{font-size:15.5px;color:#d8d8dc;margin-bottom:10px}
+  .thesis p:last-child{margin-bottom:0}
+  .thesis b{color:var(--gold)}
+
+  .quiz{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px 26px;margin:24px 0}
+  .prog{height:5px;background:var(--surface2);border-radius:10px;overflow:hidden;margin-bottom:24px}
+  .prog i{display:block;height:100%;background:var(--gold);width:0;transition:width .3s}
+  .qnum{font-size:12px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .qtext{font-size:21px;font-weight:800;margin-bottom:20px;line-height:1.3}
+  .opts{display:grid;gap:10px}
+  .opt{background:var(--surface2);border:1px solid var(--border);border-radius:11px;padding:15px 18px;cursor:pointer;
+       font-size:15.5px;transition:.15s;text-align:left;color:var(--text)}
+  .opt:hover{border-color:var(--gold);background:rgba(255,215,0,.06)}
+  .back{margin-top:18px;background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer;text-decoration:underline}
+
+  #out{display:none}
+  .diag{background:linear-gradient(180deg,rgba(255,215,0,.08),var(--surface));border:1px solid rgba(255,215,0,.32);border-radius:18px;padding:28px 26px;margin:24px 0}
+  .diag h2{font-size:24px;margin-bottom:6px}
+  .diag .lede{color:var(--muted);font-size:15.5px;margin-bottom:22px}
+  .path{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:20px;margin-bottom:13px}
+  .path.top{border-color:rgba(34,197,94,.5);background:linear-gradient(180deg,rgba(34,197,94,.07),var(--surface))}
+  .rank{font-size:11px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:20px;
+        background:rgba(34,197,94,.15);color:#86efac;display:inline-block;margin-bottom:9px}
+  .rank.alt{background:rgba(255,215,0,.14);color:var(--gold)}
+  .path h3{font-size:18.5px;margin-bottom:7px}
+  .path p{font-size:14.8px;color:var(--muted);margin-bottom:9px}
+  .rate{display:inline-block;font-size:13px;font-weight:800;color:var(--green);background:rgba(34,197,94,.12);padding:4px 11px;border-radius:20px}
+  .rate.warn{color:#fca5a5;background:rgba(239,68,68,.12)}
+  .why{font-size:13.5px;color:#c9c9cf;border-top:1px solid var(--border);margin-top:12px;padding-top:11px}
+
+  .cta{background:var(--surface);border:1px solid rgba(37,211,102,.4);border-radius:16px;padding:26px;margin:26px 0;text-align:center}
+  .cta h3{font-size:20px;margin-bottom:8px}
+  .cta p{color:var(--muted);font-size:15px;margin-bottom:18px}
+  .wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#08240f;border-radius:11px;
+      padding:16px 30px;font-weight:900;font-size:16.5px;text-decoration:none}
+  .alt-links{margin-top:16px;font-size:14px;color:var(--muted)}
+  .alt-links a{color:var(--gold);text-decoration:none;font-weight:600}
+  .restart{background:none;border:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:14px;margin-top:20px}
+  .disc{font-size:12.5px;color:#7a7a82;margin-top:22px;line-height:1.55}
+  footer{border-top:1px solid var(--border);padding:26px 0 40px;color:var(--muted);font-size:13px;text-align:center;margin-top:34px}
+  footer a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap nav-in">
+  <a class="logo" href="/">Fund<span>Finder</span></a>
+  <a class="nav-link" href="/opportunity-hub.html">Opportunities →</a>
+</div></nav>
+
+<header class="wrap">
+  <div class="pill">Free · 90 seconds · No sign-up</div>
+  <h1>Stop borrowing at <em>30%</em>.<br>Find the money you actually qualify for.</h1>
+  <p class="sub">Most Nigerian business owners take the most expensive money in the room because nobody showed them the cheaper doors. Answer six questions — we'll show you yours.</p>
+</header>
+
+<div class="wrap">
+
+  <div class="thesis">
+    <p><b>Why this matters more than it did five years ago.</b> Production costs are collapsing — automation, AI and cheaper energy are making it far less expensive to actually build and make things. Some, Elon Musk among them, argue that within a decade money itself becomes far less of a constraint than it is today. Treat that as a forecast, not a fact — but the direction is already visible.</p>
+    <p>The practical implication for you is not philosophical. <b>Whoever owns productive assets when that shift lands, wins.</b> And the cheapest way to own productive assets in Nigeria today is naira-denominated debt at single-digit rates, deployed into production — while inflation quietly erodes the debt and the asset keeps producing.</p>
+    <p>That is a completely different game from borrowing at 30% for working capital. <b>Your registered company is the vehicle.</b> This diagnostic shows you which door is actually open to it.</p>
+  </div>
+
+  <div class="quiz" id="quiz">
+    <div class="prog"><i id="bar"></i></div>
+    <div class="qnum" id="qnum"></div>
+    <div class="qtext" id="qtext"></div>
+    <div class="opts" id="opts"></div>
+    <button class="back" id="back" onclick="goBack()" style="display:none">← Back</button>
+  </div>
+
+  <div id="out">
+    <div class="diag">
+      <h2 id="dtitle"></h2>
+      <p class="lede" id="dlede"></p>
+      <div id="paths"></div>
+    </div>
+
+    <div class="cta">
+      <h3>Want us to walk this path with you?</h3>
+      <p>Send us your diagnosis on WhatsApp. We'll tell you exactly what documents you need, which window is open now, and prepare the application with you — free.</p>
+      <a class="wa" id="wa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="21" height="21" fill="#08240f"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.6-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg>
+        Get my free walkthrough
+      </a>
+      <div class="alt-links">
+        <a href="/opportunity-hub.html">Browse every open opportunity →</a> &nbsp;·&nbsp;
+        <a href="/cac-strike-off-checker.html">Check CAC strike-off status →</a>
+      </div>
+      <button class="restart" onclick="restart()">Start over</button>
+    </div>
+
+    <p class="disc">This diagnostic is free guidance based on your answers — not a guarantee of funding or an offer of credit. Programme terms, rates and windows change; always confirm with the provider. A2F Partners works with licensed operators where a regulated product is involved.</p>
+  </div>
+</div>
+
+<footer class="wrap">
+  <a href="https://a2fpartners.com">A2F Partners Limited</a> · <a href="https://fundfinder.ng">FundFinder</a> — funding intelligence for Nigerian businesses.
+</footer>
+
+<script>
+const Q=[
+ {k:'status',q:'Where is your business right now?',o:[
+   ['trading','Trading actively — I have customers'],
+   ['slow','Still alive but slowed down badly'],
+   ['dormant','Dormant — registered but not operating'],
+   ['new','Brand new / about to start']]},
+ {k:'sector',q:'What sector?',o:[
+   ['agric','Agriculture / agro-processing'],
+   ['manufacturing','Manufacturing / production'],
+   ['trade','Trading / retail / distribution'],
+   ['services','Services / professional'],
+   ['tech','Technology / creative / digital']]},
+ {k:'revenue',q:'Roughly what does the business turn over a year?',o:[
+   ['none','Nothing yet'],
+   ['under5','Under ₦5 million'],
+   ['5to50','₦5m – ₦50m'],
+   ['50to500','₦50m – ₦500m'],
+   ['over500','Above ₦500 million']]},
+ {k:'need',q:'What do you actually need the money for?',o:[
+   ['equipment','Equipment, machinery or a production asset'],
+   ['working','Working capital — stock, raw materials, salaries'],
+   ['restart','Restarting / reviving the business'],
+   ['expand','Expanding to new locations or markets'],
+   ['idea','Building something new from scratch']]},
+ {k:'amount',q:'How much do you need?',o:[
+   ['u1','Under ₦1 million'],
+   ['1to10','₦1m – ₦10m'],
+   ['10to100','₦10m – ₦100m'],
+   ['over100','Above ₦100 million']]},
+ {k:'compliance',q:'Last one — is your company CAC-compliant?',o:[
+   ['clean','Yes — registered and annual returns filed'],
+   ['behind','Registered, but returns are behind'],
+   ['unsure','Registered — honestly not sure'],
+   ['none','Not registered yet']]}
+];
+let i=0,A={};
+function render(){
+  const q=Q[i];
+  document.getElementById('bar').style.width=((i)/Q.length*100)+'%';
+  document.getElementById('qnum').textContent='Question '+(i+1)+' of '+Q.length;
+  document.getElementById('qtext').textContent=q.q;
+  document.getElementById('opts').innerHTML=q.o.map(([v,l])=>
+    '<button class="opt" onclick="pick(\''+v+'\')">'+l+'</button>').join('');
+  document.getElementById('back').style.display=i?'block':'none';
+}
+function pick(v){ A[Q[i].k]=v; i++; if(i<Q.length){render();} else {finish();} }
+function goBack(){ if(i>0){i--;render();} }
+function restart(){ i=0;A={};document.getElementById('out').style.display='none';
+  document.getElementById('quiz').style.display='block';render();window.scrollTo({top:0,behavior:'smooth'}); }
+
+function paths(){
+  const P=[];const a=A;
+  const bigish=(a.revenue==='50to500'||a.revenue==='over500');
+  const wantsAsset=(a.need==='equipment'||a.need==='expand');
+  // 1. Intervention / development finance — the cheap naira debt
+  if(a.status!=='new'&&a.amount!=='over100'){
+    P.push({t:'Development & intervention finance (single-digit naira debt)',
+      r:'Typically ~5–9% p.a.',ok:1,
+      d:'Bank of Industry programmes (including RAPID for underserved areas, up to ₦10m at 5%), Bank of Agriculture, NIRSAL-backed facilities, and state funds like LSETF. Long tenors, moratorium periods, and rates a commercial bank cannot match.',
+      w:'This is the cheapest legitimate naira debt available to a business like yours — and the right instrument for '+(wantsAsset?'buying a productive asset that keeps earning after the loan is repaid.':'stabilising and then growing operations.')});
+  }
+  // 2. Grants — free money
+  if(a.sector==='agric'||a.sector==='tech'||a.status==='new'||a.revenue==='none'||a.revenue==='under5'||a.amount==='u1'){
+    P.push({t:'Grants and equity-free programmes',r:'0% — you keep everything',ok:1,
+      d:'Competitive grants, accelerators and empowerment programmes that give capital, training or equipment without debt or equity. Our hub tracks the ones open to Nigerian businesses right now.',
+      w:'At your stage this is the highest-value money in the market: no repayment, no dilution. It is competitive, so the quality of your application decides it — which is exactly what we help you build.'});
+  }
+  // 3. Consolidation / SPV
+  if(a.amount==='10to100'||a.amount==='over100'||bigish||a.status==='slow'||a.status==='dormant'){
+    P.push({t:'Consolidation into an SPV (borrow as a group, not alone)',r:'Better terms through scale',ok:bigish?1:0,
+      d:'Two to five businesses combine into a single special purpose vehicle with pooled assets, verified records and one clean set of books. Financiers price that far better than they price a small standalone company.',
+      w:'A single small entity is expensive to lend to. A structured group with real combined output is not. This is how smaller businesses reach capital that is normally reserved for big ones.'});
+  }
+  // 4. Capital markets
+  if(bigish&&(a.amount==='10to100'||a.amount==='over100')){
+    P.push({t:'Capital markets — commercial paper or NGX Growth Board',r:'Institutional pricing',ok:0,
+      d:'Established companies with audited records can raise from institutional investors through commercial paper, private placements, or a listing on the NGX Growth Board — through licensed operators.',
+      w:'Your turnover is in the range where capital markets stop being theoretical. The gate is documentation and governance, not size — and that is fixable.'});
+  }
+  // 5. Compliance-first
+  if(a.compliance!=='clean'){
+    P.push({t:a.compliance==='none'?'First: register the company':'First: fix your CAC compliance',r:'Prerequisite',ok:0,
+      d:a.compliance==='none'?'Almost every funding path above requires a registered entity. Registration is fast and inexpensive — and it is the vehicle that holds everything you build.':'Unfiled annual returns block funding applications, bank facilities and government programmes — and can end in your company being struck off. It is fixable, usually in days.',
+      w:'This is not bureaucracy for its own sake. Every serious naira of capital checks this first. Clear it once and every other door on this list opens.'});
+  }
+  // 6. What to avoid
+  P.push({t:'What to avoid right now',r:'25–35% p.a.',warn:1,ok:0,
+    d:'Commercial bank overdrafts, quick-loan apps and informal lenders. In today\'s rate environment these are priced at levels most Nigerian businesses cannot out-earn.',
+    w:'Expensive short-term money is how a viable business becomes an insolvent one. If a cheaper door on this list is open to you, take it first — even if it takes three weeks longer.'});
+  return P;
+}
+function finish(){
+  document.getElementById('bar').style.width='100%';
+  const P=paths();
+  const heads={trading:'Your business is trading — you have the strongest hand here.',
+    slow:'A slowed-down business with a real history is fundable. Here is your route back.',
+    dormant:'A dormant company is not a dead one. It is a vehicle waiting to be used.',
+    new:'Starting fresh — here is the cheapest capital available to you.'};
+  document.getElementById('dtitle').textContent='Your funding paths';
+  document.getElementById('dlede').textContent=heads[A.status]||'Here is what is open to you.';
+  document.getElementById('paths').innerHTML=P.map((p,n)=>
+    '<div class="path'+(p.ok?' top':'')+'">'
+    +'<span class="rank'+(p.ok?'':' alt')+'">'+(p.warn?'⚠ Caution':(p.ok?'Best fit':'Also consider'))+'</span>'
+    +'<h3>'+p.t+'</h3><p>'+p.d+'</p>'
+    +'<span class="rate'+(p.warn?' warn':'')+'">'+p.r+'</span>'
+    +'<div class="why"><b>Why this fits you:</b> '+p.w+'</div></div>').join('');
+  const summary='Hello A2F — I completed the FundFinder diagnostic. My business: '
+    +A.status+', '+A.sector+', turnover '+A.revenue+', needs '+A.need+' of '+A.amount
+    +', CAC status: '+A.compliance+'. Top path: '+(P[0]?P[0].t:'')+'. Please walk me through it.';
+  document.getElementById('wa').href='https://wa.me/2348062085464?text='+encodeURIComponent(summary);
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('out').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+render();
+</script>
+</body>
+</html>
