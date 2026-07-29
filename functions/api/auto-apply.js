@@ -32,8 +32,8 @@
 //
 // Env: GEMINI_API_KEY, GEMINI_MODEL(optional), SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_ANON_KEY
 
-const CREDITS_DRAFT_ONLY = 20;
-const CREDITS_DRAFT_WITH_PREFILL = 30;
+const CREDITS_DRAFT_ONLY = 0;  // pricing removed 2026-07-29
+const CREDITS_DRAFT_WITH_PREFILL = 0;  // pricing removed 2026-07-29
 const DEFAULT_MODEL = 'gemini-2.0-flash';
 
 const json = (obj, status = 200) =>
@@ -129,18 +129,9 @@ async function handleAutoApply(context) {
   // ── Step 3: best-effort prefill link (see limitation notice above) ──
   const prefillUrl = tryBuildPrefillLink(opportunity.apply_url, questions, draft.answers);
   const cost = prefillUrl ? CREDITS_DRAFT_WITH_PREFILL : CREDITS_DRAFT_ONLY;
+  // Credit gate removed 2026-07-29 — auto-apply drafting is free.
 
-  if (wallet.balance_credits < cost) {
-    return json({
-      error: 'insufficient_credits',
-      message: `This draft costs ${cost} credits. Top up your wallet to continue.`,
-      creditsRequired: cost,
-      balance: wallet.balance_credits,
-    }, 402);
-  }
-
-  const dRes = await svc('rpc/deduct_credits', { method: 'POST', body: JSON.stringify({ p_user_id: userId, p_credits: cost }) });
-  if (!dRes.ok) { console.error('deduct_credits failed', await dRes.text()); return json({ error: 'server_error', message: 'Could not process credits. Please try again.' }, 500); }
+  // Credit deduction removed 2026-07-29 — wallet plumbing left intact but unused.
 
   // ── Step 4: save the draft against the user's match row ─────
   await svc(`opportunity_matches?on_conflict=user_id,opportunity_id`, {

@@ -129,13 +129,21 @@
   .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(0,0,0,0.2); border-top-color: #000; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; }
   .loading-state { text-align: center; padding: 80px; color: var(--muted); font-size: 14px; }
 </style>
+
+<style id="pricing-removed-2026-07-29">
+/* Pricing removed 2026-07-29 — markup retained, hidden. Delete this block to restore. */
+#creditBadge, .nav-credit-badge, .credits-card, .credits-warn,
+.pkg-card, .pkg-credits, .pkg-credits-label, .buy-btn,
+.wallet-card, .wallet-stats, .badge-pro.credits,
+.credit-packages, #creditPackages, .usage-guide { display: none !important; }
+</style>
 </head>
 <body>
 
 <nav>
   <a href="fundfinder-dashboard.html" class="nav-logo">Fund<span>Finder</span> AI</a>
   <div class="nav-right">
-    <a href="fundfinder-wallet.html" class="nav-badge" id="creditBadge">💳 — credits</a>
+    <a href="fundfinder-wallet.html" class="nav-badge">&#128172; Application help</a>
     <a href="fundfinder-dashboard.html" class="nav-btn">Dashboard</a>
     <a href="opportunity-hub.html" class="nav-btn">Browse</a>
     <button class="nav-btn" onclick="handleLogout()">Log Out</button>
@@ -874,7 +882,7 @@ async function runAutoApply(opportunityId, btn) {
         Add these to your profile above, save, then click "Apply with AI" again. This step is free.
       </div>`;
     } else if (data.error === 'insufficient_credits') {
-      resultEl.innerHTML = `<div class="apply-result error">This draft costs ${data.creditsRequired} credits — you have ${data.balance}. <a href="fundfinder-wallet.html" style="color:inherit;">Top up your wallet →</a></div>`;
+      resultEl.innerHTML = `<div class="apply-result error">Couldn't finish that draft. Please try again, or <a href="fundfinder-wallet.html" style="color:inherit;">ask us for help &rarr;</a></div>`;
     } else if (data.error === 'not_supported') {
       resultEl.innerHTML = `<div class="apply-result error">${data.message}</div>`;
     } else if (data.status === 'ok') {
@@ -897,7 +905,7 @@ async function runAutoApply(opportunityId, btn) {
         <div style="font-size:12px;color:var(--muted);margin:8px 0;">Your AI-drafted answers — edit anything, then copy them into the official form. <b>FundFinder never submits for you.</b></div>
         ${qaRows}
         <div style="margin-top:12px;"><a href="${esc(link)}" target="_blank" rel="noopener" style="display:inline-block;background:var(--gold);color:#000;font-weight:800;padding:9px 18px;border-radius:10px;text-decoration:none;font-size:13px;">${linkLabel}</a></div>
-        <div style="font-size:11px;color:var(--muted);margin-top:8px;">${data.creditsCharged} credits used · ${data.balanceRemaining} left</div>
+        
       </div>`;
       const { data: wallet } = await sb.from('wallets').select('balance_credits').eq('user_id', currentUser.id).single();
       if (wallet) document.getElementById('creditBadge').textContent = `💳 ${wallet.balance_credits} credits`;
