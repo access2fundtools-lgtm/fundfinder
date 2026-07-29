@@ -281,6 +281,14 @@
   }
   .reset-btn:hover { border-color: rgba(255,50,50,0.4); color: #ff8080; }
 </style>
+
+<style id="pricing-removed-2026-07-29">
+/* Pricing removed 2026-07-29 — markup retained, hidden. Delete this block to restore. */
+#creditBadge, .nav-credit-badge, .credits-card, .credits-warn,
+.pkg-card, .pkg-credits, .pkg-credits-label, .buy-btn,
+.wallet-card, .wallet-stats, .badge-pro.credits,
+.credit-packages, #creditPackages, .usage-guide { display: none !important; }
+</style>
 </head>
 <body>
 
@@ -713,7 +721,7 @@ async function sendMessage() {
     if (response.status === 401) { window.location.href = 'fundfinder-auth.html'; return; }
     if (response.status === 402) {
       conversationHistory.pop();
-      appendMessage('ai', `💳 <strong>You're out of credits.</strong> ${escapeHtml(data.message || '')} <a href="fundfinder-wallet.html" style="color:var(--gold);font-weight:700;">Top up your wallet →</a>`);
+      appendMessage('ai', 'Sorry — something went wrong. Please try again.');
       document.getElementById('sendBtn').disabled = false;
       document.getElementById('userInput').focus();
       return;

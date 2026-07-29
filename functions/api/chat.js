@@ -1,8 +1,8 @@
 // FundFinder AI — Secure AI chat proxy (Cloudflare Pages Function) — /api/chat
-// Google Gemini, key held server-side, session-verified, 1 credit per message.
+// Google Gemini, key held server-side, session-verified. FREE — no credit charge.
 // Env: GEMINI_API_KEY, GEMINI_MODEL(optional), SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_ANON_KEY
 
-const CREDITS_PER_MESSAGE = 1;
+const CREDITS_PER_MESSAGE = 0; // pricing removed 2026-07-29 — AI chat is free
 const DEFAULT_MODEL = 'gemini-2.0-flash';
 
 const json = (obj, status = 200) =>
@@ -43,8 +43,7 @@ async function handleChat(context) {
   const wRes = await svc(`wallets?user_id=eq.${userId}&select=balance_credits`);
   const wallet = (wRes.ok ? await wRes.json() : [])[0];
   if (!wallet) return json({ error: 'wallet_not_found', message: 'Could not load your wallet.' }, 403);
-  if (wallet.balance_credits < CREDITS_PER_MESSAGE)
-    return json({ error: 'insufficient_credits', message: "You're out of credits. Top up your wallet to keep chatting.", balance: wallet.balance_credits }, 402);
+  // Credit gate removed 2026-07-29 — AI chat is free for all signed-in users.
 
   const model = env.GEMINI_MODEL || DEFAULT_MODEL;
   const contents = messages.map((m) => ({ role: m.role === 'assistant' ? 'model' : 'user', parts: [{ text: String(m.content || '') }] }));
@@ -60,10 +59,7 @@ async function handleChat(context) {
     aiResponse = (cand && cand.content && cand.content.parts ? cand.content.parts.map((p) => p.text || '').join('') : '').trim();
     if (!aiResponse) return json({ error: 'ai_error', message: 'The assistant could not respond to that. Please rephrase and try again.' }, 502);
   } catch (err) { console.error('Gemini fetch error', err); return json({ error: 'ai_error', message: 'Could not reach AI service.' }, 502); }
-
-
-  const dRes = await svc('rpc/deduct_credits', { method: 'POST', body: JSON.stringify({ p_user_id: userId, p_credits: CREDITS_PER_MESSAGE }) });
-  if (!dRes.ok) console.error('deduct_credits failed', await dRes.text());
+  // Credit deduction removed 2026-07-29 — wallet plumbing left intact but unused.
 
   return json({ response: aiResponse, creditsUsed: CREDITS_PER_MESSAGE, balanceRemaining: Math.max(0, wallet.balance_credits - CREDITS_PER_MESSAGE) });
 }
