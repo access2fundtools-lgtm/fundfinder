@@ -24,3 +24,11 @@ fundfinder-flag.png
 data/backfill-preview.json
 *.DOC
 
+# QA hardening 2026-07-29: confidential A2F corporate records and sibling site
+# projects live in this folder untracked. Widened so an accidental `git add -A`
+# can never stage them into the public fundfinder repo.
+A2F-*
+a2f_partners*
+a2f partners logo.png
+a2fpartners-site/
+axis-site/
