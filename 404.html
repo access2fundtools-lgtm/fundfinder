@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Page Not Found — FundFinder AI</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #080808; --surface: #111; --border: rgba(255,255,255,0.08); --text: #f0f0f0;
+  --muted: rgba(255,255,255,0.5); --gold: #FFD700;
+  --gold-dim: rgba(255,215,0,0.1); --gold-border: rgba(255,215,0,0.25);
+}
+body {
+  font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+  background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5;
+  display: flex; flex-direction: column;
+}
+nav {
+  border-bottom: 1px solid var(--border); padding: 0 32px;
+  display: flex; align-items: center; height: 64px;
+}
+.nav-logo { font-size: 22px; font-weight: 900; letter-spacing: 1px; text-decoration: none; color: var(--text); }
+.nav-logo span { color: var(--gold); }
+main {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 80px 32px; position: relative; overflow: hidden;
+}
+main::before {
+  content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 600px; pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(255,215,0,0.07) 0%, transparent 65%);
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold-dim); border: 1px solid var(--gold-border); color: var(--gold);
+  font-size: 13px; font-weight: 700; padding: 7px 16px; border-radius: 50px;
+  margin-bottom: 28px; letter-spacing: 0.5px;
+}
+h1 { font-size: clamp(48px, 9vw, 96px); font-weight: 900; line-height: 1; letter-spacing: -3px; margin-bottom: 20px; }
+h1 .gold { color: var(--gold); }
+h2 { font-size: clamp(20px, 3vw, 28px); font-weight: 700; margin-bottom: 16px; }
+p { font-size: 16px; color: var(--muted); max-width: 520px; margin: 0 auto 36px; }
+.ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold); color: #000; font-size: 16px; font-weight: 900;
+  padding: 15px 30px; border-radius: 10px; text-decoration: none; transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.85; }
+.btn-ghost {
+  background: transparent; color: var(--text); border: 1px solid var(--border);
+  font-size: 16px; font-weight: 700; padding: 15px 30px; border-radius: 10px;
+  text-decoration: none; transition: border-color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--gold-border); }
+footer { border-top: 1px solid var(--border); padding: 24px 32px; text-align: center; font-size: 13px; color: var(--muted); }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+<nav><a class="nav-logo" href="/">FUND<span>FINDER</span></a></nav>
+
+<main>
+  <div class="badge">ERROR 404</div>
+  <h1>Page <span class="gold">not found</span></h1>
+  <h2>This funding page has moved, closed or never existed.</h2>
+  <p>Opportunity pages are archived once their application window shuts. Browse the live opportunity hub below &mdash; it is refreshed daily with grants, loans and accelerators open to Nigerian businesses.</p>
+  <div class="ctas">
+    <a class="btn-primary" href="/opportunity-hub.html">Browse open opportunities</a>
+    <a class="btn-ghost" href="/">Back to home</a>
+  </div>
+</main>
+
+<footer>&copy; 2026 FundFinder AI &mdash; a product of <a href="https://a2fpartners.com">A2F Partners Limited</a></footer>
+</body>
+</html>
