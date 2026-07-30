@@ -32,3 +32,9 @@ a2f_partners*
 a2f partners logo.png
 a2fpartners-site/
 axis-site/
+
+# Deploy-bot 2026-07-30: private contact export (PII) + bulky unreferenced CAC
+# source files. The strike-off checker reads cac-data/*.json, not these.
+contacts.csv
+CAC-Batch6-100k-StrikeOff-List.pdf
+cac-strikeoff-batch6.json
