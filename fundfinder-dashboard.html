@@ -232,7 +232,6 @@
   <div class="nav-links">
     <a href="fundfinder-dashboard.html" class="nav-link active mobile-show">Dashboard</a>
     <a href="opportunity-hub.html" class="nav-link">Opportunities</a>
-    <a href="fundfinder-chat.html" class="nav-link">AI Chat</a>
     <a href="fundfinder-growth-suite.html" class="nav-link" style="color:var(--gold); font-weight:700;">⚡ Growth Suite</a>
     <a href="fundfinder-profile.html" class="nav-link">Profile</a>
     <div class="nav-avatar" id="navAvatar" title="Your account">?</div>
@@ -288,11 +287,6 @@
   <!-- Quick actions -->
   <div class="section-title">Quick actions</div>
   <div class="actions-row">
-    <a href="fundfinder-chat.html" class="action-btn">
-      <div class="action-icon">🤖</div>
-      <div class="action-label">AI Matcher</div>
-      <div class="action-sub">Find your next deal</div>
-    </a>
     <a href="opportunity-hub.html" class="action-btn">
       <div class="action-icon">🔍</div>
       <div class="action-label">Browse All</div>
@@ -300,7 +294,7 @@
     </a>
     <a href="fundfinder-wallet.html" class="action-btn">
       <div class="action-icon">💳</div>
-      <div class="action-label">Buy Credits</div>
+      <div class="action-label">My Wallet</div>
       <div class="action-sub">Top up your wallet</div>
     </a>
     <a href="fundfinder-profile.html" class="action-btn">
@@ -344,7 +338,6 @@
       <div class="panel">
         <div class="panel-header">
           <span class="panel-title">Chat history</span>
-          <a href="fundfinder-chat.html" class="panel-action">New chat →</a>
         </div>
         <div id="chatList">
           <div class="panel-empty">
@@ -367,7 +360,7 @@
         <div class="credits-amount" id="sidebarCredits">0</div>
         <div class="credits-sub">credits remaining</div>
         <div class="credits-bar-wrap"><div class="credits-bar" id="creditsBar" style="width:0%"></div></div>
-        <a href="fundfinder-wallet.html" class="buy-btn">Top Up Credits →</a>
+        <a href="fundfinder-wallet.html" class="buy-btn">View wallet →</a>
       </div>
 
       <!-- Credit packages preview -->
@@ -610,7 +603,7 @@ async function loadChats(userId) {
   }).map(c => {
     const snippet = (c.message || '').substring(0, 72) + (c.message?.length > 72 ? '…' : '');
     return `
-      <div class="match-item" style="cursor:pointer" onclick="window.location='fundfinder-chat.html'">
+      <div class="match-item" style="cursor:pointer" onclick="window.location='fundfinder-support.html'">
         <div class="match-score med" style="font-size:16px">💬</div>
         <div class="match-info">
           <div class="match-title" style="font-weight:500; font-size:13px">${snippet || 'Chat session'}</div>

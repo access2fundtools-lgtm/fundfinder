@@ -269,7 +269,6 @@
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="#" class="active">Opportunities</a>
-    <a href="fundfinder-chat.html" style="color:var(--gold);font-weight:700;">🤖 Chat with AI</a>
     <a href="fundfinder-growth-suite.html">⚡ Growth Suite</a>
     <a href="program-principal-register.html">For Organisations</a>
     <a href="fundfinder-auth.html" style="background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.3);color:var(--gold);padding:7px 16px;border-radius:20px;font-weight:700;">Sign Up Free →</a>
@@ -277,61 +276,10 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-label">🤖 Powered by FundFinder AI — Updated Every Morning</div>
-  <h1><span>FundFinder AI</span><br>Funding &amp; Empowerment<br>for Nigerian Entrepreneurs</h1>
-  <p><strong style="color:var(--gold)">FundFinder AI</strong> — our intelligent funding agent by A2F Partners — scrapes the internet, public group conversations, and social media posts daily to surface every grant, empowerment program, loan, and investment opportunity open right now for Nigerian entrepreneurs and SMEs. If it exists online, FundFinder AI will find it.</p>
-  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;">
-    <a href="fundfinder-auth.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#000;font-size:15px;font-weight:900;padding:14px 28px;border-radius:10px;text-decoration:none;letter-spacing:0.3px;transition:opacity 0.2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">Get Free Alerts → <span style="font-size:12px;opacity:0.7;">signup free</span></a>
-    <a href="fundfinder-chat.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.3);color:var(--gold);font-size:15px;font-weight:700;padding:14px 24px;border-radius:10px;text-decoration:none;transition:all 0.2s;">🤖 Chat with AI</a>
-    <a href="program-principal-register.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:var(--muted);font-size:14px;font-weight:600;padding:14px 24px;border-radius:10px;text-decoration:none;transition:all 0.2s;">🏛️ For Organisations</a>
-  </div>
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-num">26</div><div class="stat-label">Open Now</div></div>
-    <div class="stat"><div class="stat-num">$10M+</div><div class="stat-label">Available</div></div>
-    <div class="stat"><div class="stat-num">Daily</div><div class="stat-label">Updated</div></div>
-    <div class="stat"><div class="stat-num" id="last-run-date">Jul 28</div><div class="stat-label">Last Run</div></div>
-  </div>
-  <div style="margin-top:28px;">
-    <a href="fundfinder-chat.html" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;text-decoration:none;font-size:15px;font-weight:900;padding:14px 28px;border-radius:10px;letter-spacing:0.5px;box-shadow:0 6px 24px rgba(255,165,0,0.3);transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">🤖 Chat with FundFinder AI — Find Your Matches →</a>
-    <p style="font-size:12px;color:var(--muted);margin-top:10px;">Tell us about your business. We'll show you every opportunity you qualify for.</p>
-  </div>
-</section>
-
-<!-- ALERT SIGNUP BANNER -->
-<div class="subscribe-banner">
-  <div class="subscribe-inner">
-    <div class="subscribe-text">
-      <h2>Get <span>FundFinder AI</span> Alerts First</h2>
-      <p>Grants open for 2 weeks and close. Government programs announced on social media before the portal goes live. FundFinder AI catches every one — choose how you want to be notified.</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:14px; flex:1; min-width:280px; max-width:500px;">
-      <!-- Email form -->
-      <form class="subscribe-form" name="funding-subscribers" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubscribe(event)" style="margin:0;">
-        <input type="hidden" name="form-name" value="funding-subscribers">
-        <input type="text" name="bot-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="email" name="email" placeholder="your@email.com" required>
-        <button type="submit" class="subscribe-btn">📧 Email Alerts →</button>
-      </form>
-      <div class="subscribe-success" id="subscribeSuccess" style="display:none;">✅ You're in! We'll alert you when new opportunities drop.</div>
-      <!-- WhatsApp divider -->
-      <div style="display:flex; align-items:center; gap:10px;">
-        <div style="flex:1; height:1px; background:rgba(255,255,255,0.08);"></div>
-        <span style="font-size:11px; color:rgba(255,255,255,0.3); font-weight:600; text-transform:uppercase; letter-spacing:1px;">or higher open rate</span>
-        <div style="flex:1; height:1px; background:rgba(255,255,255,0.08);"></div>
-      </div>
-      <!-- WhatsApp CTA -->
-      <a href="https://wa.me/2348060972236?text=Hi%20FundFinder%20AI%2C%20please%20add%20me%20to%20your%20funding%20alerts%20broadcast%20list" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#25D366; color:#000; font-size:14px; font-weight:900; padding:13px 24px; border-radius:10px; text-decoration:none; letter-spacing:0.5px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Broadcast →
-      </a>
-      <p style="font-size:11px; color:rgba(255,255,255,0.3); margin:0; text-align:center;">Tap to message us first — WhatsApp requires you initiate so we can add you</p>
-    </div>
-  </div>
-</div>
-
-<!-- CATEGORY NAV -->
 <div class="cat-nav">
+  <a class="cat-btn" href="business-diagnostic.html" style="border-color:rgba(255,215,0,.5);color:var(--gold)">🎯 Free funding diagnostic</a>
+  <a class="cat-btn" href="cac-strike-off-checker.html">⚠️ CAC strike-off checker</a>
+  <a class="cat-btn" href="opportunity-archive.html">🗄️ Archive</a>
   <span style="font-size:13px; color:var(--muted); font-weight:600; align-self:center;">Browse by type:</span>
   <a href="#grants" class="cat-btn active" data-cat="grants">💰 Grants</a>
   <a href="#empowerment" class="cat-btn" data-cat="empowerment">🏛️ Empowerment Programs</a>
@@ -2054,27 +2002,6 @@
 
         
 
-        <a class="card" href="2026-06-28-accelerate-africa-startup-2026.html">
-      <div class="card-top grants">
-        <div class="card-amount">$500K</div>
-        <div class="card-badges">
-          <span class="badge badge-open">⏳ Jul 25</span>
-          <span class="badge badge-nigeria">🌍 Africa</span>
-        </div>
-        <div class="card-funder">Acceler8 Africa — Pan-African Accelerator</div>
-        <div class="card-title">Accelerate Africa Startup Programme 2026</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <div class="meta-row">⏰ <span><strong>Deadline:</strong> July 25, 2026</span></div>
-          <div class="meta-row">👤 <span>African early-stage startups with 2+ co-founders — Nigeria eligible</span></div>
-          <div class="meta-row">💰 <span>$250,000 – $500,000 investment per startup</span></div>
-          <div class="meta-row">🌍 <span>No application fee · No upfront equity required</span></div>
-        </div>
-        <span class="card-cta">View Details &amp; Apply →</span>
-      </div>
-    </a>
-
     <!-- BATN Foundation F4F Grant 2026 -->
     <a class="card" href="2026-06-28-batn-f4f-grant-2026.html">
       <div class="card-top grants">
@@ -2118,7 +2045,6 @@
   <p style="display:flex; gap:20px; align-items:center;">
     <a href="index.html" style="color:var(--muted); text-decoration:none; font-size:13px;">Home</a>
     <a href="fundfinder-auth.html" style="color:var(--muted); text-decoration:none; font-size:13px;">Sign Up</a>
-    <a href="fundfinder-chat.html" style="color:var(--gold); text-decoration:none; font-size:13px; font-weight:700;">🤖 AI Chat</a>
     <a href="fundfinder-growth-suite.html" style="color:var(--gold); text-decoration:none; font-size:13px; font-weight:700;">⚡ Growth Suite</a>
     <a href="program-principal-register.html" style="color:var(--muted); text-decoration:none; font-size:13px;">For Organisations</a>
   </p>
@@ -2214,29 +2140,6 @@ catBtns.forEach(btn => {
         
 
     <!-- Y Combinator -->
-    <a class="card" href="2026-06-13-ycombinator-fall-2026.html">
-      <div class="card-top investment">
-        <div class="card-amount">$500K</div>
-        <div class="card-badges">
-          <span class="badge badge-red">⚡ July 27</span>
-          <span class="badge badge-startup">Startup</span>
-        </div>
-        <div class="card-funder">Y Combinator</div>
-        <div class="card-title">Y Combinator Fall 2026 Batch</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <div class="meta-row">⏰ <span><strong>Deadline:</strong> July 27, 2026</span></div>
-          <div class="meta-row">👤 <span>Any early-stage startup — Nigerians welcome</span></div>
-          <div class="meta-row">💰 <span>$500,000 for 7% equity — world's top accelerator</span></div>
-          <div class="meta-row">🌍 <span>Global program • Remote-friendly</span></div>
-        </div>
-        <span class="card-cta">View Details &amp; Apply →</span>
-      </div>
-    </a>
-
-        
-
   </div>
 
   <!-- TRAINING & ACCELERATORS -->
@@ -2248,50 +2151,7 @@ catBtns.forEach(btn => {
   <div class="grid">
 
     <!-- MEST AI -->
-    <a class="card" href="opportunity-mest-ai-2027.html">
-      <div class="card-top training">
-        <div class="card-amount">$100K</div>
-        <div class="card-badges">
-          <span class="badge badge-red">⚡ July 20</span>
-          <span class="badge badge-ai">AI / Tech</span>
-        </div>
-        <div class="card-funder">MEST Africa</div>
-        <div class="card-title">MEST AI Startup Program — Class of 2027</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <div class="meta-row">⏰ <span><strong>Deadline:</strong> July 20, 2026</span></div>
-          <div class="meta-row">✈️ <span>Fully funded — flights + accommodation covered</span></div>
-          <div class="meta-row">💰 <span>Up to $100K pre-seed investment at graduation</span></div>
-          <div class="meta-row">📍 <span>12-month programme in Accra, Ghana</span></div>
-        </div>
-        <span class="card-cta">View Details &amp; Apply →</span>
-      </div>
-    </a>
-
     <!-- HelpMum Hackathon -->
-    <a class="card" href="2026-06-13-helpmum-carecode-hackathon-2026.html">
-      <div class="card-top training">
-        <div class="card-amount">₦10M</div>
-        <div class="card-badges">
-          <span class="badge badge-red">⚡ July 20</span>
-          <span class="badge badge-nigeria">🇳🇬 Nigeria</span>
-          <span class="badge badge-ai">HealthTech</span>
-        </div>
-        <div class="card-funder">HelpMum Nigeria</div>
-        <div class="card-title">CareCode Hackathon 2.0 — Maternal &amp; Infant Health Tech</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <div class="meta-row">⏰ <span><strong>Deadline:</strong> July 20, 2026</span></div>
-          <div class="meta-row">👤 <span>Developers, designers &amp; innovators in Nigeria</span></div>
-          <div class="meta-row">💰 <span>₦10M total prize pool — ₦5M first prize</span></div>
-          <div class="meta-row">💡 <span>Build life-saving maternal &amp; infant health technology</span></div>
-        </div>
-        <span class="card-cta">View Details &amp; Apply →</span>
-      </div>
-    </a>
-
     <a class="card" href="2026-06-22-fidelity-bank-yeidep-2026.html">
       <div class="card-inner">
         <div class="card-top">

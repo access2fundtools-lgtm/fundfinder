@@ -81,7 +81,6 @@
   <a href="opportunity-hub.html" class="nav-logo">Fund<span>Finder</span> AI</a>
   <div class="nav-user">
     <span class="nav-email" id="navEmail">Loading…</span>
-    <a href="fundfinder-chat.html" style="text-decoration:none; background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.3); color:var(--gold); font-size:13px; font-weight:700; padding:7px 14px; border-radius:8px;">🤖 Chat →</a>
     <button class="btn-logout" onclick="handleLogout()">Log Out</button>
   </div>
 </nav>
@@ -116,13 +115,11 @@
     <div class="usage-item"><span class="usage-icon">🤖</span><div class="usage-text"><strong>Free</strong>Browse opportunities, view flyers, email/WhatsApp alerts</div></div>
   </div>
 
-  <!-- BUY CREDITS -->
-  <h2>Top Up Your <span>Wallet</span></h2>
-  <div class="packages" id="packagesGrid">
-    <div class="loading">Loading packages…</div>
+  <!-- FREE NOTICE -->
+  <div style="background:linear-gradient(135deg,rgba(34,197,94,.10),var(--surface));border:1px solid rgba(34,197,94,.35);border-radius:14px;padding:22px;margin:8px 0 30px;max-width:560px">
+    <h2 style="margin:0 0 8px">FundFinder is <span>free</span></h2>
+    <p style="color:var(--muted);font-size:14.5px;margin:0">Matching, application drafting and alerts cost you nothing — you never pay us to apply for funding. Credits are simply a fair-use allowance so the AI stays available to everyone; they are topped up automatically. If you run out, just reach out.</p>
   </div>
-  <button class="btn-pay" id="payBtn" onclick="initiatePayment()" disabled>Select a package to continue</button>
-  <p style="font-size:12px; color:var(--muted); margin-top:12px; max-width:340px;">Powered by Paystack · Cards, Bank Transfer &amp; USSD accepted · Instant credit top-up</p>
 
   <!-- TRANSACTION HISTORY -->
   <h2 style="margin-top:40px;">Transaction <span>History</span></h2>
