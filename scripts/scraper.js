@@ -161,14 +161,49 @@ function isRealOpportunity(title, desc) {
   return true;
 }
 
-/** Try to pull a real deadline out of the text; else a plain-language fallback */
+/** Try to pull a real deadline out of the text; else a plain-language fallback.
+ *  QA 2026-07-30: widened. Previously only matched US-style "Month D, YYYY", which
+ *  missed the day-first form ("31 August 2026") that Nigerian/British sources use
+ *  almost exclusively — 43 of 45 published flyers were falling back to the sentinel
+ *  and every opportunities.deadline row in Supabase was NULL. */
+const MONTH_NAME = '(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*';
+// "August 31, 2026" / "Aug 31 2026"
+const DATE_MDY = `${MONTH_NAME}\\.?\\s+\\d{1,2}(?:st|nd|rd|th)?,?\\s+\\d{4}`;
+// "31 August 2026" / "31st Aug, 2026"
+const DATE_DMY = `\\d{1,2}(?:st|nd|rd|th)?\\s+(?:of\\s+)?${MONTH_NAME}\\.?,?\\s+\\d{4}`;
+const ANY_DATE = `(${DATE_DMY}|${DATE_MDY})`;
+// separator after a cue word: colon, dash, em/en dash, "is", "is on", whitespace
+const SEP = '(?:\\s*(?:is|are)?\\s*(?:on|by|before)?\\s*[:\\-\\u2013\\u2014]?\\s*)';
+
 function extractDeadline(text) {
-  const m =
-    text.match(/deadline(?:\s+is)?[:\s]*([A-Z][a-z]+ \d{1,2},? \d{4})/i) ||
-    text.match(/closes? (?:on |by )?([A-Z][a-z]+ \d{1,2},? \d{4})/i) ||
-    text.match(/apply (?:before|by) ([A-Z][a-z]+ \d{1,2},? \d{4})/i) ||
-    text.match(/on or before ([A-Z][a-z]+ \d{1,2},? \d{4})/i);
-  return m ? m[1].replace(/,?\s+/g, ' ').trim() : 'Check official page';
+  const cues = [
+    `(?:application|submission|entry|entries)?\\s*deadlines?${SEP}${ANY_DATE}`,
+    `clos(?:es|ing|e)\\s*(?:date)?${SEP}${ANY_DATE}`,
+    `apply\\s+(?:before|by|on or before)\\s*${ANY_DATE}`,
+    `on or before\\s+${ANY_DATE}`,
+    `submit(?:ted)?\\s+(?:no later than|by|before)\\s+${ANY_DATE}`,
+    `no later than\\s+${ANY_DATE}`,
+    `(?:due|expires?)\\s*(?:on|by)?\\s*${ANY_DATE}`,
+    `(?:open|accepting applications?)\\s+until\\s+${ANY_DATE}`,
+  ];
+  for (const c of cues) {
+    const m = text.match(new RegExp(c, 'i'));
+    // Only accept a match that resolves to a real calendar date — a cue followed by
+    // something date-shaped but impossible (e.g. "31 February 2026") must not be
+    // published as a deadline.
+    if (m && m[1] && parseDeadlineDate(m[1])) return normaliseDateText(m[1]);
+  }
+  return 'Check official page';
+}
+
+/** Normalise a matched date fragment to a single, unambiguous "Month D, YYYY" string. */
+function normaliseDateText(raw) {
+  const cleaned = raw.replace(/\s+/g, ' ').replace(/(\d)(?:st|nd|rd|th)/gi, '$1').replace(/\bof\b\s*/i, '').trim();
+  const iso = parseDeadlineDate(cleaned);
+  if (!iso) return 'Check official page';
+  const [y, mo, d] = iso.split('-').map(Number);
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return `${MONTHS[mo - 1]} ${d}, ${y}`;
 }
 
 /** Guess the organisation running it from the headline (e.g. "BATN Foundation" from "BATN Foundation Grant 2026") */
@@ -346,10 +381,35 @@ function CAPITAL_TYPE_MAP(category) {
 }
 
 function parseDeadlineDate(text) {
-  // Returns ISO date string if parseable, else null
-  if (!text || ['See source', 'See official site', 'Open', 'Rolling', 'TBA'].includes(text)) return null;
-  const d = new Date(text);
-  return isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+  // Returns ISO date string (YYYY-MM-DD) if parseable, else null.
+  // QA 2026-07-30: reject plain-language sentinels by shape rather than by an
+  // exact-match list (the old list missed 'Check official page', 'Rolling pitch',
+  // 'Annual — check site', etc.), and parse the day-first form explicitly because
+  // Date.parse() is inconsistent on "31 August 2026" across runtimes.
+  if (!text || typeof text !== 'string') return null;
+  const t = text.replace(/\s+/g, ' ').trim();
+  if (!/\d{4}/.test(t)) return null;                       // no year -> not a real date
+  if (/\b(rolling|annual|biennial|cohorts?|varies|ongoing|anytime|tba|check)\b/i.test(t)) return null;
+
+  const MONTHS = { jan:1, feb:2, mar:3, apr:4, may:5, jun:6, jul:7, aug:8, sep:9, oct:10, nov:11, dec:12 };
+  const clean = t.replace(/(\d)(?:st|nd|rd|th)/gi, '$1').replace(/\bof\b/gi, '');
+  let d, mo, y;
+
+  let m = clean.match(/\b(\d{1,2})\s+([A-Za-z]{3,})\.?,?\s+(\d{4})\b/);          // 31 August 2026
+  if (m) { d = +m[1]; mo = MONTHS[m[2].slice(0, 3).toLowerCase()]; y = +m[3]; }
+  if (!mo) {
+    m = clean.match(/\b([A-Za-z]{3,})\.?\s+(\d{1,2}),?\s+(\d{4})\b/);            // August 31, 2026
+    if (m) { mo = MONTHS[m[1].slice(0, 3).toLowerCase()]; d = +m[2]; y = +m[3]; }
+  }
+  if (!mo) {
+    m = clean.match(/\b(\d{4})-(\d{2})-(\d{2})\b/);                              // 2026-08-31
+    if (m) { y = +m[1]; mo = +m[2]; d = +m[3]; }
+  }
+  if (!mo || !d || !y || d < 1 || d > 31 || mo < 1 || mo > 12) return null;
+
+  const dt = new Date(Date.UTC(y, mo - 1, d));
+  if (isNaN(dt.getTime()) || dt.getUTCDate() !== d) return null;                 // rejects 31 Feb
+  return dt.toISOString().slice(0, 10);
 }
 
 function detectGenderTarget(title, desc) {
@@ -587,6 +647,20 @@ function scopeToArticleSection(html, title) {
 }
 
 /** Fetch a blog/aggregator post and try to find the real program-principal apply link. Null if unresolved. */
+/** Plain-text view of an already-downloaded article section (no extra network cost). */
+function articleTextOf(scopedHtml) {
+  return decodeEntities(scopedHtml || '')
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Resolves the official apply link for a post.
+ *  QA 2026-07-30: now returns { href, articleText }. The article body was already being
+ *  downloaded here and then thrown away, while extractDeadline() ran only on the RSS
+ *  title+teaser — which almost never states a date. That was why every opportunities.deadline
+ *  row in Supabase was NULL. Returning the text costs zero extra requests. */
 async function resolveApplyUrl(postUrl, title) {
   try {
     const html = await fetch(postUrl, 10000);
@@ -594,20 +668,22 @@ async function resolveApplyUrl(postUrl, title) {
     // No confident scope = no confident apply link. Never scan the whole page: on aggregator
     // index/multi-article templates that returns a link belonging to a DIFFERENT opportunity.
     if (!scoped) return null;
+    const articleText = articleTextOf(scoped);
+    const done = (href) => (href ? { href, articleText } : null);
     const candidates = extractOutboundLinks(scoped, postUrl);
     if (!candidates.length) return null;
 
     // Highest confidence: anchor text explicitly says "apply" / "register" / "click here" etc.
     const applyMatch = candidates.find((c) => APPLY_ANCHOR_RE.test(c.text));
-    if (applyMatch) return applyMatch.href;
+    if (applyMatch) return done(applyMatch.href);
 
     // Next: anchor text that's just the destination URL itself (common "official page" pattern)
     const urlAsText = candidates.find((c) => c.text.replace(/^https?:\/\//i, '').startsWith(c.host));
-    if (urlAsText) return urlAsText.href;
+    if (urlAsText) return done(urlAsText.href);
 
     // Fallback: last non-junk outbound link (posts usually end with the real CTA link)
     const clean = candidates.filter((c) => !JUNK_ANCHOR_RE.test(c.text));
-    if (clean.length) return clean[clean.length - 1].href;
+    if (clean.length) return done(clean[clean.length - 1].href);
 
     return null;
   } catch {
@@ -846,11 +922,15 @@ async function scrapeRSS(source) {
     // Resolve the real program-principal apply link out of the aggregator's post.
     // If we can't confidently find one, skip this item — better to publish fewer,
     // correct flyers than ones that just point back at the blog/news post.
-    const applyUrl = await resolveApplyUrl(item.link, title);
-    if (!applyUrl) {
+    const resolved = await resolveApplyUrl(item.link, title);
+    if (!resolved) {
       console.log(`    ⏭️  Skipped (no resolvable apply link): ${title}`);
       continue;
     }
+    const applyUrl = resolved.href;
+    // Prefer a date stated in the article body; fall back to the RSS title+teaser.
+    let deadline = extractDeadline(resolved.articleText || '');
+    if (deadline === 'Check official page') deadline = extractDeadline(fullText);
 
     results.push({
       id: slugify(item.title) + '-' + source.id,   // keep old id scheme so seen-ids.json stays valid
@@ -858,7 +938,7 @@ async function scrapeRSS(source) {
       title,
       funder: extractFunder(title, ''),             // '' = unknown; templates handle it gracefully
       amount: extractAmount(fullText),
-      deadline: extractDeadline(fullText),
+      deadline,
       eligibility: 'See who qualifies on the official page',
       category: categorize(fullText),
       description: desc,
