@@ -262,9 +262,12 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">
-    <span class="logo-main">Fund<span>Finder</span> AI</span>
-    <span class="logo-sub">by A2F Partners</span>
+  <a href="index.html" class="nav-logo" style="flex-direction:row;align-items:center;gap:10px">
+    <img src="assets/ff-badge-64.png" alt="FundFinder AI" style="height:30px;width:30px;border-radius:7px;flex:none" />
+    <span style="display:flex;flex-direction:column;line-height:1.1">
+      <span class="logo-main">Fund<span>Finder</span> AI</span>
+      <span class="logo-sub">by A2F Partners</span>
+    </span>
   </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
@@ -2354,8 +2357,8 @@ catBtns.forEach(btn => {
 </section>
 
 <footer>
-  <p><span>FundFinder AI</span> by A2F Partners · Intelligent daily funding scan · Updated June 22, 2026</p>
-  <p>Follow <a href="https://web.facebook.com/accesstofunds" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700;">@accesstofunds</a> for daily alerts · <a href="mailto:funding@a2fpartners.com" style="color:var(--muted);text-decoration:none;">funding@a2fpartners.com</a></p>
+  <p><span>FundFinder AI</span> by A2F Partners · Intelligent daily funding scan · Updated <span id="footer-updated">today</span></p>
+  <p>Follow us on <a href="https://www.facebook.com/fundfinderai/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700;">Facebook</a> · <a href="https://web.facebook.com/accesstofunds" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700;">@accesstofunds</a> for daily alerts · <a href="mailto:funding@a2fpartners.com" style="color:var(--muted);text-decoration:none;">funding@a2fpartners.com</a></p>
 </footer>
 
 <script>
@@ -2532,6 +2535,17 @@ function fmReset(){
       return b.d-a.d;            /* furthest deadline first */
     })
     .forEach(function(o){ grid.appendChild(o.c); });
+})();
+</script>
+<script>
+/* FOOTER_DATE — keep "Updated" honest: use last scraper run, else today */
+(function(){
+  var el=document.getElementById('footer-updated'); if(!el) return;
+  var fmt=function(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});};
+  el.textContent=fmt(new Date());
+  fetch('/data/last-run.json').then(function(r){return r.json();}).then(function(j){
+    if(j&&j.lastRun){var d=new Date(j.lastRun); if(!isNaN(d)) el.textContent=fmt(d);}
+  }).catch(function(){});
 })();
 </script>
 </body>
