@@ -519,22 +519,43 @@ const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 let currentUser = null, profile = {};
 
 async function init() {
-  const { data: { session } } = await sb.auth.getSession();
-  if (!session) { window.location.href = 'fundfinder-auth.html'; return; }
-  currentUser = session.user;
+  const loading = document.getElementById('loadingState');
+  try {
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) { window.location.href = 'fundfinder-auth.html'; return; }
+    currentUser = session.user;
 
-  const { data: wallet } = await sb.from('wallets').select('balance_credits').eq('user_id', currentUser.id).single();
-  if (wallet) document.getElementById('creditBadge').textContent = `💳 ${wallet.balance_credits} credits`;
+    // Pricing removed 2026-07-29 — no wallet/credit lookup on this page.
 
-  const { data: prof } = await sb.from('user_profiles').select('*').eq('user_id', currentUser.id).single();
-  profile = prof || {};
-  populateForms();
-  updateScore();
-  loadMatches();
-  runMatching();   // refresh matches against current opportunities on load
+    const { data: prof } = await sb.from('user_profiles')
+      .select('*').eq('user_id', currentUser.id).maybeSingle();
+    profile = prof || {};
 
-  document.getElementById('loadingState').style.display = 'none';
+    // Each of these is non-critical: a failure in one must never stop the page
+    // from rendering, or the user is stranded on "Loading your profile…".
+    safely(populateForms);
+    safely(updateScore);
+    safely(loadMatches);
+    safely(runMatching);   // refresh matches against current opportunities on load
+  } catch (err) {
+    console.error('Profile init failed:', err);
+    if (loading) {
+      loading.innerHTML = 'We could not load your profile just now. '
+        + '<a href="javascript:location.reload()" style="color:var(--gold);font-weight:700;">Retry</a>'
+        + ' &middot; <a href="fundfinder-dashboard.html" style="color:var(--gold);font-weight:700;">Dashboard</a>';
+    }
+    return;
+  }
+
+  // Always reveal the page once auth and the profile fetch have resolved.
+  if (loading) loading.style.display = 'none';
   document.getElementById('mainPage').style.display = 'grid';
+}
+
+// Run a non-critical step; log and continue if it throws.
+function safely(fn) {
+  try { const r = fn(); if (r && typeof r.catch === 'function') r.catch(e => console.error(fn.name, e)); }
+  catch (e) { console.error(fn.name, e); }
 }
 
 function populateForms() {
@@ -907,8 +928,7 @@ async function runAutoApply(opportunityId, btn) {
         <div style="margin-top:12px;"><a href="${esc(link)}" target="_blank" rel="noopener" style="display:inline-block;background:var(--gold);color:#000;font-weight:800;padding:9px 18px;border-radius:10px;text-decoration:none;font-size:13px;">${linkLabel}</a></div>
         
       </div>`;
-      const { data: wallet } = await sb.from('wallets').select('balance_credits').eq('user_id', currentUser.id).single();
-      if (wallet) document.getElementById('creditBadge').textContent = `💳 ${wallet.balance_credits} credits`;
+      // Pricing removed 2026-07-29 — nothing to deduct, no badge to refresh.
     } else {
       resultEl.innerHTML = `<div class="apply-result error">${data.message || 'Something went wrong. Please try again.'}</div>`;
     }
