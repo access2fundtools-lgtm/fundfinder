@@ -85,6 +85,18 @@
 </style>
 </head>
 <body>
+<script>
+/* REF_TRACK — remember where this visitor came from (?ref= or ?utm_source=) */
+(function(){
+  try{
+    var p=new URLSearchParams(location.search);
+    var r=p.get('ref')||p.get('utm_source');
+    if(r) sessionStorage.setItem('ff_ref',r.slice(0,24));
+  }catch(e){}
+})();
+function ffRef(){ try{ return sessionStorage.getItem('ff_ref')||''; }catch(e){ return ''; } }
+</script>
+
 
 <nav><div class="wrap nav-in">
   <a class="logo" href="/">Fund<span>Finder</span></a>
@@ -216,14 +228,14 @@ function waLink(){
   let msg='Hello A2F Partners — I checked the CAC strike-off list on FundFinder.';
   if(lastHit) msg+=' My company '+lastHit[0]+' (RC '+lastHit[1]+') is on the list with '+lastHit[3]+' years of unfiled returns.';
   else { const q=document.getElementById('q').value.trim(); if(q) msg+=' I searched for "'+q+'".'; }
-  msg+=' I would like help filing my annual returns.';
+  msg+=' I would like help filing my annual returns.'; var r=ffRef(); if(r) msg+=' [via '+r+']';
   return base+encodeURIComponent(msg);
 }
 function refreshWa(){ const a=document.getElementById('wa-cta'); if(a) a.href=waLink(); }
 async function sendLead(){
   const email=document.getElementById('lead-email').value.trim();
   if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
-  const src='cac-checker'+(lastHit?(':RC'+lastHit[1]):'');
+  const r=ffRef(); const src=(r?('ref-'+r+'|'):'')+'cac-checker'+(lastHit?(':RC'+lastHit[1]):'');
   try{
     await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({email:email,source:src.slice(0,40)})});

@@ -75,6 +75,18 @@
 </style>
 </head>
 <body>
+<script>
+/* REF_TRACK — remember where this visitor came from (?ref= or ?utm_source=) */
+(function(){
+  try{
+    var p=new URLSearchParams(location.search);
+    var r=p.get('ref')||p.get('utm_source');
+    if(r) sessionStorage.setItem('ff_ref',r.slice(0,24));
+  }catch(e){}
+})();
+function ffRef(){ try{ return sessionStorage.getItem('ff_ref')||''; }catch(e){ return ''; } }
+</script>
+
 
 <nav><div class="wrap nav-in">
   <a class="logo" href="/">Fund<span>Finder</span></a>
@@ -241,7 +253,7 @@ function finish(){
     +'<div class="why"><b>Why this fits you:</b> '+p.w+'</div></div>').join('');
   const summary='Hello A2F — I completed the FundFinder diagnostic. My business: '
     +A.status+', '+A.sector+', turnover '+A.revenue+', needs '+A.need+' of '+A.amount
-    +', CAC status: '+A.compliance+'. Top path: '+(P[0]?P[0].t:'')+'. Please walk me through it.';
+    +', CAC status: '+A.compliance+'. Top path: '+(P[0]?P[0].t:'')+'.'+(ffRef()?(' [via '+ffRef()+']'):'')+' Please walk me through it.';
   document.getElementById('wa').href='https://wa.me/2348062085464?text='+encodeURIComponent(summary);
   document.getElementById('quiz').style.display='none';
   document.getElementById('out').style.display='block';
