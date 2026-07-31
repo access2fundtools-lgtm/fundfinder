@@ -73,6 +73,7 @@
       <button class="tab" data-tab="txns" onclick="showTab('txns')">Transactions</button>
       <button class="tab" data-tab="orgs" onclick="showTab('orgs')">Organisations</button>
       <button class="tab" data-tab="leads" onclick="showTab('leads')">Leads</button>
+      <button class="tab" data-tab="jv" onclick="showTab('jv')">JV Interests</button>
     </div>
 
     <div id="tab-users">
@@ -104,6 +105,15 @@
         <thead><tr><th>Email</th><th>Source</th><th>Confirmed</th><th>Dropped</th></tr></thead>
         <tbody id="leadsBody"></tbody>
       </table></div>
+    </div>
+
+    <div id="tab-jv" class="hidden">
+      <p style="color:var(--muted);font-size:13px;margin-bottom:14px;">Protocol: no two businesses are ever introduced until reviewed here. <b>Analyze</b> runs the pre-JV diagnostic — each entity's individual actions &amp; funding paths, plus what they can do united, tested against "a JV must be worth doing at &#8358;0 raised". Approving records the decision only — you still make the introduction manually by email to both sides.</p>
+      <div class="card"><table>
+        <thead><tr><th>Date</th><th>Requester</th><th>Kind</th><th>Candidate</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="jvBody"></tbody>
+      </table></div>
+      <div id="jvReport" class="card hidden" style="margin-top:16px;padding:20px;font-size:13.5px;line-height:1.65;"></div>
     </div>
   </div>
 </div>
@@ -253,10 +263,98 @@ async function verifyOrg(id){
 }
 
 function showTab(name){
-  ['users','txns','orgs','leads'].forEach(t=>{
+  ['users','txns','orgs','leads','jv'].forEach(t=>{
     document.getElementById('tab-'+t).classList.toggle('hidden', t!==name);
   });
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
+  if(name==='jv' && !JV_LOADED) loadJV();
+}
+
+/* ── JV Interests (pre-JV diagnostic + admin gate) ── */
+let JV_LOADED=false, JV_ROWS=[];
+
+async function jvApi(payload){
+  const { data:{ session } } = await sb.auth.getSession();
+  const r = await fetch('/api/jv-diagnostic', {
+    method:'POST',
+    headers:{ 'Content-Type':'application/json', 'Authorization':'Bearer '+session.access_token },
+    body: JSON.stringify(payload)
+  });
+  return r.json();
+}
+
+async function loadJV(){
+  JV_LOADED=true;
+  const body=document.getElementById('jvBody');
+  body.innerHTML='<tr><td colspan="6" class="empty">Loading…</td></tr>';
+  const res=await jvApi({action:'list'});
+  JV_ROWS=res.interests||[];
+  if(!JV_ROWS.length){ body.innerHTML='<tr><td colspan="6" class="empty">No JV interests yet.</td></tr>'; return; }
+  body.innerHTML=JV_ROWS.map(i=>{
+    const st=i.status||'pending_admin_review';
+    const cls=st==='approved'?'green':(st==='declined'?'red':'gold');
+    const who=i.requester?`${esc(i.requester.business_name||i.requester.full_name||'')}<br><span class="mono">${esc(i.requester.email||'')}</span>`:'<span class="mono">'+esc((i.user_id||'').slice(0,8))+'</span>';
+    const cand=i.candidate?esc(i.candidate.business_name||i.candidate.full_name||''):(i.invited_email?'invite: '+esc(i.invited_email):'<span class="mono">open</span>');
+    const acts = st==='pending_admin_review'
+      ? `<button class="act" onclick="jvAnalyze('${i.id}')">Analyze</button>
+         <button class="act green" onclick="jvDecide('${i.id}','approved')">Approve</button>
+         <button class="act" onclick="jvDecide('${i.id}','declined')">Decline</button>`
+      : `<button class="act" onclick="jvAnalyze('${i.id}')">Analyze</button>`;
+    return `<tr><td>${dt(i.created_at)}</td><td>${who}</td><td><span class="pill blue">${esc(i.kind||'open')}</span></td><td>${cand}</td><td><span class="pill ${cls}">${esc(st.replace(/_/g,' '))}</span></td><td>${acts}</td></tr>`;
+  }).join('');
+}
+
+function jvList(items){ return (items&&items.length)?'<ul style="margin:4px 0 10px 18px;">'+items.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'<p style="color:var(--muted);">—</p>'; }
+function jvEntity(title,e){
+  if(!e) return '';
+  return `<h3 style="margin:14px 0 6px;color:var(--gold);">${esc(title)}</h3>
+    <b>Strengths</b>${jvList(e.strengths)}<b>Gaps</b>${jvList(e.gaps)}
+    <b>Individual actions (regardless of JV)</b>${jvList(e.individual_actions)}
+    <b>Individual funding paths</b>${jvList(e.individual_funding_paths)}`;
+}
+
+async function jvAnalyze(id){
+  const rep=document.getElementById('jvReport');
+  rep.classList.remove('hidden');
+  rep.innerHTML='<span style="color:var(--muted);">Running pre-JV diagnostic… (10–20s)</span>';
+  const res=await jvApi({action:'analyze', interest_id:id});
+  if(res.error){ rep.innerHTML='<span class="pill red">Failed</span> '+esc(res.message||res.error); return; }
+  const an=res.analysis||{};
+  let html=`<h2 style="margin-bottom:4px;">Pre-JV Diagnostic — ${esc(res.entity_a?.business_name||'')}`+(res.entity_b?` &times; ${esc(res.entity_b.business_name||'')}`:' (no candidate yet)')+`</h2>`;
+  const v=an.verdict||'';
+  const vcls=/introduce$|seek_partner/.test(v)?'green':(/decline/.test(v)?'red':'gold');
+  html+=`<p style="margin-bottom:10px;"><span class="pill ${vcls}" style="font-size:13px;">Verdict: ${esc(v.replace(/_/g,' '))}</span>`+(an.synergy_score!=null?` <span class="pill gold">Synergy ${an.synergy_score}/100</span>`:'')+`</p>`;
+  html+=`<p style="margin-bottom:12px;"><b>Rationale:</b> ${esc(an.verdict_rationale||'')}</p>`;
+  html+=jvEntity('Entity A — '+(res.entity_a?.business_name||''),an.entity_a);
+  html+=jvEntity('Entity B — '+(res.entity_b?.business_name||''),an.entity_b);
+  if(an.partner_archetype){
+    html+=`<h3 style="margin:14px 0 6px;color:var(--gold);">Partner archetype to seek</h3>
+      <p><b>Who:</b> ${esc(an.partner_archetype.who||'')}</p><p><b>Why:</b> ${esc(an.partner_archetype.why||'')}</p>
+      <p><b>Where to find:</b> ${esc(an.partner_archetype.where_to_find||'')}</p>`;
+  }
+  if(an.joint){
+    html+=`<h3 style="margin:14px 0 6px;color:var(--gold);">United — what they can do together</h3>
+      <p><b>Synergy:</b> ${esc(an.joint.synergy_type||'')} — ${esc(an.joint.synergy_mechanism||'')}</p>
+      <b>Joint strategies</b>${jvList(an.joint.united_strategies)}
+      <p><b>First transaction (prove it during exclusivity):</b> ${esc(an.joint.first_transaction||'')}</p>
+      <p><b>What a raise would fund:</b> ${esc(an.joint.raise_job||'')}</p>
+      <b>Risks</b>${jvList(an.joint.risks)}`;
+  }
+  if(an.conditions&&an.conditions.length) html+=`<b>Conditions before introduction</b>${jvList(an.conditions)}`;
+  if(an.data_gaps&&an.data_gaps.length) html+=`<b style="color:#fca5a5;">Data gaps</b>${jvList(an.data_gaps)}`;
+  rep.innerHTML=html;
+  rep.scrollIntoView({behavior:'smooth'});
+}
+
+async function jvDecide(id,decision){
+  const notes=decision==='declined'?(prompt('Optional note (what would make them JV-ready?)')||''):'';
+  if(!confirm(decision==='approved'
+    ?'Approve this JV interest? You will still make the introduction MANUALLY by emailing both sides.'
+    :'Decline this JV interest?')) return;
+  const res=await jvApi({action:'decide', interest_id:id, decision, notes});
+  if(res.error){ alert('Failed: '+(res.message||res.error)); return; }
+  alert(res.reminder||('Done: '+decision));
+  await loadJV();
 }
 
 async function logout(){ await sb.auth.signOut(); location.href='fundfinder-auth.html'; }
