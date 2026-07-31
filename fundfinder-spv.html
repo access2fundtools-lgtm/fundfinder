@@ -5,7 +5,7 @@
 <script>if(location.hostname==='opportunities.a2fpartners.com')location.replace('https://fundfinder.ng'+location.pathname+location.search);</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>Form an SPV — FundFinder AI</title>
+<title>Form a Joint Venture (JV) — FundFinder AI</title>
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{--bg:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--border:rgba(255,255,255,0.08);--text:#f0f0f0;--muted:rgba(255,255,255,0.5);--gold:#FFD700;--green:#22c55e}
@@ -52,8 +52,9 @@
 </nav>
 <div class="wrap" id="loading" style="text-align:center;padding-top:80px;color:var(--muted)">Loading…</div>
 <div class="wrap" id="main" style="display:none">
-  <div class="hero-tag">🤝 A2F SPV · Consolidation</div>
-  <h1>Form a stronger <span>SPV</span> together</h1>
+  <div class="hero-tag">🤝 A2F Joint Ventures · Consolidation</div>
+  <h1>Build a stronger <span>Joint Venture</span> together</h1>
+  <p style="font-size:13.5px;color:rgba(255,255,255,.55);max-width:60ch;margin-top:10px">Partner suggestions are anonymous. No two businesses are connected until A2F reviews the fit and personally introduces both sides — and every JV that goes on to raise funding is structured as a dedicated vehicle (SPV) with proper agreements.</p>
   <p class="sub">Some funders back consolidated vehicles, not single businesses. FundFinder finds 2–5 complementary businesses whose combined strength and market impact make a stronger case to backers. Below are your best potential partners — identities stay private until both sides are interested.</p>
 
   <div class="bar">
@@ -68,7 +69,7 @@
 
   <div class="invite">
     <div style="font-weight:800;font-size:14px">Know a business you'd consolidate with?</div>
-    <div class="note">Invite them by email — we'll reach out and, if they join, add them to your SPV.</div>
+    <div class="note">Invite them by email — we'll reach out and, if they join, add them to your JV.</div>
     <input type="email" id="inviteEmail" placeholder="partner@theirbusiness.com">
     <div><button class="btn" onclick="sendInvite()">Send invite</button></div>
     <div id="inviteMsg"></div>
@@ -97,7 +98,7 @@
     const data=await api({action:'suggest'});
     const list=document.getElementById('list');
     if(data.status==='incomplete_profile'){list.innerHTML=`<div class="empty">${esc(data.message)} <a href="fundfinder-profile.html" style="color:var(--gold)">Complete profile →</a></div>`;return;}
-    if(!data.suggestions||!data.suggestions.length){list.innerHTML=`<div class="empty">No partner suggestions yet — as more businesses join FundFinder, we'll surface your best SPV matches here. In the meantime, tap "I'm open to consolidating" so A2F can pair you.</div>`;return;}
+    if(!data.suggestions||!data.suggestions.length){list.innerHTML=`<div class="empty">No partner suggestions yet — as more businesses join FundFinder, we'll surface your best JV partner matches here. In the meantime, tap "I'm open to consolidating" so A2F can pair you.</div>`;return;}
     list.innerHTML=data.suggestions.map(c=>{
       const cls=c.combined_score>=70?'':'mid';
       const meta=[titleCase(c.stage)||'—',titleCase(c.location)||'—',c.size_band].filter(Boolean).join(' · ');

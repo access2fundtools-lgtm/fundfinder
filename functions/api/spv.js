@@ -42,6 +42,7 @@ async function handle({ request, env }) {
       invited_email: (body.invited_email || '').trim().toLowerCase() || null,
       note: (body.note || '').slice(0, 500) || null,
     };
+    row.status = 'pending_admin_review'; // no introduction until admin approves
     const r = await svc('spv_interests', { method: 'POST', headers: { Prefer: 'return=minimal' }, body: JSON.stringify(row) });
     if (!r.ok) return json({ error: 'save_failed', message: (await r.text()).slice(0, 200) }, 500);
     return json({ success: true });
@@ -50,7 +51,7 @@ async function handle({ request, env }) {
   // default: suggest
   const meRes = await svc(`user_profiles?user_id=eq.${userId}&select=*`);
   const me = (await meRes.json())[0];
-  if (!me || !me.business_sector) return json({ status: 'incomplete_profile', message: 'Add your business sector and stage to your profile to get SPV partner suggestions.' });
+  if (!me || !me.business_sector) return json({ status: 'incomplete_profile', message: 'Add your business sector and stage to your profile to get JV partner suggestions.' });
 
   const poolRes = await svc(`user_profiles?user_id=neq.${userId}&business_name=not.is.null&business_sector=not.is.null&select=user_id,business_sector,business_stage,business_location,team_size,years_operating,is_registered,annual_revenue&limit=300`);
   const pool = poolRes.ok ? await poolRes.json() : [];
