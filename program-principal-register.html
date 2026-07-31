@@ -189,12 +189,14 @@
     </div>
     <div class="form-row">
       <div class="form-group">
-        <label>RC / Registration Number</label>
+        <label>RC / Registration Number *</label>
         <input type="text" id="regNum" placeholder="CAC, FMCIDE, or agency registration no.">
+        <span class="hint">Required. We verify this against the public register before your programme goes live.</span>
       </div>
       <div class="form-group">
-        <label>Website</label>
-        <input type="text" id="orgWebsite" placeholder="https://yourorg.gov.ng">
+        <label>Website or official page *</label>
+        <input type="text" id="orgWebsite" placeholder="https://yourorg.gov.ng or your official LinkedIn/Facebook page">
+        <span class="hint">Required. A verifiable online presence for the organisation.</span>
       </div>
     </div>
     <div class="form-row">
@@ -403,9 +405,28 @@
       </div>
     </div>
 
+    <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.28); border-radius:10px; padding:16px 18px; margin-bottom:14px;">
+      <p style="font-size:13px; font-weight:700; color:#fca5a5; margin-bottom:8px;">Verification &amp; declaration (required)</p>
+      <label style="display:flex; gap:10px; align-items:flex-start; font-size:12.5px; color:var(--muted); line-height:1.6; cursor:pointer; margin-bottom:9px;">
+        <input type="checkbox" id="kyc1" style="margin-top:3px; flex:none;">
+        <span>I confirm I am authorised to register this organisation and that all information provided is true and verifiable.</span>
+      </label>
+      <label style="display:flex; gap:10px; align-items:flex-start; font-size:12.5px; color:var(--muted); line-height:1.6; cursor:pointer; margin-bottom:9px;">
+        <input type="checkbox" id="kyc2" style="margin-top:3px; flex:none;">
+        <span>This programme will <b>never charge applicants a fee</b> to apply, and I will not request payment, bank details, card details or personal financial information from applicants through this platform.</span>
+      </label>
+      <label style="display:flex; gap:10px; align-items:flex-start; font-size:12.5px; color:var(--muted); line-height:1.6; cursor:pointer; margin-bottom:9px;">
+        <input type="checkbox" id="kyc3" style="margin-top:3px; flex:none;">
+        <span>The organisation holds any licence or approval its programme requires, and I accept that FundFinder AI and A2F Partners are not the funder and bear no liability for our programme.</span>
+      </label>
+      <label style="display:flex; gap:10px; align-items:flex-start; font-size:12.5px; color:var(--muted); line-height:1.6; cursor:pointer;">
+        <input type="checkbox" id="kyc4" style="margin-top:3px; flex:none;">
+        <span>I consent to verification checks (public register, website, references) and understand my programme stays unpublished until verification passes, and may be removed at any time for false information.</span>
+      </label>
+    </div>
     <div style="background:rgba(255,215,0,0.06); border:1px solid rgba(255,215,0,0.2); border-radius:10px; padding:16px 18px; margin-bottom:4px;">
       <p style="font-size:13px; font-weight:600; color:var(--gold); margin-bottom:6px;">What happens after you register</p>
-      <p style="font-size:12px; color:var(--muted); line-height:1.6;">Our team verifies your organisation credentials within 48 hours. You'll receive an email confirmation when your account is activated. Your program goes live on the FundFinder AI platform the moment verification is complete.</p>
+      <p style="font-size:12px; color:var(--muted); line-height:1.6;">We verify your organisation against the public register and your stated online presence. <b>Your programme is not visible to applicants until that check passes.</b> You'll receive an email the moment your account is activated. Verification usually takes up to 48 hours.</p>
     </div>
 
     <div id="errStep4" class="msg"></div>
@@ -497,6 +518,14 @@ async function submitRegistration() {
   const pwd2  = document.getElementById('accountPwd2').value;
 
   if (!email || !pwd) { err.textContent = 'Email and password are required.'; err.className = 'msg error'; return; }
+  const rcVal = document.getElementById('regNum').value.trim();
+  const webVal = document.getElementById('orgWebsite').value.trim();
+  if (!rcVal)  { err.textContent = 'RC / Registration Number is required — we verify every organisation.'; err.className = 'msg error'; return; }
+  if (!webVal) { err.textContent = 'A website or official page is required for verification.'; err.className = 'msg error'; return; }
+  if (!(document.getElementById('kyc1').checked && document.getElementById('kyc2').checked &&
+        document.getElementById('kyc3').checked && document.getElementById('kyc4').checked)) {
+    err.textContent = 'Please read and accept all four verification declarations.'; err.className = 'msg error'; return;
+  }
   if (pwd.length < 8) { err.textContent = 'Password must be at least 8 characters.'; err.className = 'msg error'; return; }
   if (pwd !== pwd2)   { err.textContent = 'Passwords do not match.'; err.className = 'msg error'; return; }
 
@@ -517,8 +546,10 @@ async function submitRegistration() {
         full_name:           document.getElementById('contactName').value.trim(),
         org_name:            document.getElementById('orgName').value.trim(),
         org_type:            document.getElementById('orgType').value,
-        registration_number: document.getElementById('regNum').value.trim() || null,
-        website:             document.getElementById('orgWebsite').value.trim() || null,
+        registration_number: document.getElementById('regNum').value.trim(),
+        verification_status: 'pending',
+        kyc_accepted_at:     new Date().toISOString(),
+        website:             document.getElementById('orgWebsite').value.trim(),
         contact_name:        document.getElementById('contactName').value.trim(),
         contact_email:       document.getElementById('contactEmail').value.trim(),
         contact_phone:       document.getElementById('contactPhone').value.trim() || null,
