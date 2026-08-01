@@ -38,3 +38,6 @@ axis-site/
 contacts.csv
 CAC-Batch6-100k-StrikeOff-List.pdf
 cac-strikeoff-batch6.json
+
+# Rendered reels are build outputs, not source
+reels/

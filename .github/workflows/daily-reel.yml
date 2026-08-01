@@ -1,0 +1,56 @@
+name: Daily Reel — render & post to Facebook
+
+# Renders the daily compilation reel from the newest published opportunity
+# pages and posts it to the FundFinder Facebook Page as a Reel.
+#
+# Posting only happens when FB_PAGE_ID + FB_PAGE_TOKEN secrets exist;
+# without them the job still renders and uploads the MP4 as an artifact
+# (render-only mode), so the pipeline can be tested before going live.
+#
+# Music: Kevin MacLeod (incompetech.com), CC BY 4.0 — attribution baked
+# into the caption and end card. Tracks live in assets/reel-music/.
+
+on:
+  schedule:
+    # 07:00 UTC = 08:00 WAT daily
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install render dependencies
+        run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg imagemagick librsvg2-bin
+
+      - name: Render reel
+        run: node scripts/make-reel.js
+
+      - name: Post to Facebook Page (skips cleanly if secrets absent)
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          TODAY=$(date -u +%F)
+          node scripts/post-reel.js "reels/reel-$TODAY.mp4" "reels/reel-$TODAY-caption.txt"
+
+      - name: Upload reel as artifact (7-day retention)
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-reel
+          path: reels/
+          retention-days: 7
