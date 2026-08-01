@@ -171,13 +171,18 @@ const MONTH_NAME = '(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z
 const DATE_MDY = `${MONTH_NAME}\\.?\\s+\\d{1,2}(?:st|nd|rd|th)?,?\\s+\\d{4}`;
 // "31 August 2026" / "31st Aug, 2026"
 const DATE_DMY = `\\d{1,2}(?:st|nd|rd|th)?\\s+(?:of\\s+)?${MONTH_NAME}\\.?,?\\s+\\d{4}`;
-const ANY_DATE = `(${DATE_DMY}|${DATE_MDY})`;
+// "2026-09-30" — unambiguous ISO; safe to accept (no DD/MM vs MM/DD guesswork).
+const DATE_ISO = `20\\d{2}-\\d{2}-\\d{2}`;
+const ANY_DATE = `(${DATE_DMY}|${DATE_MDY}|${DATE_ISO})`;
 // separator after a cue word: colon, dash, em/en dash, "is", "is on", whitespace
 const SEP = '(?:\\s*(?:is|are)?\\s*(?:on|by|before)?\\s*[:\\-\\u2013\\u2014]?\\s*)';
 
 function extractDeadline(text) {
   const cues = [
-    `(?:application|submission|entry|entries)?\\s*deadlines?${SEP}${ANY_DATE}`,
+    // QA 2026-08-01: sources very often put the qualifier AFTER the noun
+    // ("Deadline for entries: 5 October 2026", "the deadline for submission is ...").
+    // Without this optional tail the cue never matched and the flyer fell back to the sentinel.
+    `(?:application|submission|entry|entries)?\\s*deadlines?(?:\\s+for\\s+(?:the\\s+)?(?:applications?|submissions?|entries|entry|proposals?|nominations?|programmes?|programs?))?${SEP}${ANY_DATE}`,
     `clos(?:es|ing|e)\\s*(?:date)?${SEP}${ANY_DATE}`,
     `apply\\s+(?:before|by|on or before)\\s*${ANY_DATE}`,
     `on or before\\s+${ANY_DATE}`,
@@ -186,12 +191,18 @@ function extractDeadline(text) {
     `(?:due|expires?)\\s*(?:on|by)?\\s*${ANY_DATE}`,
     `(?:open|accepting applications?)\\s+until\\s+${ANY_DATE}`,
   ];
+  const todayIso = new Date().toISOString().slice(0, 10);
   for (const c of cues) {
     const m = text.match(new RegExp(c, 'i'));
     // Only accept a match that resolves to a real calendar date — a cue followed by
     // something date-shaped but impossible (e.g. "31 February 2026") must not be
     // published as a deadline.
-    if (m && m[1] && parseDeadlineDate(m[1])) return normaliseDateText(m[1]);
+    // QA 2026-08-01: also reject dates that have already passed. Article bodies often
+    // cite a PRIOR round's closing date; publishing it made the hub advertise closed
+    // calls as open (6 such cards were live on 2026-08-01).
+    if (!m || !m[1]) continue;
+    const iso = parseDeadlineDate(m[1]);
+    if (iso && iso >= todayIso) return normaliseDateText(m[1]);
   }
   return 'Check official page';
 }
