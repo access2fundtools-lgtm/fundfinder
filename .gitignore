@@ -38,3 +38,14 @@ axis-site/
 contacts.csv
 CAC-Batch6-100k-StrikeOff-List.pdf
 cac-strikeoff-batch6.json
+
+# QA bot 2026-08-02: local working files that must never be staged by a
+# `git add -A` during a deploy sync. markdowntohtml.com.html in particular
+# would be picked up by scripts/gen-sitemap.js and published to sitemap.xml.
+markdowntohtml.com.html
+AKEJU-POST*.md
+FACEBOOK-POSTS-*.md
+LSETF-outreach-email.md
+HEALTH-CHECK-*.md
+*-run-in-supabase.sql
+EXPORT-*.sql
