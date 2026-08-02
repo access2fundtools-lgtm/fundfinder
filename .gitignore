@@ -51,3 +51,6 @@ LSETF-outreach-email.md
 HEALTH-CHECK-*.md
 *-run-in-supabase.sql
 EXPORT-*.sql
+
+# Outreach cohort reports contain user contact data — never commit
+outreach/

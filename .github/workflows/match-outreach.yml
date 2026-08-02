@@ -1,0 +1,48 @@
+name: Match Outreach — cohort report
+
+# Produces the assisted-application outreach cohort: every user whose saved
+# business profile has live programme matches, with per-user drafted WhatsApp
+# and email messages that respect the user's own notification settings.
+#
+# REPORT-ONLY: nothing is sent. Download the artifact, review, send from the
+# business channels. Automated per-user WhatsApp sending is gated on a Meta
+# template approval — see the SENDING UPGRADE note in scripts/match-outreach.js.
+#
+# The report contains user contact details — it is delivered ONLY as a
+# short-retention artifact and is never committed to the repository.
+
+on:
+  schedule:
+    # Mondays & Thursdays 07:30 UTC = 08:30 WAT, after the 06:00 scrape
+    - cron: '30 7 * * 1,4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cohort:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build cohort report
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: node scripts/match-outreach.js
+
+      - name: Upload cohort (3-day retention — contains contact data)
+        uses: actions/upload-artifact@v4
+        with:
+          name: outreach-cohort
+          path: outreach/
+          retention-days: 3
