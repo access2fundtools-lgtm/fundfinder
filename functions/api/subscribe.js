@@ -91,6 +91,23 @@ async function handleSubscribe(context) {
     } catch (_) { /* Zoho hiccup shouldn't fail the signup for the visitor */ }
   }
 
+  // 3. Best-effort operator notification. Same endpoint the Supabase auth
+  //    trigger uses, so the email format is identical whichever door they came
+  //    through. Never allowed to fail the visitor's submission.
+  if (env.NOTIFY_SECRET) {
+    try {
+      const origin = new URL(request.url).origin;
+      await fetch(`${origin}/api/notify-signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${env.NOTIFY_SECRET}`,
+        },
+        body: JSON.stringify({ type: 'newsletter', email, source }),
+      });
+    } catch (_) { /* notification is not the visitor's problem */ }
+  }
+
   // Visitor always sees success as long as we at least logged the lead somewhere.
   return json({ success: true, recorded: supabaseOk });
 }
