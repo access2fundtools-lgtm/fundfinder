@@ -1,0 +1,57 @@
+name: Funnel stage sync
+
+# Recomputes every contact's funnel stage and pushes it into Zoho so the tiered
+# sequences segment on current reality rather than what was true at signup.
+#
+# Daily at 05:30 UTC (06:30 WAT) — before the Mon/Thu scraper run at 06:00 UTC,
+# so a subscriber who converted overnight is already marked converted and won't
+# receive that morning's nurture email.
+#
+# Needs one repo secret: FUNNEL_SYNC_SECRET (same value as the Cloudflare env var).
+
+on:
+  schedule:
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report counts without writing to Zoho'
+        type: boolean
+        default: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger funnel sync
+        env:
+          SECRET: ${{ secrets.FUNNEL_SYNC_SECRET }}
+          DRY: ${{ inputs.dry_run && '?dry=1' || '' }}
+        run: |
+          if [ -z "$SECRET" ]; then
+            echo "::error::FUNNEL_SYNC_SECRET is not set — add it in Settings → Secrets → Actions."
+            exit 1
+          fi
+
+          echo "Calling /api/funnel-sync${DRY}"
+          HTTP=$(curl -sS -o /tmp/out.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $SECRET" \
+            "https://fundfinder.ng/api/funnel-sync${DRY}")
+
+          echo "HTTP $HTTP"
+          cat /tmp/out.json
+          echo
+
+          if [ "$HTTP" != "200" ]; then
+            echo "::error::Funnel sync failed with HTTP $HTTP"
+            exit 1
+          fi
+
+          # Surface the stage breakdown in the run summary so the funnel is
+          # visible from the Actions tab without opening the admin panel.
+          {
+            echo "### Funnel sync — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            echo '```json'
+            cat /tmp/out.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
