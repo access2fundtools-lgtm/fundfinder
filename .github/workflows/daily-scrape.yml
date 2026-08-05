@@ -36,6 +36,16 @@ jobs:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: node scripts/scraper.js
 
+      # 3a. Retire opportunities whose deadline has already passed (7-day grace).
+      #     QA 2026-08-05: nothing ever set is_active=false, so closed calls stayed in
+      #     the pool the profile matching engine reads. Dry-run-safe by design; without
+      #     the service key it cannot write, so a missing secret degrades to a no-op log.
+      - name: Retire expired opportunities
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: node scripts/expire-opportunities.js --commit
+        continue-on-error: true
+
       # 3b. Regenerate sitemap.xml so newly added opportunity pages get indexed by Google
       - name: Regenerate sitemap
         run: node scripts/gen-sitemap.js

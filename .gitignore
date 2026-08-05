@@ -54,3 +54,6 @@ EXPORT-*.sql
 
 # Outreach cohort reports contain user contact data — never commit
 outreach/
+
+# QA bot scratch dir — never commit
+.qa-tmp/

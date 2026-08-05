@@ -740,9 +740,15 @@ function setSI(sec, text, cls) { const el = document.getElementById(`si-${sec}`)
 async function runMatching() {
   if (!profile.business_sector && !profile.business_stage) return;
 
+  // QA 2026-08-05: exclude opportunities whose deadline has already passed.
+  // Nothing ever flips is_active=false, so closed calls stayed in this feed and were
+  // written into every user's opportunity_matches. Rows with a NULL deadline are kept
+  // on purpose — those are the rolling/evergreen programmes (YC, Antler, A2F, etc.).
+  const todayIso = new Date().toISOString().slice(0, 10);
   const { data: opps } = await sb.from('opportunities')
     .select('id, title, deadline, capital_type, sectors, summary, eligibility, apply_url')
     .eq('is_active', true)
+    .or(`deadline.is.null,deadline.gte.${todayIso}`)
     .order('deadline', { ascending: true })
     .limit(200);
 
