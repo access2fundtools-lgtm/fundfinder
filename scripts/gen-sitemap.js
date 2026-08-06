@@ -31,6 +31,8 @@ const dateFromName = (fn) => {
 const meta = (fn) => {
   if (fn === 'index.html') return ['1.0','daily'];
   if (fn === 'opportunity-hub.html') return ['0.9','daily'];
+  if (fn === 'guides.html') return ['0.8','weekly'];
+  if (fn.startsWith('guide-')) return ['0.7','weekly'];
   if (isOpp(fn)) return ['0.8','weekly'];
   return ['0.5','monthly'];
 };
