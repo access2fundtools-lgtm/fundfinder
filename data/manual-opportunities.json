@@ -1,5 +1,33 @@
 [
  {
+  "id": "curated-commonwealth-startup-fellowship-cohort3-2026",
+  "slug": "opportunity-commonwealth-startup-fellowship-cohort-3",
+  "title": "Commonwealth Startup Fellowship — Cohort 3",
+  "funder": "Commonwealth Scholarship Commission (CSC) with Imperial College London",
+  "category": "accelerator",
+  "amount": "Fully funded + up to £2,000 equity-free grant",
+  "deadline": "1 September 2026",
+  "eligibility": "Citizens of low/middle-income Commonwealth countries (Nigeria eligible); business operating 12+ months with commercial traction; graduate-level founder, fluent English",
+  "scope": "Commonwealth low/middle-income countries (Nigeria eligible)",
+  "description": "Six-month fully funded programme for growth-stage startups: two-week bootcamp in Accra, Ghana (25 Jan–4 Feb 2027, travel/accommodation/visa covered for one founder), five months of 1-on-1 coaching and expert workshops, and a London capstone week (14–21 May 2027) pitching international investors. Teams can apply for up to £2,000 in equity-free grants. Applications close 1 September 2026.",
+  "applyUrl": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/",
+  "source": "curated-2026"
+ },
+ {
+  "id": "curated-smedan-conditional-grant-scheme-2026",
+  "slug": "opportunity-smedan-conditional-grant-scheme-50k",
+  "title": "SMEDAN Conditional Grant Scheme (₦50,000) — Portal Reopened",
+  "funder": "SMEDAN — Federal Government of Nigeria",
+  "category": "grants",
+  "amount": "₦50,000",
+  "deadline": "No published deadline — apply early on the official portal",
+  "eligibility": "Nigerian nano and micro enterprises at Local Government Area level; condition: employ at least one additional person; CAC registration helpful but number requested only if available",
+  "scope": "Nigeria — all LGAs",
+  "description": "SMEDAN reopened its Conditional Grant Scheme portal in August 2026. One-time, non-repayable ₦50,000 grant for nano/micro businesses to fund equipment, working capital, technology or expansion, on the condition the business employs at least one additional worker. Apply only through SMEDAN's official portal — the scheme is free; nobody should charge you to apply. Not the same as the Presidential Conditional Grant Scheme.",
+  "applyUrl": "https://portal.smedan.gov.ng/",
+  "source": "curated-2026"
+ },
+ {
   "id": "curated-baobab-network-accelerator",
   "slug": "opportunity-baobab-network-accelerator",
   "title": "Baobab Network Accelerator",
