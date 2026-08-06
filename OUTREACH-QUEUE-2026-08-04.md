@@ -1,5 +1,22 @@
 # Outreach queue — 4 August 2026
 
+> **UPDATE after checking the Zoho Sent folder — two facts in this file were wrong.**
+>
+> 1. **The FI Lagos consortium proposal was already sent.** Fri 24 Jul 17:07, from
+>    `spv@a2fpartners.com` to `ifedy@filagos.ng`, 247 KB with attachments, subject
+>    *"CONSORTIUM BID PROPOSAL: BOI iDICE EOI (Ref: 2000200005160) — FI Lagos x A2F
+>    Partners [Deadline: 29 July]"*. The 28 Jul Plan B note was written as though it
+>    hadn't gone out, and my rewrite below inherited that error — it said *"I didn't
+>    push for a joint EOI"*, which contradicts the proposal sitting in his inbox.
+>    **The draft now in Zoho is corrected** and replies in-thread. No reply from Ifedy
+>    in 11 days.
+> 2. **The Wahab email went on 23 July, not 26** — so it's 12 days of silence, not 9,
+>    and it went to **`wahabtokunbo@gmail.com`**, a personal Gmail rather than an
+>    official Lagos State address. Worth questioning whether that's the right channel
+>    at all.
+>
+> Both drafts are saved in Zoho, addressed, unsent. Nothing has left.
+
 Everything outstanding, what's blocking it, and the two drafts that needed rewriting
 before they could go anywhere.
 
