@@ -60,6 +60,28 @@ still won't deploy anything.
 
 ---
 
+## It is not just chats — scheduled tasks hit this too
+
+The same fault surfaced independently in the **facebook-poster** task the same morning, and
+it had been silently wrong for weeks:
+
+- The 07:45 run could not see this folder. Only `Downloads` was connected to that session.
+- It fell back to `Downloads`, found stale captions dated **2026-06-28**, and concluded the
+  scraper had been dead for 39 days.
+- That was false. The scraper had been running normally the whole time — captions exist for
+  07-20, 07-23, 07-27, 07-28, 07-30 and 08-03.
+- **Seven prior "no-op run" logs written into `Downloads` (10 Jul → 3 Aug) are wrong for the
+  same reason.** They should be ignored.
+
+A task that cannot see its data does not fail loudly. It reads whatever it *can* see and
+reports a confident, wrong answer. Check the mount before trusting any run log.
+
+**Action:** every scheduled task in this project — `nigeria-funding-daily-scraper`,
+`facebook-poster`, `cac-delisting-watch` — must have `Funding Opportunities` connected as a
+session source, not `Downloads`.
+
+---
+
 ## The correct setup
 
 | Layer | What lives there | Who writes to it |
