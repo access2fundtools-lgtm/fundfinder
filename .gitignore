@@ -57,3 +57,6 @@ outreach/
 
 # QA bot scratch dir — never commit
 .qa-tmp/
+
+# transfer artifacts — patches shared between sessions
+*.patch
