@@ -1,0 +1,45 @@
+SOCIAL POSTING LOG — 2026-08-06 (Thursday)
+Run time: ~07:45 scheduled run; corrected ~08:40 after folder access was granted.
+
+RESULT: NO POSTS SENT — correct outcome, nothing new to post.
+
+WHAT HAPPENED
+- The 07:45 scheduled run could not see this folder. Only Downloads was connected to
+  that session, so the run fell back to Downloads, found the stale 2026-06-28 captions
+  there, and concluded the scraper had been dead for 39 days.
+- THAT CONCLUSION WAS WRONG. With the folder now connected, the real state is visible:
+  the scraper has been running and producing captions normally all along
+  (2026-07-20, 07-23, 07-27, 07-28, 07-30, 08-03 all present).
+- The earlier SOCIAL-LOG-2026-08-06.txt written into Downloads is inaccurate and has
+  been superseded by this file. The seven prior "no-op run" logs in Downloads
+  (07-10 through 08-03) are wrong for the same reason.
+
+TODAY'S ACTUAL STATE (per SYNC-LOG-2026-08-06.txt)
+- Sync task ran 07:30–07:35, PUSHED cleanly. GitHub PAT alive.
+- Scraper workflow dispatched, HTTP 204, all 7 steps green.
+- New opportunities found today: 0 across all 6 sources.
+- New caption files produced: 0.
+- Newest captions remain the 4 dated 2026-08-03.
+
+Facebook posts sent: 0 (no 2026-08-06 captions exist)
+LinkedIn posts sent: 0
+Did NOT post the 2026-08-03 captions — they were already posted on Monday's run.
+LinkedIn token: not exercised. Expires ~2026-08-20 (14 days).
+Errors: none.
+
+ACTION NEEDED
+1. FOLDER ACCESS — root cause. This folder must stay connected to Cowork so the
+   7:45 poster task can read captions and write logs here instead of Downloads.
+   Until that persists across sessions, every poster run will misreport.
+2. LINKEDIN TOKEN — expires ~2026-08-20. Regenerate before then or Step 4 fails.
+   Currently stored in plaintext in the task's SKILL.md; move to a secret store.
+3. APPLY-LINK FILTER — the sync log flags 8 listings dropped for "no resolvable
+   apply link", including "Lagos Agrithon 2026 — N200 Million Grant Pool", which is
+   highly relevant. Filter was tightened after the 07-26 contamination incident and
+   is now over-rejecting. Worth a manual pass.
+4. ZERO-RESULT DAY — 0 new from all 6 sources is plausible but worth watching; if
+   Monday 08-10 also returns 0/6, treat the scraper selectors as suspect.
+
+HOUSEKEEPING (unrelated)
+- "Chrome Passwords.csv" (plaintext password export, 2026-07-04) is still in
+  Downloads. Recommend deleting it and rotating anything it contained.
