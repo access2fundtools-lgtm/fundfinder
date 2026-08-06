@@ -1,0 +1,60 @@
+From 146cfdcad47ce07b100d98e0a4c91b369c44435a Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 6 Aug 2026 15:34:31 +0000
+Subject: [PATCH 1/3] =?UTF-8?q?feat(opps):=20add=20Commonwealth=20Startup?=
+ =?UTF-8?q?=20Fellowship=20Cohort=203=20+=20SMEDAN=20CGS=20=E2=82=A650k=20?=
+ =?UTF-8?q?(verified=205=20Aug=202026)?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Both verified against primary sources:
+- CSC/Imperial Enterprise Lab: apps open 3 Aug–1 Sep 2026, Accra bootcamp Jan 2027, London capstone May 2027, up to £2,000 equity-free (NOT £35k — that is the total Fellows Fund pool)
+- SMEDAN CGS on smedan.gov.ng: ₦50,000, nano/micro at LGA level, must employ one additional worker, portal.smedan.gov.ng
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012iduj5NpAfBDSsJB5WQHLX
+---
+ data/manual-opportunities.json | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+diff --git a/data/manual-opportunities.json b/data/manual-opportunities.json
+index 855f53e..e9c16c2 100644
+--- a/data/manual-opportunities.json
++++ b/data/manual-opportunities.json
+@@ -1,4 +1,32 @@
+ [
++ {
++  "id": "curated-commonwealth-startup-fellowship-cohort3-2026",
++  "slug": "opportunity-commonwealth-startup-fellowship-cohort-3",
++  "title": "Commonwealth Startup Fellowship — Cohort 3",
++  "funder": "Commonwealth Scholarship Commission (CSC) with Imperial College London",
++  "category": "accelerator",
++  "amount": "Fully funded + up to £2,000 equity-free grant",
++  "deadline": "1 September 2026",
++  "eligibility": "Citizens of low/middle-income Commonwealth countries (Nigeria eligible); business operating 12+ months with commercial traction; graduate-level founder, fluent English",
++  "scope": "Commonwealth low/middle-income countries (Nigeria eligible)",
++  "description": "Six-month fully funded programme for growth-stage startups: two-week bootcamp in Accra, Ghana (25 Jan–4 Feb 2027, travel/accommodation/visa covered for one founder), five months of 1-on-1 coaching and expert workshops, and a London capstone week (14–21 May 2027) pitching international investors. Teams can apply for up to £2,000 in equity-free grants. Applications close 1 September 2026.",
++  "applyUrl": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/",
++  "source": "curated-2026"
++ },
++ {
++  "id": "curated-smedan-conditional-grant-scheme-2026",
++  "slug": "opportunity-smedan-conditional-grant-scheme-50k",
++  "title": "SMEDAN Conditional Grant Scheme (₦50,000) — Portal Reopened",
++  "funder": "SMEDAN — Federal Government of Nigeria",
++  "category": "grants",
++  "amount": "₦50,000",
++  "deadline": "No published deadline — apply early on the official portal",
++  "eligibility": "Nigerian nano and micro enterprises at Local Government Area level; condition: employ at least one additional person; CAC registration helpful but number requested only if available",
++  "scope": "Nigeria — all LGAs",
++  "description": "SMEDAN reopened its Conditional Grant Scheme portal in August 2026. One-time, non-repayable ₦50,000 grant for nano/micro businesses to fund equipment, working capital, technology or expansion, on the condition the business employs at least one additional worker. Apply only through SMEDAN's official portal — the scheme is free; nobody should charge you to apply. Not the same as the Presidential Conditional Grant Scheme.",
++  "applyUrl": "https://portal.smedan.gov.ng/",
++  "source": "curated-2026"
++ },
+  {
+   "id": "curated-baobab-network-accelerator",
+   "slug": "opportunity-baobab-network-accelerator",
+-- 
+2.43.0
+

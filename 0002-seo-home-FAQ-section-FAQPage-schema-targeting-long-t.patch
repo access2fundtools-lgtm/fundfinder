@@ -1,0 +1,129 @@
+From 7b6bae43b59ea5f05cbd68e0676e2eda97b304f6 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 6 Aug 2026 15:34:31 +0000
+Subject: [PATCH 2/3] seo(home): FAQ section + FAQPage schema targeting
+ long-tail funding queries; add X/Facebook to Organization sameAs
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012iduj5NpAfBDSsJB5WQHLX
+---
+ index.html  | 32 +++++++++++++++++++++++++++++++-
+ sitemap.xml | 14 +++++++-------
+ 2 files changed, 38 insertions(+), 8 deletions(-)
+
+diff --git a/index.html b/index.html
+index eb6d6b7..7bb50b7 100644
+--- a/index.html
++++ b/index.html
+@@ -188,7 +188,7 @@ footer { border-top: 1px solid var(--border); padding: 48px 32px 32px; display:
+ <meta name="twitter:description" content="Discover grants, loans, accelerators and empowerment programs open to Nigerian entrepreneurs. AI-powered matching. Free daily alerts. Apply smarter.">
+ <meta name="twitter:image" content="https://fundfinder.ng/og-image.png">
+ <script type="application/ld+json">
+-{"@context": "https://schema.org","@graph": [{"@type": "Organization","@id": "https://fundfinder.ng/#org","name": "A2F Partners Limited","alternateName": "FundFinder AI","url": "https://fundfinder.ng/","logo": "https://fundfinder.ng/og-image.png","email": "access2fundtools@gmail.com","areaServed": "NG","sameAs": ["https://www.linkedin.com/in/dayoakinofficial/"],"description": "FundFinder AI helps Nigerian entrepreneurs, SMEs and farmers discover grants, loans, accelerators and empowerment programs they qualify for — matched to their profile and updated daily."},{"@context": "https://schema.org","@type": "WebSite","@id": "https://fundfinder.ng/#website","url": "https://fundfinder.ng/","name": "FundFinder AI","description": "Funding intelligence platform for Nigerian businesses — grants, loans, accelerators and agri funding, matched daily.","inLanguage": "en-NG","publisher": {"@id": "https://fundfinder.ng/#org"}}]}
++{"@context": "https://schema.org","@graph": [{"@type": "Organization","@id": "https://fundfinder.ng/#org","name": "A2F Partners Limited","alternateName": "FundFinder AI","url": "https://fundfinder.ng/","logo": "https://fundfinder.ng/og-image.png","email": "access2fundtools@gmail.com","areaServed": "NG","sameAs": ["https://www.linkedin.com/in/dayoakinofficial/","https://x.com/fundfinder_ai","https://www.facebook.com/fundfinderai/"],"description": "FundFinder AI helps Nigerian entrepreneurs, SMEs and farmers discover grants, loans, accelerators and empowerment programs they qualify for — matched to their profile and updated daily."},{"@context": "https://schema.org","@type": "WebSite","@id": "https://fundfinder.ng/#website","url": "https://fundfinder.ng/","name": "FundFinder AI","description": "Funding intelligence platform for Nigerian businesses — grants, loans, accelerators and agri funding, matched daily.","inLanguage": "en-NG","publisher": {"@id": "https://fundfinder.ng/#org"}}]}
+ </script>
+ </head>
+ <body>
+@@ -346,6 +346,36 @@ footer { border-top: 1px solid var(--border); padding: 48px 32px 32px; display:
+   </div>
+ </div>
+ 
++<!-- FAQ — visible content backing the FAQPage schema; targets long-tail funding queries -->
++<section class="section" id="faq" style="max-width:860px;margin:0 auto;padding:60px 24px;">
++  <h2 style="text-align:center;font-size:28px;margin-bottom:8px;">Funding questions, answered</h2>
++  <p style="text-align:center;color:var(--muted);margin-bottom:32px;">What Nigerian founders ask us most.</p>
++  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;margin-bottom:12px;">
++    <summary style="font-weight:700;cursor:pointer;">How do I find grants for my small business in Nigeria?</summary>
++    <p style="color:var(--muted);margin-top:10px;">Start with programs that are actually open. FundFinder checks government agencies (SMEDAN, LSETF, BOI), foundations and accelerators every morning and lists only opportunities Nigerian businesses can apply to right now — with the official application link for each. Browse free on the <a href="opportunity-hub.html" style="color:var(--gold);">Opportunity Hub</a>.</p>
++  </details>
++  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;margin-bottom:12px;">
++    <summary style="font-weight:700;cursor:pointer;">Is FundFinder free to use?</summary>
++    <p style="color:var(--muted);margin-top:10px;">Yes. Discovering opportunities and getting daily alerts is free. You only pay if you want AI help preparing an application. We never take a commission on any grant you win.</p>
++  </details>
++  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;margin-bottom:12px;">
++    <summary style="font-weight:700;cursor:pointer;">Do I need CAC registration to qualify for funding?</summary>
++    <p style="color:var(--muted);margin-top:10px;">Many grants and nearly all loans require an active CAC registration — and thousands of companies are in the CAC strike-off pool without knowing. Check yours free with the <a href="cac-strike-off-checker.html" style="color:var(--gold);">CAC strike-off checker</a>.</p>
++  </details>
++  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;margin-bottom:12px;">
++    <summary style="font-weight:700;cursor:pointer;">What government funding is open right now?</summary>
++    <p style="color:var(--muted);margin-top:10px;">It changes weekly — that's the problem FundFinder solves. Federal and state programs like the SMEDAN Conditional Grant Scheme and LSETF MSME Loans open and close on their own schedules. The <a href="opportunity-hub.html" style="color:var(--gold);">hub is updated every morning</a> so you never apply to a closed program.</p>
++  </details>
++  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;">
++    <summary style="font-weight:700;cursor:pointer;">How does the AI matching work?</summary>
++    <p style="color:var(--muted);margin-top:10px;">You describe your business once — sector, stage, state, registration status. FundFinder compares that profile against every open opportunity and alerts you only when you actually qualify, so you stop wasting time on programs that will reject you on page one.</p>
++  </details>
++</section>
++
++<script type="application/ld+json">
++{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I find grants for my small business in Nigeria?","acceptedAnswer":{"@type":"Answer","text":"Start with programs that are actually open. FundFinder checks government agencies (SMEDAN, LSETF, BOI), foundations and accelerators every morning and lists only opportunities Nigerian businesses can apply to right now, with the official application link for each."}},{"@type":"Question","name":"Is FundFinder free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. Discovering opportunities and getting daily alerts is free. You only pay if you want AI help preparing an application. FundFinder never takes a commission on any grant you win."}},{"@type":"Question","name":"Do I need CAC registration to qualify for funding?","acceptedAnswer":{"@type":"Answer","text":"Many grants and nearly all loans require an active CAC registration. FundFinder offers a free CAC strike-off checker so you can confirm your company's status before applying."}},{"@type":"Question","name":"What government funding is open right now?","acceptedAnswer":{"@type":"Answer","text":"Federal and state programs like the SMEDAN Conditional Grant Scheme and LSETF MSME Loans open and close on their own schedules. FundFinder's Opportunity Hub is updated every morning so you never apply to a closed program."}},{"@type":"Question","name":"How does the AI matching work?","acceptedAnswer":{"@type":"Answer","text":"You describe your business once — sector, stage, state, registration status. FundFinder compares that profile against every open opportunity and alerts you only when you qualify."}}]}
++</script>
++
+ <section class="cta-section">
+   <div class="cta-card">
+     <h2>Your next grant is already open.<br><span style="color:var(--gold);">Don't miss it.</span></h2>
+diff --git a/sitemap.xml b/sitemap.xml
+index 5346ca0..f812bbd 100644
+--- a/sitemap.xml
++++ b/sitemap.xml
+@@ -92,19 +92,19 @@
+   </url>
+   <url>
+     <loc>https://fundfinder.ng/business-diagnostic.html</loc>
+-    <lastmod>2026-08-06</lastmod>
++    <lastmod>2026-08-01</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.5</priority>
+   </url>
+   <url>
+     <loc>https://fundfinder.ng/cac-strike-off-checker.html</loc>
+-    <lastmod>2026-08-06</lastmod>
++    <lastmod>2026-07-31</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.5</priority>
+   </url>
+   <url>
+     <loc>https://fundfinder.ng/campaign-2026-07-28.html</loc>
+-    <lastmod>2026-08-06</lastmod>
++    <lastmod>2026-07-31</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.5</priority>
+   </url>
+@@ -188,7 +188,7 @@
+   </url>
+   <url>
+     <loc>https://fundfinder.ng/opportunity-archive.html</loc>
+-    <lastmod>2026-08-06</lastmod>
++    <lastmod>2026-07-31</lastmod>
+     <changefreq>weekly</changefreq>
+     <priority>0.8</priority>
+   </url>
+@@ -212,7 +212,7 @@
+   </url>
+   <url>
+     <loc>https://fundfinder.ng/opportunity-batn-foundation-2026.html</loc>
+-    <lastmod>2026-08-06</lastmod>
++    <lastmod>2026-07-29</lastmod>
+     <changefreq>weekly</changefreq>
+     <priority>0.8</priority>
+   </url>
+@@ -440,7 +440,7 @@
+   </url>
+   <url>
+     <loc>https://fundfinder.ng/opportunity-fsi-2026.html</loc>
+-    <lastmod>2026-08-06</lastmod>
++    <lastmod>2026-07-29</lastmod>
+     <changefreq>weekly</changefreq>
+     <priority>0.8</priority>
+   </url>
+@@ -476,7 +476,7 @@
+   </url>
+   <url>
+     <loc>https://fundfinder.ng/opportunity-mest-ai-2027.html</loc>
+-    <lastmod>2026-08-06</lastmod>
++    <lastmod>2026-07-29</lastmod>
+     <changefreq>weekly</changefreq>
+     <priority>0.8</priority>
+   </url>
+-- 
+2.43.0
+
