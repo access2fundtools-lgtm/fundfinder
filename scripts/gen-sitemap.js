@@ -11,6 +11,9 @@ const NOINDEX = new Set([
   'fundfinder-profile.html','fundfinder-wallet.html','fundfinder-spv.html','program-principal-register.html',
   // Internal-only dashboards/consoles — never index.
   'execution-board.html','outreach-console.html',
+  // QA 2026-08-07: internal working notes + an accidental markdown-converter download
+  // that were committed to the repo root. Not public product content — keep out of the index.
+  'mansa cdd form answers.html','markdowntohtml.com (1).html','markdowntohtml.com.html',
   // Custom 404 page — served by Cloudflare Pages for unmatched routes; must never be indexed.
   '404.html',
   // Withdrawn 2026-07-26: these flyers were published with a mis-resolved apply link
