@@ -60,3 +60,8 @@ outreach/
 
 # transfer artifacts — patches shared between sessions
 *.patch
+
+# Project Sentry — confidential government proposals + a stray Sentry.io SDK dump.
+# The repo root is the public web root for fundfinder.ng and the daily scraper runs
+# `git add .`, so anything here would auto-publish. Never commit.
+project sentry/
