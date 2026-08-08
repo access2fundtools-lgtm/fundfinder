@@ -13,6 +13,8 @@ Disallow: /fundfinder-wallet.html
 Disallow: /program-principal-register.html
 Disallow: /execution-board.html
 Disallow: /outreach-console.html
+Disallow: /markdowntohtml.com.html
+Disallow: /markdowntohtml.com%20(1).html
 Disallow: /opportunity-abia-awards-100m-startup-grants-to-100-polytechnic-graduate-2026-07-16.html
 Disallow: /opportunity-call-for-applications-herskills-mentorship-programme-2026-fo-2026-07-16.html
 Disallow: /opportunity-call-for-applications-youthconnekt-africa-export-accelerator-2026-07-20.html
