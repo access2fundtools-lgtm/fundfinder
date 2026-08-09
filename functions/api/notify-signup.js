@@ -186,10 +186,54 @@ async function pushToZoho(env, { email, name, phone }) {
     const accessToken = await getZohoAccessToken({ clientId, clientSecret, refreshToken });
     if (!accessToken) return false;
 
-    const contact = { 'Contact Email': email, 'Funnel_Stage': '1_account_no_profile' };
-    if (name)  contact['First Name'] = name;
-    if (phone) contact['Phone'] = phone;
+    // Zoho rejects the WHOLE contact if any field is unknown to the list, and
+    // reports it misleadingly as code 2007 "Invalid Contact Email address".
+    // Funnel_Stage is a custom field that may not exist yet, so try the rich
+    // payload first and fall back to the bare email that subscribe.js proves works.
+    const rich = { 'Contact Email': email, 'Funnel_Stage': '1_account_no_profile' };
+    if (name)  rich['First Name'] = name;
+    if (phone) rich['Phone'] = phone;
+    const bare = { 'Contact Email': email };
 
+    const post = async (contact) => {
+      const params = new URLSearchParams({
+        resfmt: 'JSON',
+        listkey: listKey,
+        contactinfo: JSON.stringify(contact),
+      });
+      const r = await fetch('https://campaigns.zoho.com/api/v1.1/json/listsubscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: `Zoho-oauthtoken ${accessToken}`,
+        },
+        body: params.toString(),
+      });
+      const raw = await r.text();
+      let d = {};
+      try { d = JSON.parse(raw); } catch (_) {}
+      const st = String(d.status || '').toLowerCase();
+      // "already exists" is a success for our purposes — the contact is on the list.
+      const good = r.ok && (st === 'success' ||
+                    /already/i.test(String(d.message || '')));
+      return { ok: good, status: d.status || null, code: d.code || null,
+               message: d.message || (good ? null : raw.slice(0, 200)) };
+    };
+
+    let out = await post(rich);
+    if (!out.ok) {
+      const retry = await post(bare);
+      if (retry.ok) return { ...retry, note: 'fell_back_to_bare_email' };
+      return { ...out, note: 'both_payloads_failed', fallback: retry.message };
+    }
+    return out;
+  } catch (err) {
+    return { ok: false, status: 'exception', code: null,
+             message: String((err && err.message) || err).slice(0, 200) };
+  }
+}
+
+async function _unusedLegacyZohoPost(accessToken, listKey, contact) {
     const params = new URLSearchParams({
       resfmt: 'JSON',
       listkey: listKey,
