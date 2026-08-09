@@ -71,7 +71,8 @@ async function handleNotify(context) {
       const lists = (d.list_of_details || []).map((l) => ({
         name: l.listname, key: l.listkey, count: l.noofcontacts, signup: l.signupform }));
       return json({ success: true, configured_key_tail: String(env.ZOHO_LIST_KEY || '').slice(-8),
-                    zoho_status: d.status, lists });
+                    zoho_status: d.status, zoho_code: d.code, zoho_message: d.message,
+                    zoho_uri: d.uri, raw: raw.slice(0, 400), lists });
     } catch (err) { return json({ success: false, error: String(err && err.message) }); }
   }
 
