@@ -49,6 +49,32 @@ export async function onRequestPost(context) {
 async function handleNotify(context) {
   const { request, env } = context;
 
+  // --- diagnostic: ?diag=lists returns the real mailing lists + keys so a
+  // stale ZOHO_LIST_KEY can be spotted. Still behind NOTIFY_SECRET. Remove
+  // once the Zoho pipeline is confirmed working.
+  const url = new URL(request.url);
+  if (url.searchParams.get('diag') === 'lists') {
+    const authHdr = request.headers.get('Authorization') || '';
+    if (!env.NOTIFY_SECRET || authHdr.replace(/^Bearer\s+/i, '').trim() !== env.NOTIFY_SECRET) {
+      return json({ success: false, error: 'unauthorized' }, 401);
+    }
+    try {
+      const at = await getZohoAccessToken({
+        clientId: env.ZOHO_CLIENT_ID, clientSecret: env.ZOHO_CLIENT_SECRET,
+        refreshToken: env.ZOHO_REFRESH_TOKEN });
+      if (!at) return json({ success: false, error: 'no_access_token' });
+      const r = await fetch(
+        'https://campaigns.zoho.com/api/v1.1/json/getmailinglists?resfmt=JSON&sort=asc&fromindex=1&range=25',
+        { headers: { Authorization: `Zoho-oauthtoken ${at}` } });
+      const raw = await r.text();
+      let d = {}; try { d = JSON.parse(raw); } catch (_) { return json({ raw: raw.slice(0, 400) }); }
+      const lists = (d.list_of_details || []).map((l) => ({
+        name: l.listname, key: l.listkey, count: l.noofcontacts, signup: l.signupform }));
+      return json({ success: true, configured_key_tail: String(env.ZOHO_LIST_KEY || '').slice(-8),
+                    zoho_status: d.status, lists });
+    } catch (err) { return json({ success: false, error: String(err && err.message) }); }
+  }
+
   // --- auth ---------------------------------------------------------------
   const auth = request.headers.get('Authorization') || '';
   const presented = auth.replace(/^Bearer\s+/i, '').trim();
