@@ -35,7 +35,7 @@ ALTER TABLE private_config ENABLE ROW LEVEL SECURITY;
 -- NOTIFY_SECRET must match the Cloudflare env var of the same name exactly.
 INSERT INTO private_config (key, value) VALUES
   ('notify_url',    'https://fundfinder.ng/api/notify-signup'),
-  ('notify_secret', 'REPLACE_WITH_THE_SAME_LONG_RANDOM_STRING_AS_CLOUDFLARE')
+  ('notify_secret', '9PrOBngltBoJz5vgbjcvKfACv6sO0ApoF3wEnZfLt4SBRiq0XYGP0_fb2lBKeJAV')
 ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value;
 
 
