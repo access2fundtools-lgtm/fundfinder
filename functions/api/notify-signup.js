@@ -64,7 +64,7 @@ async function handleNotify(context) {
         refreshToken: env.ZOHO_REFRESH_TOKEN });
       if (!at) return json({ success: false, error: 'no_access_token' });
       const r = await fetch(
-        'https://campaigns.zoho.com/api/v1.1/json/getmailinglists?resfmt=JSON&sort=asc&fromindex=1&range=25',
+        'https://campaigns.zoho.com/api/v1.1/json/lists?resfmt=JSON&sort=asc&fromindex=1&range=25',
         { headers: { Authorization: `Zoho-oauthtoken ${at}` } });
       const raw = await r.text();
       let d = {}; try { d = JSON.parse(raw); } catch (_) { return json({ raw: raw.slice(0, 400) }); }
