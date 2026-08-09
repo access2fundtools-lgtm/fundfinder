@@ -28,6 +28,8 @@
 //   ZEPTOMAIL_TOKEN      — optional (Zoho ZeptoMail "Send Mail Token")
 //   ZOHO_*               — optional, same four vars subscribe.js already uses
 
+const BUILD = 'zoho-multiformat-1';
+
 const json = (obj, status = 200) =>
   new Response(JSON.stringify(obj), { status, headers: { 'Content-Type': 'application/json' } });
 
@@ -124,7 +126,7 @@ async function handleNotify(context) {
   if (type === 'account') {
     const z = await pushToZoho(env, { email, name, phone });
     zohoOk = !!(z && z.ok);
-    if (!zohoOk && z) zohoDetail = { status: z.status, code: z.code, message: z.message };
+    if (z) zohoDetail = z;
   }
 
   return json({ success: true, emailed, zoho: zohoOk, zoho_detail: zohoDetail });
@@ -180,86 +182,54 @@ async function sendEmail(env, { to, from, subject, text, html }) {
 async function pushToZoho(env, { email, name, phone }) {
   const { ZOHO_CLIENT_ID: clientId, ZOHO_CLIENT_SECRET: clientSecret,
           ZOHO_REFRESH_TOKEN: refreshToken, ZOHO_LIST_KEY: listKey } = env;
-  if (!clientId || !clientSecret || !refreshToken || !listKey) return false;
+  if (!clientId || !clientSecret || !refreshToken || !listKey) {
+    return { ok: false, status: 'no_credentials', build: BUILD };
+  }
 
   try {
     const accessToken = await getZohoAccessToken({ clientId, clientSecret, refreshToken });
-    if (!accessToken) return false;
+    if (!accessToken) return { ok: false, status: 'no_access_token', build: BUILD };
 
-    // Zoho rejects the WHOLE contact if any field is unknown to the list, and
-    // reports it misleadingly as code 2007 "Invalid Contact Email address".
-    // Funnel_Stage is a custom field that may not exist yet, so try the rich
-    // payload first and fall back to the bare email that subscribe.js proves works.
-    const rich = { 'Contact Email': email, 'Funnel_Stage': '1_account_no_profile' };
-    if (name)  rich['First Name'] = name;
-    if (phone) rich['Phone'] = phone;
-    const bare = { 'Contact Email': email };
+    // Zoho's documented sample sends contactinfo as UNQUOTED pseudo-JSON
+    // ({Contact Email:a@b.com}), not real JSON, and reads every parameter from
+    // the QUERY STRING rather than the POST body. Try the plausible shapes and
+    // report which one Zoho actually accepts.
+    const jsonBare  = JSON.stringify({ 'Contact Email': email });
+    const jsonRich  = JSON.stringify(
+      Object.assign({ 'Contact Email': email }, name ? { 'First Name': name } : {}));
+    const pseudoBare = `{Contact Email:${email}}`;
+    const pseudoRich = name ? `{Contact Email:${email},First Name:${name}}` : pseudoBare;
 
-    const post = async (contact) => {
-      const params = new URLSearchParams({
-        resfmt: 'JSON',
-        listkey: listKey,
-        contactinfo: JSON.stringify(contact),
-      });
-      // Zoho's listsubscribe reads its parameters from the QUERY STRING, not the
-      // POST body. Sending them as a form body means Zoho sees no contactinfo at
-      // all and reports it as an invalid email address. Documented in Zoho's own
-      // sample request: .../json/listsubscribe?resfmt=JSON&listkey=..&contactinfo=..
+    const attempts = [
+      ['json_bare',   jsonBare],
+      ['pseudo_bare', pseudoBare],
+      ['json_rich',   jsonRich],
+      ['pseudo_rich', pseudoRich],
+    ];
+
+    const tried = [];
+    for (const [label, ci] of attempts) {
+      const qs = new URLSearchParams({ resfmt: 'JSON', listkey: listKey, contactinfo: ci });
       const r = await fetch(
-        `https://campaigns.zoho.com/api/v1.1/json/listsubscribe?${params.toString()}`, {
-        method: 'POST',
-        headers: { Authorization: `Zoho-oauthtoken ${accessToken}` },
-      });
+        `https://campaigns.zoho.com/api/v1.1/json/listsubscribe?${qs.toString()}`,
+        { method: 'POST', headers: { Authorization: `Zoho-oauthtoken ${accessToken}` } });
       const raw = await r.text();
       let d = {};
       try { d = JSON.parse(raw); } catch (_) {}
-      const st = String(d.status || '').toLowerCase();
-      // "already exists" is a success for our purposes — the contact is on the list.
-      const good = r.ok && (st === 'success' ||
-                    /already/i.test(String(d.message || '')));
-      return { ok: good, status: d.status || null, code: d.code || null,
-               message: d.message || (good ? null : raw.slice(0, 200)) };
-    };
-
-    let out = await post(rich);
-    if (!out.ok) {
-      const retry = await post(bare);
-      if (retry.ok) return { ...retry, note: 'fell_back_to_bare_email' };
-      return { ...out, note: 'both_payloads_failed', fallback: retry.message };
+      const st  = String(d.status || '').toLowerCase();
+      const msg = String(d.message || '');
+      const good = r.ok && (st === 'success' || /already/i.test(msg));
+      tried.push(`${label}=${d.code || r.status}${good ? ':OK' : ''}`);
+      if (good) {
+        return { ok: true, status: d.status, code: d.code, message: msg,
+                 accepted_format: label, tried, build: BUILD };
+      }
     }
-    return out;
+    return { ok: false, status: 'all_formats_rejected', tried, build: BUILD };
   } catch (err) {
-    return { ok: false, status: 'exception', code: null,
-             message: String((err && err.message) || err).slice(0, 200) };
+    return { ok: false, status: 'exception',
+             message: String((err && err.message) || err).slice(0, 200), build: BUILD };
   }
-}
-
-async function _unusedLegacyZohoPost(accessToken, listKey, contact) {
-    const params = new URLSearchParams({
-      resfmt: 'JSON',
-      listkey: listKey,
-      contactinfo: JSON.stringify(contact),
-    });
-    const res = await fetch('https://campaigns.zoho.com/api/v1.1/json/listsubscribe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Zoho-oauthtoken ${accessToken}`,
-      },
-      body: params.toString(),
-    });
-
-    // Zoho Campaigns answers HTTP 200 even when it rejects the contact — the
-    // real outcome is in the body. Checking res.ok alone reports success for
-    // failures (bad list key, unknown custom field, unconfirmed opt-in).
-    const raw = await res.text();
-    let data = {};
-    try { data = JSON.parse(raw); } catch (_) { /* non-JSON = treat as failure */ }
-    const ok = res.ok && String(data.status || '').toLowerCase() === 'success';
-    return { ok, status: data.status || null, code: data.code || null,
-             message: data.message || (ok ? null : raw.slice(0, 200)) };
-  } catch (err) { return { ok: false, status: 'exception', code: null,
-                           message: String((err && err.message) || err).slice(0, 200) }; }
 }
 
 async function getZohoAccessToken({ clientId, clientSecret, refreshToken }) {
