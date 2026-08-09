@@ -120,9 +120,14 @@ async function handleNotify(context) {
   // subscribe.js already does this for newsletter signups; account signups
   // never reached Zoho at all before this endpoint existed.
   let zohoOk = false;
-  if (type === 'account') zohoOk = await pushToZoho(env, { email, name, phone });
+  let zohoDetail = null;
+  if (type === 'account') {
+    const z = await pushToZoho(env, { email, name, phone });
+    zohoOk = !!(z && z.ok);
+    if (!zohoOk && z) zohoDetail = { status: z.status, code: z.code, message: z.message };
+  }
 
-  return json({ success: true, emailed, zoho: zohoOk });
+  return json({ success: true, emailed, zoho: zohoOk, zoho_detail: zohoDetail });
 }
 
 // ---------------------------------------------------------------------------
@@ -198,8 +203,18 @@ async function pushToZoho(env, { email, name, phone }) {
       },
       body: params.toString(),
     });
-    return res.ok;
-  } catch (_) { return false; }
+
+    // Zoho Campaigns answers HTTP 200 even when it rejects the contact — the
+    // real outcome is in the body. Checking res.ok alone reports success for
+    // failures (bad list key, unknown custom field, unconfirmed opt-in).
+    const raw = await res.text();
+    let data = {};
+    try { data = JSON.parse(raw); } catch (_) { /* non-JSON = treat as failure */ }
+    const ok = res.ok && String(data.status || '').toLowerCase() === 'success';
+    return { ok, status: data.status || null, code: data.code || null,
+             message: data.message || (ok ? null : raw.slice(0, 200)) };
+  } catch (err) { return { ok: false, status: 'exception', code: null,
+                           message: String((err && err.message) || err).slice(0, 200) }; }
 }
 
 async function getZohoAccessToken({ clientId, clientSecret, refreshToken }) {
