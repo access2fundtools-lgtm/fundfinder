@@ -201,13 +201,14 @@ async function pushToZoho(env, { email, name, phone }) {
         listkey: listKey,
         contactinfo: JSON.stringify(contact),
       });
-      const r = await fetch('https://campaigns.zoho.com/api/v1.1/json/listsubscribe', {
+      // Zoho's listsubscribe reads its parameters from the QUERY STRING, not the
+      // POST body. Sending them as a form body means Zoho sees no contactinfo at
+      // all and reports it as an invalid email address. Documented in Zoho's own
+      // sample request: .../json/listsubscribe?resfmt=JSON&listkey=..&contactinfo=..
+      const r = await fetch(
+        `https://campaigns.zoho.com/api/v1.1/json/listsubscribe?${params.toString()}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: `Zoho-oauthtoken ${accessToken}`,
-        },
-        body: params.toString(),
+        headers: { Authorization: `Zoho-oauthtoken ${accessToken}` },
       });
       const raw = await r.text();
       let d = {};

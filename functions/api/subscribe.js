@@ -68,6 +68,7 @@ async function handleSubscribe(context) {
     listKey: env.ZOHO_LIST_KEY,
   };
 
+  let zohoResult = 'skipped';
   if (clientId && clientSecret && refreshToken && listKey) {
     try {
       const accessToken = await getZohoAccessToken({ clientId, clientSecret, refreshToken });
@@ -77,16 +78,21 @@ async function handleSubscribe(context) {
           listkey: listKey,
           contactinfo: JSON.stringify({ 'Contact Email': email }),
         });
-        await fetch(`https://campaigns.zoho.com/api/v1.1/json/listsubscribe`, {
+        // Parameters go in the QUERY STRING. Sent as a form body, Zoho silently
+        // ignores them and every subscribe has been failing with code 2007.
+        const zr = await fetch(
+          `https://campaigns.zoho.com/api/v1.1/json/listsubscribe?${params.toString()}`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: `Zoho-oauthtoken ${accessToken}`,
-          },
-          body: params.toString(),
+          headers: { Authorization: `Zoho-oauthtoken ${accessToken}` },
         });
-        // Zoho's own response codes (success / ContactAlreadyExists) are both fine —
-        // we never block the visitor's experience on Zoho's reply.
+        // Still never block the visitor on Zoho's reply — but do record the real
+        // outcome so a silent failure can't hide again.
+        try {
+          const zd = await zr.json();
+          const zst = String(zd.status || '').toLowerCase();
+          zohoResult = (zr.ok && (zst === 'success' || /already/i.test(String(zd.message || ''))))
+            ? 'ok' : `${zd.code || 'err'}:${String(zd.message || '').slice(0, 80)}`;
+        } catch (_) { zohoResult = 'unparseable'; }
       }
     } catch (_) { /* Zoho hiccup shouldn't fail the signup for the visitor */ }
   }
