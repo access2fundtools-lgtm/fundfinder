@@ -66,3 +66,6 @@ outreach/
 # The repo root is the public web root for fundfinder.ng and the daily scraper runs
 # `git add .`, so anything here would auto-publish. Never commit.
 project sentry/
+
+# FarmID project — internal, must never publish to public web root
+farmid/
