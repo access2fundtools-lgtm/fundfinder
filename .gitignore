@@ -69,3 +69,11 @@ project sentry/
 
 # FarmID project — internal, must never publish to public web root
 farmid/
+
+# QA bot 2026-08-14: internal deal/outreach working documents found untracked in
+# the public web root. The daily scraper runs `git add .`, so these would have
+# auto-published on the next run. Never commit.
+AICAN-*.md
+OUTREACH-DRAFTS-*.md
+PRE-SEND-CHECKLIST.md
+Receivables-Term-Sheet-Template.md
