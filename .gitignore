@@ -77,3 +77,6 @@ AICAN-*.md
 OUTREACH-DRAFTS-*.md
 PRE-SEND-CHECKLIST.md
 Receivables-Term-Sheet-Template.md
+
+# files the mount cannot delete; parked here so git add -A never republishes them
+.trash/

@@ -695,42 +695,66 @@ function getSectionData(section) {
   }
 }
 
-function updateScore() {
-  let score = 0;
-  const hasPersonal = profile.full_name && profile.business_location && profile.age_range;
-  const partPersonal = profile.full_name || profile.whatsapp;
-  if (hasPersonal)      { score += 30; setSI('personal','✅ Done','val-done'); setDot('personal','complete'); }
-  else if (partPersonal){ score += 15; setSI('personal','Partial','val-warn'); setDot('personal','partial'); }
-  else                  { setSI('personal','Missing','val-miss'); setDot('personal','empty'); }
+/* Only these four fields drive runMatching(). Everything else on this page is
+   useful for applications but does not affect whether we can match you.
+   Previously the score demanded full_name + age_range + business_name + CAC +
+   bank details across four sections, so someone could fill in exactly what
+   matching needs and still be shown 45% and "fill each section". 30 of 39
+   accounts stalled here without ever completing a profile. The score now
+   measures match-readiness only, and the rest is explicitly optional. */
+const MATCH_ESSENTIALS = [
+  ['business_sector',   'your sector'],
+  ['business_stage',    'your business stage'],
+  ['business_location', 'your location'],
+  ['funding_amount',    'how much you need']
+];
 
-  const hasBusiness = profile.business_sector && profile.business_stage && profile.business_name;
-  const partBusiness = profile.business_sector || profile.business_name;
-  if (hasBusiness)      { score += 50; setSI('business','✅ Done','val-done'); setDot('business','complete'); }
-  else if (partBusiness){ score += 25; setSI('business','Partial','val-warn'); setDot('business','partial'); }
-  else                  { setSI('business','Missing','val-miss'); setDot('business','empty'); }
+function hasProfileVal(v){ return v !== null && v !== undefined && String(v).trim() !== ''; }
+
+function updateScore() {
+  const missing = MATCH_ESSENTIALS.filter(([k]) => !hasProfileVal(profile[k]));
+  const done = MATCH_ESSENTIALS.length - missing.length;
+  const pct = Math.round((done / MATCH_ESSENTIALS.length) * 100);
+
+  // Section indicators still reflect what's actually filled, but nothing here
+  // gates matching any more.
+  const personalDone = hasProfileVal(profile.business_location);
+  if (personalDone)                 { setSI('personal','✅ Done','val-done'); setDot('personal','complete'); }
+  else if (hasProfileVal(profile.full_name) || hasProfileVal(profile.whatsapp))
+                                    { setSI('personal','Partial','val-warn'); setDot('personal','partial'); }
+  else                              { setSI('personal','Needed','val-miss'); setDot('personal','empty'); }
+
+  const bizDone = hasProfileVal(profile.business_sector) && hasProfileVal(profile.business_stage)
+                  && hasProfileVal(profile.funding_amount);
+  const bizPart = hasProfileVal(profile.business_sector) || hasProfileVal(profile.business_stage)
+                  || hasProfileVal(profile.funding_amount);
+  if (bizDone)      { setSI('business','✅ Done','val-done'); setDot('business','complete'); }
+  else if (bizPart) { setSI('business','Partial','val-warn'); setDot('business','partial'); }
+  else              { setSI('business','Needed','val-miss'); setDot('business','empty'); }
 
   if (profile.student_level && profile.student_level !== 'not-student') {
-    score += 10; setSI('academic','✅ Done','val-done'); setDot('academic','complete');
+    setSI('academic','✅ Added','val-done'); setDot('academic','complete');
   } else { setSI('academic','Optional','val-miss'); setDot('academic','empty'); }
 
   if (profile.cac_number || profile.bank_name) {
-    score += 10; setSI('docs','✅ Done','val-done'); setDot('docs','complete');
+    setSI('docs','✅ Added','val-done'); setDot('docs','complete');
   } else { setSI('docs','Optional','val-miss'); setDot('docs','empty'); }
 
-  const pct = Math.min(100, score);
   document.getElementById('scoreNum').textContent = `${pct}%`;
   document.getElementById('scoreCircle').style.background =
     `conic-gradient(var(--gold) 0% ${pct}%, var(--surface2) ${pct}% 100%)`;
 
-  if (pct >= 80) {
-    document.getElementById('scoreLabel').textContent = 'Excellent — fully matched';
-    document.getElementById('scoreSub').textContent = 'You qualify for the most opportunities.';
-  } else if (pct >= 40) {
-    document.getElementById('scoreLabel').textContent = 'Good — keep going';
-    document.getElementById('scoreSub').textContent = 'Add business details to unlock more matches.';
+  const label = document.getElementById('scoreLabel');
+  const sub   = document.getElementById('scoreSub');
+
+  if (!missing.length) {
+    label.textContent = '✅ Match-ready';
+    sub.textContent = 'That is everything we need. Your matches are below — anything else on this page is optional and only helps when you apply.';
   } else {
-    document.getElementById('scoreLabel').textContent = 'Just getting started';
-    document.getElementById('scoreSub').textContent = 'Fill each section to unlock funding matches.';
+    const list = missing.map(m => m[1]);
+    const human = list.length === 1 ? list[0] : list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1];
+    label.textContent = `${done} of ${MATCH_ESSENTIALS.length} done`;
+    sub.textContent = `Add ${human} and we can match you. Takes under a minute — everything else is optional.`;
   }
 }
 

@@ -34,6 +34,18 @@
   .pill.gold{background:rgba(255,215,0,0.12);color:var(--gold);}
   .pill.red{background:rgba(239,68,68,0.12);color:var(--red);}
   .pill.blue{background:rgba(59,130,246,0.12);color:var(--blue);}
+  .pill.grey{background:rgba(148,163,184,0.14);color:#94a3b8;}
+  /* Business-profile drill-down (Users tab) */
+  .urow{cursor:pointer;}
+  .urow:hover{background:rgba(255,215,0,0.04);}
+  .pdetail>td{background:rgba(255,255,255,0.02);border-top:0;padding:14px 16px 18px;}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px 22px;}
+  .pfield{min-width:0;}
+  .plabel{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#94a3b8;margin-bottom:3px;}
+  .pvalue{font-size:13px;line-height:1.5;color:#e2e8f0;word-wrap:break-word;overflow-wrap:anywhere;}
+  .pvalue a{color:var(--gold);}
+  .pempty{font-size:13px;color:#94a3b8;font-style:italic;}
+  .pmissing{margin-top:12px;font-size:11px;color:#64748b;}
   .act{background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.3);color:var(--gold);font-size:12px;font-weight:700;padding:5px 12px;border-radius:7px;cursor:pointer;}
   .act:hover{background:rgba(255,215,0,0.2);}
   .act.green{background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.3);color:var(--green);}
@@ -79,7 +91,7 @@
     <div id="tab-users">
       <input class="search" id="userSearch" placeholder="Search by email, name, business…" oninput="renderUsers()">
       <div class="card"><table>
-        <thead><tr><th>Email</th><th>Name</th><th>WhatsApp</th><th>Business</th><th>Credits</th><th>Joined</th><th>Action</th></tr></thead>
+        <thead><tr><th>Email</th><th>Name</th><th>WhatsApp</th><th>Business</th><th>Credits</th><th>Joined</th><th>Profile / Action</th></tr></thead>
         <tbody id="usersBody"></tbody>
       </table></div>
     </div>
@@ -143,7 +155,7 @@ async function boot(){
 
 async function loadAll(){
   const [pRes, wRes, tRes, oRes, lRes] = await Promise.all([
-    sb.from('user_profiles').select('user_id,email,full_name,whatsapp,business_name,business_sector,business_location,created_at').order('created_at',{ascending:false}),
+    sb.from('user_profiles').select('*').order('created_at',{ascending:false}),
     sb.from('wallets').select('user_id,balance_credits,total_credits_purchased,total_credits_used'),
     sb.from('transactions').select('*').order('created_at',{ascending:false}).limit(300),
     sb.from('program_principals').select('*').order('created_at',{ascending:false}),
@@ -201,16 +213,67 @@ function renderUsers(){
   body.innerHTML = rows.map(u=>{
     const w = WALLETS[u.user_id] || {};
     const cr = (w.balance_credits!=null) ? w.balance_credits : '—';
-    return `<tr>
+    const filled = PROFILE_FIELDS.filter(f => hasVal(u[f.key])).length;
+    const badge = filled >= 6 ? 'green' : (filled >= 3 ? 'gold' : 'grey');
+    return `<tr class="urow" onclick="toggleProfile('${u.user_id}')">
       <td>${esc(u.email)||'<span class="mono">no email</span>'}</td>
       <td>${esc(u.full_name)||'—'}</td>
       <td>${esc(u.whatsapp)||'—'}</td>
       <td>${esc(u.business_name)||'—'}${u.business_sector?` <span class="mono">· ${esc(u.business_sector)}</span>`:''}</td>
       <td><span class="pill gold">${cr}</span></td>
       <td>${dt(u.created_at)}</td>
-      <td><button class="act" onclick="grant('${u.user_id}','${esc(u.email)}')">Adjust credits</button></td>
+      <td>
+        <span class="pill ${badge}" title="business-profile fields completed">${filled}/${PROFILE_FIELDS.length}</span>
+        <button class="act" onclick="event.stopPropagation();grant('${u.user_id}','${esc(u.email)}')">Adjust credits</button>
+      </td>
+    </tr>
+    <tr class="pdetail" id="p_${u.user_id}" style="display:none">
+      <td colspan="7">${profileHtml(u)}</td>
     </tr>`;
   }).join('');
+}
+
+/* ── Business profile drill-down ──────────────────────────────────────────
+   These fields are collected by fundfinder-profile.html on every signup but
+   were never displayed anywhere in admin, so qualified leads could not be
+   worked by hand. Click any row to expand. */
+const PROFILE_FIELDS = [
+  { key:'business_name',        label:'Business name' },
+  { key:'business_sector',      label:'Sector' },
+  { key:'business_stage',       label:'Stage' },
+  { key:'business_location',    label:'Location' },
+  { key:'funding_amount',       label:'Funding sought' },
+  { key:'funding_purpose',      label:'Use of funds' },
+  { key:'revenue',              label:'Revenue' },
+  { key:'team_size',            label:'Team size' },
+  { key:'traction',             label:'Traction' },
+  { key:'website',              label:'Website' },
+  { key:'business_description', label:'What the business does' }
+];
+
+function hasVal(v){ return v !== null && v !== undefined && String(v).trim() !== ''; }
+
+function profileHtml(u){
+  const filled = PROFILE_FIELDS.filter(f => hasVal(u[f.key]));
+  if(!filled.length){
+    return '<div class="pempty">No business profile submitted — account created but the profile form was never completed.</div>';
+  }
+  const cells = filled.map(f => {
+    let v = esc(String(u[f.key]));
+    if(f.key === 'website'){
+      const href = /^https?:\/\//i.test(u[f.key]) ? u[f.key] : 'https://' + u[f.key];
+      v = `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${v}</a>`;
+    }
+    return `<div class="pfield"><div class="plabel">${f.label}</div><div class="pvalue">${v}</div></div>`;
+  }).join('');
+  const missing = PROFILE_FIELDS.filter(f => !hasVal(u[f.key])).map(f => f.label);
+  const miss = missing.length ? `<div class="pmissing">Not provided: ${missing.join(' · ')}</div>` : '';
+  return `<div class="pgrid">${cells}</div>${miss}`;
+}
+
+function toggleProfile(id){
+  const row = document.getElementById('p_' + id);
+  if(row) row.style.display = (row.style.display === 'none' ? 'table-row' : 'none');
 }
 
 function renderTxns(){
