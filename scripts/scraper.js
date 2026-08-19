@@ -752,8 +752,8 @@ function generateFlyer(opp) {
 <meta property="og:title" content="${opp.title} — FundFinder AI">
 <meta property="og:description" content="${opp.description}">
 <meta name="description" content="${opp.description}">
-<link rel="canonical" href="https://fundfinder.ng/${opp.slug}.html">
-<meta property="og:url" content="https://fundfinder.ng/${opp.slug}.html">
+<link rel="canonical" href="https://fundfinder.ng/${opp.slug}">
+<meta property="og:url" content="https://fundfinder.ng/${opp.slug}">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://fundfinder.ng/og-image.png">
 <meta property="og:site_name" content="FundFinder AI">

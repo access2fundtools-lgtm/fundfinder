@@ -39,7 +39,7 @@ const meta = (fn) => {
   if (isOpp(fn)) return ['0.8','weekly'];
   return ['0.5','monthly'];
 };
-const loc = (fn) => fn === 'index.html' ? SITE + '/' : `${SITE}/${fn}`;
+const loc = (fn) => fn === 'index.html' ? SITE + '/' : `${SITE}/${fn.replace(/\.html$/, '')}`;
 
 const files = fs.readdirSync(ROOT)
   .filter(f => f.endsWith('.html') && !NOINDEX.has(f))
