@@ -502,5 +502,47 @@
     "description": "Open investment application accepted on a rolling basis through the funder's own application page. Amounts and terms are not publicly stated and are assessed case by case.",
     "applyUrl": "https://kjoller.com/application.asp",
     "source": "curated-2026"
+  },
+  {
+    "id": "curated-niya-cascador-founders-programme-2026",
+    "slug": "opportunity-niya-cascador-founders-programme-2026",
+    "title": "NiYA × Cascador Founders Programme 2026",
+    "funder": "Nigerian Youth Academy (NiYA) — Federal Ministry of Youth Development, with Cascador",
+    "category": "grants",
+    "amount": "Up to ₦5,000,000 non-dilutive — awarded to 8 top performers out of a 20-founder cohort, not to every participant",
+    "deadline": "Applications opened 19 August 2026 — closing date not yet published",
+    "eligibility": "Young Nigerian founders (NiYA serves ages 18–35). Early-stage businesses welcome — founders who have not formally registered their business or built financial records may still apply.",
+    "scope": "Nigeria (nationwide)",
+    "description": "Four-week programme run by the Nigerian Youth Academy under the Federal Ministry of Youth Development in partnership with Cascador, announced 14 August 2026 and opened for applications on 19 August 2026. Twenty young Nigerian founders receive training in business fundamentals, investment readiness and pitch preparation, plus mentorship from experienced operators. At the end, the eight top-performing founders each receive up to ₦5 million in non-dilutive funding from Cascador — the award goes to 8 of the 20, not to the whole cohort. All 20 graduates keep NiYA alumni status with priority consideration for future opportunities.",
+    "applyUrl": "https://startup.niya.gov.ng/fmyd/grants",
+    "source": "curated-2026"
+  },
+  {
+    "id": "curated-smedan-bryne-2026",
+    "slug": "opportunity-smedan-bryne-2026",
+    "title": "SMEDAN BRYNE — Building Resilient Young Nigerian Entrepreneurs",
+    "funder": "Small and Medium Enterprises Development Agency of Nigeria (SMEDAN)",
+    "category": "programme",
+    "amount": "Mostly non-cash (training, incubation, mentorship, market access). Only cash component: ₦250,000 each to 52 startup-hackathon winners per year",
+    "deadline": "No published deadline — no application portal live yet; watch smedan.gov.ng",
+    "eligibility": "Young Nigerian entrepreneurs at any stage, from idea to operating business. Targets over 100,000 participants annually.",
+    "scope": "Nigeria (nationwide, physical and digital delivery)",
+    "description": "National programme unveiled by SMEDAN Director-General Charles Odii on 14 August 2026 as part of International Youth Day activities, targeting over 100,000 young Nigerians a year. Combines enterprise training, incubation, mentorship, access to finance, market linkages and business development support, delivered through physical and digital platforms, plus help with business formalisation and export readiness. A weekly startup hackathon engages 5,000 entrepreneurs, from which 52 winners a year each receive ₦250,000 in seed funding. Listed as a programme rather than a grant because the cash element reaches only 52 people a year. IMPORTANT: no official application portal exists yet — apply only through smedan.gov.ng. Third-party 'BRYNE Application Status' pages circulating on aggregator sites are not official.",
+    "applyUrl": "https://smedan.gov.ng/",
+    "source": "curated-2026"
+  },
+  {
+    "id": "curated-timbuktoo-healthtech-launchpad-2026",
+    "slug": "opportunity-timbuktoo-healthtech-launchpad-2026",
+    "title": "UNDP Pan-African timbuktoo HealthTech Launchpad",
+    "funder": "United Nations Development Programme (UNDP) — timbuktoo HealthTech Hub, Kigali",
+    "category": "accelerator",
+    "amount": "No cash award — incubation, mentorship, SIGMA platform access and investment pathways",
+    "deadline": "Cohort 1 (September 2026) has closed. Cohort 2 (December 2026) dates not yet published.",
+    "eligibility": "African health-technology startups. Nigeria eligible as part of the pan-African cohort.",
+    "scope": "Pan-African (Nigeria eligible)",
+    "description": "Launchpad run from UNDP's timbuktoo HealthTech Hub in Kigali, supporting African health-technology founders through structured incubation, mentorship, access to the SIGMA platform and pathways to investors. There is no cash prize — the value is the programme, the network and the investment pipeline. Cohort 1 (September 2026) is already closed; Cohort 2 is signposted for December 2026 but no dates or opening have been published. Apply through the UNDP programme page rather than any raw form link, since the intake form is rotated between cohorts.",
+    "applyUrl": "https://www.undp.org/africa/timbuktoo",
+    "source": "curated-2026"
   }
 ]
