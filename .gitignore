@@ -80,3 +80,7 @@ Receivables-Term-Sheet-Template.md
 
 # files the mount cannot delete; parked here so git add -A never republishes them
 .trash/
+
+# OneUp internal application working files — company facts, eligibility notes and
+# draft pitch copy. Repo root is the public web root, so these must never publish.
+oneup/
