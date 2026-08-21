@@ -41,8 +41,18 @@ const meta = (fn) => {
 };
 const loc = (fn) => fn === 'index.html' ? SITE + '/' : `${SITE}/${fn.replace(/\.html$/, '')}`;
 
+// QA bot 2026-08-21: the hardcoded NOINDEX set above only catches files someone
+// remembered to add to it. A page that carries its own
+// `<meta name="robots" content="noindex">` must also stay out of the sitemap, or
+// Search Console reports it as "Submitted URL marked noindex". Read the tag too.
+const hasNoindexMeta = (fn) => {
+  try {
+    return /<meta[^>]+name=["']robots["'][^>]*noindex/i.test(fs.readFileSync(path.join(ROOT, fn), 'utf8'));
+  } catch { return false; }
+};
+
 const files = fs.readdirSync(ROOT)
-  .filter(f => f.endsWith('.html') && !NOINDEX.has(f))
+  .filter(f => f.endsWith('.html') && !NOINDEX.has(f) && !hasNoindexMeta(f))
   .sort();
 
 const rows = files.map(fn => {

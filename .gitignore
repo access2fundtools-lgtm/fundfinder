@@ -88,3 +88,9 @@ oneup/
 # Internal group matching engine — reveals which grants A2F's own companies
 # qualify for. Competitive intelligence; repo root is the public web root.
 matching/
+
+# QA bot 2026-08-21: channel setup logs are internal working notes (they name
+# accounts, app IDs and where credentials live). Same class as SOCIAL-LOG/SYNC-LOG.
+# The daily scraper runs `git add .` in the public web root, so ignore them.
+X-SETUP-LOG-*.txt
+*-SETUP-LOG-*.txt

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FundFinder AI — Links</title>
+<meta name="description" content="Funding opportunities for Nigerian entrepreneurs — grants, loans, accelerators and empowerment programmes. Updated continuously.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="FundFinder AI — Funding for Nigerian Entrepreneurs">
+<meta property="og:description" content="Grants, loans, accelerators and empowerment programmes open to Nigerian businesses.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fundfinder.ng/links.html">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #080808; --surface: #111; --surface2: #181818; --surface3: #222;
+  --border: rgba(255,255,255,0.08); --text: #f0f0f0;
+  --muted: rgba(255,255,255,0.5); --hint: rgba(255,255,255,0.28);
+  --gold: #FFD700; --gold-dim: rgba(255,215,0,0.1); --gold-border: rgba(255,215,0,0.25);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.1);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12); --red-border: rgba(239,68,68,0.3);
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.5;
+  min-height: 100vh; padding: 32px 18px 56px;
+  display: flex; justify-content: center;
+}
+.wrap { width: 100%; max-width: 520px; }
+
+/* GLOW */
+.glow {
+  position: fixed; top: -260px; left: 50%; transform: translateX(-50%);
+  width: 760px; height: 620px; pointer-events: none; z-index: 0;
+  background: radial-gradient(ellipse at center, rgba(255,215,0,0.08) 0%, transparent 65%);
+}
+.wrap > * { position: relative; z-index: 1; }
+
+/* HEADER */
+header { text-align: center; margin-bottom: 28px; }
+.logo {
+  font-size: 30px; font-weight: 900; letter-spacing: 1px;
+  text-decoration: none; color: var(--text); display: inline-block; margin-bottom: 10px;
+}
+.logo span { color: var(--gold); }
+.badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--gold-dim); border: 1px solid var(--gold-border);
+  color: var(--gold); font-size: 12px; font-weight: 700;
+  padding: 6px 14px; border-radius: 50px; letter-spacing: 0.4px; margin-bottom: 14px;
+}
+.badge .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: blink 1.4s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.tagline { font-size: 15px; color: var(--muted); max-width: 380px; margin: 0 auto; }
+
+/* PRIMARY CTA */
+.cta-primary {
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+  background: var(--gold); color: #000; font-size: 16px; font-weight: 900;
+  padding: 17px 22px; border-radius: 12px; text-decoration: none;
+  box-shadow: 0 8px 30px rgba(255,215,0,0.22);
+  transition: transform 0.18s, opacity 0.18s; margin-bottom: 28px;
+}
+.cta-primary:active { transform: scale(0.985); opacity: 0.9; }
+
+/* SECTION */
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 0 4px 12px; font-size: 12px; font-weight: 800;
+  letter-spacing: 1.2px; text-transform: uppercase; color: var(--hint);
+}
+.section-head .count { color: var(--gold); }
+
+/* DEADLINE CARDS */
+#closing { margin-bottom: 30px; }
+.opp {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 15px 16px; margin-bottom: 10px;
+  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+}
+.opp:active { transform: scale(0.99); }
+.opp:hover { border-color: var(--gold-border); background: var(--surface2); }
+.opp-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.pill {
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase;
+  padding: 3.5px 9px; border-radius: 50px; white-space: nowrap;
+}
+.pill-cat { background: var(--surface3); color: var(--muted); }
+.pill-urgent { background: var(--red-dim); color: var(--red); border: 1px solid var(--red-border); }
+.pill-soon { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+.opp-title { font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 7px; }
+.opp-meta { font-size: 12.5px; color: var(--muted); display: flex; flex-direction: column; gap: 3px; }
+.opp-meta b { color: var(--text); font-weight: 600; }
+
+/* LINK LIST */
+.link {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 15px 16px; margin-bottom: 10px;
+  text-decoration: none; color: var(--text);
+  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+}
+.link:active { transform: scale(0.99); }
+.link:hover { border-color: var(--gold-border); background: var(--surface2); }
+.link .ico { font-size: 20px; width: 26px; text-align: center; flex-shrink: 0; }
+.link .body { flex: 1; min-width: 0; }
+.link .t { font-size: 15px; font-weight: 700; }
+.link .d { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.link .arr { color: var(--hint); font-size: 17px; flex-shrink: 0; }
+
+/* SOCIAL */
+.social { display: flex; justify-content: center; gap: 10px; margin: 30px 0 22px; }
+.social a {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.18s, background 0.18s;
+}
+.social a:hover { border-color: var(--gold-border); background: var(--surface2); }
+.social svg { width: 19px; height: 19px; fill: var(--muted); transition: fill 0.18s; }
+.social a:hover svg { fill: var(--gold); }
+
+footer { text-align: center; font-size: 12px; color: var(--hint); line-height: 1.7; }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+
+.state { text-align: center; padding: 22px 12px; font-size: 13.5px; color: var(--hint); }
+.skel { height: 84px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); margin-bottom: 10px; animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:0.45} 50%{opacity:0.8} }
+
+@media (max-width: 380px) {
+  body { padding: 24px 14px 44px; }
+  .logo { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="wrap">
+
+  <header>
+    <div class="badge"><span class="dot"></span>UPDATED CONTINUOUSLY</div>
+    <a href="index.html" class="logo">FUND<span>FINDER</span></a>
+    <p class="tagline">Grants, loans, accelerators and empowerment programmes open to Nigerian entrepreneurs.</p>
+  </header>
+
+  <a href="opportunity-hub.html" class="cta-primary">Browse all opportunities →</a>
+
+  <div id="closing">
+    <div class="section-head"><span>⏰ Closing soon</span><span class="count" id="cnt"></span></div>
+    <div id="opps"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+  </div>
+
+  <div class="section-head"><span>Tools &amp; resources</span></div>
+
+  <a href="opportunity-hub.html" class="link">
+    <span class="ico">🎯</span>
+    <span class="body"><span class="t">Opportunity Hub</span><span class="d">Every open grant, loan and accelerator</span></span>
+    <span class="arr">›</span>
+  </a>
+
+  <a href="guides.html" class="link">
+    <span class="ico">📘</span>
+    <span class="body"><span class="t">Application Guides</span><span class="d">Step-by-step help for major programmes</span></span>
+    <span class="arr">›</span>
+  </a>
+
+  <a href="business-diagnostic.html" class="link">
+    <span class="ico">🩺</span>
+    <span class="body"><span class="t">Free Business Diagnostic</span><span class="d">See which funding you actually qualify for</span></span>
+    <span class="arr">›</span>
+  </a>
+
+  <a href="cac-strike-off-checker.html" class="link">
+    <span class="ico">🔍</span>
+    <span class="body"><span class="t">CAC Strike-Off Checker</span><span class="d">Check if your company is at risk of removal</span></span>
+    <span class="arr">›</span>
+  </a>
+
+  <a href="fundfinder-auth.html" class="link">
+    <span class="ico">🔔</span>
+    <span class="body"><span class="t">Get Funding Alerts</span><span class="d">New opportunities matched to your business</span></span>
+    <span class="arr">›</span>
+  </a>
+
+  <div class="social">
+    <a href="https://x.com/fundfinder_ai" target="_blank" rel="noopener" aria-label="X (Twitter)">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="https://web.facebook.com/profile.php?id=106941541688478" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96H15.83c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+    </a>
+    <a href="https://fundfinder.ng" aria-label="Website">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm7.938 6.5h-3.42a15.6 15.6 0 0 0-1.38-3.56A10.05 10.05 0 0 1 19.938 6.5zM12 2.04c.83 1.2 1.48 2.71 1.87 4.46h-3.74c.39-1.75 1.04-3.26 1.87-4.46zM2.26 14a9.96 9.96 0 0 1 0-4h3.9a20.6 20.6 0 0 0 0 4zm.82 2h3.42c.33 1.3.79 2.5 1.38 3.56A10.05 10.05 0 0 1 3.08 16zm3.42-8H3.08a10.05 10.05 0 0 1 4.8-3.56A15.6 15.6 0 0 0 6.5 8zM12 21.96c-.83-1.2-1.48-2.71-1.87-4.46h3.74c-.39 1.75-1.04 3.26-1.87 4.46zM14.28 16H9.72a18.4 18.4 0 0 1 0-4h4.56a18.4 18.4 0 0 1 0 4zm.86 3.56c.59-1.06 1.05-2.26 1.38-3.56h3.42a10.05 10.05 0 0 1-4.8 3.56zM17.84 14a20.6 20.6 0 0 0 0-4h3.9a9.96 9.96 0 0 1 0 4z"/></svg>
+    </a>
+  </div>
+
+  <footer>
+    <a href="index.html">fundfinder.ng</a><br>
+    Funding intelligence for Nigerian entrepreneurs
+  </footer>
+</div>
+
+<script>
+(function () {
+  var MONTHS = {january:0,february:1,march:2,april:3,may:4,june:5,july:6,august:7,
+                september:8,october:9,november:10,december:11};
+
+  // Parse free-text deadlines like "1 September 2026". Returns null for
+  // rolling / unpublished / unparseable deadlines, which are excluded
+  // from this list rather than guessed at.
+  function parseDeadline(s) {
+    if (!s) return null;
+    var m = String(s).match(/(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/);
+    if (!m) return null;
+    var mon = MONTHS[m[2].toLowerCase()];
+    if (mon === undefined) return null;
+    var d = new Date(Date.UTC(+m[3], mon, +m[1], 23, 59, 59));
+    return isNaN(d.getTime()) ? null : d;
+  }
+
+  function daysLeft(d) {
+    return Math.ceil((d - new Date()) / 86400000);
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  var box = document.getElementById('opps');
+  var cnt = document.getElementById('cnt');
+
+  fetch('data/manual-opportunities.json', { cache: 'no-store' })
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      var items = Array.isArray(data) ? data : (data.opportunities || []);
+      var live = [];
+
+      items.forEach(function (o) {
+        var d = parseDeadline(o.deadline);
+        if (!d) return;
+        var n = daysLeft(d);
+        if (n < 0 || n > 120) return;   // past, or too far out to be "closing soon"
+        live.push({ o: o, d: d, n: n });
+      });
+
+      live.sort(function (a, b) { return a.d - b.d; });
+      live = live.slice(0, 6);
+
+      if (!live.length) {
+        box.innerHTML = '<div class="state">No dated deadlines in the next few months.<br>' +
+                        'Plenty of rolling programmes are open — browse the hub above.</div>';
+        return;
+      }
+
+      cnt.textContent = live.length;
+      box.innerHTML = live.map(function (x) {
+        var urgent = x.n <= 14;
+        var label = x.n === 0 ? 'Closes today' : (x.n === 1 ? '1 day left' : x.n + ' days left');
+        return '' +
+          '<a class="opp" href="opportunity-hub.html">' +
+            '<div class="opp-top">' +
+              '<span class="pill ' + (urgent ? 'pill-urgent' : 'pill-soon') + '">' + esc(label) + '</span>' +
+              (x.o.category ? '<span class="pill pill-cat">' + esc(x.o.category) + '</span>' : '') +
+            '</div>' +
+            '<div class="opp-title">' + esc(x.o.title) + '</div>' +
+            '<div class="opp-meta">' +
+              (x.o.amount ? '<span><b>' + esc(x.o.amount) + '</b></span>' : '') +
+              '<span>Deadline: ' + esc(x.o.deadline) + '</span>' +
+            '</div>' +
+          '</a>';
+      }).join('');
+    })
+    .catch(function () {
+      box.innerHTML = '<div class="state">Could not load deadlines right now.<br>' +
+                      'Browse everything on the <a href="opportunity-hub.html" style="color:var(--gold)">Opportunity Hub</a>.</div>';
+    });
+})();
+</script>
+</body>
+</html>
