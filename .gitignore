@@ -84,3 +84,7 @@ Receivables-Term-Sheet-Template.md
 # OneUp internal application working files — company facts, eligibility notes and
 # draft pitch copy. Repo root is the public web root, so these must never publish.
 oneup/
+
+# Internal group matching engine — reveals which grants A2F's own companies
+# qualify for. Competitive intelligence; repo root is the public web root.
+matching/

@@ -11,7 +11,9 @@
     "scope": "Commonwealth low/middle-income countries (Nigeria eligible)",
     "description": "Six-month fully funded programme for growth-stage startups: two-week bootcamp in Accra, Ghana (25 Jan–4 Feb 2027, travel/accommodation/visa covered for one founder), five months of 1-on-1 coaching and expert workshops, and a London capstone week (14–21 May 2027) pitching international investors. Teams can apply for up to £2,000 in equity-free grants. Applications close 1 September 2026.",
     "applyUrl": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-smedan-conditional-grant-scheme-2026",
@@ -25,7 +27,9 @@
     "scope": "Nigeria — all LGAs",
     "description": "SMEDAN reopened its Conditional Grant Scheme portal in August 2026. One-time, non-repayable ₦50,000 grant for nano/micro businesses to fund equipment, working capital, technology or expansion, on the condition the business employs at least one additional worker. Apply only through SMEDAN's official portal — the scheme is free; nobody should charge you to apply. Not the same as the Presidential Conditional Grant Scheme.",
     "applyUrl": "https://portal.smedan.gov.ng/",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-baobab-network-accelerator",
@@ -39,7 +43,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Accelerator investing up to $100k in early-stage African tech companies, plus investor connections and founder support.",
     "applyUrl": "https://thebaobabnetwork.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-y-combinator",
@@ -53,7 +59,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "The world's best-known accelerator; funding, global network and startup guidance. African founders apply directly.",
     "applyUrl": "https://www.ycombinator.com/apply",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-antler-africa-residency",
@@ -67,7 +75,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Global early-stage VC residency that funds founders from day zero and helps match co-founders.",
     "applyUrl": "https://www.antler.co",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-founder-institute-lagos",
@@ -81,7 +91,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Pre-seed accelerator turning ideas into investable startups — training, mentorship, investor prep.",
     "applyUrl": "https://fi.co/s/lagos",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-d-prize-global-competition",
@@ -95,7 +107,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Grant competition funding new ventures that distribute proven development solutions.",
     "applyUrl": "https://d-prize.org",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-catalyst-fund-accelerator",
@@ -109,7 +123,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Accelerator backing tech startups improving lives — financial inclusion, climate resilience, healthcare.",
     "applyUrl": "https://catalystfund.org",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-anzisha-prize-fellowship",
@@ -123,7 +139,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Africa's premier award for very young entrepreneurs: fellowship, funding and leadership training.",
     "applyUrl": "https://anzishaprize.org",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-orange-corners-nigeria",
@@ -137,7 +155,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Incubation network for young entrepreneurs: training, mentorship and funding pathways.",
     "applyUrl": "https://www.orangecorners.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-unicef-venture-fund",
@@ -151,7 +171,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Equity-free funding for open-source tech solutions improving children's lives.",
     "applyUrl": "https://www.unicefventurefund.org",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-cartier-women-s-initiative",
@@ -165,7 +187,10 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Global programme for women impact entrepreneurs: grants, coaching and worldwide recognition.",
     "applyUrl": "https://www.cartierwomensinitiative.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": "2026-08-21",
+    "status": "closed",
+    "status_note": "closed 16 Jun 2026 (2027 edition); next cycle expected 2027"
   },
   {
     "id": "curated-standard-chartered-women-in-tech-accelerator",
@@ -179,7 +204,10 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Accelerator supporting women-led tech businesses with training, mentorship and grant funding.",
     "applyUrl": "https://www.sc.com/ng/women-in-tech/",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": "2026-08-21",
+    "status": "closed",
+    "status_note": "closed 26 Apr 2026; cohort 7 runs Jun-Aug 2026"
   },
   {
     "id": "curated-firstcheck-africa",
@@ -193,7 +221,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Angel fund writing first cheques into female-led African startups.",
     "applyUrl": "https://firstcheck.africa",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-ventures-platform",
@@ -207,7 +237,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Leading Nigerian VC backing early-stage startups solving Africa's hard problems.",
     "applyUrl": "https://venturesplatform.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-future-africa-fund",
@@ -221,7 +253,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Early-stage fund investing in mission-driven African founders.",
     "applyUrl": "https://future.africa",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-launch-africa-ventures",
@@ -235,7 +269,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "One of Africa's most active early-stage VC funds.",
     "applyUrl": "https://launchafrica.vc",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-partech-africa-fund",
@@ -249,7 +285,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "One of Africa's largest tech VC funds — fintech, SaaS, marketplaces, platforms.",
     "applyUrl": "https://partechpartners.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-novastar-ventures",
@@ -263,7 +301,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "VC firm backing breakthrough businesses for mass-market African consumers.",
     "applyUrl": "https://novastarventures.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-arm-labs-lagos-techstars-accelerator",
@@ -277,7 +317,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Lagos-based Techstars accelerator: investment, mentorship and the global Techstars network.",
     "applyUrl": "https://www.techstars.com/accelerators/arm-labs-lagos",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-africa-fintech-foundry",
@@ -291,7 +333,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Access Bank's fintech accelerator for payments, banking and financial-inclusion startups.",
     "applyUrl": "https://africafintechfoundry.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-wema-bank-hackaholics",
@@ -305,7 +349,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Wema Bank's innovation challenge backing fintech, AI and digital solutions.",
     "applyUrl": "https://hackaholics.wemabank.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-mit-solve-global-challenges",
@@ -319,7 +365,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "MIT's open-innovation platform funding social entrepreneurs worldwide.",
     "applyUrl": "https://solve.mit.edu",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-hult-prize",
@@ -333,7 +381,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "The world's biggest student social-entrepreneurship competition.",
     "applyUrl": "https://www.hultprize.org",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-giz-make-it-in-africa",
@@ -347,7 +397,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "German development programme accelerating African digital innovation.",
     "applyUrl": "https://make-it-in-africa.org",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-vc4a-venture-showcase",
@@ -361,7 +413,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Platform connecting African startups to investors, pitch opportunities and resources.",
     "applyUrl": "https://vc4a.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-orange-social-venture-prize",
@@ -375,7 +429,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Orange's pan-African prize for tech solving social challenges — health, agric, education, inclusion.",
     "applyUrl": "https://www.orange.com/en/orange-social-venture-prize",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-totalenergies-startupper-challenge",
@@ -389,7 +445,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Continental challenge rewarding young founders with grants, coaching and visibility.",
     "applyUrl": "https://startupper.totalenergies.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-shell-livewire-nigeria",
@@ -403,7 +461,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Shell's flagship enterprise-development programme for young entrepreneurs.",
     "applyUrl": "https://www.shell.com.ng/sustainability/communities/livewire.html",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-village-capital-africa-programmes",
@@ -417,7 +477,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "Accelerator for startups in climate, health, finance and agriculture — famous for peer-selected investment.",
     "applyUrl": "https://vilcap.com",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-afdb-youthadapt-challenge",
@@ -431,7 +493,10 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "AfDB competition funding youth-led enterprises building climate-adaptation solutions.",
     "applyUrl": "https://www.afdb.org/en/topics-and-sectors/initiatives-partnerships/youth-adapt",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": "2026-08-21",
+    "status": "closed",
+    "status_note": "no 2026 call published; last confirmed edition 2023"
   },
   {
     "id": "curated-africa-prize-for-engineering-innovation",
@@ -445,7 +510,9 @@
     "scope": "Africa-wide (Nigeria eligible)",
     "description": "The UK Royal Academy's prestigious prize for African engineering innovators.",
     "applyUrl": "https://africaprize.raeng.org.uk",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-fcmb-agritech-hackathon-2026",
@@ -459,7 +526,9 @@
     "scope": "Nigeria",
     "description": "Eighth edition of FCMB's agritech competition: a hackathon followed by a venture building programme for agritech founders, historically run with Heave Ventures and FMO. Applications for the 2026 edition announced open on 31 July 2026.",
     "applyUrl": "https://vc4a.com/heave-ventures/fcmb-agritech-hackathon-and-venture-building-program/",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-greylight-tangent-cohort-002-2026",
@@ -473,7 +542,9 @@
     "scope": "Africa",
     "description": "Second cohort of Greylight's Tangent programme, a hands-on pre-seed build programme run from Lagos by Managing Partner Joba Adejumo. Cohort 001 concluded with a demo day featuring six startups and faculty including Dr Okechukwu Enelamah.",
     "applyUrl": "https://greylight.co/tangent",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-gitex-nigeria-startup-festival-2026",
@@ -487,7 +558,9 @@
     "scope": "Nigeria",
     "description": "Nigeria's first GITEX edition, hosted with NITDA. The Startup Festival track gives startups exhibition space, an investor matchmaking programme and access to the pitch competition. Useful as a route to investors rather than as a cash award.",
     "applyUrl": "https://gitexnigeria.com/",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-kjoller-investment-2026",
@@ -501,7 +574,9 @@
     "scope": "International",
     "description": "Open investment application accepted on a rolling basis through the funder's own application page. Amounts and terms are not publicly stated and are assessed case by case.",
     "applyUrl": "https://kjoller.com/application.asp",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-niya-cascador-founders-programme-2026",
@@ -515,7 +590,9 @@
     "scope": "Nigeria",
     "description": "Four-week intensive for 20 early-stage Nigerian founders, delivered in person in Abuja with virtual touchpoints. Covers business fundamentals, investment readiness, pitch preparation and one-on-one mentorship. The eight top-performing founders receive up to ₦5m each in non-dilutive funding from Cascador plus an ERP solution. Note that the ₦5m is competitive, not a guaranteed payment to everyone admitted.",
     "applyUrl": "https://startup.niya.gov.ng/fmyd/grants",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   },
   {
     "id": "curated-smedan-bryne-2026",
@@ -529,7 +606,10 @@
     "scope": "Nigeria",
     "description": "SMEDAN's youth entrepreneurship project, launched on International Youth Day 2026 by Director-General Charles Odii, targeting more than 100,000 young Nigerians a year across four tracks: an incubation programme for 600 entrepreneurs annually through the Industrial Development Centres; a Campus Enterprise Engagement Platform run with the Federal Ministry of Education reaching up to 3,000 students per campus; BRYNE Digital Connect for online entrepreneurship education and market linkage; and a weekly startup hackathon targeting 5,000 entrepreneurs, of whom 52 winners receive ₦250,000 seed funding each.",
     "applyUrl": "https://smedan.gov.ng/",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": "2026-08-21",
+    "status": "not_yet_open",
+    "status_note": "unveiled 14 Aug 2026; no eligibility document or application window published yet"
   },
   {
     "id": "curated-timbuktoo-healthtech-launchpad-2026",
@@ -543,6 +623,8 @@
     "scope": "Africa",
     "description": "UNDP's pan-African HealthTech incubation programme, run from the timbuktoo HealthTech Hub in Kigali and delivered through a network of accredited incubators, roughly five startups each. Runs up to 12 months per cohort, opening with a three-month core curriculum. Note this is a capacity and network programme, not a grant — no cash award is attached, though it routes into acceleration and investment pathways.",
     "applyUrl": "https://www.undp.org/rwanda/blog/call-applications-pan-african-timbuktoo-launchpad-healthtech-startups",
-    "source": "curated-2026"
+    "source": "curated-2026",
+    "verified_on": null,
+    "status": "unverified"
   }
 ]

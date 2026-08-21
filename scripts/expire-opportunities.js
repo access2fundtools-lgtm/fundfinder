@@ -36,6 +36,19 @@ const COMMIT = process.argv.includes('--commit');
 // Days of slack after the stated deadline before a row is retired.
 const GRACE_DAYS = 7;
 
+// Evergreen rows (deadline IS NULL) were previously exempt from every sweep, on
+// the assumption that "no deadline" means "always open". 2026-08-21 disproved
+// that: Cartier Women's Initiative (closed 16 Jun 2026), Standard Chartered
+// Women in Tech (closed 26 Apr 2026) and AfDB YouthADAPT (no 2026 call) were all
+// still being served to users as live opportunities, because each is an ANNUAL
+// programme and so legitimately carries a NULL deadline.
+//
+// An undated listing needs a FRESHNESS check, not a deadline check. Anything not
+// confirmed within STALE_DAYS is reported so it can be re-verified or captioned
+// "verify before applying". This sweep only REPORTS undated rows — it never
+// retires them, because a genuinely rolling programme must not be deleted.
+const STALE_DAYS = 60;
+
 const cutoff = new Date(Date.now() - GRACE_DAYS * 86400000).toISOString().slice(0, 10);
 
 function request(method, pathAndQuery, key, body) {
@@ -68,6 +81,37 @@ function request(method, pathAndQuery, key, body) {
   });
 }
 
+// Report undated ("evergreen") rows that have not been confirmed recently.
+// Never writes. A rolling programme is legitimately undated — the risk is not
+// that it is undated, but that nobody has checked it in months.
+async function reportStaleEvergreen() {
+  const staleCut = new Date(Date.now() - STALE_DAYS * 86400000).toISOString().slice(0, 10);
+  const base = 'opportunities?is_active=eq.true&deadline=is.null&order=created_at.asc&select=';
+  // Prefer verified_on; fall back to created_at so this works before the migration.
+  let res = await request('GET', '/rest/v1/' + base + 'id,slug,title,verified_on,created_at', ANON_KEY);
+  let haveVerified = res.ok && Array.isArray(res.body);
+  if (!haveVerified) {
+    res = await request('GET', '/rest/v1/' + base + 'id,slug,title,created_at', ANON_KEY);
+    if (!res.ok || !Array.isArray(res.body)) {
+      console.log('\u26a0\ufe0f  Could not read evergreen rows [' + res.status + '] — skipping freshness check.\n');
+      return;
+    }
+    console.log('\u2139\ufe0f  verified_on column not present — using created_at instead.');
+    console.log('    Run migrations/add-verified-on.sql for accurate freshness tracking.');
+  }
+  const stale = res.body.filter((o) => {
+    const last = o.verified_on || (o.created_at || '').slice(0, 10);
+    return !last || last < staleCut;
+  });
+  console.log('\u{1F50E} Evergreen freshness check — undated rows not confirmed since ' + staleCut + ':');
+  if (!stale.length) { console.log('   \u2705 none stale.\n'); return; }
+  stale.forEach((o) =>
+    console.log('   \u00b7 last confirmed ' + ((o.verified_on || (o.created_at || '').slice(0, 10)) || 'never') +
+                '  ' + (o.title || o.slug)));
+  console.log('   \u2192 ' + stale.length + ' undated listing(s) need re-verification. These are still being shown');
+  console.log('     to users as live opportunities. Confirm each, or caption them "verify before applying".\n');
+}
+
 async function main() {
   console.log('\n\u{1F9F9} FundFinder expiry sweep — retiring opportunities with a deadline before ' + cutoff + ' (' + GRACE_DAYS + '-day grace)\n');
 
@@ -85,8 +129,11 @@ async function main() {
   const stale = read.body;
   if (!stale.length) {
     console.log('✅ Nothing to retire — no active opportunity is past its deadline.\n');
+    await reportStaleEvergreen();
     return;
   }
+
+  await reportStaleEvergreen();
 
   console.log('Found ' + stale.length + ' expired-but-active opportunit' + (stale.length === 1 ? 'y' : 'ies') + ':');
   stale.forEach((o) => console.log('  · ' + o.deadline + '  ' + (o.title || o.slug)));
