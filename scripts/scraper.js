@@ -278,6 +278,41 @@ const SOURCES = [
     strategy: 'rss',
     keywords: ['nigeria', 'africa', 'grant', 'fund', 'apply', 'entrepreneur', 'startup', 'business', 'naira', '₦', '$'],
   },
+  // ─── Added 2026-08-21. All four feeds verified live before adding (HTTP 200,
+  // items present, latest post same-day). See the VC4A note below.
+  {
+    id: 'opportunities-for-africans',
+    name: 'Opportunities for Africans',
+    url: 'https://www.opportunitiesforafricans.com/feed/',
+    strategy: 'rss',
+    keywords: ['nigeria', 'africa', 'grant', 'fund', 'apply', 'call for applications', 'deadline', 'entrepreneur', 'startup', 'business'],
+  },
+  {
+    id: 'oyaop',
+    name: 'OYA Opportunities',
+    url: 'https://oyaop.com/feed/',
+    strategy: 'rss',
+    keywords: ['nigeria', 'africa', 'grant', 'fund', 'apply', 'fellowship', 'deadline', 'entrepreneur', 'startup'],
+  },
+  {
+    id: 'sme-digest',
+    name: 'SME Digest',
+    url: 'https://smedigest.com.ng/feed/',
+    strategy: 'rss',
+    keywords: ['grant', 'fund', 'loan', 'apply', 'call for applications', 'deadline', 'sme', 'msme', 'entrepreneur'],
+  },
+  {
+    id: 'vc4a-blog',
+    name: 'VC4A',
+    // URL CORRECTED 2026-08-21: the supplied https://vc4a.com/blog/feed/ is VC4A's
+    // COMMENTS feed ("Comments on: Blog"), which returns zero <item> elements and
+    // always will. The real content feed is https://vc4a.com/feed/ — verified, 6
+    // items, carrying exactly the right material (investment-readiness programmes,
+    // cohort application openings).
+    url: 'https://vc4a.com/feed/',
+    strategy: 'rss',
+    keywords: ['nigeria', 'africa', 'accelerator', 'apply', 'call for applications', 'fund', 'startup', 'program'],
+  },
 ];
 // NOTE (2026-07-14): Removed the two Google News sources (gnews-call-for-applications,
 // gnews-ng-deadline). Their RSS <link> is a news.google.com redirect wrapper that (a) bounces
