@@ -1,0 +1,81 @@
+name: Group match digest
+
+# Matches every live opportunity against the A2F group entities and emails a
+# digest of what CHANGED — new matches, changed match sets, anything closing
+# within 21 days.
+#
+# WHY PROFILES COME FROM A SECRET: matching/profiles.json describes which grants
+# each A2F company qualifies for. That is competitive intelligence, and this
+# repo's root is the public web root for fundfinder.ng. So the matcher CODE is
+# committed and the PROFILES are injected from PROFILES_B64 at runtime. Nothing
+# sensitive is ever written to the repo.
+#
+# SETUP (one time):
+#   1. base64 -w0 matching/profiles.json   → paste as repo secret PROFILES_B64
+#   2. ZEPTOMAIL_TOKEN  — from ZeptoMail once customer validation clears
+#   3. DIGEST_TO        — recipient address
+#   4. DIGEST_FROM      — a verified ZeptoMail sender (e.g. noreply@a2fpartners.com)
+#
+# Without ZEPTOMAIL_TOKEN the job still runs and uploads the digest as an
+# artifact — it simply does not email. Nothing breaks while you wait for Zoho.
+
+on:
+  schedule:
+    # Mondays & Thursdays 08:15 UTC = 09:15 WAT — after the 06:00 scrape and the
+    # 07:30 match-outreach run, so it sees that day's fresh opportunities.
+    - cron: '15 8 * * 1,4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run the matcher
+        env:
+          PROFILES_B64: ${{ secrets.PROFILES_B64 }}
+        run: |
+          if [ -z "$PROFILES_B64" ]; then
+            echo "::error::PROFILES_B64 secret is not set — see the setup note at the top of this workflow."
+            exit 1
+          fi
+          python3 matching/match.py
+
+      - name: Build and send the digest
+        env:
+          PROFILES_B64: ${{ secrets.PROFILES_B64 }}
+          ZEPTOMAIL_TOKEN: ${{ secrets.ZEPTOMAIL_TOKEN }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
+          DIGEST_FROM: ${{ secrets.DIGEST_FROM }}
+        run: |
+          if [ -n "$ZEPTOMAIL_TOKEN" ] && [ -n "$DIGEST_TO" ]; then
+            python3 matching/digest.py --send
+          else
+            echo "No ZEPTOMAIL_TOKEN/DIGEST_TO yet — writing the digest without sending."
+            python3 matching/digest.py
+          fi
+
+      # The digest names which grants A2F companies qualify for, so it is kept as a
+      # short-retention artifact and is never committed to the repository.
+      - name: Upload digest (3-day retention — internal)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: group-digest
+          path: |
+            matching/digest-latest.md
+            matching/digest-latest.html
+          retention-days: 3

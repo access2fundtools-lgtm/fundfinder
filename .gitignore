@@ -85,9 +85,13 @@ Receivables-Term-Sheet-Template.md
 # draft pitch copy. Repo root is the public web root, so these must never publish.
 oneup/
 
-# Internal group matching engine — reveals which grants A2F's own companies
-# qualify for. Competitive intelligence; repo root is the public web root.
-matching/
+# Internal group matching engine. The CODE is generic and safe to publish; the
+# PROFILES and RESULTS are competitive intelligence (they reveal which grants A2F's
+# own companies qualify for) and the repo root is the public web root.
+# So: ignore everything in matching/, then un-ignore the two scripts.
+matching/*
+!matching/match.py
+!matching/digest.py
 
 # QA bot 2026-08-21: channel setup logs are internal working notes (they name
 # accounts, app IDs and where credentials live). Same class as SOCIAL-LOG/SYNC-LOG.
