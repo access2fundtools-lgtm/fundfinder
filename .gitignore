@@ -98,3 +98,13 @@ matching/*
 # The daily scraper runs `git add .` in the public web root, so ignore them.
 X-SETUP-LOG-*.txt
 *-SETUP-LOG-*.txt
+
+# QA bot 2026-08-22: three files were sitting STAGED but uncommitted in the public
+# web root. The daily scraper runs `git add .`, so the next run would have published
+# all three. privacy.html in particular still carries a visible
+# "Please review before publishing" banner and unconfirmed retention periods /
+# controller identity — it must not go live until Dayo reviews it and removes the
+# banner (delete this line to publish it).
+privacy.html
+HELLO-AT-FUNDFINDER-SETUP.md
+TRADECAST-KICKOFF-PROMPT.md
