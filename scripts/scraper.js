@@ -149,9 +149,37 @@ function sanitizeDesc(raw, title) {
 }
 
 /** True if this looks like a genuine, current, apply-able opportunity */
+// Added 2026-08-22. The first run with the new aggregator sources returned six
+// items, five of which were scholarships or graduate jobs — Edinburgh Mastercard
+// Scholars, two Swiss Government Excellence Scholarships, a WHO youth competition
+// and the Andersen graduate trainee programme. FundFinder is a BUSINESS FUNDING
+// hub for Nigerian SMEs; individual study and employment offers dilute it.
+//
+// These sources ('opportunities-for-africans', 'oyaop') are individual-opportunity
+// aggregators, so their posts trip generic keywords like 'apply' and 'deadline'.
+// Filter on what the item IS, not on which source it came from.
+const NOT_BUSINESS_FUNDING = new RegExp(
+  [
+    'scholarship', 'scholars programme', 'scholars program', 'tuition', 'bursary',
+    'graduate trainee', 'trainee programme', 'trainee program', 'internship', 'intern programme',
+    'undergraduate', 'postgraduate', 'masters degree', "master's degree", 'phd', 'doctoral',
+    'study in', 'fully funded (?:study|degree|masters|scholarship)',
+    'exchange programme', 'summer school', 'essay competition', 'writing contest',
+    'volunteer programme', 'job vacanc', 'recruitment',
+    // Awareness/creative contests for individuals. NOTE: plain 'competition' is
+    // deliberately NOT listed — business plan and pitch competitions are real
+    // funding. Only the individual/creative forms are excluded.
+    'youth competition', 'poster competition', 'art competition', 'photo(?:graphy)? competition',
+    'video competition', 'debate competition', 'quiz competition', 'song contest',
+  ].join('|'),
+  'i'
+);
+
 function isRealOpportunity(title, desc) {
   const text = title + ' ' + desc;
   if (isGarbage(title)) return false;
+  // Individual study/employment offers are not business funding.
+  if (NOT_BUSINESS_FUNDING.test(title)) return false;
   if (NEWS_PATTERNS.some((p) => p.test(title))) return false;
   if (!FUNDING_SIGNAL.test(text)) return false;
   if (!ACTION_SIGNAL.test(text)) return false;

@@ -99,12 +99,15 @@ matching/*
 X-SETUP-LOG-*.txt
 *-SETUP-LOG-*.txt
 
-# QA bot 2026-08-22: three files were sitting STAGED but uncommitted in the public
+# QA bot 2026-08-22: these files were sitting STAGED but uncommitted in the public
 # web root. The daily scraper runs `git add .`, so the next run would have published
-# all three. privacy.html in particular still carries a visible
-# "Please review before publishing" banner and unconfirmed retention periods /
-# controller identity — it must not go live until Dayo reviews it and removes the
-# banner (delete this line to publish it).
-privacy.html
+# them. HELLO-AT-* and TRADECAST-* are internal working notes and stay ignored.
+#
+# privacy.html RELEASED 2026-08-22 on Dayo's instruction. The two blocking reasons
+# were fixed first: the "Please review before publishing" banner was removed, and
+# the data-rights contact was changed from hello@fundfinder.ng (which has NO MX
+# record and cannot receive mail) to hello@a2fpartners.com (live on Zoho). Retention
+# periods and controller identity remain as drafted from the codebase — Dayo to
+# confirm they match how the business actually operates.
 HELLO-AT-FUNDFINDER-SETUP.md
 TRADECAST-KICKOFF-PROMPT.md
