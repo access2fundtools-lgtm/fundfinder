@@ -92,51 +92,57 @@
   </url>
   <url>
     <loc>https://fundfinder.ng/business-diagnostic</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fundfinder.ng/cac-strike-off-checker</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fundfinder.ng/campaign-2026-07-28</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fundfinder.ng/guide-commonwealth-startup-fellowship-nigeria-2026</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fundfinder.ng/guide-lsetf-msme-loans-lagos-2026</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fundfinder.ng/guide-smedan-conditional-grant-50k-how-to-apply-2026</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fundfinder.ng/guides</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://fundfinder.ng/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://fundfinder.ng/opportunity-2027-28-swiss-government-scholarship-fully-funded-2026-08-22</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://fundfinder.ng/opportunity-afdb-youthadapt-challenge-2026-07-28</loc>
@@ -212,7 +218,7 @@
   </url>
   <url>
     <loc>https://fundfinder.ng/opportunity-archive</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -236,7 +242,7 @@
   </url>
   <url>
     <loc>https://fundfinder.ng/opportunity-batn-foundation-2026</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -530,7 +536,7 @@
   </url>
   <url>
     <loc>https://fundfinder.ng/opportunity-fsi-2026</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -560,7 +566,7 @@
   </url>
   <url>
     <loc>https://fundfinder.ng/opportunity-hub</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -584,7 +590,7 @@
   </url>
   <url>
     <loc>https://fundfinder.ng/opportunity-mest-ai-2027</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -661,8 +667,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://fundfinder.ng/opportunity-swiss-government-excellence-scholarships-2027-2028-for-forei-2026-08-22</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://fundfinder.ng/opportunity-tef-entrepreneurship-programme-2026-06-30</loc>
     <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fundfinder.ng/opportunity-the-african-union-enterprise-africa-network-ean-fellowship-p-2026-08-22</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fundfinder.ng/opportunity-the-andersen-nigeria-2027-graduate-trainee-programme-for-you-2026-08-22</loc>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -675,6 +699,12 @@
   <url>
     <loc>https://fundfinder.ng/opportunity-unicef-venture-fund-2026-07-28</loc>
     <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fundfinder.ng/opportunity-university-of-edinburgh-mastercard-foundation-scholars-progr-2026-08-22</loc>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -699,6 +729,12 @@
   <url>
     <loc>https://fundfinder.ng/opportunity-wema-bank-hackaholics-2026-07-28</loc>
     <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fundfinder.ng/opportunity-who-2026-global-youth-competition-on-influenza-and-covid-19--2026-08-22</loc>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
