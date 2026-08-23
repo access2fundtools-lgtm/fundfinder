@@ -172,8 +172,9 @@
     "description": "Equity-free funding for open-source tech solutions improving children's lives.",
     "applyUrl": "https://www.unicefventurefund.org",
     "source": "curated-2026",
-    "verified_on": null,
-    "status": "unverified"
+    "verified_on": "2026-08-22",
+    "status": "not_eligible",
+    "status_note": "2026 Climate Ventures cohort closed 17 May 2026; and the $100k is equity-free ONLY in exchange for open-sourcing the codebase — UNICEF states the open-source licence IS its equity. Verified 2026-08-22"
   },
   {
     "id": "curated-cartier-women-s-initiative",
@@ -286,8 +287,9 @@
     "description": "One of Africa's largest tech VC funds — fintech, SaaS, marketplaces, platforms.",
     "applyUrl": "https://partechpartners.com",
     "source": "curated-2026",
-    "verified_on": null,
-    "status": "unverified"
+    "verified_on": "2026-08-22",
+    "status": "not_eligible",
+    "status_note": "tickets $1m-$15m, Seed to Series B+ — off-stage for every A2F entity (all pre-revenue, ~$200k ask). Verified 2026-08-22"
   },
   {
     "id": "curated-novastar-ventures",

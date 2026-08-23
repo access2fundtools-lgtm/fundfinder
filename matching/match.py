@@ -71,7 +71,7 @@ def closed_titles():
     recs = d if isinstance(d, list) else d.get('opportunities', [])
     out = set()
     for r in recs:
-        if r.get('status') in ('closed', 'not_yet_open'):
+        if r.get('status') in ('closed', 'not_yet_open', 'not_eligible'):
             t = re.sub(r'[^a-z0-9]+', '', (r.get('title') or '').lower())
             if len(t) >= 12:
                 out.add(t)
@@ -89,7 +89,7 @@ def load_opportunities():
             key = norm_title((r.get('title') or '').strip())
             if not key or key in seen: continue
             seen.add(key)
-            if r.get('status') in ('closed','not_yet_open'):
+            if r.get('status') in ('closed','not_yet_open','not_eligible'):
                 continue                       # verified dead — never surface it
             opps.append({
                 'verified_on': r.get('verified_on'), 'status': r.get('status','unverified'),
