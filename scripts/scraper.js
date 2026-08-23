@@ -816,6 +816,15 @@ function generateFlyer(opp) {
 <meta property="og:description" content="${opp.description}">
 <meta name="description" content="${opp.description}">
 <link rel="canonical" href="https://fundfinder.ng/${opp.slug}">
+<!-- Meta Pixel (FundFinder Web) -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1407796214793701');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1407796214793701&ev=PageView&noscript=1"/></noscript>
 <meta property="og:url" content="https://fundfinder.ng/${opp.slug}">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://fundfinder.ng/og-image.png">
