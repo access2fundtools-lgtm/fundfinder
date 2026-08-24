@@ -166,6 +166,12 @@ const NOT_BUSINESS_FUNDING = new RegExp(
     'study in', 'fully funded (?:study|degree|masters|scholarship)',
     'exchange programme', 'summer school', 'essay competition', 'writing contest',
     'volunteer programme', 'job vacanc', 'recruitment',
+    // QA 2026-08-24: four employment entry schemes were published as funding on
+    // 2026-08-24 (Dangote Fleet Management, Schneider Electric, Wema Bankers-In-Training,
+    // Kenya Presidential Digital Talent). None matched 'graduate trainee'. These two
+    // phrasings catch the whole family and, checked against all 84 active listings,
+    // exclude nothing that is real business funding.
+    'graduate (?:programme|program)\\b', 'for (?:young )?\\w+ graduates?\\b',
     // Awareness/creative contests for individuals. NOTE: plain 'competition' is
     // deliberately NOT listed — business plan and pitch competitions are real
     // funding. Only the individual/creative forms are excluded.
@@ -658,11 +664,21 @@ function extractOutboundLinks(html, postUrl) {
     if (!/^https?:\/\//i.test(href)) continue;
     const host = hostnameOf(href);
     if (!host || baseDomainOf(host) === sourceBase || isExcludedLinkDomain(host)) continue;
+    let path = '/';
+    try { path = new URL(href).pathname; } catch { /* keep default */ }
+    if (NON_APPLY_PATH_RE.test(path)) continue;
     const text = decodeEntities(m[2].replace(/<[^>]+>/g, '').trim());
     results.push({ href, text, host });
   }
   return results;
 }
+
+/** QA 2026-08-24: eight live listings had their Apply button pointing at
+ *  https://www.reputiva.ng/contact-us/ — the aggregator's own boilerplate footer link,
+ *  picked up by the "last non-junk outbound link" fallback. A contact/about/privacy/terms
+ *  page is never an application page, so drop those candidates outright. If nothing is
+ *  left, resolveApplyUrl() returns null and the item is skipped, which is correct. */
+const NON_APPLY_PATH_RE = /^\/(?:contact(?:-us)?|about(?:-us)?|privacy(?:-policy)?|terms(?:-(?:of-use|and-conditions))?|disclaimer|advertise|sitemap)\/?$/i;
 
 const APPLY_ANCHOR_RE = /\b(apply|application\s*form|register|registration|official\s*(site|website|page)|submit\s*(your|an)?\s*application|click here)\b/i;
 const JUNK_ANCHOR_RE = /\b(share|read more|comment|related (post|article)s?|leave a reply|source|photo|image credit|advertisement|subscribe)\b/i;
