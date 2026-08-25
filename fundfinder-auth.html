@@ -235,6 +235,39 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.innerHTML = loading ? '<span class="spinner"></span>' + text : text;
   }
 
+  // ── Source tracking ───────────────────────────────────────────
+  // Where did this person actually come from? Captured once on page load,
+  // because document.referrer is gone after any in-page navigation.
+  // Priority: explicit UTM tags > referring site > direct.
+  var CAPTURED_SOURCE = (function () {
+    try {
+      var p = new URLSearchParams(window.location.search);
+      var utmSource = (p.get('utm_source') || '').trim().slice(0, 60);
+      var utmMedium = (p.get('utm_medium') || '').trim().slice(0, 60);
+      var utmCampaign = (p.get('utm_campaign') || '').trim().slice(0, 60);
+
+      var parts = [];
+      if (utmSource) parts.push(utmSource + (utmMedium ? '/' + utmMedium : ''));
+      if (utmCampaign) parts.push('campaign:' + utmCampaign);
+
+      if (!parts.length) {
+        var ref = document.referrer || '';
+        if (ref) {
+          var host = '';
+          try { host = new URL(ref).hostname.replace(/^www\./, ''); } catch (e) { host = ''; }
+          // Our own pages aren't a source — that's internal navigation.
+          if (host && host !== window.location.hostname.replace(/^www\./, '')) {
+            parts.push('ref:' + host);
+          }
+        }
+      }
+      if (!parts.length) parts.push('direct');
+      return parts.join(' | ').slice(0, 200);
+    } catch (e) {
+      return 'direct';
+    }
+  })();
+
   // ── Sign Up ───────────────────────────────────────────────────
   document.getElementById('signupBtn').addEventListener('click', function() {
     var btn = this;
@@ -267,7 +300,11 @@ document.addEventListener('DOMContentLoaded', function() {
           full_name: firstName + ' ' + lastName,
           whatsapp: whatsapp,
           notify_email: notifyEmail,
-          notify_whatsapp: notifyWA
+          notify_whatsapp: notifyWA,
+          // Flows straight through: the notify trigger reads
+          // raw_user_meta_data->>'source' and handle_new_user() copies it onto
+          // user_profiles.source.
+          source: CAPTURED_SOURCE
         }
       }
     }).then(function(res) {
@@ -289,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('/api/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email, source: 'signup' })
+          body: JSON.stringify({ email: email, source: 'signup | ' + CAPTURED_SOURCE })
         }).catch(function() {});
       } catch (e) {}
 

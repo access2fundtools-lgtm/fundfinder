@@ -63,8 +63,29 @@ async function handleNotify(context) {
   const email   = (body.email || '').trim().toLowerCase().slice(0, 200);
   const name    = (body.name || '').trim().slice(0, 120);
   const phone   = (body.phone || '').trim().slice(0, 40);
-  const source  = (body.source || '').trim().slice(0, 60);
+  const source  = (body.source || '').trim().slice(0, 300);
   const userId  = (body.user_id || '').trim().slice(0, 64);
+
+  // Business profile fields, when a caller happens to know them.
+  const sector  = (body.business_sector || body.business_type || '').trim().slice(0, 80);
+  const stage   = (body.business_stage || '').trim().slice(0, 40);
+
+  // CAC status is TRISTATE on purpose — true / false / null(unknown).
+  //
+  // user_profiles.is_registered is BOOLEAN DEFAULT FALSE and the profile row is
+  // created empty by handle_new_user() at signup, then filled in later on
+  // fundfinder-profile.html. So at signup-trigger time FALSE means "nobody has
+  // asked yet", NOT "this business is unregistered". Coercing that to a known
+  // answer would wrongly suppress the CAC question from the welcome email for
+  // every single new user — the exact people the free-registration offer is for.
+  //
+  // Therefore: only treat it as known when a caller states it explicitly.
+  const cacRaw = (body.cac_registered !== undefined) ? body.cac_registered : undefined;
+  const cacRegistered =
+      (cacRaw === true  || cacRaw === 'true')  ? true
+    : (cacRaw === false || cacRaw === 'false') ? false
+    : null;                                   // unknown — keep asking
+  const cacKnown = cacRegistered !== null;
 
   if (!email) return json({ success: false, error: 'missing_email' }, 400);
 
@@ -83,6 +104,9 @@ async function handleNotify(context) {
     ['Email',  email],
     ['Name',   name],
     ['Phone',  phone],
+    ['CAC registered', cacKnown ? (cacRegistered ? 'Yes' : 'No') : 'Not asked yet'],
+    ['Business type',  sector],
+    ['Business stage', stage],
     ['Source', source],
     ['Type',   type],
     ['User ID', userId],
@@ -118,6 +142,17 @@ async function handleNotify(context) {
 
   const emailed = await sendEmail(env, { to, from, subject, text, html });
 
+  // --- 1b. welcome the user ------------------------------------------------
+  // Wrapped so a failure here can never affect the signup or the admin alert.
+  // Sends only for real accounts — a newsletter capture gets the Zoho sequence,
+  // and double-welcoming the same person reads as broken.
+  let welcomed = false;
+  if (email && type === 'account') {
+    try {
+      welcomed = await sendWelcome(env, { email, name, from, cacKnown });
+    } catch (_) { welcomed = false; }
+  }
+
   // --- 2. make sure they're in Zoho so the sequence can reach them ---------
   // subscribe.js already does this for newsletter signups; account signups
   // never reached Zoho at all before this endpoint existed.
@@ -129,7 +164,62 @@ async function handleNotify(context) {
     if (z) zohoDetail = z;
   }
 
-  return json({ success: true, emailed, zoho: zohoOk, zoho_detail: zohoDetail });
+  return json({ success: true, emailed, welcomed, zoho: zohoOk, zoho_detail: zohoDetail });
+}
+
+// ---------------------------------------------------------------------------
+// Welcome email to the new user. Plain, short, and it asks two questions the
+// operator actually needs answered — reply-to is a monitored human inbox, so
+// the reply IS the data capture.
+// ---------------------------------------------------------------------------
+async function sendWelcome(env, { email, name, from, cacKnown }) {
+  const first = (name || '').trim().split(/\s+/)[0] || 'there';
+
+  // Question 1 is dropped only when CAC status is genuinely known. See the
+  // tristate note above — a defaulted FALSE is not an answer.
+  const questions = cacKnown
+    ? ['1. What does the business do?']
+    : ['1. Is your business CAC-registered yet?', '2. What does the business do?'];
+
+  const text = [
+    `Hi ${first},`,
+    '',
+    "Welcome to FundFinder — you're in at the right time. The Federal Government is currently registering 250,000 businesses with CAC completely FREE, and we walk our users through it.",
+    '',
+    'Two quick questions so the platform works properly for you:',
+    '',
+    ...questions,
+    '',
+    'Just reply to this email — a real person answers.',
+    '',
+    'Dayo',
+    'A2F Partners · fundfinder.ng',
+  ].join('\n');
+
+  const html = `
+    <div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:520px;font-size:15px;line-height:1.6;color:#0b1f1c">
+      <p>Hi ${esc(first)},</p>
+      <p>Welcome to FundFinder — you're in at the right time. The Federal Government is currently
+         registering 250,000 businesses with CAC completely <strong>FREE</strong>, and we walk our
+         users through it.</p>
+      <p>Two quick questions so the platform works properly for you:</p>
+      <ol style="margin:0 0 16px;padding-left:20px">
+        ${questions.map((q) => `<li>${esc(q.replace(/^\d+\.\s*/, ''))}</li>`).join('')}
+      </ol>
+      <p>Just reply to this email — a real person answers.</p>
+      <p style="margin-bottom:0">Dayo<br>
+         <span style="color:#5b6b66;font-size:13px">A2F Partners · fundfinder.ng</span></p>
+    </div>`;
+
+  const sent = await sendEmail(env, {
+    to: email,
+    from: env.NOTIFY_FROM || 'alerts@a2fpartners.com',
+    subject: 'Welcome to FundFinder — two quick questions',
+    text,
+    html,
+  });
+
+  return sent || false;
 }
 
 // ---------------------------------------------------------------------------
