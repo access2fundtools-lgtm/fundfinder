@@ -113,3 +113,9 @@ HANDOVER-*.md
 META-SETUP-WALKTHROUGH.md
 HELLO-AT-FUNDFINDER-SETUP.md
 TRADECAST-KICKOFF-PROMPT.md
+
+# Internal blocker board — repo root is the public web root, never publish
+BLOCKER-BOARD.md
+
+# Internal credential-refresh walkthroughs — repo root is the public web root
+LINKEDIN-TOKEN-REFRESH-STEPS.txt
