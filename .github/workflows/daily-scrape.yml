@@ -50,6 +50,15 @@ jobs:
       - name: Regenerate sitemap
         run: node scripts/gen-sitemap.js
 
+      # 3c. Rebuild the homepage feed (data/ticker.json).
+      #     Runs AFTER the scraper and the expiry sweep so it reads the final hub.
+      #     Newly published programmes reach the homepage ticker on this run
+      #     rather than waiting for someone to hand-edit index.html — which is
+      #     why the old hardcoded ticker still advertised closed programmes.
+      - name: Rebuild homepage feed
+        run: node scripts/gen-ticker.js
+        continue-on-error: true
+
       # 4. Commit any new files and push (skips commit if nothing changed)
       - name: Commit and push new opportunities
         run: |

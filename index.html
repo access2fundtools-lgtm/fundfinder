@@ -40,12 +40,43 @@ nav {
 .nav-login { color: var(--gold); font-size: 14px; font-weight: 700; text-decoration: none; padding: 9px 16px; }
 
 /* TICKER */
-.ticker-wrap { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 12px 0; }
-.ticker { display: flex; gap: 48px; animation: scroll 50s linear infinite; width: max-content; }
-.ticker-item { font-size: 13px; color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.ticker-wrap { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 12px 0; position: relative; }
+/* 50s was roughly three times too fast to read a headline, let alone aim at
+   one. 180s is a walking pace you can actually track with your eye. */
+.ticker { display: flex; gap: 48px; animation: scroll 180s linear infinite; width: max-content; }
+/* Stop on hover or keyboard focus so a moving target can be clicked. */
+.ticker-wrap:hover .ticker,
+.ticker-wrap:focus-within .ticker { animation-play-state: paused; }
+.ticker-item { font-size: 13px; color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 8px; text-decoration: none; transition: color .15s ease; }
+a.ticker-item:hover, a.ticker-item:focus-visible { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+a.ticker-item:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 .ticker-item .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.ticker-item .tick-deadline { opacity: .72; }
+/* Motion is decorative here; anyone who has asked the OS to stop it gets a
+   static, still-readable, still-clickable strip. */
+@media (prefers-reduced-motion: reduce) {
+  .ticker { animation: none; flex-wrap: nowrap; overflow-x: auto; width: 100%; padding: 0 16px; scrollbar-width: thin; }
+}
 .dot-green { background: var(--green); } .dot-gold { background: var(--gold); }
 @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* JUST ADDED */
+.just-added { border-bottom: 1px solid var(--border); background: var(--surface); padding: 40px 32px; }
+.ja-inner { max-width: 1100px; margin: 0 auto; }
+.ja-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+.ja-title { font-size: clamp(22px, 3vw, 30px); font-weight: 900; letter-spacing: -0.5px; }
+.ja-all { color: var(--gold); font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.ja-all:hover { text-decoration: underline; }
+.ja-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.ja-card { display: block; background: var(--surface2); border: 1px solid var(--border); border-radius: 14px; padding: 18px; text-decoration: none; color: var(--text); transition: border-color .2s, transform .2s; }
+.ja-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
+.ja-tags { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.ja-tag { font-size: 11px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; }
+.ja-tag-new { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+.ja-tag-open { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+.ja-tag-closed { background: rgba(255,255,255,0.06); color: var(--hint); border: 1px solid var(--border); }
+.ja-name { font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 10px; }
+.ja-meta { font-size: 12.5px; color: var(--muted); }
 
 /* HERO */
 .hero { padding: 100px 32px 80px; text-align: center; position: relative; overflow: hidden; }
@@ -214,30 +245,34 @@ src="https://www.facebook.com/tr?id=1407796214793701&ev=PageView&noscript=1"/></
   </div>
 </nav>
 
-<div class="ticker-wrap">
-  <div class="ticker">
-    <div class="ticker-item"><span class="dot dot-green"></span>MSME Loan Programme &middot; See official site</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>BOI Engineering &#038; Technology Funds &middot; See official site</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund &middot; See official site</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Call For Applications: Nexa Global Climate × Health Innovation Challenge 2026 (Up to USD 2 Million in Funding) &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Call For Applications: Reckitt Catalyst Global Accelerator Program 2026/2027 for Social Innovators &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Call for Applications: Wetech PitchHer 2026 Investment Readiness Programme ( Up To ₦8.5 Million Funding) &mdash; ₦8 &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Apply for LSETF MSME Loans Programme 2026 for Lagos Businesses (₦50,000–₦5,000,000) &mdash; ₦50,000 &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Apply for SSCE Youth Social Media Advocates Programme &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Apply for the LSETF UPLIFT Creative Job Hubs Programme 2026 &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Apply Now: Katsina Government MBBS Scholarship in Russian Universities &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>MSME Loan Programme &middot; See official site</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>BOI Engineering &#038; Technology Funds &middot; See official site</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund &middot; See official site</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Call For Applications: Nexa Global Climate × Health Innovation Challenge 2026 (Up to USD 2 Million in Funding) &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Call For Applications: Reckitt Catalyst Global Accelerator Program 2026/2027 for Social Innovators &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Call for Applications: Wetech PitchHer 2026 Investment Readiness Programme ( Up To ₦8.5 Million Funding) &mdash; ₦8 &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Apply for LSETF MSME Loans Programme 2026 for Lagos Businesses (₦50,000–₦5,000,000) &mdash; ₦50,000 &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Apply for SSCE Youth Social Media Advocates Programme &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Apply for the LSETF UPLIFT Creative Job Hubs Programme 2026 &middot; See source</div>
-    <div class="ticker-item"><span class="dot dot-green"></span>Apply Now: Katsina Government MBBS Scholarship in Russian Universities &middot; See source</div>
+<div class="ticker-wrap" aria-label="Live funding opportunities">
+  <div class="ticker" id="ticker">
+    <!-- Populated at runtime from /data/ticker.json (built by scripts/gen-ticker.js
+         at the end of every scrape). The markup below is the no-JS / fetch-failed
+         fallback only — it is intentionally generic and carries no deadlines,
+         because a stale date is worse than no date. -->
+    <a class="ticker-item" href="/opportunity-hub.html"><span class="dot dot-green"></span>Live funding opportunities for Nigerian businesses &middot; Browse the hub</a>
+    <a class="ticker-item" href="/opportunity-hub.html"><span class="dot dot-green"></span>Grants, loans, accelerators and scholarships &middot; Updated twice a week</a>
+    <a class="ticker-item" href="/opportunity-hub.html"><span class="dot dot-green"></span>Live funding opportunities for Nigerian businesses &middot; Browse the hub</a>
+    <a class="ticker-item" href="/opportunity-hub.html"><span class="dot dot-green"></span>Grants, loans, accelerators and scholarships &middot; Updated twice a week</a>
+  </div>
 </div>
-</div>
+
+<!-- JUST ADDED — newest listings from the most recent scrape runs, whatever the
+     deadline. Hidden entirely when the feed has nothing new, so the homepage
+     never shows an empty shelf. -->
+<section class="just-added" id="just-added" hidden>
+  <div class="ja-inner">
+    <div class="ja-head">
+      <div>
+        <div class="section-label">Just added</div>
+        <h2 class="ja-title">New this week</h2>
+      </div>
+      <a href="opportunity-hub.html" class="ja-all">See all opportunities &rarr;</a>
+    </div>
+    <div class="ja-grid" id="ja-grid"></div>
+  </div>
+</section>
 
 <section class="hero">
   <div class="hero-badge"><span class="dot"></span>&#127475;&#127468; Built for Nigerian entrepreneurs &middot; Updated daily</div>
@@ -436,5 +471,92 @@ src="https://www.facebook.com/tr?id=1407796214793701&ev=PageView&noscript=1"/></
   <p>Built for &#127475;&#127468; Nigerian entrepreneurs</p>
 </div>
 
+<script>
+/* Homepage feed — ticker + "Just added".
+   Source: /data/ticker.json, rebuilt by scripts/gen-ticker.js at the end of
+   every scrape. If the fetch fails the hardcoded fallback strip stays as-is,
+   so the page degrades to something generic rather than to something stale. */
+(function () {
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+
+  // Days until close, for the urgency label.
+  function daysLeft(iso) {
+    if (!iso) return null;
+    var d = new Date(iso + 'T23:59:59Z') - new Date();
+    return Math.ceil(d / 86400000);
+  }
+
+  function deadlineLabel(item) {
+    if (!item.closes) return 'Always open';
+    var n = daysLeft(item.closes);
+    if (n === null) return item.deadline;
+    if (n < 0) return 'Closed';
+    if (n === 0) return 'Closes today';
+    if (n === 1) return 'Closes tomorrow';
+    if (n <= 14) return 'Closes in ' + n + ' days';
+    return 'Closes ' + new Date(item.closes + 'T00:00:00Z')
+      .toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  }
+
+  /* Rotate rather than shuffle. Rotation keeps a stable, reproducible order
+     within a day while making sure a returning visitor doesn't meet the same
+     items in the same front slots. Padding entries stay at the back. */
+  function rotate(list, seed) {
+    if (!list || list.length < 3) return list || [];
+    var fresh = list.filter(function (i) { return !i.pad; });
+    var pad   = list.filter(function (i) { return i.pad; });
+    if (fresh.length > 2) {
+      var k = seed % fresh.length;
+      fresh = fresh.slice(k).concat(fresh.slice(0, k));
+    }
+    return fresh.concat(pad);
+  }
+
+  fetch('/data/ticker.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (feed) {
+      if (!feed) return;
+
+      // ── Ticker ──────────────────────────────────────────────
+      var strip = document.getElementById('ticker');
+      var items = rotate(feed.ticker || [], feed.rotationSeed || 0);
+      if (strip && items.length) {
+        var one = items.map(function (i) {
+          return '<a class="ticker-item" href="' + esc(i.href) + '">' +
+                 '<span class="dot ' + (i.closes ? 'dot-gold' : 'dot-green') + '"></span>' +
+                 esc(i.title) +
+                 ' <span class="tick-deadline">&middot; ' + esc(deadlineLabel(i)) + '</span></a>';
+        }).join('');
+        // Duplicated because the CSS loop translates by -50%; one copy would
+        // leave a visible gap on the wrap.
+        strip.innerHTML = one + one;
+      }
+
+      // ── Just added ──────────────────────────────────────────
+      var sec = document.getElementById('just-added');
+      var grid = document.getElementById('ja-grid');
+      var latest = feed.latest || [];
+      if (sec && grid && latest.length) {
+        grid.innerHTML = latest.map(function (i) {
+          var closed = !!i.closed;
+          var tag = closed
+            ? '<span class="ja-tag ja-tag-closed">Closed</span>'
+            : '<span class="ja-tag ja-tag-open">Open</span>';
+          return '<a class="ja-card" href="' + esc(i.href) + '">' +
+                 '<div class="ja-tags"><span class="ja-tag ja-tag-new">New</span>' + tag + '</div>' +
+                 '<div class="ja-name">' + esc(i.title) + '</div>' +
+                 '<div class="ja-meta">' + esc(deadlineLabel(i)) + '</div>' +
+                 '</a>';
+        }).join('');
+        sec.hidden = false;
+      }
+    })
+    .catch(function () { /* fallback markup stands */ });
+})();
+</script>
 </body>
 </html>
