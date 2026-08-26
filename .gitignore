@@ -119,3 +119,10 @@ BLOCKER-BOARD.md
 
 # Internal credential-refresh walkthroughs — repo root is the public web root
 LINKEDIN-TOKEN-REFRESH-STEPS.txt
+
+# SECURITY 2026-08-26: repo root is the public web root. Migration files
+# contain live secrets (NOTIFY_SECRET was downloadable at
+# fundfinder.ng/supabase-migration-2026-08-03-signup-notify.sql, HTTP 200).
+# Migrations are run by hand in the Supabase SQL editor and are never needed
+# by the site, so they must never be published.
+*.sql
