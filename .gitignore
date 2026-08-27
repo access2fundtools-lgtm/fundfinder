@@ -126,3 +126,9 @@ LINKEDIN-TOKEN-REFRESH-STEPS.txt
 # Migrations are run by hand in the Supabase SQL editor and are never needed
 # by the site, so they must never be published.
 *.sql
+
+# SECURITY 2026-08-27: repo root is the public web root and the daily scrape
+# runs `git add .`, so anything left here gets published. These are internal
+# credential-setup walkthroughs and the poster script that reads those tokens.
+FACEBOOK-GRAPH-API-SETUP.txt
+fb_post.py

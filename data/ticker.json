@@ -1,10 +1,10 @@
 {
-  "generated": "2026-08-27T17:16:42.197Z",
+  "generated": "2026-08-27T19:23:26.325Z",
   "rotationSeed": 20260827,
   "newWindowDays": 10,
   "counts": {
-    "total": 94,
-    "new": 12,
+    "total": 95,
+    "new": 13,
     "closing": 6,
     "evergreen": 73,
     "recurring": 3,
@@ -65,6 +65,17 @@
       "isNew": true,
       "closed": false,
       "recurring": true
+    },
+    {
+      "title": "AU-EU Youth Action Lab Entrepreneurship Grant — Third and Final Call",
+      "href": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
+      "deadline": "23 September 2026",
+      "closes": "2026-09-23",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
     },
     {
       "title": "Call For Applications: Fast Forward Accelerator 2027 for Tech Nonprofits | $25,000+ Unrestricted Grant",
@@ -190,6 +201,17 @@
       "recurring": true
     },
     {
+      "title": "AU-EU Youth Action Lab Entrepreneurship Grant — Third and Final Call",
+      "href": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
+      "deadline": "23 September 2026",
+      "closes": "2026-09-23",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
       "title": "Call For Applications: Fast Forward Accelerator 2027 for Tech Nonprofits | $25,000+ Unrestricted Grant",
       "href": "opportunity-call-for-applications-fast-forward-accelerator-2027-for-tech-2026-08-20.html",
       "deadline": "September 7, 2026",
@@ -254,17 +276,6 @@
       "isNew": true,
       "closed": false,
       "recurring": false
-    },
-    {
-      "title": "Pan-African timbuktoo Launchpad for HealthTech Startups",
-      "href": "opportunity-pan-african-timbuktoo-launchpad-for-healthtech-startups-2026-08-19.html",
-      "deadline": "Rolling, by quarterly cohort. Cohort 1 (September 2026) is CLOSED. Cohort 2 (December 2026) date not yet announced — the application form stays open between cohorts.",
-      "closes": null,
-      "added": "2026-08-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
     }
   ],
   "items": [
@@ -322,6 +333,17 @@
       "isNew": true,
       "closed": false,
       "recurring": true
+    },
+    {
+      "title": "AU-EU Youth Action Lab Entrepreneurship Grant — Third and Final Call",
+      "href": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
+      "deadline": "23 September 2026",
+      "closes": "2026-09-23",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
     },
     {
       "title": "Call For Applications: Fast Forward Accelerator 2027 for Tech Nonprofits | $25,000+ Unrestricted Grant",
