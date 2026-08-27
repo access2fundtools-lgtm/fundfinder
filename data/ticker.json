@@ -1,16 +1,71 @@
 {
-  "generated": "2026-08-26T03:09:49.568Z",
-  "rotationSeed": 20260826,
+  "generated": "2026-08-27T17:16:42.197Z",
+  "rotationSeed": 20260827,
   "newWindowDays": 10,
   "counts": {
-    "total": 89,
-    "new": 7,
+    "total": 94,
+    "new": 12,
     "closing": 6,
     "evergreen": 73,
     "recurring": 3,
     "archived": 0
   },
   "ticker": [
+    {
+      "title": "Call For Applications: Kenya Artificial Intelligence Accelerator Programme 2026 for Kenyan Startups and Innovators",
+      "href": "opportunity-call-for-applications-kenya-artificial-intelligence-accelera-2026-08-27.html",
+      "deadline": "September 6, 2026",
+      "closes": "2026-09-06",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Standard Chartered Foundation Women in Tech Accelerator 2026 for young Egyptian Entrepreneurs (USD 35,000 in equity-free funding)",
+      "href": "opportunity-standard-chartered-foundation-women-in-tech-accelerator-2026-2026-08-27.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Sasol Mining Fence-line (Mainstream) Programme 2026 for young South Africans.",
+      "href": "opportunity-sasol-mining-fence-line-mainstream-programme-2026-for-young--2026-08-27.html",
+      "deadline": "September 13, 2026",
+      "closes": "2026-09-13",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The She Leads Africa (SLA) BoostHer Program 2026 for young Nigerian women entrepreneurs.",
+      "href": "opportunity-the-she-leads-africa-sla-boosther-program-2026-for-young-nig-2026-08-27.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Sasol Technician Development Programme (TDP) 2026 for young South African graduates.",
+      "href": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
+      "deadline": "September 11, 2026",
+      "closes": "2026-09-11",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: Fast Forward Accelerator 2027 for Tech Nonprofits | $25,000+ Unrestricted Grant",
       "href": "opportunity-call-for-applications-fast-forward-accelerator-2027-for-tech-2026-08-20.html",
@@ -79,6 +134,61 @@
     }
   ],
   "latest": [
+    {
+      "title": "Call For Applications: Kenya Artificial Intelligence Accelerator Programme 2026 for Kenyan Startups and Innovators",
+      "href": "opportunity-call-for-applications-kenya-artificial-intelligence-accelera-2026-08-27.html",
+      "deadline": "September 6, 2026",
+      "closes": "2026-09-06",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Standard Chartered Foundation Women in Tech Accelerator 2026 for young Egyptian Entrepreneurs (USD 35,000 in equity-free funding)",
+      "href": "opportunity-standard-chartered-foundation-women-in-tech-accelerator-2026-2026-08-27.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Sasol Mining Fence-line (Mainstream) Programme 2026 for young South Africans.",
+      "href": "opportunity-sasol-mining-fence-line-mainstream-programme-2026-for-young--2026-08-27.html",
+      "deadline": "September 13, 2026",
+      "closes": "2026-09-13",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The She Leads Africa (SLA) BoostHer Program 2026 for young Nigerian women entrepreneurs.",
+      "href": "opportunity-the-she-leads-africa-sla-boosther-program-2026-for-young-nig-2026-08-27.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Sasol Technician Development Programme (TDP) 2026 for young South African graduates.",
+      "href": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
+      "deadline": "September 11, 2026",
+      "closes": "2026-09-11",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: Fast Forward Accelerator 2027 for Tech Nonprofits | $25,000+ Unrestricted Grant",
       "href": "opportunity-call-for-applications-fast-forward-accelerator-2027-for-tech-2026-08-20.html",
@@ -158,6 +268,61 @@
     }
   ],
   "items": [
+    {
+      "title": "Call For Applications: Kenya Artificial Intelligence Accelerator Programme 2026 for Kenyan Startups and Innovators",
+      "href": "opportunity-call-for-applications-kenya-artificial-intelligence-accelera-2026-08-27.html",
+      "deadline": "September 6, 2026",
+      "closes": "2026-09-06",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Standard Chartered Foundation Women in Tech Accelerator 2026 for young Egyptian Entrepreneurs (USD 35,000 in equity-free funding)",
+      "href": "opportunity-standard-chartered-foundation-women-in-tech-accelerator-2026-2026-08-27.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Sasol Mining Fence-line (Mainstream) Programme 2026 for young South Africans.",
+      "href": "opportunity-sasol-mining-fence-line-mainstream-programme-2026-for-young--2026-08-27.html",
+      "deadline": "September 13, 2026",
+      "closes": "2026-09-13",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The She Leads Africa (SLA) BoostHer Program 2026 for young Nigerian women entrepreneurs.",
+      "href": "opportunity-the-she-leads-africa-sla-boosther-program-2026-for-young-nig-2026-08-27.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Sasol Technician Development Programme (TDP) 2026 for young South African graduates.",
+      "href": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
+      "deadline": "September 11, 2026",
+      "closes": "2026-09-11",
+      "added": "2026-08-27",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: Fast Forward Accelerator 2027 for Tech Nonprofits | $25,000+ Unrestricted Grant",
       "href": "opportunity-call-for-applications-fast-forward-accelerator-2027-for-tech-2026-08-20.html",
