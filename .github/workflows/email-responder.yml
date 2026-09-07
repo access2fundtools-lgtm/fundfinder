@@ -1,0 +1,85 @@
+name: Email auto-responder
+
+# Reads replies to the FundFinder welcome email out of Zoho, classifies each
+# one, and either answers it or emails Dayo Akin a draft to send himself.
+#
+# Runs every 15 minutes. GitHub's scheduler is best-effort and often runs late
+# under load, so treat this as "within the hour", not "on the dot". That is
+# fine for email. If you need true 5-minute latency, run the same code as a
+# long-lived process instead:  npm start  (see responder/README.md).
+#
+# Required repository secrets — Settings → Secrets and variables → Actions:
+#   ZOHO_USER            the mailbox that RECEIVES alerts@ (likely spv@a2fpartners.com)
+#   ZOHO_APP_PASSWORD    Zoho → Settings → Security → App Passwords
+#   ANTHROPIC_API_KEY    console.anthropic.com
+#   ESCALATE_TO          where held drafts are sent
+#
+# Optional repository VARIABLE (not a secret):
+#   AUTO_SEND_BUCKETS    empty = draft-only. Set to
+#                        NOT_REGISTERED,REGISTERED_NEEDS_QUALIFYING
+#                        once you have read what it writes.
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Classify and print only — send nothing'
+        type: boolean
+        default: false
+
+concurrency:
+  # Never let two runs process the same inbox at once — that is how a person
+  # ends up with two replies to one message.
+  group: email-responder
+  cancel-in-progress: false
+
+jobs:
+  respond:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: responder
+        run: npm install --omit=dev --no-audit --no-fund
+
+      - name: Guardrail tests
+        working-directory: responder
+        run: node test-classifier.js
+        # If the guards regress, do not touch the mailbox at all.
+
+      - name: Run responder
+        working-directory: responder
+        env:
+          ZOHO_USER: ${{ secrets.ZOHO_USER }}
+          ZOHO_APP_PASSWORD: ${{ secrets.ZOHO_APP_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ESCALATE_TO: ${{ secrets.ESCALATE_TO }}
+          AUTO_SEND_BUCKETS: ${{ vars.AUTO_SEND_BUCKETS }}
+        run: |
+          if [ -z "$ZOHO_USER" ] || [ -z "$ZOHO_APP_PASSWORD" ]; then
+            echo "::error::Zoho credentials are not set — add ZOHO_USER and ZOHO_APP_PASSWORD in Settings → Secrets → Actions."
+            exit 1
+          fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node index.js --dry-run | tee /tmp/out.txt
+          else
+            node index.js | tee /tmp/out.txt
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Email responder — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            echo '```'
+            tail -25 /tmp/out.txt 2>/dev/null || echo "no output"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

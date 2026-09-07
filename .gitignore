@@ -132,3 +132,7 @@ LINKEDIN-TOKEN-REFRESH-STEPS.txt
 # credential-setup walkthroughs and the poster script that reads those tokens.
 FACEBOOK-GRAPH-API-SETUP.txt
 fb_post.py
+
+# responder deps — never publish to the web root
+responder/node_modules/
+responder/package-lock.json

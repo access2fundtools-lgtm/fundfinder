@@ -1,0 +1,20 @@
+{
+  "name": "fundfinder-responder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reads replies to the FundFinder welcome email out of Zoho, classifies them, and either answers or holds a draft for a human.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js --loop",
+    "once": "node index.js",
+    "dry": "node index.js --dry-run",
+    "test": "node test-classifier.js"
+  },
+  "dependencies": {
+    "imapflow": "^1.0.171",
+    "mailparser": "^3.7.1",
+    "nodemailer": "^6.9.14"
+  },
+  "engines": { "node": ">=20" }
+}
