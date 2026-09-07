@@ -192,7 +192,7 @@ async function sendWelcome(env, { email, name, from, cacKnown }) {
     '',
     'Just reply to this email — a real person answers.',
     '',
-    'Dayo',
+    'Dayo Akin',
     'A2F Partners · fundfinder.ng',
   ].join('\n');
 
@@ -207,7 +207,7 @@ async function sendWelcome(env, { email, name, from, cacKnown }) {
         ${questions.map((q) => `<li>${esc(q.replace(/^\d+\.\s*/, ''))}</li>`).join('')}
       </ol>
       <p>Just reply to this email — a real person answers.</p>
-      <p style="margin-bottom:0">Dayo<br>
+      <p style="margin-bottom:0">Dayo Akin<br>
          <span style="color:#5b6b66;font-size:13px">A2F Partners · fundfinder.ng</span></p>
     </div>`;
 
