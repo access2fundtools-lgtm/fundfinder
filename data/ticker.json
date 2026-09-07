@@ -1,16 +1,93 @@
 {
-  "generated": "2026-09-03T10:37:37.872Z",
-  "rotationSeed": 20260903,
+  "generated": "2026-09-07T11:28:17.522Z",
+  "rotationSeed": 20260907,
   "newWindowDays": 10,
   "counts": {
-    "total": 112,
-    "new": 23,
-    "closing": 3,
-    "evergreen": 77,
-    "recurring": 8,
+    "total": 119,
+    "new": 24,
+    "closing": 6,
+    "evergreen": 79,
+    "recurring": 9,
     "archived": 1
   },
   "ticker": [
+    {
+      "title": "Student Venture Capital Grant (S-VCG) — Cohort 2, the \"Next Moonshot\" Initiative",
+      "href": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
+      "deadline": "30 September 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "ADAVEL Fund — Pilot Round for Nigerian Grassroot Founders",
+      "href": "opportunity-adavel-fund-2026-09-07.html",
+      "deadline": "30 November 2026",
+      "closes": "2026-11-30",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call For Applications: WTO Youth Talent Incubator Programme 2026–2027 for Young Researchers and Professionals in Trade and Gender",
+      "href": "opportunity-call-for-applications-wto-youth-talent-incubator-programme-2-2026-09-07.html",
+      "deadline": "September 24, 2026",
+      "closes": "2026-09-24",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: AgriFI Agriculture Financing Initiative for Agrifood and Forestry Enterprises (Up To €5 Million in Funding)",
+      "href": "opportunity-call-for-applications-agrifi-agriculture-financing-initiativ-2026-09-07.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call for Applications: SEWA Grants 2026 For Climate Projects in Africa( Up to €1.25 Million Grants)",
+      "href": "opportunity-call-for-applications-sewa-grants-2026-for-climate-projects--2026-09-07.html",
+      "deadline": "September 30, 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "NRF/SARAO Graduate In-Training Programme 2027 for young South African graduates.",
+      "href": "opportunity-nrf-sarao-graduate-in-training-programme-2027-for-young-sout-2026-09-07.html",
+      "deadline": "September 21, 2026",
+      "closes": "2026-09-21",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The EAC Youth Fellowship 2026 for emerging East African Leaders (Fully Funded)",
+      "href": "opportunity-the-eac-youth-fellowship-2026-for-emerging-east-african-lead-2026-09-07.html",
+      "deadline": "September 7, 2026",
+      "closes": "2026-09-07",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: EBID Young Professionals Programme 2026 for West African Youths",
       "href": "opportunity-call-for-applications-ebid-young-professionals-programme-202-2026-09-03.html",
@@ -166,17 +243,6 @@
       "recurring": true
     },
     {
-      "title": "The African Investigative Journalism Conference (AIJC) Fellowships 2026 for Francophone Journalists (Fully Funded to Nairobi, Kenya)",
-      "href": "opportunity-the-african-investigative-journalism-conference-aijc-fellows-2026-08-31.html",
-      "deadline": "September 4, 2026",
-      "closes": "2026-09-04",
-      "added": "2026-08-31",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "AU-EU Youth Action Lab Entrepreneurship Grant — Third and Final Call",
       "href": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-third-and-fina-2026-08-31.html",
       "deadline": "23 September 2026",
@@ -186,75 +252,86 @@
       "isNew": true,
       "closed": false,
       "recurring": false
-    },
+    }
+  ],
+  "latest": [
     {
-      "title": "Call For Applications: Kenya Artificial Intelligence Accelerator Programme 2026 for Kenyan Startups and Innovators",
-      "href": "opportunity-call-for-applications-kenya-artificial-intelligence-accelera-2026-08-27.html",
-      "deadline": "September 6, 2026",
-      "closes": "2026-09-06",
-      "added": "2026-08-27",
+      "title": "Student Venture Capital Grant (S-VCG) — Cohort 2, the \"Next Moonshot\" Initiative",
+      "href": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
+      "deadline": "30 September 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
       "tier": 1,
       "isNew": true,
       "closed": false,
       "recurring": true
     },
     {
-      "title": "Standard Chartered Foundation Women in Tech Accelerator 2026 for young Egyptian Entrepreneurs (USD 35,000 in equity-free funding)",
-      "href": "opportunity-standard-chartered-foundation-women-in-tech-accelerator-2026-2026-08-27.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-08-27",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Sasol Mining Fence-line (Mainstream) Programme 2026 for young South Africans.",
-      "href": "opportunity-sasol-mining-fence-line-mainstream-programme-2026-for-young--2026-08-27.html",
-      "deadline": "September 13, 2026",
-      "closes": "2026-09-13",
-      "added": "2026-08-27",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The She Leads Africa (SLA) BoostHer Program 2026 for young Nigerian women entrepreneurs.",
-      "href": "opportunity-the-she-leads-africa-sla-boosther-program-2026-for-young-nig-2026-08-27.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-08-27",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Sasol Technician Development Programme (TDP) 2026 for young South African graduates.",
-      "href": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
-      "deadline": "September 11, 2026",
-      "closes": "2026-09-11",
-      "added": "2026-08-27",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "AU-EU Youth Action Lab Entrepreneurship Grant — Third and Final Call",
-      "href": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
-      "deadline": "23 September 2026",
-      "closes": "2026-09-23",
-      "added": "2026-08-27",
+      "title": "ADAVEL Fund — Pilot Round for Nigerian Grassroot Founders",
+      "href": "opportunity-adavel-fund-2026-09-07.html",
+      "deadline": "30 November 2026",
+      "closes": "2026-11-30",
+      "added": "2026-09-07",
       "tier": 1,
       "isNew": true,
       "closed": false,
       "recurring": false
-    }
-  ],
-  "latest": [
+    },
+    {
+      "title": "Call For Applications: WTO Youth Talent Incubator Programme 2026–2027 for Young Researchers and Professionals in Trade and Gender",
+      "href": "opportunity-call-for-applications-wto-youth-talent-incubator-programme-2-2026-09-07.html",
+      "deadline": "September 24, 2026",
+      "closes": "2026-09-24",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: AgriFI Agriculture Financing Initiative for Agrifood and Forestry Enterprises (Up To €5 Million in Funding)",
+      "href": "opportunity-call-for-applications-agrifi-agriculture-financing-initiativ-2026-09-07.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call for Applications: SEWA Grants 2026 For Climate Projects in Africa( Up to €1.25 Million Grants)",
+      "href": "opportunity-call-for-applications-sewa-grants-2026-for-climate-projects--2026-09-07.html",
+      "deadline": "September 30, 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "NRF/SARAO Graduate In-Training Programme 2027 for young South African graduates.",
+      "href": "opportunity-nrf-sarao-graduate-in-training-programme-2027-for-young-sout-2026-09-07.html",
+      "deadline": "September 21, 2026",
+      "closes": "2026-09-21",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The EAC Youth Fellowship 2026 for emerging East African Leaders (Fully Funded)",
+      "href": "opportunity-the-eac-youth-fellowship-2026-for-emerging-east-african-lead-2026-09-07.html",
+      "deadline": "September 7, 2026",
+      "closes": "2026-09-07",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: EBID Young Professionals Programme 2026 for West African Youths",
       "href": "opportunity-call-for-applications-ebid-young-professionals-programme-202-2026-09-03.html",
@@ -309,86 +386,86 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Japan International Cooperation Center (JICE) Japan-Africa Youth Program 2026 for African Animation Professionals (Fully Funded to Japan)",
-      "href": "opportunity-japan-international-cooperation-center-jice-japan-africa-you-2026-09-03.html",
-      "deadline": "September 8, 2026",
-      "closes": "2026-09-08",
-      "added": "2026-09-03",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The CivicHive Creative Changemakers Fellowship (CCMF) 2026 for young Nigerian creatives.",
-      "href": "opportunity-the-civichive-creative-changemakers-fellowship-ccmf-2026-for-2026-09-03.html",
-      "deadline": "September 15, 2026",
-      "closes": "2026-09-15",
-      "added": "2026-09-03",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The AU-EU Youth Action Lab Entrepreneurship Grants 2026 for youth-led initiatives in Africa (31,500 EURO grant)",
-      "href": "opportunity-the-au-eu-youth-action-lab-entrepreneurship-grants-2026-for--2026-09-03.html",
-      "deadline": "September 23, 2026",
-      "closes": "2026-09-23",
-      "added": "2026-09-03",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Expand Your Business With These Small Business Loans In Nigeria",
-      "href": "opportunity-expand-your-business-with-these-small-business-loans-in-nige-2026-09-03.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-03",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Quick Loans In Nigeria",
-      "href": "opportunity-quick-loans-in-nigeria-2026-09-03.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-03",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call For Applications: Business Infrastructure Support Programme (BISP) 2026 for South African MSMEs",
-      "href": "opportunity-call-for-applications-business-infrastructure-support-progra-2026-08-31.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-08-31",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: FAS AI Safety Policy Entrepreneurship Fellowship 2026 | $5,000 Stipend",
-      "href": "opportunity-call-for-applications-fas-ai-safety-policy-entrepreneurship--2026-08-31.html",
-      "deadline": "September 7, 2026",
-      "closes": "2026-09-07",
-      "added": "2026-08-31",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "items": [
+    {
+      "title": "Student Venture Capital Grant (S-VCG) — Cohort 2, the \"Next Moonshot\" Initiative",
+      "href": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
+      "deadline": "30 September 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "ADAVEL Fund — Pilot Round for Nigerian Grassroot Founders",
+      "href": "opportunity-adavel-fund-2026-09-07.html",
+      "deadline": "30 November 2026",
+      "closes": "2026-11-30",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call For Applications: WTO Youth Talent Incubator Programme 2026–2027 for Young Researchers and Professionals in Trade and Gender",
+      "href": "opportunity-call-for-applications-wto-youth-talent-incubator-programme-2-2026-09-07.html",
+      "deadline": "September 24, 2026",
+      "closes": "2026-09-24",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: AgriFI Agriculture Financing Initiative for Agrifood and Forestry Enterprises (Up To €5 Million in Funding)",
+      "href": "opportunity-call-for-applications-agrifi-agriculture-financing-initiativ-2026-09-07.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call for Applications: SEWA Grants 2026 For Climate Projects in Africa( Up to €1.25 Million Grants)",
+      "href": "opportunity-call-for-applications-sewa-grants-2026-for-climate-projects--2026-09-07.html",
+      "deadline": "September 30, 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "NRF/SARAO Graduate In-Training Programme 2027 for young South African graduates.",
+      "href": "opportunity-nrf-sarao-graduate-in-training-programme-2027-for-young-sout-2026-09-07.html",
+      "deadline": "September 21, 2026",
+      "closes": "2026-09-21",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The EAC Youth Fellowship 2026 for emerging East African Leaders (Fully Funded)",
+      "href": "opportunity-the-eac-youth-fellowship-2026-for-emerging-east-african-lead-2026-09-07.html",
+      "deadline": "September 7, 2026",
+      "closes": "2026-09-07",
+      "added": "2026-09-07",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: EBID Young Professionals Programme 2026 for West African Youths",
       "href": "opportunity-call-for-applications-ebid-young-professionals-programme-202-2026-09-03.html",
@@ -562,7 +639,7 @@
       "added": "2026-08-31",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": true
     },
     {
@@ -571,72 +648,6 @@
       "deadline": "23 September 2026",
       "closes": "2026-09-23",
       "added": "2026-08-31",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call For Applications: Kenya Artificial Intelligence Accelerator Programme 2026 for Kenyan Startups and Innovators",
-      "href": "opportunity-call-for-applications-kenya-artificial-intelligence-accelera-2026-08-27.html",
-      "deadline": "September 6, 2026",
-      "closes": "2026-09-06",
-      "added": "2026-08-27",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Standard Chartered Foundation Women in Tech Accelerator 2026 for young Egyptian Entrepreneurs (USD 35,000 in equity-free funding)",
-      "href": "opportunity-standard-chartered-foundation-women-in-tech-accelerator-2026-2026-08-27.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-08-27",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Sasol Mining Fence-line (Mainstream) Programme 2026 for young South Africans.",
-      "href": "opportunity-sasol-mining-fence-line-mainstream-programme-2026-for-young--2026-08-27.html",
-      "deadline": "September 13, 2026",
-      "closes": "2026-09-13",
-      "added": "2026-08-27",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The She Leads Africa (SLA) BoostHer Program 2026 for young Nigerian women entrepreneurs.",
-      "href": "opportunity-the-she-leads-africa-sla-boosther-program-2026-for-young-nig-2026-08-27.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-08-27",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Sasol Technician Development Programme (TDP) 2026 for young South African graduates.",
-      "href": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
-      "deadline": "September 11, 2026",
-      "closes": "2026-09-11",
-      "added": "2026-08-27",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "AU-EU Youth Action Lab Entrepreneurship Grant — Third and Final Call",
-      "href": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
-      "deadline": "23 September 2026",
-      "closes": "2026-09-23",
-      "added": "2026-08-27",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -652,6 +663,39 @@
       "isNew": false,
       "closed": false,
       "recurring": true
+    },
+    {
+      "title": "The Sasol Technician Development Programme (TDP) 2026 for young South African graduates.",
+      "href": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
+      "deadline": "September 11, 2026",
+      "closes": "2026-09-11",
+      "added": "2026-08-27",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Sasol Mining Fence-line (Mainstream) Programme 2026 for young South Africans.",
+      "href": "opportunity-sasol-mining-fence-line-mainstream-programme-2026-for-young--2026-08-27.html",
+      "deadline": "September 13, 2026",
+      "closes": "2026-09-13",
+      "added": "2026-08-27",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "AU-EU Youth Action Lab Entrepreneurship Grant — Third and Final Call",
+      "href": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
+      "deadline": "23 September 2026",
+      "closes": "2026-09-23",
+      "added": "2026-08-27",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
     },
     {
       "title": "Call For Applications: Climate Resilience Awards for Business 2026",
@@ -671,6 +715,28 @@
       "closes": "2026-09-30",
       "added": "2026-08-20",
       "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Standard Chartered Foundation Women in Tech Accelerator 2026 for young Egyptian Entrepreneurs (USD 35,000 in equity-free funding)",
+      "href": "opportunity-standard-chartered-foundation-women-in-tech-accelerator-2026-2026-08-27.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-08-27",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The She Leads Africa (SLA) BoostHer Program 2026 for young Nigerian women entrepreneurs.",
+      "href": "opportunity-the-she-leads-africa-sla-boosther-program-2026-for-young-nig-2026-08-27.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-08-27",
+      "tier": 3,
       "isNew": false,
       "closed": false,
       "recurring": true
@@ -1521,6 +1587,17 @@
       "isNew": false,
       "closed": false,
       "recurring": false
+    },
+    {
+      "title": "Call For Applications: Kenya Artificial Intelligence Accelerator Programme 2026 for Kenyan Startups and Innovators",
+      "href": "opportunity-call-for-applications-kenya-artificial-intelligence-accelera-2026-08-27.html",
+      "deadline": "September 6, 2026",
+      "closes": "2026-09-06",
+      "added": "2026-08-27",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
     },
     {
       "title": "Commonwealth Startup Fellowship — Cohort 3",
