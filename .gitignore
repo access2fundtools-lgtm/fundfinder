@@ -131,7 +131,8 @@ LINKEDIN-TOKEN-REFRESH-STEPS.txt
 # runs `git add .`, so anything left here gets published. These are internal
 # credential-setup walkthroughs and the poster script that reads those tokens.
 FACEBOOK-GRAPH-API-SETUP.txt
-fb_post.py
+/fb_post.py
+!.github/scripts/fb_post.py
 
 # responder deps — never publish to the web root
 responder/node_modules/

@@ -1,0 +1,101 @@
+name: Social poster
+
+# Posts every unposted funding caption to the four Facebook pages via the Graph
+# API, then commits the run log back to the repo.
+#
+# This replaces two dead things:
+#   - the Zapier catch hook, dead since 2026-08-24 ("please unsubscribe me!")
+#   - the local scheduled task, which could only run when Dayo's Downloads
+#     folder happened to be mounted in a session. That is why posting kept
+#     silently stopping. Nothing here depends on a mounted folder.
+#
+# Required repository secret — Settings → Secrets and variables → Actions:
+#   FB_PAGE_TOKENS   the whole contents of fundfinder-fb-page-tokens.json,
+#                    pasted as one line. Shape:
+#                    {"105038935504207":{"name":"...","token":"EAA..."}, ...}
+#
+# Not covered here: LinkedIn (token expired) and X (account has $0 credits).
+
+on:
+  schedule:
+    # Mon & Thu 07:45 UTC — about 45 min after the scraper sync.
+    - cron: '45 7 * * 1,4'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Show what would post, send nothing'
+        type: boolean
+        default: false
+      limit:
+        description: 'Max captions this run (each posts to all 4 pages)'
+        default: '8'
+      check_only:
+        description: 'Only verify the tokens are alive, post nothing'
+        type: boolean
+        default: false
+
+concurrency:
+  group: social-poster
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify page tokens
+        env:
+          FB_PAGE_TOKENS: ${{ secrets.FB_PAGE_TOKENS }}
+        run: |
+          if [ -z "$FB_PAGE_TOKENS" ]; then
+            echo "::error::FB_PAGE_TOKENS is not set. Paste the contents of"
+            echo "::error::fundfinder-fb-page-tokens.json into Settings → Secrets → Actions."
+            exit 1
+          fi
+          python3 .github/scripts/fb_post.py --check
+
+      - name: Post captions
+        if: ${{ inputs.check_only != true }}
+        env:
+          FB_PAGE_TOKENS: ${{ secrets.FB_PAGE_TOKENS }}
+        run: |
+          ARGS="--auto . --limit ${{ inputs.limit || 8 }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          echo "Running: fb_post.py $ARGS"
+          python3 .github/scripts/fb_post.py $ARGS | tee /tmp/out.txt
+
+      - name: Commit the run log
+        if: ${{ inputs.check_only != true && inputs.dry_run != true }}
+        run: |
+          # The log is the watermark. If it is not committed, the next run
+          # reposts everything. fb_post.py only writes one when something
+          # actually sent, so a failed run correctly leaves the queue intact.
+          if ls SOCIAL-LOG-*.txt >/dev/null 2>&1 && [ -n "$(git status --porcelain SOCIAL-LOG-*.txt)" ]; then
+            git config user.email "access2fundtools@gmail.com"
+            git config user.name "FundFinder AI"
+            git add SOCIAL-LOG-*.txt
+            git commit -m "🤖 Social post log — $(date +'%Y-%m-%d')"
+            git push
+            echo "Log committed — watermark advanced."
+          else
+            echo "No new log to commit (nothing sent, or nothing qualified)."
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Social poster — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            echo '```'
+            tail -40 /tmp/out.txt 2>/dev/null || echo "no output"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
