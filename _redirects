@@ -1,0 +1,13 @@
+# Cloudflare Pages redirect rules.
+#
+# The repo root is the public web root, so anything committed here is served
+# unless it is blocked. Cloudflare Pages DOES serve dot-directories — verified
+# 2026-09-09, when .github/scripts/fb_post.py returned HTTP 200 on the live
+# site. These rules 404 the internal tooling directories.
+#
+# Order matters: first match wins.
+
+/.github/*    /404.html   404
+/responder/*  /404.html   404
+/scripts/*    /404.html   404
+/migrations/* /404.html   404
