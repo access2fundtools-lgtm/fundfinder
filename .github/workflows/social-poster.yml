@@ -52,6 +52,17 @@ jobs:
         with:
           python-version: '3.11'
 
+      # The poster lives on the `tooling` branch, NOT on main. Cloudflare Pages
+      # deploys main and serves every file in it, including dot-directories --
+      # verified 2026-09-09, when .github/scripts/fb_post.py returned HTTP 200 on
+      # the live site. A _redirects rule cannot fix that, because Pages matches
+      # static assets before it consults redirect rules. Keeping the script off
+      # main is the only reliable way to stop it being published.
+      - uses: actions/checkout@v4
+        with:
+          ref: tooling
+          path: .tooling
+
       - name: Verify page tokens
         env:
           FB_PAGE_TOKENS: ${{ secrets.FB_PAGE_TOKENS }}
@@ -61,7 +72,7 @@ jobs:
             echo "::error::fundfinder-fb-page-tokens.json into Settings → Secrets → Actions."
             exit 1
           fi
-          python3 .github/scripts/fb_post.py --check
+          python3 .tooling/ff/fb_post.py --check
 
       - name: Post captions
         if: ${{ inputs.check_only != true }}
@@ -71,7 +82,7 @@ jobs:
           ARGS="--auto . --limit ${{ inputs.limit || 8 }}"
           if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
           echo "Running: fb_post.py $ARGS"
-          python3 .github/scripts/fb_post.py $ARGS | tee /tmp/out.txt
+          python3 .tooling/ff/fb_post.py $ARGS | tee /tmp/out.txt
 
       - name: Commit the run log
         if: ${{ inputs.check_only != true && inputs.dry_run != true }}
