@@ -1,16 +1,71 @@
 {
-  "generated": "2026-09-14T11:40:10.277Z",
-  "rotationSeed": 20260914,
+  "generated": "2026-09-16T17:55:19.507Z",
+  "rotationSeed": 20260916,
   "newWindowDays": 10,
   "counts": {
-    "total": 134,
-    "new": 22,
-    "closing": 11,
+    "total": 139,
+    "new": 27,
+    "closing": 9,
     "evergreen": 83,
-    "recurring": 16,
+    "recurring": 18,
     "archived": 2
   },
   "ticker": [
+    {
+      "title": "The Citi Foundation Global Innovation Challenge 2027 for nonprofit organisations (US$500,000 grant)",
+      "href": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16.html",
+      "deadline": "October 6, 2026",
+      "closes": "2026-10-06",
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Pulitzer Center Gender Equality Grants 2026 for Journalists worldwide.",
+      "href": "opportunity-the-pulitzer-center-gender-equality-grants-2026-for-journali-2026-09-16.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "2026 AGNES Intra-Africa Mobility Grants for Junior Researchers",
+      "href": "opportunity-2026-agnes-intra-africa-mobility-grants-for-junior-researche-2026-09-16.html",
+      "deadline": "October 16, 2026",
+      "closes": "2026-10-16",
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Desmond & Leah Tutu Legacy Foundation 2027 Leading for Humanity Leadership Programme for young changemakers (Funded)",
+      "href": "opportunity-the-desmond-leah-tutu-legacy-foundation-2027-leading-for-hum-2026-09-16.html",
+      "deadline": "October 14, 2026",
+      "closes": "2026-10-14",
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Mutual funding in Nigeria: Why It Is A Good Option For New Businesses",
+      "href": "opportunity-mutual-funding-in-nigeria-why-it-is-a-good-option-for-new-bu-2026-09-16.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
     {
       "title": "Call For Applications: Mastercard/CcHUB Digital Skills GATEWAY Program 2026 for Nigerians",
       "href": "opportunity-call-for-applications-mastercard-cchub-digital-skills-gatewa-2026-09-14.html",
@@ -219,31 +274,64 @@
       "isNew": true,
       "closed": false,
       "recurring": false
-    },
-    {
-      "title": "Call for Applications: SEWA Grants 2026 For Climate Projects in Africa( Up to €1.25 Million Grants)",
-      "href": "opportunity-call-for-applications-sewa-grants-2026-for-climate-projects--2026-09-07.html",
-      "deadline": "September 30, 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-07",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "NRF/SARAO Graduate In-Training Programme 2027 for young South African graduates.",
-      "href": "opportunity-nrf-sarao-graduate-in-training-programme-2027-for-young-sout-2026-09-07.html",
-      "deadline": "September 21, 2026",
-      "closes": "2026-09-21",
-      "added": "2026-09-07",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "latest": [
+    {
+      "title": "The Citi Foundation Global Innovation Challenge 2027 for nonprofit organisations (US$500,000 grant)",
+      "href": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16.html",
+      "deadline": "October 6, 2026",
+      "closes": "2026-10-06",
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Pulitzer Center Gender Equality Grants 2026 for Journalists worldwide.",
+      "href": "opportunity-the-pulitzer-center-gender-equality-grants-2026-for-journali-2026-09-16.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "2026 AGNES Intra-Africa Mobility Grants for Junior Researchers",
+      "href": "opportunity-2026-agnes-intra-africa-mobility-grants-for-junior-researche-2026-09-16.html",
+      "deadline": "October 16, 2026",
+      "closes": "2026-10-16",
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Desmond & Leah Tutu Legacy Foundation 2027 Leading for Humanity Leadership Programme for young changemakers (Funded)",
+      "href": "opportunity-the-desmond-leah-tutu-legacy-foundation-2027-leading-for-hum-2026-09-16.html",
+      "deadline": "October 14, 2026",
+      "closes": "2026-10-14",
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Mutual funding in Nigeria: Why It Is A Good Option For New Businesses",
+      "href": "opportunity-mutual-funding-in-nigeria-why-it-is-a-good-option-for-new-bu-2026-09-16.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
     {
       "title": "Call For Applications: Mastercard/CcHUB Digital Skills GATEWAY Program 2026 for Nigerians",
       "href": "opportunity-call-for-applications-mastercard-cchub-digital-skills-gatewa-2026-09-14.html",
@@ -320,64 +408,64 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Pitch Perfect Africa 2026 Innovation Fellowship for African Health Startups (CAD $5,000 prize)",
-      "href": "opportunity-pitch-perfect-africa-2026-innovation-fellowship-for-african--2026-09-14.html",
-      "deadline": "September 29, 2026",
-      "closes": "2026-09-29",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Centre for the Study of the Economies of Africa (CSEA) 2026 Africa’s Data Future Fellowship (US$1,500 stipend)",
-      "href": "opportunity-the-centre-for-the-study-of-the-economies-of-africa-csea-202-2026-09-10.html",
-      "deadline": "September 18, 2026",
-      "closes": "2026-09-18",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Médecins Sans Frontières (MSF) Eastern Africa Media Fellowship Programme 2026 for East African Journalists",
-      "href": "opportunity-the-m-decins-sans-fronti-res-msf-eastern-africa-media-fellow-2026-09-10.html",
-      "deadline": "September 8, 2027",
-      "closes": "2027-09-08",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Toyota South Africa Chartered Accountant Development Programme 2027 for young South Africans.",
-      "href": "opportunity-toyota-south-africa-chartered-accountant-development-program-2026-09-10.html",
-      "deadline": "September 30, 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The National Treasury Chartered Accountants Academy Programme 2027 for young South Africans (Three-years full-time training contract)",
-      "href": "opportunity-the-national-treasury-chartered-accountants-academy-programm-2026-09-10.html",
-      "deadline": "October 2, 2026",
-      "closes": "2026-10-02",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "items": [
+    {
+      "title": "The Citi Foundation Global Innovation Challenge 2027 for nonprofit organisations (US$500,000 grant)",
+      "href": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16.html",
+      "deadline": "October 6, 2026",
+      "closes": "2026-10-06",
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Pulitzer Center Gender Equality Grants 2026 for Journalists worldwide.",
+      "href": "opportunity-the-pulitzer-center-gender-equality-grants-2026-for-journali-2026-09-16.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "2026 AGNES Intra-Africa Mobility Grants for Junior Researchers",
+      "href": "opportunity-2026-agnes-intra-africa-mobility-grants-for-junior-researche-2026-09-16.html",
+      "deadline": "October 16, 2026",
+      "closes": "2026-10-16",
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Desmond & Leah Tutu Legacy Foundation 2027 Leading for Humanity Leadership Programme for young changemakers (Funded)",
+      "href": "opportunity-the-desmond-leah-tutu-legacy-foundation-2027-leading-for-hum-2026-09-16.html",
+      "deadline": "October 14, 2026",
+      "closes": "2026-10-14",
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Mutual funding in Nigeria: Why It Is A Good Option For New Businesses",
+      "href": "opportunity-mutual-funding-in-nigeria-why-it-is-a-good-option-for-new-bu-2026-09-16.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-16",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
     {
       "title": "Call For Applications: Mastercard/CcHUB Digital Skills GATEWAY Program 2026 for Nigerians",
       "href": "opportunity-call-for-applications-mastercard-cchub-digital-skills-gatewa-2026-09-14.html",
@@ -618,28 +706,6 @@
       "tier": 1,
       "isNew": true,
       "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Julius Berger Engineer Development Program 2026 for Nigerians",
-      "href": "opportunity-call-for-applications-julius-berger-engineer-development-pro-2026-09-03.html",
-      "deadline": "September 14, 2026",
-      "closes": "2026-09-14",
-      "added": "2026-09-03",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The CivicHive Creative Changemakers Fellowship (CCMF) 2026 for young Nigerian creatives.",
-      "href": "opportunity-the-civichive-creative-changemakers-fellowship-ccmf-2026-for-2026-09-03.html",
-      "deadline": "September 15, 2026",
-      "closes": "2026-09-15",
-      "added": "2026-09-03",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
       "recurring": true
     },
     {
@@ -1655,43 +1721,10 @@
       "recurring": false
     },
     {
-      "title": "Sasol Mining Fence-line (Mainstream) Programme 2026 for young South Africans.",
-      "href": "opportunity-sasol-mining-fence-line-mainstream-programme-2026-for-young--2026-08-27.html",
-      "deadline": "September 13, 2026",
-      "closes": "2026-09-13",
-      "added": "2026-08-27",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "The Sasol Technician Development Programme (TDP) 2026 for young South African graduates.",
-      "href": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
-      "deadline": "September 11, 2026",
-      "closes": "2026-09-11",
-      "added": "2026-08-27",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "The Cybersafe x SANS AI Security Fellowship 2026 for African women in cybersecurity (Fully Funded)",
-      "href": "opportunity-the-cybersafe-x-sans-ai-security-fellowship-2026-for-african-2026-08-31.html",
-      "deadline": "September 10, 2026",
-      "closes": "2026-09-10",
-      "added": "2026-08-31",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Japan International Cooperation Center (JICE) Japan-Africa Youth Program 2026 for African Animation Professionals (Fully Funded to Japan)",
-      "href": "opportunity-japan-international-cooperation-center-jice-japan-africa-you-2026-09-03.html",
-      "deadline": "September 8, 2026",
-      "closes": "2026-09-08",
+      "title": "The CivicHive Creative Changemakers Fellowship (CCMF) 2026 for young Nigerian creatives.",
+      "href": "opportunity-the-civichive-creative-changemakers-fellowship-ccmf-2026-for-2026-09-03.html",
+      "deadline": "September 15, 2026",
+      "closes": "2026-09-15",
       "added": "2026-09-03",
       "tier": 4,
       "isNew": false,
