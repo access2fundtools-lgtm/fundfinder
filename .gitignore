@@ -132,8 +132,20 @@ LINKEDIN-TOKEN-REFRESH-STEPS.txt
 # credential-setup walkthroughs and the poster script that reads those tokens.
 FACEBOOK-GRAPH-API-SETUP.txt
 /fb_post.py
-!.github/scripts/fb_post.py
 
 # responder deps — never publish to the web root
 responder/node_modules/
 responder/package-lock.json
+
+# SECURITY 2026-09-16: fb_post.py was removed from main in 2d9cf6c and now lives
+# on the tooling branch (workflow checks it out into .tooling/ at run time).
+# A stale local copy plus the old un-ignore rule would let `git add -A` republish
+# it, undoing that fix. Ignore it everywhere.
+.github/scripts/fb_post.py
+__pycache__/
+_removed/
+*.bundle
+
+# Internal A2F working docs — repo root is the public web root, never publish
+08-globalsight-reengagement-traders.md
+WHATSAPP-LEAD-SETUP.md
