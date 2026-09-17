@@ -1,16 +1,49 @@
 {
-  "generated": "2026-09-16T17:55:19.507Z",
-  "rotationSeed": 20260916,
+  "generated": "2026-09-17T10:36:11.070Z",
+  "rotationSeed": 20260917,
   "newWindowDays": 10,
   "counts": {
-    "total": 139,
-    "new": 27,
+    "total": 142,
+    "new": 30,
     "closing": 9,
     "evergreen": 83,
     "recurring": 18,
     "archived": 2
   },
   "ticker": [
+    {
+      "title": "Call For Applications: Federal Ministry of Education 2026 Accelerated Teacher Professionalisation Training Programme",
+      "href": "opportunity-call-for-applications-federal-ministry-of-education-2026-acc-2026-09-17.html",
+      "deadline": "September 25, 2026",
+      "closes": "2026-09-25",
+      "added": "2026-09-17",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: GEF Entrepreneurs Investment Program 2026 (Up to $35,000 in total seed investment)",
+      "href": "opportunity-call-for-applications-gef-entrepreneurs-investment-program-2-2026-09-17.html",
+      "deadline": "October 6, 2026",
+      "closes": "2026-10-06",
+      "added": "2026-09-17",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Maple Global Innovation Fellowship 2026",
+      "href": "opportunity-call-for-applications-maple-global-innovation-fellowship-202-2026-09-17.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-17",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "The Citi Foundation Global Innovation Challenge 2027 for nonprofit organisations (US$500,000 grant)",
       "href": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16.html",
@@ -241,42 +274,42 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
+    }
+  ],
+  "latest": [
     {
-      "title": "ADAVEL Fund — Pilot Round for Nigerian Grassroot Founders",
-      "href": "opportunity-adavel-fund-2026-09-07.html",
-      "deadline": "30 November 2026",
-      "closes": "2026-11-30",
-      "added": "2026-09-07",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call For Applications: WTO Youth Talent Incubator Programme 2026–2027 for Young Researchers and Professionals in Trade and Gender",
-      "href": "opportunity-call-for-applications-wto-youth-talent-incubator-programme-2-2026-09-07.html",
-      "deadline": "September 24, 2026",
-      "closes": "2026-09-24",
-      "added": "2026-09-07",
+      "title": "Call For Applications: Federal Ministry of Education 2026 Accelerated Teacher Professionalisation Training Programme",
+      "href": "opportunity-call-for-applications-federal-ministry-of-education-2026-acc-2026-09-17.html",
+      "deadline": "September 25, 2026",
+      "closes": "2026-09-25",
+      "added": "2026-09-17",
       "tier": 1,
       "isNew": true,
       "closed": false,
       "recurring": true
     },
     {
-      "title": "Call for Applications: AgriFI Agriculture Financing Initiative for Agrifood and Forestry Enterprises (Up To €5 Million in Funding)",
-      "href": "opportunity-call-for-applications-agrifi-agriculture-financing-initiativ-2026-09-07.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-07",
+      "title": "Call For Applications: GEF Entrepreneurs Investment Program 2026 (Up to $35,000 in total seed investment)",
+      "href": "opportunity-call-for-applications-gef-entrepreneurs-investment-program-2-2026-09-17.html",
+      "deadline": "October 6, 2026",
+      "closes": "2026-10-06",
+      "added": "2026-09-17",
       "tier": 1,
       "isNew": true,
       "closed": false,
-      "recurring": false
-    }
-  ],
-  "latest": [
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Maple Global Innovation Fellowship 2026",
+      "href": "opportunity-call-for-applications-maple-global-innovation-fellowship-202-2026-09-17.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-17",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "The Citi Foundation Global Innovation Challenge 2027 for nonprofit organisations (US$500,000 grant)",
       "href": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16.html",
@@ -375,42 +408,42 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "The Clooney Foundation Waging Justice for Women Fellowship 2027 for early-career women lawyers in sub-Saharan Africa",
-      "href": "opportunity-the-clooney-foundation-waging-justice-for-women-fellowship-2-2026-09-14.html",
-      "deadline": "October 20, 2026",
-      "closes": "2026-10-20",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Government of Japan Exchange and Teaching Programme 2027 for young Leaders (Fully Funded to Japan)",
-      "href": "opportunity-the-government-of-japan-exchange-and-teaching-programme-2027-2026-09-14.html",
-      "deadline": "October 16, 2026",
-      "closes": "2026-10-16",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "African Leadership Institute (AFLI) Archbishop Tutu Fellowship Programme 2027 for Emerging young African Leaders (Fully Funded)",
-      "href": "opportunity-african-leadership-institute-afli-archbishop-tutu-fellowship-2026-09-14.html",
-      "deadline": "September 20, 2026",
-      "closes": "2026-09-20",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "items": [
+    {
+      "title": "Call For Applications: Federal Ministry of Education 2026 Accelerated Teacher Professionalisation Training Programme",
+      "href": "opportunity-call-for-applications-federal-ministry-of-education-2026-acc-2026-09-17.html",
+      "deadline": "September 25, 2026",
+      "closes": "2026-09-25",
+      "added": "2026-09-17",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: GEF Entrepreneurs Investment Program 2026 (Up to $35,000 in total seed investment)",
+      "href": "opportunity-call-for-applications-gef-entrepreneurs-investment-program-2-2026-09-17.html",
+      "deadline": "October 6, 2026",
+      "closes": "2026-10-06",
+      "added": "2026-09-17",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Maple Global Innovation Fellowship 2026",
+      "href": "opportunity-call-for-applications-maple-global-innovation-fellowship-202-2026-09-17.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-17",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "The Citi Foundation Global Innovation Challenge 2027 for nonprofit organisations (US$500,000 grant)",
       "href": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16.html",
@@ -1697,39 +1730,6 @@
       "isNew": false,
       "closed": false,
       "recurring": false
-    },
-    {
-      "title": "Artisanal & Small-scale Miners (ASM) Financing Support Fund",
-      "href": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01.html",
-      "deadline": "See official site",
-      "closes": null,
-      "added": "2026-07-01",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "MSME Loan Programme",
-      "href": "opportunity-msme-loan-programme-2026-06-30.html",
-      "deadline": "See official site",
-      "closes": null,
-      "added": "2026-06-30",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The CivicHive Creative Changemakers Fellowship (CCMF) 2026 for young Nigerian creatives.",
-      "href": "opportunity-the-civichive-creative-changemakers-fellowship-ccmf-2026-for-2026-09-03.html",
-      "deadline": "September 15, 2026",
-      "closes": "2026-09-15",
-      "added": "2026-09-03",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
     }
   ]
 }
