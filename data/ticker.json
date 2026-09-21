@@ -1,16 +1,60 @@
 {
-  "generated": "2026-09-17T10:54:12.474Z",
-  "rotationSeed": 20260917,
+  "generated": "2026-09-21T11:53:33.669Z",
+  "rotationSeed": 20260921,
   "newWindowDays": 10,
   "counts": {
-    "total": 142,
-    "new": 30,
-    "closing": 9,
-    "evergreen": 83,
-    "recurring": 18,
+    "total": 146,
+    "new": 20,
+    "closing": 20,
+    "evergreen": 84,
+    "recurring": 20,
     "archived": 2
   },
   "ticker": [
+    {
+      "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
+      "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
+      "deadline": "October 30, 2026",
+      "closes": "2026-10-30",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Precision Agriculture Incubation Program Cohort 4.0 Global",
+      "href": "opportunity-call-for-applications-precision-agriculture-incubation-progr-2026-09-21.html",
+      "deadline": "October 5, 2026",
+      "closes": "2026-10-05",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "D-Prize Challenge 2026/2027 for Social Entrepreneurs to fight Poverty ($USD 20,000)",
+      "href": "opportunity-d-prize-challenge-2026-2027-for-social-entrepreneurs-to-figh-2026-09-21.html",
+      "deadline": "December 6, 2026",
+      "closes": "2026-12-06",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The World Bank Group Small AI for Development Hackathon Challenge 2026 (Fully Funded to present at the 2026 Global AI and Digital Summit in Seoul, South Korea)",
+      "href": "opportunity-the-world-bank-group-small-ai-for-development-hackathon-chal-2026-09-21.html",
+      "deadline": "September 26, 2026",
+      "closes": "2026-09-26",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: Federal Ministry of Education 2026 Accelerated Teacher Professionalisation Training Programme",
       "href": "opportunity-call-for-applications-federal-ministry-of-education-2026-acc-2026-09-17.html",
@@ -166,110 +210,11 @@
       "recurring": true
     },
     {
-      "title": "African Leadership Institute (AFLI) Archbishop Tutu Fellowship Programme 2027 for Emerging young African Leaders (Fully Funded)",
-      "href": "opportunity-african-leadership-institute-afli-archbishop-tutu-fellowship-2026-09-14.html",
-      "deadline": "September 20, 2026",
-      "closes": "2026-09-20",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "Pitch Perfect Africa 2026 Innovation Fellowship for African Health Startups (CAD $5,000 prize)",
       "href": "opportunity-pitch-perfect-africa-2026-innovation-fellowship-for-african--2026-09-14.html",
       "deadline": "September 29, 2026",
       "closes": "2026-09-29",
       "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Centre for the Study of the Economies of Africa (CSEA) 2026 Africa’s Data Future Fellowship (US$1,500 stipend)",
-      "href": "opportunity-the-centre-for-the-study-of-the-economies-of-africa-csea-202-2026-09-10.html",
-      "deadline": "September 18, 2026",
-      "closes": "2026-09-18",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Médecins Sans Frontières (MSF) Eastern Africa Media Fellowship Programme 2026 for East African Journalists",
-      "href": "opportunity-the-m-decins-sans-fronti-res-msf-eastern-africa-media-fellow-2026-09-10.html",
-      "deadline": "September 8, 2027",
-      "closes": "2027-09-08",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Toyota South Africa Chartered Accountant Development Programme 2027 for young South Africans.",
-      "href": "opportunity-toyota-south-africa-chartered-accountant-development-program-2026-09-10.html",
-      "deadline": "September 30, 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The National Treasury Chartered Accountants Academy Programme 2027 for young South Africans (Three-years full-time training contract)",
-      "href": "opportunity-the-national-treasury-chartered-accountants-academy-programm-2026-09-10.html",
-      "deadline": "October 2, 2026",
-      "closes": "2026-10-02",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "IAPS AI Policy Fellowship 2027- Fully Funded",
-      "href": "opportunity-iaps-ai-policy-fellowship-2027-fully-funded-2026-09-10.html",
-      "deadline": "September 27, 2026",
-      "closes": "2026-09-27",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Blaze by Ecobank InnovateX 2026 — ₦20 million prize pool",
-      "href": "opportunity-blaze-ecobank-innovatex-2026-2026-09-09.html",
-      "deadline": "None published — register now, finale is 30 October 2026",
-      "closes": "2026-10-30",
-      "added": "2026-09-09",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Harambeans Africa Jobs Fund Prize 2026",
-      "href": "opportunity-harambeans-africa-jobs-fund-prize-2026-09-09.html",
-      "deadline": "October 27, 2026",
-      "closes": "2026-10-27",
-      "added": "2026-09-09",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Student Venture Capital Grant (S-VCG) — Cohort 2, the \"Next Moonshot\" Initiative",
-      "href": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
-      "deadline": "30 September 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-07",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -278,6 +223,50 @@
   ],
   "latest": [
     {
+      "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
+      "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
+      "deadline": "October 30, 2026",
+      "closes": "2026-10-30",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Precision Agriculture Incubation Program Cohort 4.0 Global",
+      "href": "opportunity-call-for-applications-precision-agriculture-incubation-progr-2026-09-21.html",
+      "deadline": "October 5, 2026",
+      "closes": "2026-10-05",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "D-Prize Challenge 2026/2027 for Social Entrepreneurs to fight Poverty ($USD 20,000)",
+      "href": "opportunity-d-prize-challenge-2026-2027-for-social-entrepreneurs-to-figh-2026-09-21.html",
+      "deadline": "December 6, 2026",
+      "closes": "2026-12-06",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The World Bank Group Small AI for Development Hackathon Challenge 2026 (Fully Funded to present at the 2026 Global AI and Digital Summit in Seoul, South Korea)",
+      "href": "opportunity-the-world-bank-group-small-ai-for-development-hackathon-chal-2026-09-21.html",
+      "deadline": "September 26, 2026",
+      "closes": "2026-09-26",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call For Applications: Federal Ministry of Education 2026 Accelerated Teacher Professionalisation Training Programme",
       "href": "opportunity-call-for-applications-federal-ministry-of-education-2026-acc-2026-09-17.html",
       "deadline": "September 25, 2026",
@@ -364,53 +353,53 @@
       "isNew": true,
       "closed": false,
       "recurring": false
-    },
-    {
-      "title": "Call For Applications: Mastercard/CcHUB Digital Skills GATEWAY Program 2026 for Nigerians",
-      "href": "opportunity-call-for-applications-mastercard-cchub-digital-skills-gatewa-2026-09-14.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: SUSTAIN Developing Agribusiness Talent Training Programme 2026 free training + certificate",
-      "href": "opportunity-call-for-applications-sustain-developing-agribusiness-talent-2026-09-14.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: LeadGreen Fellowship Cohort 4 (2026) For Green Entrepreneur (Fully Funded)",
-      "href": "opportunity-call-for-applications-leadgreen-fellowship-cohort-4-2026-for-2026-09-14.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Green Africa Associates SDGs Innovations Fellowship 2026",
-      "href": "opportunity-call-for-applications-green-africa-associates-sdgs-innovatio-2026-09-14.html",
-      "deadline": "September 24, 2026",
-      "closes": "2026-09-24",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "items": [
+    {
+      "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
+      "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
+      "deadline": "October 30, 2026",
+      "closes": "2026-10-30",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Precision Agriculture Incubation Program Cohort 4.0 Global",
+      "href": "opportunity-call-for-applications-precision-agriculture-incubation-progr-2026-09-21.html",
+      "deadline": "October 5, 2026",
+      "closes": "2026-10-05",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "D-Prize Challenge 2026/2027 for Social Entrepreneurs to fight Poverty ($USD 20,000)",
+      "href": "opportunity-d-prize-challenge-2026-2027-for-social-entrepreneurs-to-figh-2026-09-21.html",
+      "deadline": "December 6, 2026",
+      "closes": "2026-12-06",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The World Bank Group Small AI for Development Hackathon Challenge 2026 (Fully Funded to present at the 2026 Global AI and Digital Summit in Seoul, South Korea)",
+      "href": "opportunity-the-world-bank-group-small-ai-for-development-hackathon-chal-2026-09-21.html",
+      "deadline": "September 26, 2026",
+      "closes": "2026-09-26",
+      "added": "2026-09-21",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: Federal Ministry of Education 2026 Accelerated Teacher Professionalisation Training Programme",
       "href": "opportunity-call-for-applications-federal-ministry-of-education-2026-acc-2026-09-17.html",
@@ -573,7 +562,7 @@
       "added": "2026-09-14",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": true
     },
     {
@@ -582,138 +571,6 @@
       "deadline": "September 29, 2026",
       "closes": "2026-09-29",
       "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Centre for the Study of the Economies of Africa (CSEA) 2026 Africa’s Data Future Fellowship (US$1,500 stipend)",
-      "href": "opportunity-the-centre-for-the-study-of-the-economies-of-africa-csea-202-2026-09-10.html",
-      "deadline": "September 18, 2026",
-      "closes": "2026-09-18",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Médecins Sans Frontières (MSF) Eastern Africa Media Fellowship Programme 2026 for East African Journalists",
-      "href": "opportunity-the-m-decins-sans-fronti-res-msf-eastern-africa-media-fellow-2026-09-10.html",
-      "deadline": "September 8, 2027",
-      "closes": "2027-09-08",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Toyota South Africa Chartered Accountant Development Programme 2027 for young South Africans.",
-      "href": "opportunity-toyota-south-africa-chartered-accountant-development-program-2026-09-10.html",
-      "deadline": "September 30, 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The National Treasury Chartered Accountants Academy Programme 2027 for young South Africans (Three-years full-time training contract)",
-      "href": "opportunity-the-national-treasury-chartered-accountants-academy-programm-2026-09-10.html",
-      "deadline": "October 2, 2026",
-      "closes": "2026-10-02",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "IAPS AI Policy Fellowship 2027- Fully Funded",
-      "href": "opportunity-iaps-ai-policy-fellowship-2027-fully-funded-2026-09-10.html",
-      "deadline": "September 27, 2026",
-      "closes": "2026-09-27",
-      "added": "2026-09-10",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Blaze by Ecobank InnovateX 2026 — ₦20 million prize pool",
-      "href": "opportunity-blaze-ecobank-innovatex-2026-2026-09-09.html",
-      "deadline": "None published — register now, finale is 30 October 2026",
-      "closes": "2026-10-30",
-      "added": "2026-09-09",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Harambeans Africa Jobs Fund Prize 2026",
-      "href": "opportunity-harambeans-africa-jobs-fund-prize-2026-09-09.html",
-      "deadline": "October 27, 2026",
-      "closes": "2026-10-27",
-      "added": "2026-09-09",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Student Venture Capital Grant (S-VCG) — Cohort 2, the \"Next Moonshot\" Initiative",
-      "href": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
-      "deadline": "30 September 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-07",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "ADAVEL Fund — Pilot Round for Nigerian Grassroot Founders",
-      "href": "opportunity-adavel-fund-2026-09-07.html",
-      "deadline": "30 November 2026",
-      "closes": "2026-11-30",
-      "added": "2026-09-07",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call For Applications: WTO Youth Talent Incubator Programme 2026–2027 for Young Researchers and Professionals in Trade and Gender",
-      "href": "opportunity-call-for-applications-wto-youth-talent-incubator-programme-2-2026-09-07.html",
-      "deadline": "September 24, 2026",
-      "closes": "2026-09-24",
-      "added": "2026-09-07",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: AgriFI Agriculture Financing Initiative for Agrifood and Forestry Enterprises (Up To €5 Million in Funding)",
-      "href": "opportunity-call-for-applications-agrifi-agriculture-financing-initiativ-2026-09-07.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-07",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call for Applications: SEWA Grants 2026 For Climate Projects in Africa( Up to €1.25 Million Grants)",
-      "href": "opportunity-call-for-applications-sewa-grants-2026-for-climate-projects--2026-09-07.html",
-      "deadline": "September 30, 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-07",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -725,20 +582,9 @@
       "deadline": "September 21, 2026",
       "closes": "2026-09-21",
       "added": "2026-09-07",
-      "tier": 1,
-      "isNew": true,
+      "tier": 2,
+      "isNew": false,
       "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The EAC Youth Fellowship 2026 for emerging East African Leaders (Fully Funded)",
-      "href": "opportunity-the-eac-youth-fellowship-2026-for-emerging-east-african-lead-2026-09-07.html",
-      "deadline": "September 7, 2026",
-      "closes": "2026-09-07",
-      "added": "2026-09-07",
-      "tier": 1,
-      "isNew": true,
-      "closed": true,
       "recurring": true
     },
     {
@@ -775,6 +621,28 @@
       "recurring": true
     },
     {
+      "title": "Call For Applications: WTO Youth Talent Incubator Programme 2026–2027 for Young Researchers and Professionals in Trade and Gender",
+      "href": "opportunity-call-for-applications-wto-youth-talent-incubator-programme-2-2026-09-07.html",
+      "deadline": "September 24, 2026",
+      "closes": "2026-09-24",
+      "added": "2026-09-07",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "IAPS AI Policy Fellowship 2027- Fully Funded",
+      "href": "opportunity-iaps-ai-policy-fellowship-2027-fully-funded-2026-09-10.html",
+      "deadline": "September 27, 2026",
+      "closes": "2026-09-27",
+      "added": "2026-09-10",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call For Applications: Climate Resilience Awards for Business 2026",
       "href": "opportunity-call-for-applications-climate-resilience-awards-for-business-2026-08-03.html",
       "deadline": "September 30, 2026",
@@ -797,11 +665,66 @@
       "recurring": true
     },
     {
+      "title": "Student Venture Capital Grant (S-VCG) — Cohort 2, the \"Next Moonshot\" Initiative",
+      "href": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
+      "deadline": "30 September 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: SEWA Grants 2026 For Climate Projects in Africa( Up to €1.25 Million Grants)",
+      "href": "opportunity-call-for-applications-sewa-grants-2026-for-climate-projects--2026-09-07.html",
+      "deadline": "September 30, 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Toyota South Africa Chartered Accountant Development Programme 2027 for young South Africans.",
+      "href": "opportunity-toyota-south-africa-chartered-accountant-development-program-2026-09-10.html",
+      "deadline": "September 30, 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-10",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The National Treasury Chartered Accountants Academy Programme 2027 for young South Africans (Three-years full-time training contract)",
+      "href": "opportunity-the-national-treasury-chartered-accountants-academy-programm-2026-09-10.html",
+      "deadline": "October 2, 2026",
+      "closes": "2026-10-02",
+      "added": "2026-09-10",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "World Conference of Science Journalists (WCSJ) 2027 Travel Fellowship for Journalists (Fully Funded to London, United Kingdom)",
       "href": "opportunity-world-conference-of-science-journalists-wcsj-2027-travel-fel-2026-08-31.html",
       "deadline": "October 23, 2026",
       "closes": "2026-10-23",
       "added": "2026-08-31",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Harambeans Africa Jobs Fund Prize 2026",
+      "href": "opportunity-harambeans-africa-jobs-fund-prize-2026-09-09.html",
+      "deadline": "October 27, 2026",
+      "closes": "2026-10-27",
+      "added": "2026-09-09",
       "tier": 2,
       "isNew": false,
       "closed": false,
@@ -830,6 +753,28 @@
       "recurring": true
     },
     {
+      "title": "Blaze by Ecobank InnovateX 2026 — ₦20 million prize pool",
+      "href": "opportunity-blaze-ecobank-innovatex-2026-2026-09-09.html",
+      "deadline": "None published — register now, finale is 30 October 2026",
+      "closes": "2026-10-30",
+      "added": "2026-09-09",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "ADAVEL Fund — Pilot Round for Nigerian Grassroot Founders",
+      "href": "opportunity-adavel-fund-2026-09-07.html",
+      "deadline": "30 November 2026",
+      "closes": "2026-11-30",
+      "added": "2026-09-07",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
       "title": "The Ashoka-Carnegie Challenge 2026/2027 for Civic Leadership (Seed funding and Fully-Funded to in-person convening)",
       "href": "opportunity-the-ashoka-carnegie-challenge-2026-2027-for-civic-leadership-2026-09-03.html",
       "deadline": "January 31, 2027",
@@ -839,6 +784,28 @@
       "isNew": false,
       "closed": false,
       "recurring": true
+    },
+    {
+      "title": "The Médecins Sans Frontières (MSF) Eastern Africa Media Fellowship Programme 2026 for East African Journalists",
+      "href": "opportunity-the-m-decins-sans-fronti-res-msf-eastern-africa-media-fellow-2026-09-10.html",
+      "deadline": "September 8, 2027",
+      "closes": "2027-09-08",
+      "added": "2026-09-10",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: AgriFI Agriculture Financing Initiative for Agrifood and Forestry Enterprises (Up To €5 Million in Funding)",
+      "href": "opportunity-call-for-applications-agrifi-agriculture-financing-initiativ-2026-09-07.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-07",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
     },
     {
       "title": "Call for Applications: CivicHive Creative Changemakers Fellowship For Nigerian Creatives 2026 (Monthly Stipend)",
@@ -1708,28 +1675,6 @@
       "isNew": false,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Apply Now: Katsina Government MBBS Scholarship in Russian Universities",
-      "href": "opportunity-apply-now-katsina-government-mbbs-scholarship-in-russian-uni-2026-07-02.html",
-      "deadline": "See source",
-      "closes": null,
-      "added": "2026-07-02",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "BOI Engineering & Technology Funds",
-      "href": "opportunity-boi-engineering-038-technology-funds-2026-07-01.html",
-      "deadline": "See official site",
-      "closes": null,
-      "added": "2026-07-01",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
     }
   ]
 }
