@@ -1,16 +1,115 @@
 {
-  "generated": "2026-09-21T11:53:33.669Z",
-  "rotationSeed": 20260921,
+  "generated": "2026-09-24T11:02:46.880Z",
+  "rotationSeed": 20260924,
   "newWindowDays": 10,
   "counts": {
-    "total": 146,
-    "new": 20,
-    "closing": 20,
+    "total": 155,
+    "new": 29,
+    "closing": 16,
     "evergreen": 84,
-    "recurring": 20,
-    "archived": 2
+    "recurring": 22,
+    "archived": 4
   },
   "ticker": [
+    {
+      "title": "Apply for NITDA National AI Innovation Challenge 2026",
+      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply: SMEDAN ALGON OLOP programme for MSMEs (All LGAs)",
+      "href": "opportunity-apply-smedan-algon-olop-programme-for-msmes-all-lgas-2026-09-24.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
+      "href": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
+      "deadline": "November 20, 2026",
+      "closes": "2026-11-20",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Commonwealth Foundation Grants Programme 2026/2027 for Civil Society Organizations (£60,000 in Grants).",
+      "href": "opportunity-commonwealth-foundation-grants-programme-2026-2027-for-civil-2026-09-24.html",
+      "deadline": "October 26, 2026",
+      "closes": "2026-10-26",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Equality Fund Journalism Fellowship 2026 for Journalists worldwide ($4000 CAD stipend)",
+      "href": "opportunity-the-equality-fund-journalism-fellowship-2026-for-journalists-2026-09-24.html",
+      "deadline": "November 8, 2026",
+      "closes": "2026-11-08",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The YALI 2027 Mandela Washington Fellowship for young African Leaders (Fully Funded to the United States of America)",
+      "href": "opportunity-the-yali-2027-mandela-washington-fellowship-for-young-africa-2026-09-24.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "TradeRoots Africa-International Chamber of Commerce (ICC) Programme 2026/2027 for export-ready African SMEs.",
+      "href": "opportunity-traderoots-africa-international-chamber-of-commerce-icc-prog-2026-09-24.html",
+      "deadline": "October 15, 2026",
+      "closes": "2026-10-15",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Mo Ibrahim Foundation Leadership Fellowships 2027 ($100,000 Stipend)",
+      "href": "opportunity-mo-ibrahim-foundation-leadership-fellowships-2027-100-000-st-2026-09-24.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Mandela Washington Fellowship 2027",
+      "href": "opportunity-mandela-washington-fellowship-2027-2026-09-24.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
       "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
@@ -175,53 +274,108 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Call for Applications: Green Africa Associates SDGs Innovations Fellowship 2026",
-      "href": "opportunity-call-for-applications-green-africa-associates-sdgs-innovatio-2026-09-14.html",
-      "deadline": "September 24, 2026",
-      "closes": "2026-09-24",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Clooney Foundation Waging Justice for Women Fellowship 2027 for early-career women lawyers in sub-Saharan Africa",
-      "href": "opportunity-the-clooney-foundation-waging-justice-for-women-fellowship-2-2026-09-14.html",
-      "deadline": "October 20, 2026",
-      "closes": "2026-10-20",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Government of Japan Exchange and Teaching Programme 2027 for young Leaders (Fully Funded to Japan)",
-      "href": "opportunity-the-government-of-japan-exchange-and-teaching-programme-2027-2026-09-14.html",
-      "deadline": "October 16, 2026",
-      "closes": "2026-10-16",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Pitch Perfect Africa 2026 Innovation Fellowship for African Health Startups (CAD $5,000 prize)",
-      "href": "opportunity-pitch-perfect-africa-2026-innovation-fellowship-for-african--2026-09-14.html",
-      "deadline": "September 29, 2026",
-      "closes": "2026-09-29",
-      "added": "2026-09-14",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "latest": [
+    {
+      "title": "Apply for NITDA National AI Innovation Challenge 2026",
+      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply: SMEDAN ALGON OLOP programme for MSMEs (All LGAs)",
+      "href": "opportunity-apply-smedan-algon-olop-programme-for-msmes-all-lgas-2026-09-24.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
+      "href": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
+      "deadline": "November 20, 2026",
+      "closes": "2026-11-20",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Commonwealth Foundation Grants Programme 2026/2027 for Civil Society Organizations (£60,000 in Grants).",
+      "href": "opportunity-commonwealth-foundation-grants-programme-2026-2027-for-civil-2026-09-24.html",
+      "deadline": "October 26, 2026",
+      "closes": "2026-10-26",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Equality Fund Journalism Fellowship 2026 for Journalists worldwide ($4000 CAD stipend)",
+      "href": "opportunity-the-equality-fund-journalism-fellowship-2026-for-journalists-2026-09-24.html",
+      "deadline": "November 8, 2026",
+      "closes": "2026-11-08",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The YALI 2027 Mandela Washington Fellowship for young African Leaders (Fully Funded to the United States of America)",
+      "href": "opportunity-the-yali-2027-mandela-washington-fellowship-for-young-africa-2026-09-24.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "TradeRoots Africa-International Chamber of Commerce (ICC) Programme 2026/2027 for export-ready African SMEs.",
+      "href": "opportunity-traderoots-africa-international-chamber-of-commerce-icc-prog-2026-09-24.html",
+      "deadline": "October 15, 2026",
+      "closes": "2026-10-15",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Mo Ibrahim Foundation Leadership Fellowships 2027 ($100,000 Stipend)",
+      "href": "opportunity-mo-ibrahim-foundation-leadership-fellowships-2027-100-000-st-2026-09-24.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Mandela Washington Fellowship 2027",
+      "href": "opportunity-mandela-washington-fellowship-2027-2026-09-24.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
       "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
@@ -254,108 +408,108 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
+    }
+  ],
+  "items": [
     {
-      "title": "The World Bank Group Small AI for Development Hackathon Challenge 2026 (Fully Funded to present at the 2026 Global AI and Digital Summit in Seoul, South Korea)",
-      "href": "opportunity-the-world-bank-group-small-ai-for-development-hackathon-chal-2026-09-21.html",
-      "deadline": "September 26, 2026",
-      "closes": "2026-09-26",
-      "added": "2026-09-21",
+      "title": "Apply for NITDA National AI Innovation Challenge 2026",
+      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-24",
       "tier": 1,
       "isNew": true,
       "closed": false,
       "recurring": true
     },
     {
-      "title": "Call For Applications: Federal Ministry of Education 2026 Accelerated Teacher Professionalisation Training Programme",
-      "href": "opportunity-call-for-applications-federal-ministry-of-education-2026-acc-2026-09-17.html",
-      "deadline": "September 25, 2026",
-      "closes": "2026-09-25",
-      "added": "2026-09-17",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: GEF Entrepreneurs Investment Program 2026 (Up to $35,000 in total seed investment)",
-      "href": "opportunity-call-for-applications-gef-entrepreneurs-investment-program-2-2026-09-17.html",
-      "deadline": "October 6, 2026",
-      "closes": "2026-10-06",
-      "added": "2026-09-17",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Maple Global Innovation Fellowship 2026",
-      "href": "opportunity-call-for-applications-maple-global-innovation-fellowship-202-2026-09-17.html",
+      "title": "Apply: SMEDAN ALGON OLOP programme for MSMEs (All LGAs)",
+      "href": "opportunity-apply-smedan-algon-olop-programme-for-msmes-all-lgas-2026-09-24.html",
       "deadline": "Check official page",
       "closes": null,
-      "added": "2026-09-17",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Citi Foundation Global Innovation Challenge 2027 for nonprofit organisations (US$500,000 grant)",
-      "href": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16.html",
-      "deadline": "October 6, 2026",
-      "closes": "2026-10-06",
-      "added": "2026-09-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Pulitzer Center Gender Equality Grants 2026 for Journalists worldwide.",
-      "href": "opportunity-the-pulitzer-center-gender-equality-grants-2026-for-journali-2026-09-16.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "2026 AGNES Intra-Africa Mobility Grants for Junior Researchers",
-      "href": "opportunity-2026-agnes-intra-africa-mobility-grants-for-junior-researche-2026-09-16.html",
-      "deadline": "October 16, 2026",
-      "closes": "2026-10-16",
-      "added": "2026-09-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Desmond & Leah Tutu Legacy Foundation 2027 Leading for Humanity Leadership Programme for young changemakers (Funded)",
-      "href": "opportunity-the-desmond-leah-tutu-legacy-foundation-2027-leading-for-hum-2026-09-16.html",
-      "deadline": "October 14, 2026",
-      "closes": "2026-10-14",
-      "added": "2026-09-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Mutual funding in Nigeria: Why It Is A Good Option For New Businesses",
-      "href": "opportunity-mutual-funding-in-nigeria-why-it-is-a-good-option-for-new-bu-2026-09-16.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-16",
+      "added": "2026-09-24",
       "tier": 1,
       "isNew": true,
       "closed": false,
       "recurring": false
-    }
-  ],
-  "items": [
+    },
+    {
+      "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
+      "href": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
+      "deadline": "November 20, 2026",
+      "closes": "2026-11-20",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Commonwealth Foundation Grants Programme 2026/2027 for Civil Society Organizations (£60,000 in Grants).",
+      "href": "opportunity-commonwealth-foundation-grants-programme-2026-2027-for-civil-2026-09-24.html",
+      "deadline": "October 26, 2026",
+      "closes": "2026-10-26",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Equality Fund Journalism Fellowship 2026 for Journalists worldwide ($4000 CAD stipend)",
+      "href": "opportunity-the-equality-fund-journalism-fellowship-2026-for-journalists-2026-09-24.html",
+      "deadline": "November 8, 2026",
+      "closes": "2026-11-08",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The YALI 2027 Mandela Washington Fellowship for young African Leaders (Fully Funded to the United States of America)",
+      "href": "opportunity-the-yali-2027-mandela-washington-fellowship-for-young-africa-2026-09-24.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "TradeRoots Africa-International Chamber of Commerce (ICC) Programme 2026/2027 for export-ready African SMEs.",
+      "href": "opportunity-traderoots-africa-international-chamber-of-commerce-icc-prog-2026-09-24.html",
+      "deadline": "October 15, 2026",
+      "closes": "2026-10-15",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Mo Ibrahim Foundation Leadership Fellowships 2027 ($100,000 Stipend)",
+      "href": "opportunity-mo-ibrahim-foundation-leadership-fellowships-2027-100-000-st-2026-09-24.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Mandela Washington Fellowship 2027",
+      "href": "opportunity-mandela-washington-fellowship-2027-2026-09-24.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
       "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
@@ -573,50 +727,6 @@
       "added": "2026-09-14",
       "tier": 1,
       "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "NRF/SARAO Graduate In-Training Programme 2027 for young South African graduates.",
-      "href": "opportunity-nrf-sarao-graduate-in-training-programme-2027-for-young-sout-2026-09-07.html",
-      "deadline": "September 21, 2026",
-      "closes": "2026-09-21",
-      "added": "2026-09-07",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "AU-EU Youth Action Lab Entrepreneurship Grant — Third and Final Call",
-      "href": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
-      "deadline": "23 September 2026",
-      "closes": "2026-09-23",
-      "added": "2026-08-27",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "AU-EU Youth Action Lab Entrepreneurship Grant — Third and Final Call",
-      "href": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-third-and-fina-2026-08-31.html",
-      "deadline": "23 September 2026",
-      "closes": "2026-09-23",
-      "added": "2026-08-31",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The AU-EU Youth Action Lab Entrepreneurship Grants 2026 for youth-led initiatives in Africa (31,500 EURO grant)",
-      "href": "opportunity-the-au-eu-youth-action-lab-entrepreneurship-grants-2026-for--2026-09-03.html",
-      "deadline": "September 23, 2026",
-      "closes": "2026-09-23",
-      "added": "2026-09-03",
-      "tier": 2,
-      "isNew": false,
       "closed": false,
       "recurring": true
     },
@@ -1613,61 +1723,6 @@
     {
       "title": "Call For Applications: Nexa Global Climate × Health Innovation Challenge 2026 (Up to USD 2 Million in Funding)",
       "href": "opportunity-call-for-applications-nexa-global-climate-health-innovation--2026-07-02.html",
-      "deadline": "See source",
-      "closes": null,
-      "added": "2026-07-02",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Reckitt Catalyst Global Accelerator Program 2026/2027 for Social Innovators",
-      "href": "opportunity-call-for-applications-reckitt-catalyst-global-accelerator-pr-2026-07-02.html",
-      "deadline": "See source",
-      "closes": null,
-      "added": "2026-07-02",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Wetech PitchHer 2026 Investment Readiness Programme ( Up To ₦8.5 Million Funding)",
-      "href": "opportunity-call-for-applications-wetech-pitchher-2026-investment-readin-2026-07-02.html",
-      "deadline": "See source",
-      "closes": null,
-      "added": "2026-07-02",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for LSETF MSME Loans Programme 2026 for Lagos Businesses (₦50,000–₦5,000,000)",
-      "href": "opportunity-apply-for-lsetf-msme-loans-programme-2026-for-lagos-business-2026-07-02.html",
-      "deadline": "See source",
-      "closes": null,
-      "added": "2026-07-02",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for SSCE Youth Social Media Advocates Programme",
-      "href": "opportunity-apply-for-ssce-youth-social-media-advocates-programme-2026-07-02.html",
-      "deadline": "See source",
-      "closes": null,
-      "added": "2026-07-02",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Apply for the LSETF UPLIFT Creative Job Hubs Programme 2026",
-      "href": "opportunity-apply-for-the-lsetf-uplift-creative-job-hubs-programme-2026-2026-07-02.html",
       "deadline": "See source",
       "closes": null,
       "added": "2026-07-02",
