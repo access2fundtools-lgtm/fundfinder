@@ -1,16 +1,60 @@
 {
-  "generated": "2026-09-28T12:48:15.821Z",
-  "rotationSeed": 20260928,
+  "generated": "2026-09-29T16:57:43.832Z",
+  "rotationSeed": 20260929,
   "newWindowDays": 10,
   "counts": {
-    "total": 168,
-    "new": 26,
+    "total": 172,
+    "new": 30,
     "closing": 21,
     "evergreen": 90,
     "recurring": 27,
     "archived": 4
   },
   "ticker": [
+    {
+      "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
+      "href": "opportunity-the-st-gallen-symposium-global-leadership-challenge-2026-for-2026-09-29.html",
+      "deadline": "November 5, 2026",
+      "closes": "2026-11-05",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
+      "href": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
+      "deadline": "November 10, 2026",
+      "closes": "2026-11-10",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
+      "href": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "YSEALI Fellows Program 2027 in USA (Fully Funded)",
+      "href": "opportunity-yseali-fellows-program-2027-in-usa-fully-funded-2026-09-29.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: Commonwealth Foundation Grants Programme 2026",
       "href": "opportunity-call-for-applications-commonwealth-foundation-grants-program-2026-09-28.html",
@@ -230,53 +274,53 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Mo Ibrahim Foundation Leadership Fellowships 2027 ($100,000 Stipend)",
-      "href": "opportunity-mo-ibrahim-foundation-leadership-fellowships-2027-100-000-st-2026-09-24.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Mandela Washington Fellowship 2027",
-      "href": "opportunity-mandela-washington-fellowship-2027-2026-09-24.html",
-      "deadline": "October 13, 2026",
-      "closes": "2026-10-13",
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
-      "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-09-21",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Precision Agriculture Incubation Program Cohort 4.0 Global",
-      "href": "opportunity-call-for-applications-precision-agriculture-incubation-progr-2026-09-21.html",
-      "deadline": "October 5, 2026",
-      "closes": "2026-10-05",
-      "added": "2026-09-21",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "latest": [
+    {
+      "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
+      "href": "opportunity-the-st-gallen-symposium-global-leadership-challenge-2026-for-2026-09-29.html",
+      "deadline": "November 5, 2026",
+      "closes": "2026-11-05",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
+      "href": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
+      "deadline": "November 10, 2026",
+      "closes": "2026-11-10",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
+      "href": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "YSEALI Fellows Program 2027 in USA (Fully Funded)",
+      "href": "opportunity-yseali-fellows-program-2027-in-usa-fully-funded-2026-09-29.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: Commonwealth Foundation Grants Programme 2026",
       "href": "opportunity-call-for-applications-commonwealth-foundation-grants-program-2026-09-28.html",
@@ -364,53 +408,53 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "The 2027 Jim Leech Mastercard Foundation Fellowship on Entrepreneurship for young African students & recent graduates.",
-      "href": "opportunity-the-2027-jim-leech-mastercard-foundation-fellowship-on-entre-2026-09-28.html",
-      "deadline": "December 1, 2026",
-      "closes": "2026-12-01",
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The NITDA National AI Innovation Challenge 2026 for young Nigerian developers.",
-      "href": "opportunity-the-nitda-national-ai-innovation-challenge-2026-for-young-ni-2026-09-28.html",
-      "deadline": "October 12, 2026",
-      "closes": "2026-10-12",
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "KAUST Global Fellowship Program 2027 in Saudi Arabia (Fully Funded)",
-      "href": "opportunity-kaust-global-fellowship-program-2027-in-saudi-arabia-fully-f-2026-09-28.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Commonwealth Foundation Grants 2026–27: Up to £60,000 Funding",
-      "href": "opportunity-commonwealth-foundation-grants-2026-27-up-to-60-000-funding-2026-09-28.html",
-      "deadline": "October 26, 2026",
-      "closes": "2026-10-26",
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "items": [
+    {
+      "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
+      "href": "opportunity-the-st-gallen-symposium-global-leadership-challenge-2026-for-2026-09-29.html",
+      "deadline": "November 5, 2026",
+      "closes": "2026-11-05",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
+      "href": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
+      "deadline": "November 10, 2026",
+      "closes": "2026-11-10",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
+      "href": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "YSEALI Fellows Program 2027 in USA (Fully Funded)",
+      "href": "opportunity-yseali-fellows-program-2027-in-usa-fully-funded-2026-09-29.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call For Applications: Commonwealth Foundation Grants Programme 2026",
       "href": "opportunity-call-for-applications-commonwealth-foundation-grants-program-2026-09-28.html",
@@ -1682,50 +1726,6 @@
       "deadline": "Check official page",
       "closes": null,
       "added": "2026-07-14",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: CircularEconomy4Ghana Innovation Challenge 2026",
-      "href": "opportunity-call-for-applications-circulareconomy4ghana-innovation-chall-2026-07-14.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-07-14",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: World Health Organization (WHO) Paid Internship Programme 2026",
-      "href": "opportunity-call-for-applications-world-health-organization-who-paid-int-2026-07-13.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-07-13",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Digital Jewels Africa Scholarship 2026 for Nigerian Students",
-      "href": "opportunity-call-for-applications-digital-jewels-africa-scholarship-2026-2026-07-13.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-07-13",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: GLFx Chapters Program 2027 (Funding+Partnerships +Global Network for Community-Led Organizations)",
-      "href": "opportunity-call-for-applications-glfx-chapters-program-2027-funding-par-2026-07-13.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-07-13",
       "tier": 3,
       "isNew": false,
       "closed": false,
