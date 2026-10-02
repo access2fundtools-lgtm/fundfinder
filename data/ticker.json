@@ -1,27 +1,16 @@
 {
-  "generated": "2026-10-02T04:38:29.919Z",
+  "generated": "2026-10-02T05:23:05.165Z",
   "rotationSeed": 20261002,
   "newWindowDays": 10,
   "counts": {
-    "total": 183,
-    "new": 37,
-    "closing": 18,
-    "evergreen": 90,
-    "recurring": 34,
+    "total": 134,
+    "new": 21,
+    "closing": 5,
+    "evergreen": 82,
+    "recurring": 22,
     "archived": 4
   },
   "ticker": [
-    {
-      "title": "Apply for Kano Women in Tech Programme",
-      "href": "opportunity-apply-for-kano-women-in-tech-programme-2026-10-02.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-02",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
     {
       "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
       "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
@@ -89,50 +78,6 @@
       "recurring": true
     },
     {
-      "title": "Brooke Owens Fellowship 2027 In USA (Fully Funded)",
-      "href": "opportunity-brooke-owens-fellowship-2027-in-usa-fully-funded-2026-10-01.html",
-      "deadline": "October 4, 2026",
-      "closes": "2026-10-04",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Fellowship 2027 in USA- Fully Funded",
-      "href": "opportunity-fellowship-2027-in-usa-fully-funded-2026-10-01.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Preparing Your Business for Bank Loan",
-      "href": "opportunity-preparing-your-business-for-bank-loan-2026-10-01.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "[Watch] Why SMEs Are Not Getting Their Loans Approved",
-      "href": "opportunity-watch-why-smes-are-not-getting-their-loans-approved-2026-10-01.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
       "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
       "href": "opportunity-the-st-gallen-symposium-global-leadership-challenge-2026-for-2026-09-29.html",
       "deadline": "November 5, 2026",
@@ -159,17 +104,6 @@
       "href": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29.html",
       "deadline": "October 13, 2026",
       "closes": "2026-10-13",
-      "added": "2026-09-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "YSEALI Fellows Program 2027 in USA (Fully Funded)",
-      "href": "opportunity-yseali-fellows-program-2027-in-usa-fully-funded-2026-09-29.html",
-      "deadline": "October 12, 2026",
-      "closes": "2026-10-12",
       "added": "2026-09-29",
       "tier": 1,
       "isNew": true,
@@ -265,11 +199,33 @@
       "recurring": true
     },
     {
-      "title": "KAUST Global Fellowship Program 2027 in Saudi Arabia (Fully Funded)",
-      "href": "opportunity-kaust-global-fellowship-program-2027-in-saudi-arabia-fully-f-2026-09-28.html",
+      "title": "Apply for NITDA National AI Innovation Challenge 2026",
+      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply: SMEDAN ALGON OLOP programme for MSMEs (All LGAs)",
+      "href": "opportunity-apply-smedan-algon-olop-programme-for-msmes-all-lgas-2026-09-24.html",
       "deadline": "Check official page",
       "closes": null,
-      "added": "2026-09-28",
+      "added": "2026-09-24",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
+      "href": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
+      "deadline": "November 20, 2026",
+      "closes": "2026-11-20",
+      "added": "2026-09-24",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -278,17 +234,6 @@
   ],
   "latest": [
     {
-      "title": "Apply for Kano Women in Tech Programme",
-      "href": "opportunity-apply-for-kano-women-in-tech-programme-2026-10-02.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-02",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
       "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
       "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
       "deadline": "November 30, 2026",
@@ -353,184 +298,6 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Brooke Owens Fellowship 2027 In USA (Fully Funded)",
-      "href": "opportunity-brooke-owens-fellowship-2027-in-usa-fully-funded-2026-10-01.html",
-      "deadline": "October 4, 2026",
-      "closes": "2026-10-04",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Fellowship 2027 in USA- Fully Funded",
-      "href": "opportunity-fellowship-2027-in-usa-fully-funded-2026-10-01.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Preparing Your Business for Bank Loan",
-      "href": "opportunity-preparing-your-business-for-bank-loan-2026-10-01.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "[Watch] Why SMEs Are Not Getting Their Loans Approved",
-      "href": "opportunity-watch-why-smes-are-not-getting-their-loans-approved-2026-10-01.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
-      "href": "opportunity-the-st-gallen-symposium-global-leadership-challenge-2026-for-2026-09-29.html",
-      "deadline": "November 5, 2026",
-      "closes": "2026-11-05",
-      "added": "2026-09-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    }
-  ],
-  "items": [
-    {
-      "title": "Apply for Kano Women in Tech Programme",
-      "href": "opportunity-apply-for-kano-women-in-tech-programme-2026-10-02.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-02",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
-      "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for AYPC Free Digital Skills Training Programme",
-      "href": "opportunity-apply-for-aypc-free-digital-skills-training-programme-2026-10-01.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Apply for Solar Power Nigeria Social Media Ambassador Programme",
-      "href": "opportunity-apply-for-solar-power-nigeria-social-media-ambassador-progra-2026-10-01.html",
-      "deadline": "October 2, 2026",
-      "closes": "2026-10-02",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Dalai Lama Fellowship Programme 2027 for emerging changemakers (Fully Funded to Contemplative Leadership Assembly)",
-      "href": "opportunity-dalai-lama-fellowship-programme-2027-for-emerging-changemake-2026-10-01.html",
-      "deadline": "November 11, 2026",
-      "closes": "2026-11-11",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Orange Corners Nigeria Incubation Programme Cohort 16 for young Entrepreneurs (30,000 Euros in funding)",
-      "href": "opportunity-orange-corners-nigeria-incubation-programme-cohort-16-for-yo-2026-10-01.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Yale Maurice R. Greenberg World Fellows Program 2027 for mid-career emerging Global Leaders (Fully Funded to Yale University, USA)",
-      "href": "opportunity-the-yale-maurice-r-greenberg-world-fellows-program-2027-for--2026-10-01.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Brooke Owens Fellowship 2027 In USA (Fully Funded)",
-      "href": "opportunity-brooke-owens-fellowship-2027-in-usa-fully-funded-2026-10-01.html",
-      "deadline": "October 4, 2026",
-      "closes": "2026-10-04",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Fellowship 2027 in USA- Fully Funded",
-      "href": "opportunity-fellowship-2027-in-usa-fully-funded-2026-10-01.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Preparing Your Business for Bank Loan",
-      "href": "opportunity-preparing-your-business-for-bank-loan-2026-10-01.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "[Watch] Why SMEs Are Not Getting Their Loans Approved",
-      "href": "opportunity-watch-why-smes-are-not-getting-their-loans-approved-2026-10-01.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
     },
     {
       "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
@@ -566,10 +333,133 @@
       "recurring": true
     },
     {
-      "title": "YSEALI Fellows Program 2027 in USA (Fully Funded)",
-      "href": "opportunity-yseali-fellows-program-2027-in-usa-fully-funded-2026-09-29.html",
-      "deadline": "October 12, 2026",
-      "closes": "2026-10-12",
+      "title": "Call For Applications: Commonwealth Foundation Grants Programme 2026",
+      "href": "opportunity-call-for-applications-commonwealth-foundation-grants-program-2026-09-28.html",
+      "deadline": "October 26, 2026",
+      "closes": "2026-10-26",
+      "added": "2026-09-28",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Access Bank Womenpreneur Pitch-a-ton Program 2026 (Up to ₦18 Million in Business Grants)",
+      "href": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
+      "deadline": "September 29, 2026",
+      "closes": "2026-09-29",
+      "added": "2026-09-28",
+      "tier": 1,
+      "isNew": true,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Apply for iDICE Skills to Job Programme",
+      "href": "opportunity-apply-for-idice-skills-to-job-programme-2026-09-28.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-28",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    }
+  ],
+  "items": [
+    {
+      "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
+      "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-01",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for AYPC Free Digital Skills Training Programme",
+      "href": "opportunity-apply-for-aypc-free-digital-skills-training-programme-2026-10-01.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-01",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Apply for Solar Power Nigeria Social Media Ambassador Programme",
+      "href": "opportunity-apply-for-solar-power-nigeria-social-media-ambassador-progra-2026-10-01.html",
+      "deadline": "October 2, 2026",
+      "closes": "2026-10-02",
+      "added": "2026-10-01",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Dalai Lama Fellowship Programme 2027 for emerging changemakers (Fully Funded to Contemplative Leadership Assembly)",
+      "href": "opportunity-dalai-lama-fellowship-programme-2027-for-emerging-changemake-2026-10-01.html",
+      "deadline": "November 11, 2026",
+      "closes": "2026-11-11",
+      "added": "2026-10-01",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Orange Corners Nigeria Incubation Programme Cohort 16 for young Entrepreneurs (30,000 Euros in funding)",
+      "href": "opportunity-orange-corners-nigeria-incubation-programme-cohort-16-for-yo-2026-10-01.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-01",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Yale Maurice R. Greenberg World Fellows Program 2027 for mid-career emerging Global Leaders (Fully Funded to Yale University, USA)",
+      "href": "opportunity-the-yale-maurice-r-greenberg-world-fellows-program-2027-for--2026-10-01.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-01",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
+      "href": "opportunity-the-st-gallen-symposium-global-leadership-challenge-2026-for-2026-09-29.html",
+      "deadline": "November 5, 2026",
+      "closes": "2026-11-05",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
+      "href": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
+      "deadline": "November 10, 2026",
+      "closes": "2026-11-10",
+      "added": "2026-09-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
+      "href": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
       "added": "2026-09-29",
       "tier": 1,
       "isNew": true,
@@ -585,17 +475,6 @@
       "tier": 1,
       "isNew": true,
       "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: MTN Africa PachiPanda Challenge 2026",
-      "href": "opportunity-call-for-applications-mtn-africa-pachipanda-challenge-2026-2026-09-28.html",
-      "deadline": "September 30, 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": true,
       "recurring": true
     },
     {
@@ -687,39 +566,6 @@
       "recurring": true
     },
     {
-      "title": "KAUST Global Fellowship Program 2027 in Saudi Arabia (Fully Funded)",
-      "href": "opportunity-kaust-global-fellowship-program-2027-in-saudi-arabia-fully-f-2026-09-28.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Commonwealth Foundation Grants 2026–27: Up to £60,000 Funding",
-      "href": "opportunity-commonwealth-foundation-grants-2026-27-up-to-60-000-funding-2026-09-28.html",
-      "deadline": "October 26, 2026",
-      "closes": "2026-10-26",
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Harvard Radcliffe Fellowship 2027–2028 (Fully Funded)",
-      "href": "opportunity-harvard-radcliffe-fellowship-2027-2028-fully-funded-2026-09-28.html",
-      "deadline": "October 1, 2026",
-      "closes": "2026-10-01",
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": true,
-      "recurring": true
-    },
-    {
       "title": "Apply for NITDA National AI Innovation Challenge 2026",
       "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
       "deadline": "October 12, 2026",
@@ -753,83 +599,6 @@
       "recurring": true
     },
     {
-      "title": "Commonwealth Foundation Grants Programme 2026/2027 for Civil Society Organizations (£60,000 in Grants).",
-      "href": "opportunity-commonwealth-foundation-grants-programme-2026-2027-for-civil-2026-09-24.html",
-      "deadline": "October 26, 2026",
-      "closes": "2026-10-26",
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Equality Fund Journalism Fellowship 2026 for Journalists worldwide ($4000 CAD stipend)",
-      "href": "opportunity-the-equality-fund-journalism-fellowship-2026-for-journalists-2026-09-24.html",
-      "deadline": "November 8, 2026",
-      "closes": "2026-11-08",
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The YALI 2027 Mandela Washington Fellowship for young African Leaders (Fully Funded to the United States of America)",
-      "href": "opportunity-the-yali-2027-mandela-washington-fellowship-for-young-africa-2026-09-24.html",
-      "deadline": "October 13, 2026",
-      "closes": "2026-10-13",
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "TradeRoots Africa-International Chamber of Commerce (ICC) Programme 2026/2027 for export-ready African SMEs.",
-      "href": "opportunity-traderoots-africa-international-chamber-of-commerce-icc-prog-2026-09-24.html",
-      "deadline": "October 15, 2026",
-      "closes": "2026-10-15",
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Mo Ibrahim Foundation Leadership Fellowships 2027 ($100,000 Stipend)",
-      "href": "opportunity-mo-ibrahim-foundation-leadership-fellowships-2027-100-000-st-2026-09-24.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Mandela Washington Fellowship 2027",
-      "href": "opportunity-mandela-washington-fellowship-2027-2026-09-24.html",
-      "deadline": "October 13, 2026",
-      "closes": "2026-10-13",
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The National Treasury Chartered Accountants Academy Programme 2027 for young South Africans (Three-years full-time training contract)",
-      "href": "opportunity-the-national-treasury-chartered-accountants-academy-programm-2026-09-10.html",
-      "deadline": "October 2, 2026",
-      "closes": "2026-10-02",
-      "added": "2026-09-10",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "Call For Applications: Precision Agriculture Incubation Program Cohort 4.0 Global",
       "href": "opportunity-call-for-applications-precision-agriculture-incubation-progr-2026-09-21.html",
       "deadline": "October 5, 2026",
@@ -841,110 +610,11 @@
       "recurring": true
     },
     {
-      "title": "The Citi Foundation Global Innovation Challenge 2027 for nonprofit organisations (US$500,000 grant)",
-      "href": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16.html",
-      "deadline": "October 6, 2026",
-      "closes": "2026-10-06",
-      "added": "2026-09-16",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "Call For Applications: GEF Entrepreneurs Investment Program 2026 (Up to $35,000 in total seed investment)",
       "href": "opportunity-call-for-applications-gef-entrepreneurs-investment-program-2-2026-09-17.html",
       "deadline": "October 6, 2026",
       "closes": "2026-10-06",
       "added": "2026-09-17",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Desmond & Leah Tutu Legacy Foundation 2027 Leading for Humanity Leadership Programme for young changemakers (Funded)",
-      "href": "opportunity-the-desmond-leah-tutu-legacy-foundation-2027-leading-for-hum-2026-09-16.html",
-      "deadline": "October 14, 2026",
-      "closes": "2026-10-14",
-      "added": "2026-09-16",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Government of Japan Exchange and Teaching Programme 2027 for young Leaders (Fully Funded to Japan)",
-      "href": "opportunity-the-government-of-japan-exchange-and-teaching-programme-2027-2026-09-14.html",
-      "deadline": "October 16, 2026",
-      "closes": "2026-10-16",
-      "added": "2026-09-14",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "2026 AGNES Intra-Africa Mobility Grants for Junior Researchers",
-      "href": "opportunity-2026-agnes-intra-africa-mobility-grants-for-junior-researche-2026-09-16.html",
-      "deadline": "October 16, 2026",
-      "closes": "2026-10-16",
-      "added": "2026-09-16",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Clooney Foundation Waging Justice for Women Fellowship 2027 for early-career women lawyers in sub-Saharan Africa",
-      "href": "opportunity-the-clooney-foundation-waging-justice-for-women-fellowship-2-2026-09-14.html",
-      "deadline": "October 20, 2026",
-      "closes": "2026-10-20",
-      "added": "2026-09-14",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "World Conference of Science Journalists (WCSJ) 2027 Travel Fellowship for Journalists (Fully Funded to London, United Kingdom)",
-      "href": "opportunity-world-conference-of-science-journalists-wcsj-2027-travel-fel-2026-08-31.html",
-      "deadline": "October 23, 2026",
-      "closes": "2026-10-23",
-      "added": "2026-08-31",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Harambeans Africa Jobs Fund Prize 2026",
-      "href": "opportunity-harambeans-africa-jobs-fund-prize-2026-09-09.html",
-      "deadline": "October 27, 2026",
-      "closes": "2026-10-27",
-      "added": "2026-09-09",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: EBID Young Professionals Programme 2026 for West African Youths",
-      "href": "opportunity-call-for-applications-ebid-young-professionals-programme-202-2026-09-03.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-09-03",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "ECOWAS Bank for Investment and Development (EBID) Young Professionals Programme 2026 for West African Graduates.",
-      "href": "opportunity-ecowas-bank-for-investment-and-development-ebid-young-profes-2026-09-03.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-09-03",
       "tier": 2,
       "isNew": false,
       "closed": false,
@@ -984,39 +654,6 @@
       "recurring": false
     },
     {
-      "title": "D-Prize Challenge 2026/2027 for Social Entrepreneurs to fight Poverty ($USD 20,000)",
-      "href": "opportunity-d-prize-challenge-2026-2027-for-social-entrepreneurs-to-figh-2026-09-21.html",
-      "deadline": "December 6, 2026",
-      "closes": "2026-12-06",
-      "added": "2026-09-21",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Ashoka-Carnegie Challenge 2026/2027 for Civic Leadership (Seed funding and Fully-Funded to in-person convening)",
-      "href": "opportunity-the-ashoka-carnegie-challenge-2026-2027-for-civic-leadership-2026-09-03.html",
-      "deadline": "January 31, 2027",
-      "closes": "2027-01-31",
-      "added": "2026-09-03",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Médecins Sans Frontières (MSF) Eastern Africa Media Fellowship Programme 2026 for East African Journalists",
-      "href": "opportunity-the-m-decins-sans-fronti-res-msf-eastern-africa-media-fellow-2026-09-10.html",
-      "deadline": "September 8, 2027",
-      "closes": "2027-09-08",
-      "added": "2026-09-10",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "Call For Applications: Maple Global Innovation Fellowship 2026",
       "href": "opportunity-call-for-applications-maple-global-innovation-fellowship-202-2026-09-17.html",
       "deadline": "Check official page",
@@ -1026,28 +663,6 @@
       "isNew": false,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "The Pulitzer Center Gender Equality Grants 2026 for Journalists worldwide.",
-      "href": "opportunity-the-pulitzer-center-gender-equality-grants-2026-for-journali-2026-09-16.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-16",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Mutual funding in Nigeria: Why It Is A Good Option For New Businesses",
-      "href": "opportunity-mutual-funding-in-nigeria-why-it-is-a-good-option-for-new-bu-2026-09-16.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-16",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
     },
     {
       "title": "Call For Applications: Mastercard/CcHUB Digital Skills GATEWAY Program 2026 for Nigerians",
@@ -1103,28 +718,6 @@
       "isNew": false,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Expand Your Business With These Small Business Loans In Nigeria",
-      "href": "opportunity-expand-your-business-with-these-small-business-loans-in-nige-2026-09-03.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-03",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Quick Loans In Nigeria",
-      "href": "opportunity-quick-loans-in-nigeria-2026-09-03.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-03",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
     },
     {
       "title": "Call For Applications: Business Infrastructure Support Programme (BISP) 2026 for South African MSMEs",
@@ -1303,17 +896,6 @@
       "recurring": true
     },
     {
-      "title": "All You Need to Know About Federal Govt Nano Business Funding and How to Apply",
-      "href": "opportunity-all-you-need-to-know-about-federal-govt-nano-business-fundin-2026-07-28.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-07-28",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
       "title": "Baobab Network Accelerator",
       "href": "opportunity-baobab-network-accelerator-2026-07-28.html",
       "deadline": "Rolling — apply anytime",
@@ -1424,17 +1006,6 @@
       "recurring": false
     },
     {
-      "title": "Standard Chartered Women in Tech Accelerator",
-      "href": "opportunity-standard-chartered-women-in-tech-accelerator-2026-07-28.html",
-      "deadline": "Annual cohorts",
-      "closes": null,
-      "added": "2026-07-28",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
       "title": "FirstCheck Africa",
       "href": "opportunity-firstcheck-africa-2026-07-28.html",
       "deadline": "Rolling",
@@ -1501,17 +1072,6 @@
       "recurring": false
     },
     {
-      "title": "ARM Labs Lagos Techstars Accelerator",
-      "href": "opportunity-arm-labs-lagos-techstars-accelerator-2026-07-28.html",
-      "deadline": "Annual cohort — check site",
-      "closes": null,
-      "added": "2026-07-28",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
       "title": "Africa Fintech Foundry",
       "href": "opportunity-africa-fintech-foundry-2026-07-28.html",
       "deadline": "Cohorts — check site",
@@ -1570,17 +1130,6 @@
       "title": "VC4A Venture Showcase",
       "href": "opportunity-vc4a-venture-showcase-2026-07-28.html",
       "deadline": "Rolling",
-      "closes": null,
-      "added": "2026-07-28",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Orange Social Venture Prize",
-      "href": "opportunity-orange-social-venture-prize-2026-07-28.html",
-      "deadline": "Annual — check site",
       "closes": null,
       "added": "2026-07-28",
       "tier": 3,
@@ -1729,6 +1278,413 @@
       "tier": 3,
       "isNew": false,
       "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Founders Fund Africa Creative Economy Accelerator Program 2026 (Up To $50,000 in Funding )",
+      "href": "opportunity-call-for-applications-founders-fund-africa-creative-economy--2026-07-16.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-07-16",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Schneider Electric Learnership Programme 2027",
+      "href": "opportunity-call-for-applications-schneider-electric-learnership-program-2026-07-14.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-07-14",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: UNDP Africa Timbuktoo Pan-African Incubation Programme 2026 for EdTech Startups",
+      "href": "opportunity-call-for-applications-undp-africa-timbuktoo-pan-african-incu-2026-07-14.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-07-14",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: ECOWAS Women’s Fellowship Programme 2026",
+      "href": "opportunity-call-for-applications-ecowas-women-s-fellowship-programme-20-2026-07-14.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-07-14",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: CircularEconomy4Ghana Innovation Challenge 2026",
+      "href": "opportunity-call-for-applications-circulareconomy4ghana-innovation-chall-2026-07-14.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-07-14",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: World Health Organization (WHO) Paid Internship Programme 2026",
+      "href": "opportunity-call-for-applications-world-health-organization-who-paid-int-2026-07-13.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-07-13",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Digital Jewels Africa Scholarship 2026 for Nigerian Students",
+      "href": "opportunity-call-for-applications-digital-jewels-africa-scholarship-2026-2026-07-13.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-07-13",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: GLFx Chapters Program 2027 (Funding+Partnerships +Global Network for Community-Led Organizations)",
+      "href": "opportunity-call-for-applications-glfx-chapters-program-2027-funding-par-2026-07-13.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-07-13",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Shell Assessed Internship Programme 2027 (Worldwide)",
+      "href": "opportunity-call-for-applications-shell-assessed-internship-programme-20-2026-07-10.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-10",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: ECOWAS Youth and Women Entrepreneurship Programme (EYWEP) for Young Entrepreneurs",
+      "href": "opportunity-call-for-applications-ecowas-youth-and-women-entrepreneurshi-2026-07-10.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-10",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call For Applications: UNDP Timbuktoo Launchpad Programme 2026 for African CreativeTech Entrepreneurs",
+      "href": "opportunity-call-for-applications-undp-timbuktoo-launchpad-programme-202-2026-07-09.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-09",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply Now: GrainCorp Community Foundation Grants (Australia)",
+      "href": "opportunity-apply-now-graincorp-community-foundation-grants-australia-2026-07-08.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-08",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call For Applications: PIBBSS Winter Fellowship Program 2026–2027 in South Africa ($3,000 Monthly Stipend, Free Accommodation, Flights, and Mentorship)",
+      "href": "opportunity-call-for-applications-pibbss-winter-fellowship-program-2026--2026-07-08.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-08",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: AGFUND Development Programme 2026 for Diana Award Recipients in Africa",
+      "href": "opportunity-call-for-applications-agfund-development-programme-2026-for--2026-07-08.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-08",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply now for Environmental Partnerships Fund (New Zealand)",
+      "href": "opportunity-apply-now-for-environmental-partnerships-fund-new-zealand-2026-07-08.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-08",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call For Applications: Nexa Global Climate × Health Innovation Challenge 2026 (Up to USD 2 Million in Funding)",
+      "href": "opportunity-call-for-applications-nexa-global-climate-health-innovation--2026-07-02.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-02",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Reckitt Catalyst Global Accelerator Program 2026/2027 for Social Innovators",
+      "href": "opportunity-call-for-applications-reckitt-catalyst-global-accelerator-pr-2026-07-02.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-02",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Wetech PitchHer 2026 Investment Readiness Programme ( Up To ₦8.5 Million Funding)",
+      "href": "opportunity-call-for-applications-wetech-pitchher-2026-investment-readin-2026-07-02.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-02",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for LSETF MSME Loans Programme 2026 for Lagos Businesses (₦50,000–₦5,000,000)",
+      "href": "opportunity-apply-for-lsetf-msme-loans-programme-2026-for-lagos-business-2026-07-02.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-02",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for SSCE Youth Social Media Advocates Programme",
+      "href": "opportunity-apply-for-ssce-youth-social-media-advocates-programme-2026-07-02.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-02",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Apply for the LSETF UPLIFT Creative Job Hubs Programme 2026",
+      "href": "opportunity-apply-for-the-lsetf-uplift-creative-job-hubs-programme-2026-2026-07-02.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-02",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply Now: Katsina Government MBBS Scholarship in Russian Universities",
+      "href": "opportunity-apply-now-katsina-government-mbbs-scholarship-in-russian-uni-2026-07-02.html",
+      "deadline": "See source",
+      "closes": null,
+      "added": "2026-07-02",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "BOI Engineering & Technology Funds",
+      "href": "opportunity-boi-engineering-038-technology-funds-2026-07-01.html",
+      "deadline": "See official site",
+      "closes": null,
+      "added": "2026-07-01",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Artisanal & Small-scale Miners (ASM) Financing Support Fund",
+      "href": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01.html",
+      "deadline": "See official site",
+      "closes": null,
+      "added": "2026-07-01",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "MSME Loan Programme",
+      "href": "opportunity-msme-loan-programme-2026-06-30.html",
+      "deadline": "See official site",
+      "closes": null,
+      "added": "2026-06-30",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call For Applications: Climate Resilience Awards for Business 2026",
+      "href": "opportunity-call-for-applications-climate-resilience-awards-for-business-2026-08-03.html",
+      "deadline": "September 30, 2026",
+      "closes": "2026-09-30",
+      "added": "2026-08-03",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: African Union Enterprise Africa Network (EAN) Fellowship Programme 2026/2027 for Youth- and Women-Led Small Businesses",
+      "href": "opportunity-call-for-applications-african-union-enterprise-africa-networ-2026-08-20.html",
+      "deadline": "September 30, 2026",
+      "closes": "2026-09-30",
+      "added": "2026-08-20",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Student Venture Capital Grant (S-VCG) — Cohort 2, the \"Next Moonshot\" Initiative",
+      "href": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
+      "deadline": "30 September 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: SEWA Grants 2026 For Climate Projects in Africa( Up to €1.25 Million Grants)",
+      "href": "opportunity-call-for-applications-sewa-grants-2026-for-climate-projects--2026-09-07.html",
+      "deadline": "September 30, 2026",
+      "closes": "2026-09-30",
+      "added": "2026-09-07",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Harambeans Africa Jobs Fund Prize 2026",
+      "href": "opportunity-harambeans-africa-jobs-fund-prize-2026-09-09.html",
+      "deadline": "September 27, 2026",
+      "closes": "2026-09-27",
+      "added": "2026-09-09",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Federal Ministry of Education 2026 Accelerated Teacher Professionalisation Training Programme",
+      "href": "opportunity-call-for-applications-federal-ministry-of-education-2026-acc-2026-09-17.html",
+      "deadline": "September 25, 2026",
+      "closes": "2026-09-25",
+      "added": "2026-09-17",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: WTO Youth Talent Incubator Programme 2026–2027 for Young Researchers and Professionals in Trade and Gender",
+      "href": "opportunity-call-for-applications-wto-youth-talent-incubator-programme-2-2026-09-07.html",
+      "deadline": "September 24, 2026",
+      "closes": "2026-09-24",
+      "added": "2026-09-07",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Green Africa Associates SDGs Innovations Fellowship 2026",
+      "href": "opportunity-call-for-applications-green-africa-associates-sdgs-innovatio-2026-09-14.html",
+      "deadline": "September 24, 2026",
+      "closes": "2026-09-24",
+      "added": "2026-09-14",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Julius Berger Engineer Development Program 2026 for Nigerians",
+      "href": "opportunity-call-for-applications-julius-berger-engineer-development-pro-2026-09-03.html",
+      "deadline": "September 14, 2026",
+      "closes": "2026-09-14",
+      "added": "2026-09-03",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Sasol Mining Fence-line (Mainstream) Programme 2026 for young South Africans.",
+      "href": "opportunity-sasol-mining-fence-line-mainstream-programme-2026-for-young--2026-08-27.html",
+      "deadline": "September 13, 2026",
+      "closes": "2026-09-13",
+      "added": "2026-08-27",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "The Sasol Technician Development Programme (TDP) 2026 for young South African graduates.",
+      "href": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
+      "deadline": "September 11, 2026",
+      "closes": "2026-09-11",
+      "added": "2026-08-27",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Japan International Cooperation Center (JICE) Japan-Africa Youth Program 2026 for African Animation Professionals (Fully Funded to Japan)",
+      "href": "opportunity-japan-international-cooperation-center-jice-japan-africa-you-2026-09-03.html",
+      "deadline": "September 8, 2026",
+      "closes": "2026-09-08",
+      "added": "2026-09-03",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
       "recurring": true
     }
   ]

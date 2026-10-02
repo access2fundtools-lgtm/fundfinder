@@ -36,6 +36,16 @@ jobs:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: node scripts/scraper.js
 
+      # 3-gate. Re-check EVERY published page's Apply link (added 2026-10-02 after listings
+      #     went live pointing at news posts and a parked/for-sale domain). Pages whose link is
+      #     definitely not an application form / live programme page are unpublished.
+      - name: Audit published landing pages
+        env:
+          FF_STRICT_DNS: '1'
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: node scripts/audit-published.js --commit
+        continue-on-error: true
+
       # 3a. Retire opportunities whose deadline has already passed (7-day grace).
       #     QA 2026-08-05: nothing ever set is_active=false, so closed calls stayed in
       #     the pool the profile matching engine reads. Dry-run-safe by design; without

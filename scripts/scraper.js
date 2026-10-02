@@ -15,6 +15,7 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { verifyLandingPage, isArticleTitle } = require('./verify-landing');
 
 // ─── Supabase Config ──────────────────────────────────────────────────────────
 const SUPABASE_URL  = process.env.SUPABASE_URL  || 'https://zrkxigbmlprrowiofhjy.supabase.co';
@@ -1016,6 +1017,7 @@ async function scrapeRSS(source) {
     if (!containsKeywords(title + ' ' + item.desc, source.keywords)) continue;
     const desc = sanitizeDesc(item.desc, title);
     if (!isRealOpportunity(title, desc)) continue;
+    if (isArticleTitle(title)) { console.log(`    ⛔ Rejected (article/video/advice title): ${title}`); continue; }
     const fullText = title + ' ' + desc;
 
     // Resolve the real program-principal apply link out of the aggregator's post.
@@ -1027,6 +1029,13 @@ async function scrapeRSS(source) {
       continue;
     }
     const applyUrl = resolved.href;
+    // 2026-10-02 landing-page gate: open the apply link and confirm it is an application
+    // form or the funder's own live programme page. Fail-closed — unconfirmed = not published.
+    const gate = await verifyLandingPage(applyUrl, title);
+    if (!gate.ok) {
+      console.log(`    ⛔ Rejected (${gate.reason}): ${title} → ${applyUrl}`);
+      continue;
+    }
     // Prefer a date stated in the article body; fall back to the RSS title+teaser.
     let deadline = extractDeadline(resolved.articleText || '');
     if (deadline === 'Check official page') deadline = extractDeadline(fullText);
@@ -1069,6 +1078,8 @@ async function scrapePage(source) {
     seen.add(id);
     const title = cleanTitle(item.text);
     if (!isRealOpportunity(title, '')) continue;
+    const gate = await verifyLandingPage(item.url, title);
+    if (!gate.ok) { console.log(`    ⛔ Rejected (${gate.reason}): ${title}`); continue; }
     results.push({
       id,
       titleSlug: titleSlugOf(title),
@@ -1135,6 +1146,27 @@ async function main() {
     discovered.push(...newManual);
   }
 
+  // 2026-10-02: final gate on EVERYTHING about to be published (manual entries included),
+  // plus dedupe by apply URL — the same programme often arrives under two different titles
+  // (e.g. two Orange Corners Cohort 16 pages on 2026-10-01).
+  const publishedApplyUrls = new Set();
+  for (const f of fs.readdirSync(ROOT)) {
+    if (!/^opportunity-.*\.html$/.test(f)) continue;
+    const m = fs.readFileSync(path.join(ROOT, f), 'utf8').match(/class="apply-btn"[^>]*href="([^"]+)"/);
+    if (m) publishedApplyUrls.add(m[1].replace(/&amp;/g, '&').replace(/[?#].*$/, '').replace(/\/$/, '').toLowerCase());
+  }
+  const gated = [];
+  for (const opp of discovered) {
+    const key = (opp.applyUrl || '').replace(/[?#].*$/, '').replace(/\/$/, '').toLowerCase();
+    if (key && publishedApplyUrls.has(key)) { console.log(`  ⏭️  Duplicate apply link, skipped: ${opp.title}`); seenIds.add(opp.id); continue; }
+    const gate = await verifyLandingPage(opp.applyUrl, opp.title);
+    if (!gate.ok) { console.log(`  ⛔ Final gate rejected (${gate.reason}): ${opp.title}`); continue; }
+    if (key) publishedApplyUrls.add(key);
+    gated.push(opp);
+  }
+  discovered.length = 0;
+  discovered.push(...gated);
+
   // Always write last-run.json — guarantees git always has something to commit
   fs.writeFileSync(LAST_RUN_FILE, JSON.stringify({
     lastRun: new Date().toISOString(),
@@ -1187,7 +1219,8 @@ async function main() {
     const score = (o) => (o.amount !== 'See details' ? 2 : 0) + (o.deadline !== 'Check official page' ? 1 : 0);
     return score(b) - score(a);
   });
-  for (const opp of ranked.slice(0, 3)) {
+  const closesSoon = (o) => { const d = parseDeadlineDate(o.deadline); return d && (new Date(d) - Date.now()) < 2 * 86400000; };
+  for (const opp of ranked.filter((o) => !closesSoon(o)).slice(0, 3)) {
     const capPath = path.join(ROOT, `${TODAY}-${slugify(opp.title).slice(0, 50)}.txt`);
     fs.writeFileSync(capPath, generateCaption(opp), 'utf8');
     console.log(`  📣 Caption written: ${path.basename(capPath)}`);
