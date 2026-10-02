@@ -1,16 +1,27 @@
 {
-  "generated": "2026-10-01T12:21:08.821Z",
-  "rotationSeed": 20261001,
+  "generated": "2026-10-02T04:38:29.919Z",
+  "rotationSeed": 20261002,
   "newWindowDays": 10,
   "counts": {
-    "total": 182,
-    "new": 40,
-    "closing": 15,
+    "total": 183,
+    "new": 37,
+    "closing": 18,
     "evergreen": 90,
-    "recurring": 33,
+    "recurring": 34,
     "archived": 4
   },
   "ticker": [
+    {
+      "title": "Apply for Kano Women in Tech Programme",
+      "href": "opportunity-apply-for-kano-women-in-tech-programme-2026-10-02.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
     {
       "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
       "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
@@ -263,20 +274,20 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Commonwealth Foundation Grants 2026–27: Up to £60,000 Funding",
-      "href": "opportunity-commonwealth-foundation-grants-2026-27-up-to-60-000-funding-2026-09-28.html",
-      "deadline": "October 26, 2026",
-      "closes": "2026-10-26",
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "latest": [
+    {
+      "title": "Apply for Kano Women in Tech Programme",
+      "href": "opportunity-apply-for-kano-women-in-tech-programme-2026-10-02.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
     {
       "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
       "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
@@ -397,20 +408,20 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
-      "href": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
-      "deadline": "November 10, 2026",
-      "closes": "2026-11-10",
-      "added": "2026-09-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "items": [
+    {
+      "title": "Apply for Kano Women in Tech Programme",
+      "href": "opportunity-apply-for-kano-women-in-tech-programme-2026-10-02.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
     {
       "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
       "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
@@ -705,7 +716,7 @@
       "added": "2026-09-28",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": true
     },
     {
@@ -808,13 +819,13 @@
       "recurring": true
     },
     {
-      "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
-      "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-09-21",
-      "tier": 1,
-      "isNew": true,
+      "title": "The National Treasury Chartered Accountants Academy Programme 2027 for young South Africans (Three-years full-time training contract)",
+      "href": "opportunity-the-national-treasury-chartered-accountants-academy-programm-2026-09-10.html",
+      "deadline": "October 2, 2026",
+      "closes": "2026-10-02",
+      "added": "2026-09-10",
+      "tier": 2,
+      "isNew": false,
       "closed": false,
       "recurring": true
     },
@@ -824,39 +835,6 @@
       "deadline": "October 5, 2026",
       "closes": "2026-10-05",
       "added": "2026-09-21",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "D-Prize Challenge 2026/2027 for Social Entrepreneurs to fight Poverty ($USD 20,000)",
-      "href": "opportunity-d-prize-challenge-2026-2027-for-social-entrepreneurs-to-figh-2026-09-21.html",
-      "deadline": "December 6, 2026",
-      "closes": "2026-12-06",
-      "added": "2026-09-21",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The World Bank Group Small AI for Development Hackathon Challenge 2026 (Fully Funded to present at the 2026 Global AI and Digital Summit in Seoul, South Korea)",
-      "href": "opportunity-the-world-bank-group-small-ai-for-development-hackathon-chal-2026-09-21.html",
-      "deadline": "September 26, 2026",
-      "closes": "2026-09-26",
-      "added": "2026-09-21",
-      "tier": 1,
-      "isNew": true,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "The National Treasury Chartered Accountants Academy Programme 2027 for young South Africans (Three-years full-time training contract)",
-      "href": "opportunity-the-national-treasury-chartered-accountants-academy-programm-2026-09-10.html",
-      "deadline": "October 2, 2026",
-      "closes": "2026-10-02",
-      "added": "2026-09-10",
       "tier": 2,
       "isNew": false,
       "closed": false,
@@ -984,6 +962,17 @@
       "recurring": true
     },
     {
+      "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
+      "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
+      "deadline": "October 30, 2026",
+      "closes": "2026-10-30",
+      "added": "2026-09-21",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "ADAVEL Fund — Pilot Round for Nigerian Grassroot Founders",
       "href": "opportunity-adavel-fund-2026-09-07.html",
       "deadline": "30 November 2026",
@@ -993,6 +982,17 @@
       "isNew": false,
       "closed": false,
       "recurring": false
+    },
+    {
+      "title": "D-Prize Challenge 2026/2027 for Social Entrepreneurs to fight Poverty ($USD 20,000)",
+      "href": "opportunity-d-prize-challenge-2026-2027-for-social-entrepreneurs-to-figh-2026-09-21.html",
+      "deadline": "December 6, 2026",
+      "closes": "2026-12-06",
+      "added": "2026-09-21",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
     },
     {
       "title": "The Ashoka-Carnegie Challenge 2026/2027 for Civic Leadership (Seed funding and Fully-Funded to in-person convening)",
