@@ -1,24 +1,6 @@
 {
-  "ranAt": "2026-10-02T05:22:58.850Z",
+  "ranAt": "2026-10-05T06:33:15.962Z",
   "results": [
-    {
-      "file": "opportunity-2026-agnes-intra-africa-mobility-grants-for-junior-researche-2026-09-16.html",
-      "slug": "opportunity-2026-agnes-intra-africa-mobility-grants-for-junior-researche-2026-09-16",
-      "title": "2026 AGNES Intra-Africa Mobility Grants for Junior Researchers",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-2027-28-swiss-government-scholarship-fully-funded-2026-08-22.html",
-      "slug": "opportunity-2027-28-swiss-government-scholarship-fully-funded-2026-08-22",
-      "title": "2027-28 Swiss Government Scholarship (Fully Funded)",
-      "href": "https://oyaschool.com/us-colleges?utm_source=oyaop&utm_medium=scholarship&utm_campaign=op_sc_ln",
-      "ok": false,
-      "definitive": true,
-      "reason": "affiliate/ad link (utm_source=oyaop)"
-    },
     {
       "file": "opportunity-abia-awards-100m-startup-grants-to-100-polytechnic-graduate-2026-07-16.html",
       "slug": "opportunity-abia-awards-100m-startup-grants-to-100-polytechnic-graduate-2026-07-16",
@@ -66,7 +48,7 @@
       "href": "https://africaprize.raeng.org.uk",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (4)",
+      "reason": "programme page with application signals (5)",
       "finalUrl": "https://africaprize.raeng.org.uk"
     },
     {
@@ -78,24 +60,6 @@
       "definitive": false,
       "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://africastartupcongress.org/"
-    },
-    {
-      "file": "opportunity-african-leadership-institute-afli-archbishop-tutu-fellowship-2026-09-14.html",
-      "slug": "opportunity-african-leadership-institute-afli-archbishop-tutu-fellowship-2026-09-14",
-      "title": "African Leadership Institute (AFLI) Archbishop Tutu Fellowship Programme 2027 for Emerging young African Leaders (Fully Funded)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-all-you-need-to-know-about-federal-govt-nano-business-fundin-2026-07-28.html",
-      "slug": "opportunity-all-you-need-to-know-about-federal-govt-nano-business-fundin-2026-07-28",
-      "title": "All You Need to Know About Federal Govt Nano Business Funding and How to Apply",
-      "href": "http://smedan.gov.ng",
-      "ok": false,
-      "definitive": true,
-      "reason": "title is an article/video/advice post, not an opportunity"
     },
     {
       "file": "opportunity-antler-africa-residency-2026-07-28.html",
@@ -136,16 +100,6 @@
       "definitive": false,
       "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://idice.ng/skills-training-to-jobs"
-    },
-    {
-      "file": "opportunity-apply-for-kano-women-in-tech-programme-2026-10-02.html",
-      "slug": "opportunity-apply-for-kano-women-in-tech-programme-2026-10-02",
-      "title": "Apply for Kano Women in Tech Programme",
-      "href": "https://forms.gle/UY1t3JVHWdVS4DTm6",
-      "ok": false,
-      "definitive": true,
-      "reason": "HTTP 404 (page gone)",
-      "finalUrl": "https://forms.gle/UY1t3JVHWdVS4DTm6"
     },
     {
       "file": "opportunity-apply-for-lsetf-msme-loans-programme-2026-for-lagos-business-2026-07-02.html",
@@ -247,23 +201,14 @@
       "finalUrl": "https://smedan.gov.ng/our-programs/olop/"
     },
     {
-      "file": "opportunity-arm-labs-lagos-techstars-accelerator-2026-07-28.html",
-      "slug": "opportunity-arm-labs-lagos-techstars-accelerator-2026-07-28",
-      "title": "ARM Labs Lagos Techstars Accelerator",
-      "href": "https://www.techstars.com/accelerators/arm-labs-lagos",
-      "ok": false,
-      "definitive": true,
-      "reason": "HTTP 404 (page gone)",
-      "finalUrl": "https://www.techstars.com/accelerators/arm-labs-lagos"
-    },
-    {
       "file": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01.html",
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -332,15 +277,6 @@
       "ok": false,
       "definitive": false,
       "reason": "unreachable (ECONNRESET)"
-    },
-    {
-      "file": "opportunity-brooke-owens-fellowship-2027-in-usa-fully-funded-2026-10-01.html",
-      "slug": "opportunity-brooke-owens-fellowship-2027-in-usa-fully-funded-2026-10-01",
-      "title": "Brooke Owens Fellowship 2027 In USA (Fully Funded)",
-      "href": "https://oyaschool.com/us-colleges?utm_source=oyaop&utm_medium=scholarship&utm_campaign=op_sc_ln",
-      "ok": false,
-      "definitive": true,
-      "reason": "affiliate/ad link (utm_source=oyaop)"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
@@ -417,10 +353,10 @@
       "slug": "opportunity-call-for-applications-agfund-development-programme-2026-for--2026-07-08",
       "title": "Call For Applications: AGFUND Development Programme 2026 for Diana Award Recipients in Africa",
       "href": "https://diana-award.org.uk/our-programmes-and-initiatives/award-and-development/development-opportunities",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (28)",
-      "finalUrl": "https://diana-award.org.uk/our-programmes-and-initiatives/award-and-development/agfund-development"
+      "ok": false,
+      "definitive": false,
+      "reason": "HTTP 403 (could not confirm)",
+      "finalUrl": "https://diana-award.org.uk/our-programmes-and-initiatives/award-and-development/development-opportunities"
     },
     {
       "file": "opportunity-call-for-applications-agrifi-agriculture-financing-initiativ-2026-09-07.html",
@@ -490,7 +426,7 @@
       "ok": true,
       "definitive": true,
       "reason": "programme page with application signals (193)",
-      "finalUrl": "https://commonwealthfoundation.com/grants/annual/"
+      "finalUrl": "https://commonwealthfoundation.com/grants/annual/?fbclid=IwZXh0bgNhZW0CMTEAcGRvZgNzcnRjBmFwcF9pZA8yNzUyNTQ2OTI1OTgyNzkAAR5g3AdvTvaojQf4FSeP1l-nx7Rwq7ta7HG2sjhOFH3hx6x8g2-kHxu3GgEVWA_aem_W8jkXKubpZhFoXjwFz0gHQ"
     },
     {
       "file": "opportunity-call-for-applications-digital-entrepreneurship-training-and--2026-08-13.html",
@@ -511,15 +447,6 @@
       "definitive": false,
       "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://www.digitaljewels.net/djcaresscholarship"
-    },
-    {
-      "file": "opportunity-call-for-applications-ebid-young-professionals-programme-202-2026-09-03.html",
-      "slug": "opportunity-call-for-applications-ebid-young-professionals-programme-202-2026-09-03",
-      "title": "Call For Applications: EBID Young Professionals Programme 2026 for West African Youths",
-      "href": "https://reference-url-citation.invalid/12",
-      "ok": false,
-      "definitive": true,
-      "reason": "placeholder URL (reference-url-citation.invalid)"
     },
     {
       "file": "opportunity-call-for-applications-ecowas-women-s-fellowship-programme-20-2026-07-14.html",
@@ -560,16 +487,6 @@
       "definitive": true,
       "reason": "programme page with application signals (7)",
       "finalUrl": "https://sti-portal.fao.org/network/group/34/about?utm_source=chatgpt.com"
-    },
-    {
-      "file": "opportunity-call-for-applications-fas-ai-safety-policy-entrepreneurship--2026-08-31.html",
-      "slug": "opportunity-call-for-applications-fas-ai-safety-policy-entrepreneurship--2026-08-31",
-      "title": "Call For Applications: FAS AI Safety Policy Entrepreneurship Fellowship 2026 | $5,000 Stipend",
-      "href": "https://fas.org/career/ai-safety-pef/",
-      "ok": false,
-      "definitive": true,
-      "reason": "HTTP 404 (page gone)",
-      "finalUrl": "https://fas.org/career/ai-safety-pef/"
     },
     {
       "file": "opportunity-call-for-applications-fast-forward-accelerator-2027-for-tech-2026-08-20.html",
@@ -708,7 +625,7 @@
       "href": "https://ai.konza.go.ke/",
       "ok": false,
       "definitive": false,
-      "reason": "page says applications are closed",
+      "reason": "HTTP 403 (could not confirm)",
       "finalUrl": "https://ai.konza.go.ke/"
     },
     {
@@ -716,9 +633,9 @@
       "slug": "opportunity-call-for-applications-leadgreen-fellowship-cohort-4-2026-for-2026-09-14",
       "title": "Call for Applications: LeadGreen Fellowship Cohort 4 (2026) For Green Entrepreneur (Fully Funded)",
       "href": "https://www.leadgreenfellowship.com/Apply.html",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (8)",
+      "ok": false,
+      "definitive": false,
+      "reason": "HTTP 403 (could not confirm)",
       "finalUrl": "https://www.leadgreenfellowship.com/Apply.html"
     },
     {
@@ -750,15 +667,6 @@
       "definitive": false,
       "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://careers.mastercard.com/us/en/early-careers/internships"
-    },
-    {
-      "file": "opportunity-call-for-applications-mtn-africa-pachipanda-challenge-2026-2026-09-28.html",
-      "slug": "opportunity-call-for-applications-mtn-africa-pachipanda-challenge-2026-2026-09-28",
-      "title": "Call For Applications: MTN Africa PachiPanda Challenge 2026",
-      "href": "https://reference-url-citation.invalid/11",
-      "ok": false,
-      "definitive": true,
-      "reason": "placeholder URL (reference-url-citation.invalid)"
     },
     {
       "file": "opportunity-call-for-applications-mtn-foundation-muson-music-scholars-pr-2026-07-23.html",
@@ -807,7 +715,8 @@
       "href": "https://www.fatefoundation.org/ocn",
       "ok": false,
       "definitive": false,
-      "reason": "unreachable (timeout)"
+      "reason": "page has almost no readable content (JS-only or blocked)",
+      "finalUrl": "https://ocn.fatefoundation.org/incubation"
     },
     {
       "file": "opportunity-call-for-applications-pibbss-winter-fellowship-program-2026--2026-07-08.html",
@@ -1000,33 +909,6 @@
       "finalUrl": "https://catalystfund.org"
     },
     {
-      "file": "opportunity-chevening-british-library-coptic-collections-fellowship-2027-2026-09-10.html",
-      "slug": "opportunity-chevening-british-library-coptic-collections-fellowship-2027-2026-09-10",
-      "title": "Chevening British Library Coptic Collections Fellowship 2027/2028 for mid-career professionals (Fully Funded to the United Kingdom)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-commonwealth-foundation-grants-2026-27-up-to-60-000-funding-2026-09-28.html",
-      "slug": "opportunity-commonwealth-foundation-grants-2026-27-up-to-60-000-funding-2026-09-28",
-      "title": "Commonwealth Foundation Grants 2026–27: Up to £60,000 Funding",
-      "href": "https://oyaschool.com/us-colleges?utm_source=oyaop&utm_medium=scholarship&utm_campaign=op_sc_ln",
-      "ok": false,
-      "definitive": true,
-      "reason": "affiliate/ad link (utm_source=oyaop)"
-    },
-    {
-      "file": "opportunity-commonwealth-foundation-grants-programme-2026-2027-for-civil-2026-09-24.html",
-      "slug": "opportunity-commonwealth-foundation-grants-programme-2026-2027-for-civil-2026-09-24",
-      "title": "Commonwealth Foundation Grants Programme 2026/2027 for Civil Society Organizations (£60,000 in Grants).",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
       "file": "opportunity-commonwealth-startup-fellowship-cohort-3-2026-08-10.html",
       "slug": "opportunity-commonwealth-startup-fellowship-cohort-3-2026-08-10",
       "title": "Commonwealth Startup Fellowship — Cohort 3",
@@ -1035,15 +917,6 @@
       "definitive": false,
       "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/"
-    },
-    {
-      "file": "opportunity-d-prize-challenge-2026-2027-for-social-entrepreneurs-to-figh-2026-09-21.html",
-      "slug": "opportunity-d-prize-challenge-2026-2027-for-social-entrepreneurs-to-figh-2026-09-21",
-      "title": "D-Prize Challenge 2026/2027 for Social Entrepreneurs to fight Poverty ($USD 20,000)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
     },
     {
       "file": "opportunity-d-prize-global-competition-2026-07-28.html",
@@ -1066,24 +939,6 @@
       "finalUrl": "https://dalailamafellows.com/apply/"
     },
     {
-      "file": "opportunity-ecowas-bank-for-investment-and-development-ebid-young-profes-2026-09-03.html",
-      "slug": "opportunity-ecowas-bank-for-investment-and-development-ebid-young-profes-2026-09-03",
-      "title": "ECOWAS Bank for Investment and Development (EBID) Young Professionals Programme 2026 for West African Graduates.",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-expand-your-business-with-these-small-business-loans-in-nige-2026-09-03.html",
-      "slug": "opportunity-expand-your-business-with-these-small-business-loans-in-nige-2026-09-03",
-      "title": "Expand Your Business With These Small Business Loans In Nigeria",
-      "href": "https://www.uphillnews.com/news/fg-to-reduce-cost-of-business-registration-incorporation-for-small-businesses/",
-      "ok": false,
-      "definitive": true,
-      "reason": "title is an article/video/advice post, not an opportunity"
-    },
-    {
       "file": "opportunity-fcmb-agritech-hackathon-venture-building-program-2026-2026-08-03.html",
       "slug": "opportunity-fcmb-agritech-hackathon-venture-building-program-2026-2026-08-03",
       "title": "FCMB AgriTech Hackathon & Venture Building Program 2026",
@@ -1092,15 +947,6 @@
       "definitive": true,
       "reason": "programme page with application signals (5)",
       "finalUrl": "https://vc4a.com/heave-ventures/fcmb-agritech-hackathon-and-venture-building-program/"
-    },
-    {
-      "file": "opportunity-fellowship-2027-in-usa-fully-funded-2026-10-01.html",
-      "slug": "opportunity-fellowship-2027-in-usa-fully-funded-2026-10-01",
-      "title": "Fellowship 2027 in USA- Fully Funded",
-      "href": "https://oyaschool.com/us-colleges?utm_source=oyaop&utm_medium=scholarship&utm_campaign=op_sc_ln",
-      "ok": false,
-      "definitive": true,
-      "reason": "affiliate/ad link (utm_source=oyaop)"
     },
     {
       "file": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
@@ -1157,7 +1003,7 @@
       "title": "GITEX Nigeria — Startup Festival Exhibitor Call 2026",
       "href": "https://gitexnigeria.com/",
       "ok": false,
-      "definitive": false,
+      "definitive": true,
       "reason": "unreachable (ENOTFOUND)"
     },
     {
@@ -1166,7 +1012,7 @@
       "title": "GIZ Make-IT in Africa",
       "href": "https://make-it-in-africa.org",
       "ok": false,
-      "definitive": false,
+      "definitive": true,
       "reason": "unreachable (ENOTFOUND)"
     },
     {
@@ -1200,15 +1046,6 @@
       "finalUrl": "https://survey.zohopublic.com/zs/tKBB4D"
     },
     {
-      "file": "opportunity-harvard-radcliffe-fellowship-2027-2028-fully-funded-2026-09-28.html",
-      "slug": "opportunity-harvard-radcliffe-fellowship-2027-2028-fully-funded-2026-09-28",
-      "title": "Harvard Radcliffe Fellowship 2027–2028 (Fully Funded)",
-      "href": "https://oyaschool.com/us-colleges?utm_source=oyaop&utm_medium=scholarship&utm_campaign=op_sc_ln",
-      "ok": false,
-      "definitive": true,
-      "reason": "affiliate/ad link (utm_source=oyaop)"
-    },
-    {
       "file": "opportunity-hult-prize-2026-07-28.html",
       "slug": "opportunity-hult-prize-2026-07-28",
       "title": "Hult Prize",
@@ -1239,22 +1076,13 @@
       "finalUrl": "https://jice.form.kintoneapp.com/waiting/?_formCode=africa-cc-af"
     },
     {
-      "file": "opportunity-kaust-global-fellowship-program-2027-in-saudi-arabia-fully-f-2026-09-28.html",
-      "slug": "opportunity-kaust-global-fellowship-program-2027-in-saudi-arabia-fully-f-2026-09-28",
-      "title": "KAUST Global Fellowship Program 2027 in Saudi Arabia (Fully Funded)",
-      "href": "https://oyaschool.com/us-colleges?utm_source=oyaop&utm_medium=scholarship&utm_campaign=op_sc_ln",
-      "ok": false,
-      "definitive": true,
-      "reason": "affiliate/ad link (utm_source=oyaop)"
-    },
-    {
       "file": "opportunity-kj-ller-open-investment-application-2026-08-13.html",
       "slug": "opportunity-kj-ller-open-investment-application-2026-08-13",
       "title": "Kjøller — Open Investment Application",
       "href": "https://kjoller.com/application.asp",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (9)",
+      "ok": false,
+      "definitive": false,
+      "reason": "HTTP 403 (could not confirm)",
       "finalUrl": "https://kjoller.com/application.asp"
     },
     {
@@ -1266,15 +1094,6 @@
       "definitive": false,
       "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://www.launchafrica.vc/"
-    },
-    {
-      "file": "opportunity-mandela-washington-fellowship-2027-2026-09-24.html",
-      "slug": "opportunity-mandela-washington-fellowship-2027-2026-09-24",
-      "title": "Mandela Washington Fellowship 2027",
-      "href": "https://oyaschool.com/us-colleges?utm_source=oyaop&utm_medium=scholarship&utm_campaign=op_sc_ln",
-      "ok": false,
-      "definitive": true,
-      "reason": "affiliate/ad link (utm_source=oyaop)"
     },
     {
       "file": "opportunity-mckinsey-s-forward-program-fall-2026-for-young-african-profe-2026-09-28.html",
@@ -1316,15 +1135,6 @@
       "finalUrl": "https://solve.mit.edu"
     },
     {
-      "file": "opportunity-mo-ibrahim-foundation-leadership-fellowships-2027-100-000-st-2026-09-24.html",
-      "slug": "opportunity-mo-ibrahim-foundation-leadership-fellowships-2027-100-000-st-2026-09-24",
-      "title": "Mo Ibrahim Foundation Leadership Fellowships 2027 ($100,000 Stipend)",
-      "href": "https://oyaschool.com/us-colleges?utm_source=oyaop&utm_medium=scholarship&utm_campaign=op_sc_ln",
-      "ok": false,
-      "definitive": true,
-      "reason": "affiliate/ad link (utm_source=oyaop)"
-    },
-    {
       "file": "opportunity-msme-loan-programme-2026-06-30.html",
       "slug": "opportunity-msme-loan-programme-2026-06-30",
       "title": "MSME Loan Programme",
@@ -1333,15 +1143,6 @@
       "definitive": true,
       "reason": "programme page with application signals (8)",
       "finalUrl": "https://lsetf.ng/content/msme-loan-programme"
-    },
-    {
-      "file": "opportunity-mutual-funding-in-nigeria-why-it-is-a-good-option-for-new-bu-2026-09-16.html",
-      "slug": "opportunity-mutual-funding-in-nigeria-why-it-is-a-good-option-for-new-bu-2026-09-16",
-      "title": "Mutual funding in Nigeria: Why It Is A Good Option For New Businesses",
-      "href": "https://www.uphillnews.com/news/fg-to-reduce-cost-of-business-registration-incorporation-for-small-businesses/",
-      "ok": false,
-      "definitive": true,
-      "reason": "title is an article/video/advice post, not an opportunity"
     },
     {
       "file": "opportunity-niya-cascador-founders-programme-2026-2026-08-19.html",
@@ -1364,15 +1165,6 @@
       "finalUrl": "https://www.novastarventures.com/"
     },
     {
-      "file": "opportunity-nrf-sarao-graduate-in-training-programme-2027-for-young-sout-2026-09-07.html",
-      "slug": "opportunity-nrf-sarao-graduate-in-training-programme-2027-for-young-sout-2026-09-07",
-      "title": "NRF/SARAO Graduate In-Training Programme 2027 for young South African graduates.",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
       "file": "opportunity-orange-corners-nigeria-2026-07-28.html",
       "slug": "opportunity-orange-corners-nigeria-2026-07-28",
       "title": "Orange Corners Nigeria",
@@ -1391,16 +1183,6 @@
       "definitive": false,
       "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://ocn.fatefoundation.org/incubation"
-    },
-    {
-      "file": "opportunity-orange-social-venture-prize-2026-07-28.html",
-      "slug": "opportunity-orange-social-venture-prize-2026-07-28",
-      "title": "Orange Social Venture Prize",
-      "href": "https://www.orange.com/en/orange-social-venture-prize",
-      "ok": false,
-      "definitive": true,
-      "reason": "HTTP 404 (page gone)",
-      "finalUrl": "https://www.orange.com/en/orange-social-venture-prize"
     },
     {
       "file": "opportunity-pan-african-timbuktoo-launchpad-for-healthtech-startups-2026-08-19.html",
@@ -1423,33 +1205,6 @@
       "finalUrl": "https://partechpartners.com"
     },
     {
-      "file": "opportunity-pitch-perfect-africa-2026-innovation-fellowship-for-african--2026-09-14.html",
-      "slug": "opportunity-pitch-perfect-africa-2026-innovation-fellowship-for-african--2026-09-14",
-      "title": "Pitch Perfect Africa 2026 Innovation Fellowship for African Health Startups (CAD $5,000 prize)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-preparing-your-business-for-bank-loan-2026-10-01.html",
-      "slug": "opportunity-preparing-your-business-for-bank-loan-2026-10-01",
-      "title": "Preparing Your Business for Bank Loan",
-      "href": "https://www.uphillnews.com/news/fg-to-reduce-cost-of-business-registration-incorporation-for-small-businesses/",
-      "ok": false,
-      "definitive": true,
-      "reason": "title is an article/video/advice post, not an opportunity"
-    },
-    {
-      "file": "opportunity-quick-loans-in-nigeria-2026-09-03.html",
-      "slug": "opportunity-quick-loans-in-nigeria-2026-09-03",
-      "title": "Quick Loans In Nigeria",
-      "href": "https://www.uphillnews.com/news/fg-to-reduce-cost-of-business-registration-incorporation-for-small-businesses/",
-      "ok": false,
-      "definitive": true,
-      "reason": "title is an article/video/advice post, not an opportunity"
-    },
-    {
       "file": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29.html",
       "slug": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29",
       "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
@@ -1468,15 +1223,6 @@
       "definitive": true,
       "reason": "programme page with application signals (34)",
       "finalUrl": "https://www.sasolbursaries.com/welcome/sasol-mining-bursaries/"
-    },
-    {
-      "file": "opportunity-schneider-electric-nigeria-2027-graduate-programme-for-young-2026-08-24.html",
-      "slug": "opportunity-schneider-electric-nigeria-2027-graduate-programme-for-young-2026-08-24",
-      "title": "Schneider Electric Nigeria 2027 Graduate Programme for young Nigerian graduates.",
-      "href": "https://www.reputiva.ng/contact-us/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.ng)"
     },
     {
       "file": "opportunity-shell-livewire-nigeria-2026-07-28.html",
@@ -1519,25 +1265,6 @@
       "finalUrl": "https://www.sc.com/eg-en/women-in-tech/"
     },
     {
-      "file": "opportunity-standard-chartered-women-in-tech-accelerator-2026-07-28.html",
-      "slug": "opportunity-standard-chartered-women-in-tech-accelerator-2026-07-28",
-      "title": "Standard Chartered Women in Tech Accelerator",
-      "href": "https://www.sc.com/ng/women-in-tech/",
-      "ok": false,
-      "definitive": true,
-      "reason": "HTTP 404 (page gone)",
-      "finalUrl": "https://www.sc.com/ng/404-error-page/"
-    },
-    {
-      "file": "opportunity-swiss-government-excellence-scholarships-2027-2028-for-forei-2026-08-22.html",
-      "slug": "opportunity-swiss-government-excellence-scholarships-2027-2028-for-forei-2026-08-22",
-      "title": "Swiss Government Excellence Scholarships 2027/2028 for Foreign Students & Artists to study in Switzerland (Funded)",
-      "href": "https://www.reputiva.ng/contact-us/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.ng)"
-    },
-    {
       "file": "opportunity-tef-entrepreneurship-programme-2026-06-30.html",
       "slug": "opportunity-tef-entrepreneurship-programme-2026-06-30",
       "title": "TEF Entrepreneurship Programme",
@@ -1558,33 +1285,6 @@
       "finalUrl": "https://www.queensu.ca/innovationcentre/programs/jim-leech-mastercard-foundation-fellowship-entrepreneurship"
     },
     {
-      "file": "opportunity-the-african-investigative-journalism-conference-aijc-fellows-2026-08-31.html",
-      "slug": "opportunity-the-african-investigative-journalism-conference-aijc-fellows-2026-08-31",
-      "title": "The African Investigative Journalism Conference (AIJC) Fellowships 2026 for Francophone Journalists (Fully Funded to Nairobi, Kenya)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-african-union-enterprise-africa-network-ean-fellowship-p-2026-08-22.html",
-      "slug": "opportunity-the-african-union-enterprise-africa-network-ean-fellowship-p-2026-08-22",
-      "title": "The African Union Enterprise Africa Network (EAN) Fellowship Programme 2026/2027 for youth- and women-led small enterprises.",
-      "href": "https://www.reputiva.ng/contact-us/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.ng)"
-    },
-    {
-      "file": "opportunity-the-andersen-nigeria-2027-graduate-trainee-programme-for-you-2026-08-22.html",
-      "slug": "opportunity-the-andersen-nigeria-2027-graduate-trainee-programme-for-you-2026-08-22",
-      "title": "The Andersen Nigeria 2027 Graduate Trainee Programme for young Nigerian graduates.",
-      "href": "https://www.reputiva.ng/contact-us/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.ng)"
-    },
-    {
       "file": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
       "slug": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29",
       "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
@@ -1593,114 +1293,6 @@
       "definitive": true,
       "reason": "programme page with application signals (12)",
       "finalUrl": "https://anzisha.org/fellowship/"
-    },
-    {
-      "file": "opportunity-the-ashoka-carnegie-challenge-2026-2027-for-civic-leadership-2026-09-03.html",
-      "slug": "opportunity-the-ashoka-carnegie-challenge-2026-2027-for-civic-leadership-2026-09-03",
-      "title": "The Ashoka-Carnegie Challenge 2026/2027 for Civic Leadership (Seed funding and Fully-Funded to in-person convening)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-au-eu-youth-action-lab-entrepreneurship-grants-2026-for--2026-09-03.html",
-      "slug": "opportunity-the-au-eu-youth-action-lab-entrepreneurship-grants-2026-for--2026-09-03",
-      "title": "The AU-EU Youth Action Lab Entrepreneurship Grants 2026 for youth-led initiatives in Africa (31,500 EURO grant)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-centre-for-the-study-of-the-economies-of-africa-csea-202-2026-09-10.html",
-      "slug": "opportunity-the-centre-for-the-study-of-the-economies-of-africa-csea-202-2026-09-10",
-      "title": "The Centre for the Study of the Economies of Africa (CSEA) 2026 Africa’s Data Future Fellowship (US$1,500 stipend)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16.html",
-      "slug": "opportunity-the-citi-foundation-global-innovation-challenge-2027-for-non-2026-09-16",
-      "title": "The Citi Foundation Global Innovation Challenge 2027 for nonprofit organisations (US$500,000 grant)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-civichive-creative-changemakers-fellowship-ccmf-2026-for-2026-09-03.html",
-      "slug": "opportunity-the-civichive-creative-changemakers-fellowship-ccmf-2026-for-2026-09-03",
-      "title": "The CivicHive Creative Changemakers Fellowship (CCMF) 2026 for young Nigerian creatives.",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-clooney-foundation-waging-justice-for-women-fellowship-2-2026-09-14.html",
-      "slug": "opportunity-the-clooney-foundation-waging-justice-for-women-fellowship-2-2026-09-14",
-      "title": "The Clooney Foundation Waging Justice for Women Fellowship 2027 for early-career women lawyers in sub-Saharan Africa",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-cybersafe-x-sans-ai-security-fellowship-2026-for-african-2026-08-31.html",
-      "slug": "opportunity-the-cybersafe-x-sans-ai-security-fellowship-2026-for-african-2026-08-31",
-      "title": "The Cybersafe x SANS AI Security Fellowship 2026 for African women in cybersecurity (Fully Funded)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-dangote-fleet-management-graduate-programme-2026-for-you-2026-08-24.html",
-      "slug": "opportunity-the-dangote-fleet-management-graduate-programme-2026-for-you-2026-08-24",
-      "title": "The Dangote Fleet Management Graduate Programme 2026 for young Nigerian graduates.",
-      "href": "https://www.reputiva.ng/contact-us/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.ng)"
-    },
-    {
-      "file": "opportunity-the-desmond-leah-tutu-legacy-foundation-2027-leading-for-hum-2026-09-16.html",
-      "slug": "opportunity-the-desmond-leah-tutu-legacy-foundation-2027-leading-for-hum-2026-09-16",
-      "title": "The Desmond & Leah Tutu Legacy Foundation 2027 Leading for Humanity Leadership Programme for young changemakers (Funded)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-eac-youth-fellowship-2026-for-emerging-east-african-lead-2026-09-07.html",
-      "slug": "opportunity-the-eac-youth-fellowship-2026-for-emerging-east-african-lead-2026-09-07",
-      "title": "The EAC Youth Fellowship 2026 for emerging East African Leaders (Fully Funded)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-equality-fund-journalism-fellowship-2026-for-journalists-2026-09-24.html",
-      "slug": "opportunity-the-equality-fund-journalism-fellowship-2026-for-journalists-2026-09-24",
-      "title": "The Equality Fund Journalism Fellowship 2026 for Journalists worldwide ($4000 CAD stipend)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
-      "file": "opportunity-the-government-of-japan-exchange-and-teaching-programme-2027-2026-09-14.html",
-      "slug": "opportunity-the-government-of-japan-exchange-and-teaching-programme-2027-2026-09-14",
-      "title": "The Government of Japan Exchange and Teaching Programme 2027 for young Leaders (Fully Funded to Japan)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
     },
     {
       "file": "opportunity-the-government-of-kenya-presidential-digital-talent-programm-2026-08-24.html",
@@ -1713,15 +1305,6 @@
       "finalUrl": "https://recruitment.digitalent.go.ke/"
     },
     {
-      "file": "opportunity-the-m-decins-sans-fronti-res-msf-eastern-africa-media-fellow-2026-09-10.html",
-      "slug": "opportunity-the-m-decins-sans-fronti-res-msf-eastern-africa-media-fellow-2026-09-10",
-      "title": "The Médecins Sans Frontières (MSF) Eastern Africa Media Fellowship Programme 2026 for East African Journalists",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
       "file": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
       "slug": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24",
       "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
@@ -1732,15 +1315,6 @@
       "finalUrl": "https://www.afdb.org/en/vacancy/2027-mo-ibrahim-foundation-leadership-fellowship-program-96407"
     },
     {
-      "file": "opportunity-the-national-treasury-chartered-accountants-academy-programm-2026-09-10.html",
-      "slug": "opportunity-the-national-treasury-chartered-accountants-academy-programm-2026-09-10",
-      "title": "The National Treasury Chartered Accountants Academy Programme 2027 for young South Africans (Three-years full-time training contract)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
       "file": "opportunity-the-nitda-national-ai-innovation-challenge-2026-for-young-ni-2026-09-28.html",
       "slug": "opportunity-the-nitda-national-ai-innovation-challenge-2026-for-young-ni-2026-09-28",
       "title": "The NITDA National AI Innovation Challenge 2026 for young Nigerian developers.",
@@ -1749,15 +1323,6 @@
       "definitive": true,
       "reason": "programme page with application signals (32)",
       "finalUrl": "https://ncair.nitda.gov.ng/naic/#about"
-    },
-    {
-      "file": "opportunity-the-pulitzer-center-gender-equality-grants-2026-for-journali-2026-09-16.html",
-      "slug": "opportunity-the-pulitzer-center-gender-equality-grants-2026-for-journali-2026-09-16",
-      "title": "The Pulitzer Center Gender Equality Grants 2026 for Journalists worldwide.",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
     },
     {
       "file": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
@@ -1790,24 +1355,6 @@
       "finalUrl": "https://www.leadership-challenge.org/"
     },
     {
-      "file": "opportunity-the-wema-bank-plc-bankers-in-training-sales-programme-2026-f-2026-08-24.html",
-      "slug": "opportunity-the-wema-bank-plc-bankers-in-training-sales-programme-2026-f-2026-08-24",
-      "title": "The Wema Bank Plc Bankers-In-Training (Sales) Programme 2026 for young Nigerian graduates.",
-      "href": "https://www.reputiva.ng/contact-us/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.ng)"
-    },
-    {
-      "file": "opportunity-the-world-bank-group-small-ai-for-development-hackathon-chal-2026-09-21.html",
-      "slug": "opportunity-the-world-bank-group-small-ai-for-development-hackathon-chal-2026-09-21",
-      "title": "The World Bank Group Small AI for Development Hackathon Challenge 2026 (Fully Funded to present at the 2026 Global AI and Digital Summit in Seoul, South Korea)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
       "file": "opportunity-the-yale-maurice-r-greenberg-world-fellows-program-2027-for--2026-10-01.html",
       "slug": "opportunity-the-yale-maurice-r-greenberg-world-fellows-program-2027-for--2026-10-01",
       "title": "The Yale Maurice R. Greenberg World Fellows Program 2027 for mid-career emerging Global Leaders (Fully Funded to Yale University, USA)",
@@ -1816,15 +1363,6 @@
       "definitive": true,
       "reason": "programme page with application signals (71)",
       "finalUrl": "https://jackson.yale.edu/international-leadership-center/yale-world-fellows"
-    },
-    {
-      "file": "opportunity-the-yali-2027-mandela-washington-fellowship-for-young-africa-2026-09-24.html",
-      "slug": "opportunity-the-yali-2027-mandela-washington-fellowship-for-young-africa-2026-09-24",
-      "title": "The YALI 2027 Mandela Washington Fellowship for young African Leaders (Fully Funded to the United States of America)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
     },
     {
       "file": "opportunity-totalenergies-startupper-challenge-2026-07-28.html",
@@ -1837,22 +1375,24 @@
       "finalUrl": "https://startupper.totalenergies.com/en"
     },
     {
-      "file": "opportunity-toyota-south-africa-chartered-accountant-development-program-2026-09-10.html",
-      "slug": "opportunity-toyota-south-africa-chartered-accountant-development-program-2026-09-10",
-      "title": "Toyota South Africa Chartered Accountant Development Programme 2027 for young South Africans.",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
+      "file": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05.html",
+      "slug": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05",
+      "title": "TWAS Research Professors in Least Developed Countries (LDCs) Programme 2026/2027 (Fully Funded)",
+      "href": "https://twas.org/opportunity/twas-research-professors-ldcs",
+      "ok": true,
       "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
+      "reason": "programme page with application signals (7)",
+      "finalUrl": "https://twas.org/opportunity/twas-research-professors-ldcs"
     },
     {
-      "file": "opportunity-traderoots-africa-international-chamber-of-commerce-icc-prog-2026-09-24.html",
-      "slug": "opportunity-traderoots-africa-international-chamber-of-commerce-icc-prog-2026-09-24",
-      "title": "TradeRoots Africa-International Chamber of Commerce (ICC) Programme 2026/2027 for export-ready African SMEs.",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
+      "file": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05.html",
+      "slug": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05",
+      "title": "UN Global Compact Business & Human Rights Accelerator Program 2026/2027",
+      "href": "https://unglobalcompact.org/take-action/business-and-human-rights",
+      "ok": true,
       "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
+      "reason": "programme page with application signals (13)",
+      "finalUrl": "https://unglobalcompact.org/take-action/business-and-human-rights"
     },
     {
       "file": "opportunity-unicef-venture-fund-2026-07-28.html",
@@ -1863,15 +1403,6 @@
       "definitive": true,
       "reason": "programme page with application signals (38)",
       "finalUrl": "https://www.unicefventurefund.org"
-    },
-    {
-      "file": "opportunity-university-of-edinburgh-mastercard-foundation-scholars-progr-2026-08-22.html",
-      "slug": "opportunity-university-of-edinburgh-mastercard-foundation-scholars-progr-2026-08-22",
-      "title": "University of Edinburgh Mastercard Foundation Scholars Program 2027/2028 for young Africans (Fully Funded)",
-      "href": "https://www.reputiva.ng/contact-us/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.ng)"
     },
     {
       "file": "opportunity-vc4a-venture-showcase-2026-07-28.html",
@@ -1904,15 +1435,6 @@
       "finalUrl": "https://vilcap.com"
     },
     {
-      "file": "opportunity-watch-why-smes-are-not-getting-their-loans-approved-2026-10-01.html",
-      "slug": "opportunity-watch-why-smes-are-not-getting-their-loans-approved-2026-10-01",
-      "title": "[Watch] Why SMEs Are Not Getting Their Loans Approved",
-      "href": "https://www.uphillnews.com/news/fg-to-reduce-cost-of-business-registration-incorporation-for-small-businesses/",
-      "ok": false,
-      "definitive": true,
-      "reason": "title is an article/video/advice post, not an opportunity"
-    },
-    {
       "file": "opportunity-wema-bank-hackaholics-2026-07-28.html",
       "slug": "opportunity-wema-bank-hackaholics-2026-07-28",
       "title": "Wema Bank Hackaholics",
@@ -1923,24 +1445,6 @@
       "finalUrl": "https://hackaholics.wemabank.com"
     },
     {
-      "file": "opportunity-who-2026-global-youth-competition-on-influenza-and-covid-19--2026-08-22.html",
-      "slug": "opportunity-who-2026-global-youth-competition-on-influenza-and-covid-19--2026-08-22",
-      "title": "WHO 2026 Global youth competition on influenza and COVID-19 prevention and control",
-      "href": "https://www.reputiva.ng/contact-us/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.ng)"
-    },
-    {
-      "file": "opportunity-world-conference-of-science-journalists-wcsj-2027-travel-fel-2026-08-31.html",
-      "slug": "opportunity-world-conference-of-science-journalists-wcsj-2027-travel-fel-2026-08-31",
-      "title": "World Conference of Science Journalists (WCSJ) 2027 Travel Fellowship for Journalists (Fully Funded to London, United Kingdom)",
-      "href": "https://www.reputiva.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "news/blog/aggregator/ad domain (reputiva.com)"
-    },
-    {
       "file": "opportunity-y-combinator-2026-07-28.html",
       "slug": "opportunity-y-combinator-2026-07-28",
       "title": "Y Combinator",
@@ -1949,15 +1453,6 @@
       "definitive": true,
       "reason": "programme page with application signals (22)",
       "finalUrl": "https://www.ycombinator.com/apply"
-    },
-    {
-      "file": "opportunity-yseali-fellows-program-2027-in-usa-fully-funded-2026-09-29.html",
-      "slug": "opportunity-yseali-fellows-program-2027-in-usa-fully-funded-2026-09-29",
-      "title": "YSEALI Fellows Program 2027 in USA (Fully Funded)",
-      "href": "https://oyaschool.com/us-colleges?utm_source=oyaop&utm_medium=scholarship&utm_campaign=op_sc_ln",
-      "ok": false,
-      "definitive": true,
-      "reason": "affiliate/ad link (utm_source=oyaop)"
     }
   ]
 }

@@ -1,16 +1,38 @@
 {
-  "generated": "2026-10-02T05:23:05.165Z",
-  "rotationSeed": 20261002,
+  "generated": "2026-10-05T06:33:30.051Z",
+  "rotationSeed": 20261005,
   "newWindowDays": 10,
   "counts": {
     "total": 134,
-    "new": 21,
-    "closing": 5,
-    "evergreen": 82,
+    "new": 20,
+    "closing": 7,
+    "evergreen": 81,
     "recurring": 22,
     "archived": 4
   },
   "ticker": [
+    {
+      "title": "UN Global Compact Business & Human Rights Accelerator Program 2026/2027",
+      "href": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "TWAS Research Professors in Least Developed Countries (LDCs) Programme 2026/2027 (Fully Funded)",
+      "href": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05.html",
+      "deadline": "November 23, 2026",
+      "closes": "2026-11-23",
+      "added": "2026-10-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
       "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
@@ -27,17 +49,6 @@
       "href": "opportunity-apply-for-aypc-free-digital-skills-training-programme-2026-10-01.html",
       "deadline": "Check official page",
       "closes": null,
-      "added": "2026-10-01",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Apply for Solar Power Nigeria Social Media Ambassador Programme",
-      "href": "opportunity-apply-for-solar-power-nigeria-social-media-ambassador-progra-2026-10-01.html",
-      "deadline": "October 2, 2026",
-      "closes": "2026-10-02",
       "added": "2026-10-01",
       "tier": 1,
       "isNew": true,
@@ -193,39 +204,6 @@
       "deadline": "October 12, 2026",
       "closes": "2026-10-12",
       "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for NITDA National AI Innovation Challenge 2026",
-      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
-      "deadline": "October 12, 2026",
-      "closes": "2026-10-12",
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply: SMEDAN ALGON OLOP programme for MSMEs (All LGAs)",
-      "href": "opportunity-apply-smedan-algon-olop-programme-for-msmes-all-lgas-2026-09-24.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
-      "href": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
-      "deadline": "November 20, 2026",
-      "closes": "2026-11-20",
-      "added": "2026-09-24",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -234,6 +212,28 @@
   ],
   "latest": [
     {
+      "title": "UN Global Compact Business & Human Rights Accelerator Program 2026/2027",
+      "href": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "TWAS Research Professors in Least Developed Countries (LDCs) Programme 2026/2027 (Fully Funded)",
+      "href": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05.html",
+      "deadline": "November 23, 2026",
+      "closes": "2026-11-23",
+      "added": "2026-10-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
       "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
       "deadline": "November 30, 2026",
@@ -263,7 +263,7 @@
       "added": "2026-10-01",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": false
     },
     {
@@ -342,31 +342,31 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Call for Applications: Access Bank Womenpreneur Pitch-a-ton Program 2026 (Up to ₦18 Million in Business Grants)",
-      "href": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
-      "deadline": "September 29, 2026",
-      "closes": "2026-09-29",
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Apply for iDICE Skills to Job Programme",
-      "href": "opportunity-apply-for-idice-skills-to-job-programme-2026-09-28.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
     }
   ],
   "items": [
+    {
+      "title": "UN Global Compact Business & Human Rights Accelerator Program 2026/2027",
+      "href": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "TWAS Research Professors in Least Developed Countries (LDCs) Programme 2026/2027 (Fully Funded)",
+      "href": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05.html",
+      "deadline": "November 23, 2026",
+      "closes": "2026-11-23",
+      "added": "2026-10-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call for Applications: Orange Corners Nigeria Incubation Programme Cohort 16",
       "href": "opportunity-call-for-applications-orange-corners-nigeria-incubation-prog-2026-10-01.html",
@@ -397,7 +397,7 @@
       "added": "2026-10-01",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": false
     },
     {
@@ -560,39 +560,6 @@
       "deadline": "October 12, 2026",
       "closes": "2026-10-12",
       "added": "2026-09-28",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for NITDA National AI Innovation Challenge 2026",
-      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
-      "deadline": "October 12, 2026",
-      "closes": "2026-10-12",
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply: SMEDAN ALGON OLOP programme for MSMEs (All LGAs)",
-      "href": "opportunity-apply-smedan-algon-olop-programme-for-msmes-all-lgas-2026-09-24.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-09-24",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
-      "href": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
-      "deadline": "November 20, 2026",
-      "closes": "2026-11-20",
-      "added": "2026-09-24",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -621,6 +588,17 @@
       "recurring": true
     },
     {
+      "title": "Apply for NITDA National AI Innovation Challenge 2026",
+      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-24",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Blaze by Ecobank InnovateX 2026 — ₦20 million prize pool",
       "href": "opportunity-blaze-ecobank-innovatex-2026-2026-09-09.html",
       "deadline": "None published — register now, finale is 30 October 2026",
@@ -643,12 +621,34 @@
       "recurring": true
     },
     {
+      "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
+      "href": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
+      "deadline": "November 20, 2026",
+      "closes": "2026-11-20",
+      "added": "2026-09-24",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "ADAVEL Fund — Pilot Round for Nigerian Grassroot Founders",
       "href": "opportunity-adavel-fund-2026-09-07.html",
       "deadline": "30 November 2026",
       "closes": "2026-11-30",
       "added": "2026-09-07",
       "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Apply: SMEDAN ALGON OLOP programme for MSMEs (All LGAs)",
+      "href": "opportunity-apply-smedan-algon-olop-programme-for-msmes-all-lgas-2026-09-24.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-09-24",
+      "tier": 3,
       "isNew": false,
       "closed": false,
       "recurring": false
@@ -795,17 +795,6 @@
       "isNew": false,
       "closed": false,
       "recurring": false
-    },
-    {
-      "title": "GITEX Nigeria — Startup Festival Exhibitor Call 2026",
-      "href": "opportunity-gitex-nigeria-startup-festival-exhibitor-call-2026-2026-08-13.html",
-      "deadline": "Rolling until stands are allocated — event runs 2–3 September 2026",
-      "closes": null,
-      "added": "2026-08-13",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
     },
     {
       "title": "Kjøller — Open Investment Application",
@@ -1108,17 +1097,6 @@
       "title": "Hult Prize",
       "href": "opportunity-hult-prize-2026-07-28.html",
       "deadline": "Annual — check site",
-      "closes": null,
-      "added": "2026-07-28",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "GIZ Make-IT in Africa",
-      "href": "opportunity-giz-make-it-in-africa-2026-07-28.html",
-      "deadline": "Programme windows — check site",
       "closes": null,
       "added": "2026-07-28",
       "tier": 3,
