@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-05T06:33:15.962Z",
+  "ranAt": "2026-10-05T13:29:52.769Z",
   "results": [
     {
       "file": "opportunity-abia-awards-100m-startup-grants-to-100-polytechnic-graduate-2026-07-16.html",
@@ -126,10 +126,10 @@
       "slug": "opportunity-apply-for-solar-power-nigeria-social-media-ambassador-progra-2026-10-01",
       "title": "Apply for Solar Power Nigeria Social Media Ambassador Programme",
       "href": "http://bit.ly/SPNAmbassadors",
-      "ok": true,
-      "definitive": true,
-      "reason": "application form (docs.google.com)",
-      "finalUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdFAoUdnXTMJXMLoEKSr4t8m2WslOgLDanb14BHu47LDzJjEQ/viewform?usp=dialog"
+      "ok": false,
+      "definitive": false,
+      "reason": "page says applications are closed",
+      "finalUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdFAoUdnXTMJXMLoEKSr4t8m2WslOgLDanb14BHu47LDzJjEQ/closedform"
     },
     {
       "file": "opportunity-apply-for-ssce-youth-social-media-advocates-programme-2026-07-02.html",
@@ -274,9 +274,10 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
@@ -426,7 +427,7 @@
       "ok": true,
       "definitive": true,
       "reason": "programme page with application signals (193)",
-      "finalUrl": "https://commonwealthfoundation.com/grants/annual/?fbclid=IwZXh0bgNhZW0CMTEAcGRvZgNzcnRjBmFwcF9pZA8yNzUyNTQ2OTI1OTgyNzkAAR5g3AdvTvaojQf4FSeP1l-nx7Rwq7ta7HG2sjhOFH3hx6x8g2-kHxu3GgEVWA_aem_W8jkXKubpZhFoXjwFz0gHQ"
+      "finalUrl": "https://commonwealthfoundation.com/grants/annual/?fbclid=IwZXh0bgNhZW0CMTEAcGRvZgVmZGlkFlD7hgmSYA4Z6Dv0q2zENfR5qC2P3atzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEeLL6iz-2crCP3lnCUPiPW4rqrZvce6jXeEp_n5H9psu87aJQRB3yne-BKNKk_aem_JGPwaF-xG5FCnXcyFWESlw"
     },
     {
       "file": "opportunity-call-for-applications-digital-entrepreneurship-training-and--2026-08-13.html",
@@ -743,9 +744,9 @@
       "slug": "opportunity-call-for-applications-reckitt-catalyst-global-accelerator-pr-2026-07-02",
       "title": "Call For Applications: Reckitt Catalyst Global Accelerator Program 2026/2027 for Social Innovators",
       "href": "https://www.reckitt.com/our-impact/stronger-communities/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (3)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://www.reckitt.com/our-impact/stronger-communities/"
     },
     {
@@ -998,24 +999,6 @@
       "finalUrl": "https://www.future.africa/"
     },
     {
-      "file": "opportunity-gitex-nigeria-startup-festival-exhibitor-call-2026-2026-08-13.html",
-      "slug": "opportunity-gitex-nigeria-startup-festival-exhibitor-call-2026-2026-08-13",
-      "title": "GITEX Nigeria — Startup Festival Exhibitor Call 2026",
-      "href": "https://gitexnigeria.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "unreachable (ENOTFOUND)"
-    },
-    {
-      "file": "opportunity-giz-make-it-in-africa-2026-07-28.html",
-      "slug": "opportunity-giz-make-it-in-africa-2026-07-28",
-      "title": "GIZ Make-IT in Africa",
-      "href": "https://make-it-in-africa.org",
-      "ok": false,
-      "definitive": true,
-      "reason": "unreachable (ENOTFOUND)"
-    },
-    {
       "file": "opportunity-greylight-tangent-cohort-002-2026-08-13.html",
       "slug": "opportunity-greylight-tangent-cohort-002-2026-08-13",
       "title": "Greylight Tangent Cohort 002",
@@ -1062,7 +1045,7 @@
       "href": "https://www.iaps.ai/fellowship",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (16)",
+      "reason": "programme page with application signals (1)",
       "finalUrl": "https://www.iaps.ai/fellowship"
     },
     {
