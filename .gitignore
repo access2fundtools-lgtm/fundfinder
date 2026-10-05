@@ -149,3 +149,7 @@ _removed/
 # Internal A2F working docs — repo root is the public web root, never publish
 08-globalsight-reengagement-traders.md
 WHATSAPP-LEAD-SETUP.md
+
+# Internal NITDA Builders Festival application working files — repo root is the
+# public web root and the daily scraper runs `git add .`. Never publish.
+nitda/
