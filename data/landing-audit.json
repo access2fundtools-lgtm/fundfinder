@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-12T06:41:55.517Z",
+  "ranAt": "2026-10-12T14:19:31.492Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -69,7 +69,7 @@
       "ok": false,
       "definitive": false,
       "reason": "page has almost no readable content (JS-only or blocked)",
-      "finalUrl": "https://recaptcha.cloud/?template=cpg&server=198.251.83.106&ip=172.215.217.98&http=&host=africastartupcongress.org&real_ip=&proto=&url=/"
+      "finalUrl": "https://recaptcha.cloud/?template=cpg&server=198.251.83.106&ip=20.171.123.138&http=&host=africastartupcongress.org&real_ip=&proto=&url=/"
     },
     {
       "file": "opportunity-antler-africa-residency-2026-07-28.html",
@@ -215,10 +215,9 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (timeout)"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -284,10 +283,9 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (timeout)"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
@@ -684,9 +682,9 @@
       "slug": "opportunity-call-for-applications-mtn-foundation-muson-music-scholars-pr-2026-07-23",
       "title": "Call for Applications: MTN Foundation/MUSON Music Scholars Programme 2026 (Fully Funded)",
       "href": "https://www.mtn.ng/foundation/muson2026/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (8)",
+      "ok": false,
+      "definitive": false,
+      "reason": "HTTP 421 (could not confirm)",
       "finalUrl": "https://www.mtn.ng/muson2026/"
     },
     {
@@ -1007,24 +1005,6 @@
       "definitive": true,
       "reason": "programme page with application signals (1)",
       "finalUrl": "https://www.future.africa/"
-    },
-    {
-      "file": "opportunity-gitex-nigeria-startup-festival-exhibitor-call-2026-2026-08-13.html",
-      "slug": "opportunity-gitex-nigeria-startup-festival-exhibitor-call-2026-2026-08-13",
-      "title": "GITEX Nigeria — Startup Festival Exhibitor Call 2026",
-      "href": "https://gitexnigeria.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "unreachable (ENOTFOUND)"
-    },
-    {
-      "file": "opportunity-giz-make-it-in-africa-2026-07-28.html",
-      "slug": "opportunity-giz-make-it-in-africa-2026-07-28",
-      "title": "GIZ Make-IT in Africa",
-      "href": "https://make-it-in-africa.org",
-      "ok": false,
-      "definitive": true,
-      "reason": "unreachable (ENOTFOUND)"
     },
     {
       "file": "opportunity-greylight-tangent-cohort-002-2026-08-13.html",
