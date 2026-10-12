@@ -478,5 +478,21 @@
     "reason": "unreachable (ENOTFOUND)",
     "removedOn": "2026-10-05",
     "supabase": "HTTP 204"
+  },
+  {
+    "slug": "opportunity-gitex-nigeria-startup-festival-exhibitor-call-2026-2026-08-13",
+    "title": "GITEX Nigeria — Startup Festival Exhibitor Call 2026",
+    "href": "https://gitexnigeria.com/",
+    "reason": "unreachable (ENOTFOUND)",
+    "removedOn": "2026-10-12",
+    "supabase": "HTTP 204"
+  },
+  {
+    "slug": "opportunity-giz-make-it-in-africa-2026-07-28",
+    "title": "GIZ Make-IT in Africa",
+    "href": "https://make-it-in-africa.org",
+    "reason": "unreachable (ENOTFOUND)",
+    "removedOn": "2026-10-12",
+    "supabase": "HTTP 204"
   }
 ]

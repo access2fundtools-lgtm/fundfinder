@@ -1,6 +1,16 @@
 {
-  "ranAt": "2026-10-05T13:29:52.769Z",
+  "ranAt": "2026-10-12T06:41:55.517Z",
   "results": [
+    {
+      "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
+      "slug": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12",
+      "title": "2026 Shenzhen International FinTech Competition in China (Fully Funded)",
+      "href": "https://ird.oou.cmu.ac.th/2026-shenzhen-international-fintech-competition/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (13)",
+      "finalUrl": "https://ird.oou.cmu.ac.th/2026-shenzhen-international-fintech-competition/"
+    },
     {
       "file": "opportunity-abia-awards-100m-startup-grants-to-100-polytechnic-graduate-2026-07-16.html",
       "slug": "opportunity-abia-awards-100m-startup-grants-to-100-polytechnic-graduate-2026-07-16",
@@ -59,7 +69,7 @@
       "ok": false,
       "definitive": false,
       "reason": "page has almost no readable content (JS-only or blocked)",
-      "finalUrl": "https://africastartupcongress.org/"
+      "finalUrl": "https://recaptcha.cloud/?template=cpg&server=198.251.83.106&ip=172.215.217.98&http=&host=africastartupcongress.org&real_ip=&proto=&url=/"
     },
     {
       "file": "opportunity-antler-africa-residency-2026-07-28.html",
@@ -235,9 +245,9 @@
       "slug": "opportunity-baobab-network-accelerator-2026-07-28",
       "title": "Baobab Network Accelerator",
       "href": "https://thebaobabnetwork.com",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (6)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://thebaobabnetwork.com"
     },
     {
@@ -386,7 +396,7 @@
       "href": "http://www.dsbd.gov.za/business-infrastructure-support-programme",
       "ok": false,
       "definitive": false,
-      "reason": "HTTP 403 (could not confirm)",
+      "reason": "HTTP 500 (could not confirm)",
       "finalUrl": "http://www.dsbd.gov.za/business-infrastructure-support-programme"
     },
     {
@@ -414,9 +424,9 @@
       "slug": "opportunity-call-for-applications-climate-resilience-awards-for-business-2026-08-03",
       "title": "Call For Applications: Climate Resilience Awards for Business 2026",
       "href": "https://www.wbcsd.org/news/climate-resilience-awards-for-business-2026/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (21)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page says applications are closed",
       "finalUrl": "https://www.wbcsd.org/news/climate-resilience-awards-for-business-2026/"
     },
     {
@@ -427,7 +437,7 @@
       "ok": true,
       "definitive": true,
       "reason": "programme page with application signals (193)",
-      "finalUrl": "https://commonwealthfoundation.com/grants/annual/?fbclid=IwZXh0bgNhZW0CMTEAcGRvZgVmZGlkFlD7hgmSYA4Z6Dv0q2zENfR5qC2P3atzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEeLL6iz-2crCP3lnCUPiPW4rqrZvce6jXeEp_n5H9psu87aJQRB3yne-BKNKk_aem_JGPwaF-xG5FCnXcyFWESlw"
+      "finalUrl": "https://commonwealthfoundation.com/grants/annual/"
     },
     {
       "file": "opportunity-call-for-applications-digital-entrepreneurship-training-and--2026-08-13.html",
@@ -936,7 +946,7 @@
       "href": "https://dalailamafellows.com/apply/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (29)",
+      "reason": "programme page with application signals (28)",
       "finalUrl": "https://dalailamafellows.com/apply/"
     },
     {
@@ -999,6 +1009,24 @@
       "finalUrl": "https://www.future.africa/"
     },
     {
+      "file": "opportunity-gitex-nigeria-startup-festival-exhibitor-call-2026-2026-08-13.html",
+      "slug": "opportunity-gitex-nigeria-startup-festival-exhibitor-call-2026-2026-08-13",
+      "title": "GITEX Nigeria — Startup Festival Exhibitor Call 2026",
+      "href": "https://gitexnigeria.com/",
+      "ok": false,
+      "definitive": true,
+      "reason": "unreachable (ENOTFOUND)"
+    },
+    {
+      "file": "opportunity-giz-make-it-in-africa-2026-07-28.html",
+      "slug": "opportunity-giz-make-it-in-africa-2026-07-28",
+      "title": "GIZ Make-IT in Africa",
+      "href": "https://make-it-in-africa.org",
+      "ok": false,
+      "definitive": true,
+      "reason": "unreachable (ENOTFOUND)"
+    },
+    {
       "file": "opportunity-greylight-tangent-cohort-002-2026-08-13.html",
       "slug": "opportunity-greylight-tangent-cohort-002-2026-08-13",
       "title": "Greylight Tangent Cohort 002",
@@ -1029,6 +1057,16 @@
       "finalUrl": "https://survey.zohopublic.com/zs/tKBB4D"
     },
     {
+      "file": "opportunity-harvard-global-health-institute-lead-fellowship-program-2027-2026-10-12.html",
+      "slug": "opportunity-harvard-global-health-institute-lead-fellowship-program-2027-2026-10-12",
+      "title": "Harvard Global Health Institute LEAD Fellowship Program 2027/2028 for Promoting Women in Global Health. (Fully Funded)",
+      "href": "https://globalhealth.harvard.edu/2027-2028-harvard-lead-fellowship-application-is-now-open/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (8)",
+      "finalUrl": "https://globalhealth.harvard.edu/2027-2028-harvard-lead-fellowship-application-is-now-open/"
+    },
+    {
       "file": "opportunity-hult-prize-2026-07-28.html",
       "slug": "opportunity-hult-prize-2026-07-28",
       "title": "Hult Prize",
@@ -1045,7 +1083,7 @@
       "href": "https://www.iaps.ai/fellowship",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (1)",
+      "reason": "programme page with application signals (16)",
       "finalUrl": "https://www.iaps.ai/fellowship"
     },
     {
@@ -1288,6 +1326,16 @@
       "finalUrl": "https://recruitment.digitalent.go.ke/"
     },
     {
+      "file": "opportunity-the-hamburg-sustainability-conference-hsc-youth-ambassador-p-2026-10-12.html",
+      "slug": "opportunity-the-hamburg-sustainability-conference-hsc-youth-ambassador-p-2026-10-12",
+      "title": "The Hamburg Sustainability Conference (HSC) Youth Ambassador Program 2027 for young community leaders (Fully Funded)",
+      "href": "https://www.sustainability-conference.org/en/hsc27youthform",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (14)",
+      "finalUrl": "https://www.sustainability-conference.org/en/hsc27youthform"
+    },
+    {
       "file": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
       "slug": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24",
       "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
@@ -1336,6 +1384,16 @@
       "definitive": true,
       "reason": "programme page with application signals (7)",
       "finalUrl": "https://www.leadership-challenge.org/"
+    },
+    {
+      "file": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
+      "slug": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12",
+      "title": "The World Bank Government Analytics Fellowship Program 2027 for government officials (Fully Funded to Washington DC, United States)",
+      "href": "https://www.worldbank.org/en/publication/government-analytics/brief/government-analytics-fellowship",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (26)",
+      "finalUrl": "https://www.worldbank.org/en/publication/government-analytics/brief/government-analytics-fellowship"
     },
     {
       "file": "opportunity-the-yale-maurice-r-greenberg-world-fellows-program-2027-for--2026-10-01.html",
