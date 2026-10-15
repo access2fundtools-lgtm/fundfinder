@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-12T14:19:31.492Z",
+  "ranAt": "2026-10-15T10:49:04.291Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -69,7 +69,7 @@
       "ok": false,
       "definitive": false,
       "reason": "page has almost no readable content (JS-only or blocked)",
-      "finalUrl": "https://recaptcha.cloud/?template=cpg&server=198.251.83.106&ip=20.171.123.138&http=&host=africastartupcongress.org&real_ip=&proto=&url=/"
+      "finalUrl": "https://africastartupcongress.org/"
     },
     {
       "file": "opportunity-antler-africa-residency-2026-07-28.html",
@@ -102,6 +102,16 @@
       "finalUrl": "http://www.aypcafrica.org"
     },
     {
+      "file": "opportunity-apply-for-ban-ki-moon-foundation-your-future-in-green-jobs-m-2026-10-15.html",
+      "slug": "opportunity-apply-for-ban-ki-moon-foundation-your-future-in-green-jobs-m-2026-10-15",
+      "title": "Apply for Ban Ki-moon Foundation Your Future in Green Jobs Mentorship Programme 2026",
+      "href": "https://bankimoon.submit.com//show/31",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (12)",
+      "finalUrl": "https://bankimoon.submit.com//show/31"
+    },
+    {
       "file": "opportunity-apply-for-idice-skills-to-job-programme-2026-09-28.html",
       "slug": "opportunity-apply-for-idice-skills-to-job-programme-2026-09-28",
       "title": "Apply for iDICE Skills to Job Programme",
@@ -132,6 +142,16 @@
       "finalUrl": "https://ncair.nitda.gov.ng/naic/"
     },
     {
+      "file": "opportunity-apply-for-smedan-zero-to-100-pitch-competition-2026-30-milli-2026-10-15.html",
+      "slug": "opportunity-apply-for-smedan-zero-to-100-pitch-competition-2026-30-milli-2026-10-15",
+      "title": "Apply for SMEDAN Zero to 100 Pitch Competition 2026 — ₦30 Million Grant",
+      "href": "https://conference.smedan.gov.ng/pitch",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (14)",
+      "finalUrl": "https://conference.smedan.gov.ng/pitch"
+    },
+    {
       "file": "opportunity-apply-for-solar-power-nigeria-social-media-ambassador-progra-2026-10-01.html",
       "slug": "opportunity-apply-for-solar-power-nigeria-social-media-ambassador-progra-2026-10-01",
       "title": "Apply for Solar Power Nigeria Social Media Ambassador Programme",
@@ -150,6 +170,16 @@
       "definitive": false,
       "reason": "page says applications are closed",
       "finalUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfkhAD_eVoGQC3t41mcjWez_CmdpSjetOHO07gQ9_XWjV7oOQ/closedform"
+    },
+    {
+      "file": "opportunity-apply-for-the-afrinvest-analyst-program-taap-2027-2026-10-15.html",
+      "slug": "opportunity-apply-for-the-afrinvest-analyst-program-taap-2027-2026-10-15",
+      "title": "Apply for The Afrinvest Analyst Program (TAAP) 2027",
+      "href": "http://qr.afrinvest.com/TAAP2027",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (4)",
+      "finalUrl": "https://afrinvestgroup.seamlesshiring.com/job/view/11079?application_source=Direct"
     },
     {
       "file": "opportunity-apply-for-the-lsetf-uplift-creative-job-hubs-programme-2026-2026-07-02.html",
@@ -215,9 +245,10 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (timeout)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -285,7 +316,7 @@
       "href": "https://www.boi.ng/products/",
       "ok": false,
       "definitive": false,
-      "reason": "unreachable (timeout)"
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
@@ -394,8 +425,27 @@
       "href": "http://www.dsbd.gov.za/business-infrastructure-support-programme",
       "ok": false,
       "definitive": false,
-      "reason": "HTTP 500 (could not confirm)",
-      "finalUrl": "http://www.dsbd.gov.za/business-infrastructure-support-programme"
+      "reason": "unreachable (UNABLE_TO_VERIFY_LEAF_SIGNATURE)"
+    },
+    {
+      "file": "opportunity-call-for-applications-cega-2026-global-networks-research-gra-2026-10-15.html",
+      "slug": "opportunity-call-for-applications-cega-2026-global-networks-research-gra-2026-10-15",
+      "title": "Call For Applications: CEGA 2026 Global Networks Research Grant Competition | Up to US$67,000 per Project",
+      "href": "https://cega.submittable.com/submit",
+      "ok": true,
+      "definitive": true,
+      "reason": "application form (cega.submittable.com)",
+      "finalUrl": "https://cega.submittable.com/submit"
+    },
+    {
+      "file": "opportunity-call-for-applications-changemakers-for-youth-programme-2027--2026-10-15.html",
+      "slug": "opportunity-call-for-applications-changemakers-for-youth-programme-2027--2026-10-15",
+      "title": "Call for Applications: Changemakers for Youth Programme 2027 | Travel Stipend Available",
+      "href": "https://changemakerxchange.org/changemakers-for-youth/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (37)",
+      "finalUrl": "https://changemakerxchange.org/changemakers-for-youth/"
     },
     {
       "file": "opportunity-call-for-applications-circulareconomy4ghana-innovation-chall-2026-07-14.html",
@@ -522,9 +572,9 @@
       "slug": "opportunity-call-for-applications-founders-fund-africa-creative-economy--2026-07-16",
       "title": "Call for Applications: Founders Fund Africa Creative Economy Accelerator Program 2026 (Up To $50,000 in Funding )",
       "href": "https://foundersfundafrica.com/",
-      "ok": true,
+      "ok": false,
       "definitive": true,
-      "reason": "programme page with application signals (9)",
+      "reason": "HTTP 404 (page gone)",
       "finalUrl": "https://foundersfundafrica.com/"
     },
     {
@@ -586,6 +636,16 @@
       "definitive": false,
       "reason": "page says applications are closed",
       "finalUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdDY8G_TxBk5kOWfVyXRiYL6XeLrsx8Wz5Zk1c9uB7eP2h7wQ/closedform"
+    },
+    {
+      "file": "opportunity-call-for-applications-grooming-centre-university-research-gr-2026-10-15.html",
+      "slug": "opportunity-call-for-applications-grooming-centre-university-research-gr-2026-10-15",
+      "title": "Call for Applications: Grooming Centre University Research Grant 2026 ( Up to ₦200,000)",
+      "href": "https://groominggrant.org/apply/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (8)",
+      "finalUrl": "https://groominggrant.org/apply/"
     },
     {
       "file": "opportunity-call-for-applications-growthgia-agro-business-grant-2026-for-2026-07-30.html",
@@ -682,9 +742,9 @@
       "slug": "opportunity-call-for-applications-mtn-foundation-muson-music-scholars-pr-2026-07-23",
       "title": "Call for Applications: MTN Foundation/MUSON Music Scholars Programme 2026 (Fully Funded)",
       "href": "https://www.mtn.ng/foundation/muson2026/",
-      "ok": false,
-      "definitive": false,
-      "reason": "HTTP 421 (could not confirm)",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (8)",
       "finalUrl": "https://www.mtn.ng/muson2026/"
     },
     {
@@ -922,9 +982,9 @@
       "slug": "opportunity-commonwealth-startup-fellowship-cohort-3-2026-08-10",
       "title": "Commonwealth Startup Fellowship — Cohort 3",
       "href": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/",
-      "ok": false,
-      "definitive": false,
-      "reason": "page shows no application/eligibility/deadline signals",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (22)",
       "finalUrl": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/"
     },
     {
@@ -984,7 +1044,7 @@
       "href": "https://fi.co/s/lagos",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (17)",
+      "reason": "programme page with application signals (13)",
       "finalUrl": "https://fi.co/s/lagos"
     },
     {
@@ -1366,6 +1426,16 @@
       "finalUrl": "https://www.leadership-challenge.org/"
     },
     {
+      "file": "opportunity-the-unicef-sweden-funding-opportunity-for-femtech-solutions--2026-10-15.html",
+      "slug": "opportunity-the-unicef-sweden-funding-opportunity-for-femtech-solutions--2026-10-15",
+      "title": "The UNICEF/Sweden Funding opportunity for femtech solutions (US$100,000)",
+      "href": "https://www.unicef.org/innovation/FemTechCall",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (14)",
+      "finalUrl": "https://www.unicef.org/innovation/FemTechCall"
+    },
+    {
       "file": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
       "slug": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12",
       "title": "The World Bank Government Analytics Fellowship Program 2027 for government officials (Fully Funded to Washington DC, United States)",
@@ -1472,7 +1542,7 @@
       "href": "https://www.ycombinator.com/apply",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (22)",
+      "reason": "programme page with application signals (25)",
       "finalUrl": "https://www.ycombinator.com/apply"
     }
   ]

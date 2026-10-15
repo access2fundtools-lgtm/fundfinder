@@ -1,16 +1,93 @@
 {
-  "generated": "2026-10-12T14:19:33.957Z",
-  "rotationSeed": 20261012,
+  "generated": "2026-10-15T10:49:08.104Z",
+  "rotationSeed": 20261015,
   "newWindowDays": 10,
   "counts": {
-    "total": 138,
-    "new": 6,
-    "closing": 16,
-    "evergreen": 85,
-    "recurring": 26,
+    "total": 144,
+    "new": 13,
+    "closing": 13,
+    "evergreen": 84,
+    "recurring": 29,
     "archived": 5
   },
   "ticker": [
+    {
+      "title": "Call for Applications: Grooming Centre University Research Grant 2026 ( Up to ₦200,000)",
+      "href": "opportunity-call-for-applications-grooming-centre-university-research-gr-2026-10-15.html",
+      "deadline": "October 23, 2026",
+      "closes": "2026-10-23",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Changemakers for Youth Programme 2027 | Travel Stipend Available",
+      "href": "opportunity-call-for-applications-changemakers-for-youth-programme-2027--2026-10-15.html",
+      "deadline": "November 9, 2026",
+      "closes": "2026-11-09",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: CEGA 2026 Global Networks Research Grant Competition | Up to US$67,000 per Project",
+      "href": "opportunity-call-for-applications-cega-2026-global-networks-research-gra-2026-10-15.html",
+      "deadline": "November 15, 2026",
+      "closes": "2026-11-15",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for SMEDAN Zero to 100 Pitch Competition 2026 — ₦30 Million Grant",
+      "href": "opportunity-apply-for-smedan-zero-to-100-pitch-competition-2026-30-milli-2026-10-15.html",
+      "deadline": "October 22, 2026",
+      "closes": "2026-10-22",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for Ban Ki-moon Foundation Your Future in Green Jobs Mentorship Programme 2026",
+      "href": "opportunity-apply-for-ban-ki-moon-foundation-your-future-in-green-jobs-m-2026-10-15.html",
+      "deadline": "October 25, 2026",
+      "closes": "2026-10-25",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for The Afrinvest Analyst Program (TAAP) 2027",
+      "href": "opportunity-apply-for-the-afrinvest-analyst-program-taap-2027-2026-10-15.html",
+      "deadline": "October 25, 2026",
+      "closes": "2026-10-25",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The UNICEF/Sweden Funding opportunity for femtech solutions (US$100,000)",
+      "href": "opportunity-the-unicef-sweden-funding-opportunity-for-femtech-solutions--2026-10-15.html",
+      "deadline": "November 4, 2026",
+      "closes": "2026-11-04",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
     {
       "title": "The World Bank Government Analytics Fellowship Program 2027 for government officials (Fully Funded to Washington DC, United States)",
       "href": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
@@ -80,6 +157,83 @@
   ],
   "latest": [
     {
+      "title": "Call for Applications: Grooming Centre University Research Grant 2026 ( Up to ₦200,000)",
+      "href": "opportunity-call-for-applications-grooming-centre-university-research-gr-2026-10-15.html",
+      "deadline": "October 23, 2026",
+      "closes": "2026-10-23",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Changemakers for Youth Programme 2027 | Travel Stipend Available",
+      "href": "opportunity-call-for-applications-changemakers-for-youth-programme-2027--2026-10-15.html",
+      "deadline": "November 9, 2026",
+      "closes": "2026-11-09",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: CEGA 2026 Global Networks Research Grant Competition | Up to US$67,000 per Project",
+      "href": "opportunity-call-for-applications-cega-2026-global-networks-research-gra-2026-10-15.html",
+      "deadline": "November 15, 2026",
+      "closes": "2026-11-15",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for SMEDAN Zero to 100 Pitch Competition 2026 — ₦30 Million Grant",
+      "href": "opportunity-apply-for-smedan-zero-to-100-pitch-competition-2026-30-milli-2026-10-15.html",
+      "deadline": "October 22, 2026",
+      "closes": "2026-10-22",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for Ban Ki-moon Foundation Your Future in Green Jobs Mentorship Programme 2026",
+      "href": "opportunity-apply-for-ban-ki-moon-foundation-your-future-in-green-jobs-m-2026-10-15.html",
+      "deadline": "October 25, 2026",
+      "closes": "2026-10-25",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for The Afrinvest Analyst Program (TAAP) 2027",
+      "href": "opportunity-apply-for-the-afrinvest-analyst-program-taap-2027-2026-10-15.html",
+      "deadline": "October 25, 2026",
+      "closes": "2026-10-25",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The UNICEF/Sweden Funding opportunity for femtech solutions (US$100,000)",
+      "href": "opportunity-the-unicef-sweden-funding-opportunity-for-femtech-solutions--2026-10-15.html",
+      "deadline": "November 4, 2026",
+      "closes": "2026-11-04",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
       "title": "The World Bank Government Analytics Fellowship Program 2027 for government officials (Fully Funded to Washington DC, United States)",
       "href": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
       "deadline": "November 16, 2026",
@@ -128,17 +282,6 @@
       "href": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05.html",
       "deadline": "November 30, 2026",
       "closes": "2026-11-30",
-      "added": "2026-10-05",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "TWAS Research Professors in Least Developed Countries (LDCs) Programme 2026/2027 (Fully Funded)",
-      "href": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05.html",
-      "deadline": "November 23, 2026",
-      "closes": "2026-11-23",
       "added": "2026-10-05",
       "tier": 1,
       "isNew": true,
@@ -148,6 +291,83 @@
   ],
   "items": [
     {
+      "title": "Call for Applications: Grooming Centre University Research Grant 2026 ( Up to ₦200,000)",
+      "href": "opportunity-call-for-applications-grooming-centre-university-research-gr-2026-10-15.html",
+      "deadline": "October 23, 2026",
+      "closes": "2026-10-23",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Changemakers for Youth Programme 2027 | Travel Stipend Available",
+      "href": "opportunity-call-for-applications-changemakers-for-youth-programme-2027--2026-10-15.html",
+      "deadline": "November 9, 2026",
+      "closes": "2026-11-09",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: CEGA 2026 Global Networks Research Grant Competition | Up to US$67,000 per Project",
+      "href": "opportunity-call-for-applications-cega-2026-global-networks-research-gra-2026-10-15.html",
+      "deadline": "November 15, 2026",
+      "closes": "2026-11-15",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for SMEDAN Zero to 100 Pitch Competition 2026 — ₦30 Million Grant",
+      "href": "opportunity-apply-for-smedan-zero-to-100-pitch-competition-2026-30-milli-2026-10-15.html",
+      "deadline": "October 22, 2026",
+      "closes": "2026-10-22",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for Ban Ki-moon Foundation Your Future in Green Jobs Mentorship Programme 2026",
+      "href": "opportunity-apply-for-ban-ki-moon-foundation-your-future-in-green-jobs-m-2026-10-15.html",
+      "deadline": "October 25, 2026",
+      "closes": "2026-10-25",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for The Afrinvest Analyst Program (TAAP) 2027",
+      "href": "opportunity-apply-for-the-afrinvest-analyst-program-taap-2027-2026-10-15.html",
+      "deadline": "October 25, 2026",
+      "closes": "2026-10-25",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The UNICEF/Sweden Funding opportunity for femtech solutions (US$100,000)",
+      "href": "opportunity-the-unicef-sweden-funding-opportunity-for-femtech-solutions--2026-10-15.html",
+      "deadline": "November 4, 2026",
+      "closes": "2026-11-04",
+      "added": "2026-10-15",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
       "title": "The World Bank Government Analytics Fellowship Program 2027 for government officials (Fully Funded to Washington DC, United States)",
       "href": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
       "deadline": "November 16, 2026",
@@ -210,39 +430,6 @@
       "added": "2026-10-05",
       "tier": 1,
       "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for NITDA National AI Innovation Challenge 2026",
-      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
-      "deadline": "October 12, 2026",
-      "closes": "2026-10-12",
-      "added": "2026-09-24",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The NITDA National AI Innovation Challenge 2026 for young Nigerian developers.",
-      "href": "opportunity-the-nitda-national-ai-innovation-challenge-2026-for-young-ni-2026-09-28.html",
-      "deadline": "October 12, 2026",
-      "closes": "2026-10-12",
-      "added": "2026-09-28",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
-      "href": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29.html",
-      "deadline": "October 13, 2026",
-      "closes": "2026-10-13",
-      "added": "2026-09-29",
-      "tier": 2,
-      "isNew": false,
       "closed": false,
       "recurring": true
     },
@@ -1050,17 +1237,6 @@
       "recurring": true
     },
     {
-      "title": "Call for Applications: Founders Fund Africa Creative Economy Accelerator Program 2026 (Up To $50,000 in Funding )",
-      "href": "opportunity-call-for-applications-founders-fund-africa-creative-economy--2026-07-16.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-07-16",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "Call For Applications: Schneider Electric Learnership Programme 2027",
       "href": "opportunity-call-for-applications-schneider-electric-learnership-program-2026-07-14.html",
       "deadline": "Check official page",
@@ -1325,6 +1501,39 @@
       "recurring": false
     },
     {
+      "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
+      "href": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29.html",
+      "deadline": "October 13, 2026",
+      "closes": "2026-10-13",
+      "added": "2026-09-29",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Apply for NITDA National AI Innovation Challenge 2026",
+      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-24",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "The NITDA National AI Innovation Challenge 2026 for young Nigerian developers.",
+      "href": "opportunity-the-nitda-national-ai-innovation-challenge-2026-for-young-ni-2026-09-28.html",
+      "deadline": "October 12, 2026",
+      "closes": "2026-10-12",
+      "added": "2026-09-28",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
       "title": "Call For Applications: GEF Entrepreneurs Investment Program 2026 (Up to $35,000 in total seed investment)",
       "href": "opportunity-call-for-applications-gef-entrepreneurs-investment-program-2-2026-09-17.html",
       "deadline": "October 6, 2026",
@@ -1396,72 +1605,6 @@
       "deadline": "September 30, 2026",
       "closes": "2026-09-30",
       "added": "2026-09-07",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Access Bank Womenpreneur Pitch-a-ton Program 2026 (Up to ₦18 Million in Business Grants)",
-      "href": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
-      "deadline": "September 29, 2026",
-      "closes": "2026-09-29",
-      "added": "2026-09-28",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Harambeans Africa Jobs Fund Prize 2026",
-      "href": "opportunity-harambeans-africa-jobs-fund-prize-2026-09-09.html",
-      "deadline": "September 27, 2026",
-      "closes": "2026-09-27",
-      "added": "2026-09-09",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Federal Ministry of Education 2026 Accelerated Teacher Professionalisation Training Programme",
-      "href": "opportunity-call-for-applications-federal-ministry-of-education-2026-acc-2026-09-17.html",
-      "deadline": "September 25, 2026",
-      "closes": "2026-09-25",
-      "added": "2026-09-17",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: WTO Youth Talent Incubator Programme 2026–2027 for Young Researchers and Professionals in Trade and Gender",
-      "href": "opportunity-call-for-applications-wto-youth-talent-incubator-programme-2-2026-09-07.html",
-      "deadline": "September 24, 2026",
-      "closes": "2026-09-24",
-      "added": "2026-09-07",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Green Africa Associates SDGs Innovations Fellowship 2026",
-      "href": "opportunity-call-for-applications-green-africa-associates-sdgs-innovatio-2026-09-14.html",
-      "deadline": "September 24, 2026",
-      "closes": "2026-09-24",
-      "added": "2026-09-14",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Julius Berger Engineer Development Program 2026 for Nigerians",
-      "href": "opportunity-call-for-applications-julius-berger-engineer-development-pro-2026-09-03.html",
-      "deadline": "September 14, 2026",
-      "closes": "2026-09-14",
-      "added": "2026-09-03",
       "tier": 4,
       "isNew": false,
       "closed": true,

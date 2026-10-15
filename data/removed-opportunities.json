@@ -494,5 +494,13 @@
     "reason": "unreachable (ENOTFOUND)",
     "removedOn": "2026-10-12",
     "supabase": "HTTP 204"
+  },
+  {
+    "slug": "opportunity-call-for-applications-founders-fund-africa-creative-economy--2026-07-16",
+    "title": "Call for Applications: Founders Fund Africa Creative Economy Accelerator Program 2026 (Up To $50,000 in Funding )",
+    "href": "https://foundersfundafrica.com/",
+    "reason": "HTTP 404 (page gone)",
+    "removedOn": "2026-10-15",
+    "supabase": "HTTP 204"
   }
 ]
