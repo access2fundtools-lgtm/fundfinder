@@ -1,16 +1,49 @@
 {
-  "generated": "2026-10-15T10:49:08.104Z",
-  "rotationSeed": 20261015,
+  "generated": "2026-10-19T12:00:34.159Z",
+  "rotationSeed": 20261019,
   "newWindowDays": 10,
   "counts": {
-    "total": 144,
-    "new": 13,
-    "closing": 13,
+    "total": 147,
+    "new": 14,
+    "closing": 15,
     "evergreen": 84,
     "recurring": 29,
     "archived": 5
   },
   "ticker": [
+    {
+      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
+      "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
+      "deadline": "November 6, 2026",
+      "closes": "2026-11-06",
+      "added": "2026-10-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
+      "href": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
+      "deadline": "December 18, 2026",
+      "closes": "2026-12-18",
+      "added": "2026-10-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
+      "href": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
+      "deadline": "December 2, 2026",
+      "closes": "2026-12-02",
+      "added": "2026-10-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call for Applications: Grooming Centre University Research Grant 2026 ( Up to ₦200,000)",
       "href": "opportunity-call-for-applications-grooming-centre-university-research-gr-2026-10-15.html",
@@ -127,28 +160,6 @@
       "deadline": "October 20, 2026",
       "closes": "2026-10-20",
       "added": "2026-10-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "UN Global Compact Business & Human Rights Accelerator Program 2026/2027",
-      "href": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-05",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "TWAS Research Professors in Least Developed Countries (LDCs) Programme 2026/2027 (Fully Funded)",
-      "href": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05.html",
-      "deadline": "November 23, 2026",
-      "closes": "2026-11-23",
-      "added": "2026-10-05",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -157,6 +168,39 @@
   ],
   "latest": [
     {
+      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
+      "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
+      "deadline": "November 6, 2026",
+      "closes": "2026-11-06",
+      "added": "2026-10-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
+      "href": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
+      "deadline": "December 18, 2026",
+      "closes": "2026-12-18",
+      "added": "2026-10-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
+      "href": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
+      "deadline": "December 2, 2026",
+      "closes": "2026-12-02",
+      "added": "2026-10-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Grooming Centre University Research Grant 2026 ( Up to ₦200,000)",
       "href": "opportunity-call-for-applications-grooming-centre-university-research-gr-2026-10-15.html",
       "deadline": "October 23, 2026",
@@ -250,39 +294,6 @@
       "deadline": "October 19, 2026",
       "closes": "2026-10-19",
       "added": "2026-10-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Harvard Global Health Institute LEAD Fellowship Program 2027/2028 for Promoting Women in Global Health. (Fully Funded)",
-      "href": "opportunity-harvard-global-health-institute-lead-fellowship-program-2027-2026-10-12.html",
-      "deadline": "November 15, 2026",
-      "closes": "2026-11-15",
-      "added": "2026-10-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "2026 Shenzhen International FinTech Competition in China (Fully Funded)",
-      "href": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
-      "deadline": "October 20, 2026",
-      "closes": "2026-10-20",
-      "added": "2026-10-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "UN Global Compact Business & Human Rights Accelerator Program 2026/2027",
-      "href": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-05",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -291,6 +302,39 @@
   ],
   "items": [
     {
+      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
+      "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
+      "deadline": "November 6, 2026",
+      "closes": "2026-11-06",
+      "added": "2026-10-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
+      "href": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
+      "deadline": "December 18, 2026",
+      "closes": "2026-12-18",
+      "added": "2026-10-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
+      "href": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
+      "deadline": "December 2, 2026",
+      "closes": "2026-12-02",
+      "added": "2026-10-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Grooming Centre University Research Grant 2026 ( Up to ₦200,000)",
       "href": "opportunity-call-for-applications-grooming-centre-university-research-gr-2026-10-15.html",
       "deadline": "October 23, 2026",
@@ -406,28 +450,6 @@
       "deadline": "October 20, 2026",
       "closes": "2026-10-20",
       "added": "2026-10-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "UN Global Compact Business & Human Rights Accelerator Program 2026/2027",
-      "href": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-05",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "TWAS Research Professors in Least Developed Countries (LDCs) Programme 2026/2027 (Fully Funded)",
-      "href": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05.html",
-      "deadline": "November 23, 2026",
-      "closes": "2026-11-23",
-      "added": "2026-10-05",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -522,6 +544,17 @@
       "recurring": true
     },
     {
+      "title": "TWAS Research Professors in Least Developed Countries (LDCs) Programme 2026/2027 (Fully Funded)",
+      "href": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05.html",
+      "deadline": "November 23, 2026",
+      "closes": "2026-11-23",
+      "added": "2026-10-05",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "ADAVEL Fund — Pilot Round for Nigerian Grassroot Founders",
       "href": "opportunity-adavel-fund-2026-09-07.html",
       "deadline": "30 November 2026",
@@ -549,6 +582,17 @@
       "deadline": "November 30, 2026",
       "closes": "2026-11-30",
       "added": "2026-10-01",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "UN Global Compact Business & Human Rights Accelerator Program 2026/2027",
+      "href": "opportunity-un-global-compact-business-human-rights-accelerator-program--2026-10-05.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-05",
       "tier": 2,
       "isNew": false,
       "closed": false,
@@ -1572,39 +1616,6 @@
       "deadline": "September 30, 2026",
       "closes": "2026-09-30",
       "added": "2026-08-03",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: African Union Enterprise Africa Network (EAN) Fellowship Programme 2026/2027 for Youth- and Women-Led Small Businesses",
-      "href": "opportunity-call-for-applications-african-union-enterprise-africa-networ-2026-08-20.html",
-      "deadline": "September 30, 2026",
-      "closes": "2026-09-30",
-      "added": "2026-08-20",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Student Venture Capital Grant (S-VCG) — Cohort 2, the \"Next Moonshot\" Initiative",
-      "href": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
-      "deadline": "30 September 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-07",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: SEWA Grants 2026 For Climate Projects in Africa( Up to €1.25 Million Grants)",
-      "href": "opportunity-call-for-applications-sewa-grants-2026-for-climate-projects--2026-09-07.html",
-      "deadline": "September 30, 2026",
-      "closes": "2026-09-30",
-      "added": "2026-09-07",
       "tier": 4,
       "isNew": false,
       "closed": true,

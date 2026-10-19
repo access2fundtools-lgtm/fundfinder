@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-15T10:49:04.291Z",
+  "ranAt": "2026-10-19T12:00:32.765Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -245,10 +245,9 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -369,6 +368,16 @@
       "finalUrl": "https://africahealthcollaborative.org/research/research-fund/"
     },
     {
+      "file": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
+      "slug": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19",
+      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
+      "href": "https://www.africajobsfund.com/opportunities/sdrb-somalia-competition#apply",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (12)",
+      "finalUrl": "https://www.africajobsfund.com/opportunities/sdrb-somalia-competition#apply"
+    },
+    {
       "file": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
       "slug": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21",
       "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
@@ -485,7 +494,7 @@
       "ok": true,
       "definitive": true,
       "reason": "programme page with application signals (193)",
-      "finalUrl": "https://commonwealthfoundation.com/grants/annual/"
+      "finalUrl": "https://commonwealthfoundation.com/grants/annual/?fbclid=IwZXh0bgNhZW0CMTEAcGRvZgFmZGlkFlEJKphIY78HBLDr7_5QXu1BcGdE2k5zcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEez8Iq3dxDRUxJdr_W1rJXaZRwtsC9uWIR7jy-l8SrbNe5SK94qOtpr148Oc4_aem__DfxnL8PGZc-FZzhIEUKUw"
     },
     {
       "file": "opportunity-call-for-applications-digital-entrepreneurship-training-and--2026-08-13.html",
@@ -566,16 +575,6 @@
       "definitive": false,
       "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://atpp.education.gov.ng/"
-    },
-    {
-      "file": "opportunity-call-for-applications-founders-fund-africa-creative-economy--2026-07-16.html",
-      "slug": "opportunity-call-for-applications-founders-fund-africa-creative-economy--2026-07-16",
-      "title": "Call for Applications: Founders Fund Africa Creative Economy Accelerator Program 2026 (Up To $50,000 in Funding )",
-      "href": "https://foundersfundafrica.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "HTTP 404 (page gone)",
-      "finalUrl": "https://foundersfundafrica.com/"
     },
     {
       "file": "opportunity-call-for-applications-geaf-ambassador-climate-leadership-pro-2026-07-23.html",
@@ -1302,7 +1301,7 @@
       "href": "https://smedan.gov.ng/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (8)",
+      "reason": "programme page with application signals (9)",
       "finalUrl": "https://smedan.gov.ng/"
     },
     {
@@ -1346,6 +1345,16 @@
       "finalUrl": "https://www.queensu.ca/innovationcentre/programs/jim-leech-mastercard-foundation-fellowship-entrepreneurship"
     },
     {
+      "file": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
+      "slug": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19",
+      "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
+      "href": "https://www.socialshifters.co/allianz-movenow-social-innovation-challenge/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (6)",
+      "finalUrl": "https://www.socialshifters.co/allianz-movenow-social-innovation-challenge/"
+    },
+    {
       "file": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
       "slug": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29",
       "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
@@ -1374,6 +1383,16 @@
       "definitive": true,
       "reason": "programme page with application signals (14)",
       "finalUrl": "https://www.sustainability-conference.org/en/hsc27youthform"
+    },
+    {
+      "file": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
+      "slug": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19",
+      "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
+      "href": "https://jsk.stanford.edu/become-a-fellow",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (12)",
+      "finalUrl": "https://jsk.stanford.edu/become-a-fellow"
     },
     {
       "file": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
@@ -1542,7 +1561,7 @@
       "href": "https://www.ycombinator.com/apply",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (25)",
+      "reason": "programme page with application signals (26)",
       "finalUrl": "https://www.ycombinator.com/apply"
     }
   ]
