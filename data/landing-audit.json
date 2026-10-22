@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-19T12:00:32.765Z",
+  "ranAt": "2026-10-22T11:05:49.711Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -245,9 +245,10 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -313,9 +314,10 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
@@ -494,7 +496,7 @@
       "ok": true,
       "definitive": true,
       "reason": "programme page with application signals (193)",
-      "finalUrl": "https://commonwealthfoundation.com/grants/annual/?fbclid=IwZXh0bgNhZW0CMTEAcGRvZgFmZGlkFlEJKphIY78HBLDr7_5QXu1BcGdE2k5zcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEez8Iq3dxDRUxJdr_W1rJXaZRwtsC9uWIR7jy-l8SrbNe5SK94qOtpr148Oc4_aem__DfxnL8PGZc-FZzhIEUKUw"
+      "finalUrl": "https://commonwealthfoundation.com/grants/annual/"
     },
     {
       "file": "opportunity-call-for-applications-digital-entrepreneurship-training-and--2026-08-13.html",
@@ -741,10 +743,9 @@
       "slug": "opportunity-call-for-applications-mtn-foundation-muson-music-scholars-pr-2026-07-23",
       "title": "Call for Applications: MTN Foundation/MUSON Music Scholars Programme 2026 (Fully Funded)",
       "href": "https://www.mtn.ng/foundation/muson2026/",
-      "ok": true,
+      "ok": false,
       "definitive": true,
-      "reason": "programme page with application signals (8)",
-      "finalUrl": "https://www.mtn.ng/muson2026/"
+      "reason": "unreachable (ENOTFOUND)"
     },
     {
       "file": "opportunity-call-for-applications-mtn-wwf-africa-pachipanda-challenge-20-2026-08-03.html",
@@ -907,6 +908,16 @@
       "finalUrl": "https://ee.kobotoolbox.org/x/EMqlrmci"
     },
     {
+      "file": "opportunity-call-for-applications-wellcome-photography-prize-2027-2026-10-22.html",
+      "slug": "opportunity-call-for-applications-wellcome-photography-prize-2027-2026-10-22",
+      "title": "Call For Applications: Wellcome Photography Prize 2027",
+      "href": "https://wellcome.org/engagement-and-advocacy/engaging-people/wellcome-photography-prize/terms-conditions",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (7)",
+      "finalUrl": "https://wellcome.org/engagement-and-advocacy/engaging-people/wellcome-photography-prize/terms-conditions"
+    },
+    {
       "file": "opportunity-call-for-applications-wetech-pitchher-2026-investment-readin-2026-07-02.html",
       "slug": "opportunity-call-for-applications-wetech-pitchher-2026-investment-readin-2026-07-02",
       "title": "Call for Applications: Wetech PitchHer 2026 Investment Readiness Programme ( Up To ₦8.5 Million Funding)",
@@ -957,6 +968,16 @@
       "finalUrl": "https://africahealthcollaborative.org/research/research-fund/"
     },
     {
+      "file": "opportunity-call-for-proposals-the-commonwealth-blue-charter-incubator-r-2026-10-22.html",
+      "slug": "opportunity-call-for-proposals-the-commonwealth-blue-charter-incubator-r-2026-10-22",
+      "title": "Call for Proposals: The Commonwealth Blue Charter Incubator Round II (£50,000 in funding)",
+      "href": "https://thecommonwealth.org/commonwealth-blue-charter-incubator-round-2",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (28)",
+      "finalUrl": "https://thecommonwealth.org/commonwealth-blue-charter-incubator-round-2"
+    },
+    {
       "file": "opportunity-cartier-women-s-initiative-2026-07-28.html",
       "slug": "opportunity-cartier-women-s-initiative-2026-07-28",
       "title": "Cartier Women's Initiative",
@@ -981,9 +1002,9 @@
       "slug": "opportunity-commonwealth-startup-fellowship-cohort-3-2026-08-10",
       "title": "Commonwealth Startup Fellowship — Cohort 3",
       "href": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (22)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/"
     },
     {
@@ -1003,7 +1024,7 @@
       "href": "https://dalailamafellows.com/apply/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (28)",
+      "reason": "programme page with application signals (27)",
       "finalUrl": "https://dalailamafellows.com/apply/"
     },
     {
@@ -1043,7 +1064,7 @@
       "href": "https://fi.co/s/lagos",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (13)",
+      "reason": "programme page with application signals (14)",
       "finalUrl": "https://fi.co/s/lagos"
     },
     {
@@ -1191,7 +1212,7 @@
       "href": "https://solve.mit.edu",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (4)",
+      "reason": "programme page with application signals (5)",
       "finalUrl": "https://solve.mit.edu"
     },
     {
@@ -1271,7 +1292,7 @@
       "href": "https://www.sabfoundation.co.za/tholoana-enterprise-programme",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (7)",
+      "reason": "programme page with application signals (6)",
       "finalUrl": "https://www.sabfoundation.co.za/tholoana-enterprise-programme"
     },
     {
@@ -1379,9 +1400,9 @@
       "slug": "opportunity-the-hamburg-sustainability-conference-hsc-youth-ambassador-p-2026-10-12",
       "title": "The Hamburg Sustainability Conference (HSC) Youth Ambassador Program 2027 for young community leaders (Fully Funded)",
       "href": "https://www.sustainability-conference.org/en/hsc27youthform",
-      "ok": true,
+      "ok": false,
       "definitive": true,
-      "reason": "programme page with application signals (14)",
+      "reason": "HTTP 404 (page gone)",
       "finalUrl": "https://www.sustainability-conference.org/en/hsc27youthform"
     },
     {
@@ -1409,10 +1430,9 @@
       "slug": "opportunity-the-nitda-national-ai-innovation-challenge-2026-for-young-ni-2026-09-28",
       "title": "The NITDA National AI Innovation Challenge 2026 for young Nigerian developers.",
       "href": "https://ncair.nitda.gov.ng/naic/#about",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (32)",
-      "finalUrl": "https://ncair.nitda.gov.ng/naic/#about"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (timeout)"
     },
     {
       "file": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
@@ -1453,6 +1473,16 @@
       "definitive": true,
       "reason": "programme page with application signals (14)",
       "finalUrl": "https://www.unicef.org/innovation/FemTechCall"
+    },
+    {
+      "file": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22.html",
+      "slug": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22",
+      "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
+      "href": "https://wipo.taleo.net/careersection/wp_2_fel/jobdetail.ftl?job=26307-FEL",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (2)",
+      "finalUrl": "https://wipo.taleo.net/careersection/wp_2_fel/jobdetail.ftl?job=26307-FEL"
     },
     {
       "file": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",

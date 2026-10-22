@@ -1,16 +1,49 @@
 {
-  "generated": "2026-10-19T12:00:34.159Z",
-  "rotationSeed": 20261019,
+  "generated": "2026-10-22T11:05:53.689Z",
+  "rotationSeed": 20261022,
   "newWindowDays": 10,
   "counts": {
-    "total": 147,
-    "new": 14,
+    "total": 148,
+    "new": 16,
     "closing": 15,
-    "evergreen": 84,
+    "evergreen": 83,
     "recurring": 29,
     "archived": 5
   },
   "ticker": [
+    {
+      "title": "Call For Applications: Wellcome Photography Prize 2027",
+      "href": "opportunity-call-for-applications-wellcome-photography-prize-2027-2026-10-22.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-22",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
+      "href": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22.html",
+      "deadline": "October 30, 2026",
+      "closes": "2026-10-30",
+      "added": "2026-10-22",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Proposals: The Commonwealth Blue Charter Incubator Round II (£50,000 in funding)",
+      "href": "opportunity-call-for-proposals-the-commonwealth-blue-charter-incubator-r-2026-10-22.html",
+      "deadline": "December 11, 2026",
+      "closes": "2026-12-11",
+      "added": "2026-10-22",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
     {
       "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
       "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
@@ -133,32 +166,10 @@
       "recurring": true
     },
     {
-      "title": "The Hamburg Sustainability Conference (HSC) Youth Ambassador Program 2027 for young community leaders (Fully Funded)",
-      "href": "opportunity-the-hamburg-sustainability-conference-hsc-youth-ambassador-p-2026-10-12.html",
-      "deadline": "October 19, 2026",
-      "closes": "2026-10-19",
-      "added": "2026-10-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "Harvard Global Health Institute LEAD Fellowship Program 2027/2028 for Promoting Women in Global Health. (Fully Funded)",
       "href": "opportunity-harvard-global-health-institute-lead-fellowship-program-2027-2026-10-12.html",
       "deadline": "November 15, 2026",
       "closes": "2026-11-15",
-      "added": "2026-10-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "2026 Shenzhen International FinTech Competition in China (Fully Funded)",
-      "href": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
-      "deadline": "October 20, 2026",
-      "closes": "2026-10-20",
       "added": "2026-10-12",
       "tier": 1,
       "isNew": true,
@@ -168,6 +179,39 @@
   ],
   "latest": [
     {
+      "title": "Call For Applications: Wellcome Photography Prize 2027",
+      "href": "opportunity-call-for-applications-wellcome-photography-prize-2027-2026-10-22.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-22",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
+      "href": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22.html",
+      "deadline": "October 30, 2026",
+      "closes": "2026-10-30",
+      "added": "2026-10-22",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Proposals: The Commonwealth Blue Charter Incubator Round II (£50,000 in funding)",
+      "href": "opportunity-call-for-proposals-the-commonwealth-blue-charter-incubator-r-2026-10-22.html",
+      "deadline": "December 11, 2026",
+      "closes": "2026-12-11",
+      "added": "2026-10-22",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
       "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
       "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
       "deadline": "November 6, 2026",
@@ -261,39 +305,6 @@
       "deadline": "October 25, 2026",
       "closes": "2026-10-25",
       "added": "2026-10-15",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The UNICEF/Sweden Funding opportunity for femtech solutions (US$100,000)",
-      "href": "opportunity-the-unicef-sweden-funding-opportunity-for-femtech-solutions--2026-10-15.html",
-      "deadline": "November 4, 2026",
-      "closes": "2026-11-04",
-      "added": "2026-10-15",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The World Bank Government Analytics Fellowship Program 2027 for government officials (Fully Funded to Washington DC, United States)",
-      "href": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
-      "deadline": "November 16, 2026",
-      "closes": "2026-11-16",
-      "added": "2026-10-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Hamburg Sustainability Conference (HSC) Youth Ambassador Program 2027 for young community leaders (Fully Funded)",
-      "href": "opportunity-the-hamburg-sustainability-conference-hsc-youth-ambassador-p-2026-10-12.html",
-      "deadline": "October 19, 2026",
-      "closes": "2026-10-19",
-      "added": "2026-10-12",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -302,6 +313,39 @@
   ],
   "items": [
     {
+      "title": "Call For Applications: Wellcome Photography Prize 2027",
+      "href": "opportunity-call-for-applications-wellcome-photography-prize-2027-2026-10-22.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-22",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
+      "href": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22.html",
+      "deadline": "October 30, 2026",
+      "closes": "2026-10-30",
+      "added": "2026-10-22",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Proposals: The Commonwealth Blue Charter Incubator Round II (£50,000 in funding)",
+      "href": "opportunity-call-for-proposals-the-commonwealth-blue-charter-incubator-r-2026-10-22.html",
+      "deadline": "December 11, 2026",
+      "closes": "2026-12-11",
+      "added": "2026-10-22",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
       "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
       "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
       "deadline": "November 6, 2026",
@@ -416,17 +460,6 @@
       "href": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
       "deadline": "November 16, 2026",
       "closes": "2026-11-16",
-      "added": "2026-10-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Hamburg Sustainability Conference (HSC) Youth Ambassador Program 2027 for young community leaders (Fully Funded)",
-      "href": "opportunity-the-hamburg-sustainability-conference-hsc-youth-ambassador-p-2026-10-12.html",
-      "deadline": "October 19, 2026",
-      "closes": "2026-10-19",
       "added": "2026-10-12",
       "tier": 1,
       "isNew": true,
@@ -452,7 +485,7 @@
       "added": "2026-10-12",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": true
     },
     {
@@ -1215,17 +1248,6 @@
       "recurring": true
     },
     {
-      "title": "Call for Applications: MTN Foundation/MUSON Music Scholars Programme 2026 (Fully Funded)",
-      "href": "opportunity-call-for-applications-mtn-foundation-muson-music-scholars-pr-2026-07-23.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-07-23",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "Call for Applications: Africa Health Collaborative (AHC) Research Fund 2026 (Funding of Up to $ 22,000)",
       "href": "opportunity-call-for-applications-africa-health-collaborative-ahc-resear-2026-07-20.html",
       "deadline": "Check official page",
@@ -1605,17 +1627,6 @@
       "deadline": "October 5, 2026",
       "closes": "2026-10-05",
       "added": "2026-09-28",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Climate Resilience Awards for Business 2026",
-      "href": "opportunity-call-for-applications-climate-resilience-awards-for-business-2026-08-03.html",
-      "deadline": "September 30, 2026",
-      "closes": "2026-09-30",
-      "added": "2026-08-03",
       "tier": 4,
       "isNew": false,
       "closed": true,

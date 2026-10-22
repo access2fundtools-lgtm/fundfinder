@@ -502,5 +502,21 @@
     "reason": "HTTP 404 (page gone)",
     "removedOn": "2026-10-15",
     "supabase": "HTTP 204"
+  },
+  {
+    "slug": "opportunity-call-for-applications-mtn-foundation-muson-music-scholars-pr-2026-07-23",
+    "title": "Call for Applications: MTN Foundation/MUSON Music Scholars Programme 2026 (Fully Funded)",
+    "href": "https://www.mtn.ng/foundation/muson2026/",
+    "reason": "unreachable (ENOTFOUND)",
+    "removedOn": "2026-10-22",
+    "supabase": "HTTP 204"
+  },
+  {
+    "slug": "opportunity-the-hamburg-sustainability-conference-hsc-youth-ambassador-p-2026-10-12",
+    "title": "The Hamburg Sustainability Conference (HSC) Youth Ambassador Program 2027 for young community leaders (Fully Funded)",
+    "href": "https://www.sustainability-conference.org/en/hsc27youthform",
+    "reason": "HTTP 404 (page gone)",
+    "removedOn": "2026-10-22",
+    "supabase": "HTTP 204"
   }
 ]
