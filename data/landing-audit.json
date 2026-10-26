@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-22T11:05:49.711Z",
+  "ranAt": "2026-10-26T12:11:49.119Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -148,7 +148,7 @@
       "href": "https://conference.smedan.gov.ng/pitch",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (14)",
+      "reason": "programme page with application signals (12)",
       "finalUrl": "https://conference.smedan.gov.ng/pitch"
     },
     {
@@ -172,13 +172,23 @@
       "finalUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfkhAD_eVoGQC3t41mcjWez_CmdpSjetOHO07gQ9_XWjV7oOQ/closedform"
     },
     {
+      "file": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26.html",
+      "slug": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26",
+      "title": "Apply for TBH MSME Pitchaton 2026: Up to ₦10m Grant and Loan for Your Business",
+      "href": "https://pitchathon.thebusinesshub.ng/#apply",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (39)",
+      "finalUrl": "https://pitchathon.thebusinesshub.ng/#apply"
+    },
+    {
       "file": "opportunity-apply-for-the-afrinvest-analyst-program-taap-2027-2026-10-15.html",
       "slug": "opportunity-apply-for-the-afrinvest-analyst-program-taap-2027-2026-10-15",
       "title": "Apply for The Afrinvest Analyst Program (TAAP) 2027",
       "href": "http://qr.afrinvest.com/TAAP2027",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (4)",
+      "reason": "programme page with application signals (1)",
       "finalUrl": "https://afrinvestgroup.seamlesshiring.com/job/view/11079?application_source=Direct"
     },
     {
@@ -245,10 +255,9 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -565,7 +574,7 @@
       "href": "https://www.ffwd.org/accelerator",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (9)",
+      "reason": "programme page with application signals (6)",
       "finalUrl": "https://www.ffwd.org/accelerator"
     },
     {
@@ -737,15 +746,6 @@
       "definitive": false,
       "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://careers.mastercard.com/us/en/early-careers/internships"
-    },
-    {
-      "file": "opportunity-call-for-applications-mtn-foundation-muson-music-scholars-pr-2026-07-23.html",
-      "slug": "opportunity-call-for-applications-mtn-foundation-muson-music-scholars-pr-2026-07-23",
-      "title": "Call for Applications: MTN Foundation/MUSON Music Scholars Programme 2026 (Fully Funded)",
-      "href": "https://www.mtn.ng/foundation/muson2026/",
-      "ok": false,
-      "definitive": true,
-      "reason": "unreachable (ENOTFOUND)"
     },
     {
       "file": "opportunity-call-for-applications-mtn-wwf-africa-pachipanda-challenge-20-2026-08-03.html",
@@ -1002,9 +1002,9 @@
       "slug": "opportunity-commonwealth-startup-fellowship-cohort-3-2026-08-10",
       "title": "Commonwealth Startup Fellowship — Cohort 3",
       "href": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/",
-      "ok": false,
-      "definitive": false,
-      "reason": "page shows no application/eligibility/deadline signals",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (22)",
       "finalUrl": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/"
     },
     {
@@ -1064,7 +1064,7 @@
       "href": "https://fi.co/s/lagos",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (14)",
+      "reason": "programme page with application signals (13)",
       "finalUrl": "https://fi.co/s/lagos"
     },
     {
@@ -1290,9 +1290,9 @@
       "slug": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29",
       "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
       "href": "https://www.sabfoundation.co.za/tholoana-enterprise-programme",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (6)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://www.sabfoundation.co.za/tholoana-enterprise-programme"
     },
     {
@@ -1396,16 +1396,6 @@
       "finalUrl": "https://recruitment.digitalent.go.ke/"
     },
     {
-      "file": "opportunity-the-hamburg-sustainability-conference-hsc-youth-ambassador-p-2026-10-12.html",
-      "slug": "opportunity-the-hamburg-sustainability-conference-hsc-youth-ambassador-p-2026-10-12",
-      "title": "The Hamburg Sustainability Conference (HSC) Youth Ambassador Program 2027 for young community leaders (Fully Funded)",
-      "href": "https://www.sustainability-conference.org/en/hsc27youthform",
-      "ok": false,
-      "definitive": true,
-      "reason": "HTTP 404 (page gone)",
-      "finalUrl": "https://www.sustainability-conference.org/en/hsc27youthform"
-    },
-    {
       "file": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
       "slug": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19",
       "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
@@ -1430,9 +1420,10 @@
       "slug": "opportunity-the-nitda-national-ai-innovation-challenge-2026-for-young-ni-2026-09-28",
       "title": "The NITDA National AI Innovation Challenge 2026 for young Nigerian developers.",
       "href": "https://ncair.nitda.gov.ng/naic/#about",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (timeout)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (32)",
+      "finalUrl": "https://ncair.nitda.gov.ng/naic/#about"
     },
     {
       "file": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
