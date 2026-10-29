@@ -1,16 +1,82 @@
 {
-  "generated": "2026-10-26T12:11:51.772Z",
-  "rotationSeed": 20261026,
+  "generated": "2026-10-29T12:14:03.499Z",
+  "rotationSeed": 20261029,
   "newWindowDays": 10,
   "counts": {
-    "total": 149,
-    "new": 7,
-    "closing": 19,
+    "total": 155,
+    "new": 13,
+    "closing": 18,
     "evergreen": 83,
-    "recurring": 35,
+    "recurring": 36,
     "archived": 5
   },
   "ticker": [
+    {
+      "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
+      "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
+      "deadline": "January 31, 2027",
+      "closes": "2027-01-31",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
+      "href": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29.html",
+      "deadline": "December 15, 2026",
+      "closes": "2026-12-15",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for ProMoat Capital’s ₦1 Million Business Grant",
+      "href": "opportunity-apply-for-promoat-capital-s-1-million-business-grant-2026-10-29.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Apply for Renewed Hope Ward Development Programme in Kano",
+      "href": "opportunity-apply-for-renewed-hope-ward-development-programme-in-kano-2026-10-29.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The UN DPoA Mid-Term Review Journalism Fellowship 2027 for journalists from Least Developed Countries (Fully Funded to Doha, Qatar)",
+      "href": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The UNDP Africa Young Innovates Programme 2026/2027 for young Nigerian Innovators",
+      "href": "opportunity-the-undp-africa-young-innovates-programme-2026-2027-for-youn-2026-10-29.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Apply for TBH MSME Pitchaton 2026: Up to ₦10m Grant and Loan for Your Business",
       "href": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26.html",
@@ -91,6 +157,72 @@
   ],
   "latest": [
     {
+      "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
+      "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
+      "deadline": "January 31, 2027",
+      "closes": "2027-01-31",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
+      "href": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29.html",
+      "deadline": "December 15, 2026",
+      "closes": "2026-12-15",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for ProMoat Capital’s ₦1 Million Business Grant",
+      "href": "opportunity-apply-for-promoat-capital-s-1-million-business-grant-2026-10-29.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Apply for Renewed Hope Ward Development Programme in Kano",
+      "href": "opportunity-apply-for-renewed-hope-ward-development-programme-in-kano-2026-10-29.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The UN DPoA Mid-Term Review Journalism Fellowship 2027 for journalists from Least Developed Countries (Fully Funded to Doha, Qatar)",
+      "href": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The UNDP Africa Young Innovates Programme 2026/2027 for young Nigerian Innovators",
+      "href": "opportunity-the-undp-africa-young-innovates-programme-2026-2027-for-youn-2026-10-29.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Apply for TBH MSME Pitchaton 2026: Up to ₦10m Grant and Loan for Your Business",
       "href": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26.html",
       "deadline": "Check official page",
@@ -150,17 +282,6 @@
       "href": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
       "deadline": "December 18, 2026",
       "closes": "2026-12-18",
-      "added": "2026-10-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
-      "href": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
-      "deadline": "December 2, 2026",
-      "closes": "2026-12-02",
       "added": "2026-10-19",
       "tier": 1,
       "isNew": true,
@@ -170,6 +291,72 @@
   ],
   "items": [
     {
+      "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
+      "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
+      "deadline": "January 31, 2027",
+      "closes": "2027-01-31",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
+      "href": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29.html",
+      "deadline": "December 15, 2026",
+      "closes": "2026-12-15",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for ProMoat Capital’s ₦1 Million Business Grant",
+      "href": "opportunity-apply-for-promoat-capital-s-1-million-business-grant-2026-10-29.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Apply for Renewed Hope Ward Development Programme in Kano",
+      "href": "opportunity-apply-for-renewed-hope-ward-development-programme-in-kano-2026-10-29.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The UN DPoA Mid-Term Review Journalism Fellowship 2027 for journalists from Least Developed Countries (Fully Funded to Doha, Qatar)",
+      "href": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The UNDP Africa Young Innovates Programme 2026/2027 for young Nigerian Innovators",
+      "href": "opportunity-the-undp-africa-young-innovates-programme-2026-2027-for-youn-2026-10-29.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-29",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Apply for TBH MSME Pitchaton 2026: Up to ₦10m Grant and Loan for Your Business",
       "href": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26.html",
       "deadline": "Check official page",
@@ -243,17 +430,6 @@
       "added": "2026-10-19",
       "tier": 1,
       "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Commonwealth Foundation Grants Programme 2026",
-      "href": "opportunity-call-for-applications-commonwealth-foundation-grants-program-2026-09-28.html",
-      "deadline": "October 26, 2026",
-      "closes": "2026-10-26",
-      "added": "2026-09-28",
-      "tier": 2,
-      "isNew": false,
       "closed": false,
       "recurring": true
     },
@@ -1369,6 +1545,17 @@
       "recurring": false
     },
     {
+      "title": "Call For Applications: Commonwealth Foundation Grants Programme 2026",
+      "href": "opportunity-call-for-applications-commonwealth-foundation-grants-program-2026-09-28.html",
+      "deadline": "October 26, 2026",
+      "closes": "2026-10-26",
+      "added": "2026-09-28",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
       "title": "Apply for Ban Ki-moon Foundation Your Future in Green Jobs Mentorship Programme 2026",
       "href": "opportunity-apply-for-ban-ki-moon-foundation-your-future-in-green-jobs-m-2026-10-15.html",
       "deadline": "October 25, 2026",
@@ -1418,72 +1605,6 @@
       "deadline": "October 22, 2026",
       "closes": "2026-10-22",
       "added": "2026-10-15",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "2026 Shenzhen International FinTech Competition in China (Fully Funded)",
-      "href": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
-      "deadline": "October 20, 2026",
-      "closes": "2026-10-20",
-      "added": "2026-10-12",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
-      "href": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29.html",
-      "deadline": "October 13, 2026",
-      "closes": "2026-10-13",
-      "added": "2026-09-29",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Apply for NITDA National AI Innovation Challenge 2026",
-      "href": "opportunity-apply-for-nitda-national-ai-innovation-challenge-2026-2026-09-24.html",
-      "deadline": "October 12, 2026",
-      "closes": "2026-10-12",
-      "added": "2026-09-24",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "The NITDA National AI Innovation Challenge 2026 for young Nigerian developers.",
-      "href": "opportunity-the-nitda-national-ai-innovation-challenge-2026-for-young-ni-2026-09-28.html",
-      "deadline": "October 12, 2026",
-      "closes": "2026-10-12",
-      "added": "2026-09-28",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: GEF Entrepreneurs Investment Program 2026 (Up to $35,000 in total seed investment)",
-      "href": "opportunity-call-for-applications-gef-entrepreneurs-investment-program-2-2026-09-17.html",
-      "deadline": "October 6, 2026",
-      "closes": "2026-10-06",
-      "added": "2026-09-17",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Precision Agriculture Incubation Program Cohort 4.0 Global",
-      "href": "opportunity-call-for-applications-precision-agriculture-incubation-progr-2026-09-21.html",
-      "deadline": "October 5, 2026",
-      "closes": "2026-10-05",
-      "added": "2026-09-21",
       "tier": 4,
       "isNew": false,
       "closed": true,

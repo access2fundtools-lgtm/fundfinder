@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-26T12:11:49.119Z",
+  "ranAt": "2026-10-29T12:14:01.819Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -142,13 +142,33 @@
       "finalUrl": "https://ncair.nitda.gov.ng/naic/"
     },
     {
+      "file": "opportunity-apply-for-promoat-capital-s-1-million-business-grant-2026-10-29.html",
+      "slug": "opportunity-apply-for-promoat-capital-s-1-million-business-grant-2026-10-29",
+      "title": "Apply for ProMoat Capital’s ₦1 Million Business Grant",
+      "href": "https://www.promoatcapital.com/drawbridge-grant#apply",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (22)",
+      "finalUrl": "https://www.promoatcapital.com/drawbridge-grant#apply"
+    },
+    {
+      "file": "opportunity-apply-for-renewed-hope-ward-development-programme-in-kano-2026-10-29.html",
+      "slug": "opportunity-apply-for-renewed-hope-ward-development-programme-in-kano-2026-10-29",
+      "title": "Apply for Renewed Hope Ward Development Programme in Kano",
+      "href": "https://tally.so/r/Eqq06X",
+      "ok": true,
+      "definitive": true,
+      "reason": "application form (tally.so)",
+      "finalUrl": "https://tally.so/r/Eqq06X"
+    },
+    {
       "file": "opportunity-apply-for-smedan-zero-to-100-pitch-competition-2026-30-milli-2026-10-15.html",
       "slug": "opportunity-apply-for-smedan-zero-to-100-pitch-competition-2026-30-milli-2026-10-15",
       "title": "Apply for SMEDAN Zero to 100 Pitch Competition 2026 — ₦30 Million Grant",
       "href": "https://conference.smedan.gov.ng/pitch",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (12)",
+      "reason": "programme page with application signals (9)",
       "finalUrl": "https://conference.smedan.gov.ng/pitch"
     },
     {
@@ -323,10 +343,9 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
@@ -448,6 +467,16 @@
       "reason": "unreachable (UNABLE_TO_VERIFY_LEAF_SIGNATURE)"
     },
     {
+      "file": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
+      "slug": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29",
+      "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
+      "href": "https://www.changemakers.com/en/carnegie-challenge-civic-leadership",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (64)",
+      "finalUrl": "https://www.changemakers.com/en/carnegie-challenge-civic-leadership"
+    },
+    {
       "file": "opportunity-call-for-applications-cega-2026-global-networks-research-gra-2026-10-15.html",
       "slug": "opportunity-call-for-applications-cega-2026-global-networks-research-gra-2026-10-15",
       "title": "Call For Applications: CEGA 2026 Global Networks Research Grant Competition | Up to US$67,000 per Project",
@@ -502,9 +531,9 @@
       "slug": "opportunity-call-for-applications-commonwealth-foundation-grants-program-2026-09-28",
       "title": "Call For Applications: Commonwealth Foundation Grants Programme 2026",
       "href": "https://commonwealthfoundation.com/grants/annual",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (193)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page says applications are closed",
       "finalUrl": "https://commonwealthfoundation.com/grants/annual/"
     },
     {
@@ -562,10 +591,9 @@
       "slug": "opportunity-call-for-applications-fao-innovate-africa-challenge-2026for--2026-08-31",
       "title": "Call for Applications: FAO Innovate Africa Challenge 2026for AI Climate-Smart Agriculture (Up To 50,000 Funding)",
       "href": "https://sti-portal.fao.org/network/group/34/about?utm_source=chatgpt.com",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (7)",
-      "finalUrl": "https://sti-portal.fao.org/network/group/34/about?utm_source=chatgpt.com"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (timeout)"
     },
     {
       "file": "opportunity-call-for-applications-fast-forward-accelerator-2027-for-tech-2026-08-20.html",
@@ -716,6 +744,16 @@
       "definitive": false,
       "reason": "HTTP 403 (could not confirm)",
       "finalUrl": "https://www.leadgreenfellowship.com/Apply.html"
+    },
+    {
+      "file": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29.html",
+      "slug": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29",
+      "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
+      "href": "https://lcs.learnstar.co/competitions",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (12)",
+      "finalUrl": "https://lcs.learnstar.co/competitions"
     },
     {
       "file": "opportunity-call-for-applications-maple-global-innovation-fellowship-202-2026-09-17.html",
@@ -1081,10 +1119,10 @@
       "slug": "opportunity-future-africa-fund-2026-07-28",
       "title": "Future Africa Fund",
       "href": "https://future.africa",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.future.africa/"
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
+      "finalUrl": "https://future.africa"
     },
     {
       "file": "opportunity-greylight-tangent-cohort-002-2026-08-13.html",
@@ -1290,9 +1328,9 @@
       "slug": "opportunity-sab-foundation-tholoana-enterprise-programme-2026-2027-18-mo-2026-09-29",
       "title": "SAB Foundation Tholoana Enterprise Programme 2026/2027 (18-month business growth) Programme for young South African Entrepreneurs.",
       "href": "https://www.sabfoundation.co.za/tholoana-enterprise-programme",
-      "ok": false,
-      "definitive": false,
-      "reason": "page shows no application/eligibility/deadline signals",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (6)",
       "finalUrl": "https://www.sabfoundation.co.za/tholoana-enterprise-programme"
     },
     {
@@ -1322,7 +1360,7 @@
       "href": "https://smedan.gov.ng/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (9)",
+      "reason": "programme page with application signals (10)",
       "finalUrl": "https://smedan.gov.ng/"
     },
     {
@@ -1372,7 +1410,7 @@
       "href": "https://www.socialshifters.co/allianz-movenow-social-innovation-challenge/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (6)",
+      "reason": "programme page with application signals (7)",
       "finalUrl": "https://www.socialshifters.co/allianz-movenow-social-innovation-challenge/"
     },
     {
@@ -1454,6 +1492,26 @@
       "definitive": true,
       "reason": "programme page with application signals (7)",
       "finalUrl": "https://www.leadership-challenge.org/"
+    },
+    {
+      "file": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29.html",
+      "slug": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29",
+      "title": "The UN DPoA Mid-Term Review Journalism Fellowship 2027 for journalists from Least Developed Countries (Fully Funded to Doha, Qatar)",
+      "href": "https://www.un.org/ohrlls/content/dpoa-mtr-journalism-fellowship",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (22)",
+      "finalUrl": "https://www.un.org/ohrlls/content/dpoa-mtr-journalism-fellowship"
+    },
+    {
+      "file": "opportunity-the-undp-africa-young-innovates-programme-2026-2027-for-youn-2026-10-29.html",
+      "slug": "opportunity-the-undp-africa-young-innovates-programme-2026-2027-for-youn-2026-10-29",
+      "title": "The UNDP Africa Young Innovates Programme 2026/2027 for young Nigerian Innovators",
+      "href": "https://youngafricainnovates.ng/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (15)",
+      "finalUrl": "https://youngafricainnovates.ng/"
     },
     {
       "file": "opportunity-the-unicef-sweden-funding-opportunity-for-femtech-solutions--2026-10-15.html",
