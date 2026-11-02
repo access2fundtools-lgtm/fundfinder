@@ -518,5 +518,13 @@
     "reason": "HTTP 404 (page gone)",
     "removedOn": "2026-10-22",
     "supabase": "HTTP 204"
+  },
+  {
+    "slug": "opportunity-call-for-applications-geaf-ambassador-climate-leadership-pro-2026-07-23",
+    "title": "Call For Applications: GEAF Ambassador Climate Leadership Programme 2027 (fully funded)",
+    "href": "https://144781338.hs-sites-eu1.com/en/geaf-ambassador-programme",
+    "reason": "HTTP 404 (page gone)",
+    "removedOn": "2026-11-02",
+    "supabase": "HTTP 204"
   }
 ]

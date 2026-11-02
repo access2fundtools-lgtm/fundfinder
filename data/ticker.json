@@ -1,16 +1,60 @@
 {
-  "generated": "2026-10-29T12:14:03.499Z",
-  "rotationSeed": 20261029,
+  "generated": "2026-11-02T14:41:21.665Z",
+  "rotationSeed": 20261102,
   "newWindowDays": 10,
   "counts": {
-    "total": 155,
-    "new": 13,
-    "closing": 18,
+    "total": 158,
+    "new": 11,
+    "closing": 20,
     "evergreen": 83,
-    "recurring": 36,
+    "recurring": 39,
     "archived": 5
   },
   "ticker": [
+    {
+      "title": "Call for Applications: Officially Green Global Fellowship 2027 Opens for Young Sustainability Advocates Worldwide",
+      "href": "opportunity-call-for-applications-officially-green-global-fellowship-202-2026-11-02.html",
+      "deadline": "January 7, 2027",
+      "closes": "2027-01-07",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The International Journalists‘ Programmes (IJP) Southern-African Journalists’ Fellowship Programme 2027 in Germany (3,500 Euro Stipend).",
+      "href": "opportunity-the-international-journalists-programmes-ijp-southern-africa-2026-11-02.html",
+      "deadline": "January 20, 2027",
+      "closes": "2027-01-20",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Continental Reinsurance Plc Pan-African Re/Insurance Journalism Awards 2027 for Young African Journalists",
+      "href": "opportunity-continental-reinsurance-plc-pan-african-re-insurance-journal-2026-11-02.html",
+      "deadline": "January 31, 2027",
+      "closes": "2027-01-31",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The IREX Community Solutions Program 2027 for Community youth leaders (Fully Funded to the United States)",
+      "href": "opportunity-the-irex-community-solutions-program-2027-for-community-yout-2026-11-02.html",
+      "deadline": "November 24, 2026",
+      "closes": "2026-11-24",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
       "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
@@ -83,72 +127,6 @@
       "deadline": "Check official page",
       "closes": null,
       "added": "2026-10-26",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Wellcome Photography Prize 2027",
-      "href": "opportunity-call-for-applications-wellcome-photography-prize-2027-2026-10-22.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-22",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
-      "href": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-10-22",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Proposals: The Commonwealth Blue Charter Incubator Round II (£50,000 in funding)",
-      "href": "opportunity-call-for-proposals-the-commonwealth-blue-charter-incubator-r-2026-10-22.html",
-      "deadline": "December 11, 2026",
-      "closes": "2026-12-11",
-      "added": "2026-10-22",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
-      "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
-      "deadline": "November 6, 2026",
-      "closes": "2026-11-06",
-      "added": "2026-10-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
-      "href": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
-      "deadline": "December 18, 2026",
-      "closes": "2026-12-18",
-      "added": "2026-10-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
-      "href": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
-      "deadline": "December 2, 2026",
-      "closes": "2026-12-02",
-      "added": "2026-10-19",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -157,6 +135,50 @@
   ],
   "latest": [
     {
+      "title": "Call for Applications: Officially Green Global Fellowship 2027 Opens for Young Sustainability Advocates Worldwide",
+      "href": "opportunity-call-for-applications-officially-green-global-fellowship-202-2026-11-02.html",
+      "deadline": "January 7, 2027",
+      "closes": "2027-01-07",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The International Journalists‘ Programmes (IJP) Southern-African Journalists’ Fellowship Programme 2027 in Germany (3,500 Euro Stipend).",
+      "href": "opportunity-the-international-journalists-programmes-ijp-southern-africa-2026-11-02.html",
+      "deadline": "January 20, 2027",
+      "closes": "2027-01-20",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Continental Reinsurance Plc Pan-African Re/Insurance Journalism Awards 2027 for Young African Journalists",
+      "href": "opportunity-continental-reinsurance-plc-pan-african-re-insurance-journal-2026-11-02.html",
+      "deadline": "January 31, 2027",
+      "closes": "2027-01-31",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The IREX Community Solutions Program 2027 for Community youth leaders (Fully Funded to the United States)",
+      "href": "opportunity-the-irex-community-solutions-program-2027-for-community-yout-2026-11-02.html",
+      "deadline": "November 24, 2026",
+      "closes": "2026-11-24",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
       "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
       "deadline": "January 31, 2027",
@@ -228,61 +250,6 @@
       "deadline": "Check official page",
       "closes": null,
       "added": "2026-10-26",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Wellcome Photography Prize 2027",
-      "href": "opportunity-call-for-applications-wellcome-photography-prize-2027-2026-10-22.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-22",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
-      "href": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-10-22",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Proposals: The Commonwealth Blue Charter Incubator Round II (£50,000 in funding)",
-      "href": "opportunity-call-for-proposals-the-commonwealth-blue-charter-incubator-r-2026-10-22.html",
-      "deadline": "December 11, 2026",
-      "closes": "2026-12-11",
-      "added": "2026-10-22",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
-      "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
-      "deadline": "November 6, 2026",
-      "closes": "2026-11-06",
-      "added": "2026-10-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
-      "href": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
-      "deadline": "December 18, 2026",
-      "closes": "2026-12-18",
-      "added": "2026-10-19",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -291,6 +258,50 @@
   ],
   "items": [
     {
+      "title": "Call for Applications: Officially Green Global Fellowship 2027 Opens for Young Sustainability Advocates Worldwide",
+      "href": "opportunity-call-for-applications-officially-green-global-fellowship-202-2026-11-02.html",
+      "deadline": "January 7, 2027",
+      "closes": "2027-01-07",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The International Journalists‘ Programmes (IJP) Southern-African Journalists’ Fellowship Programme 2027 in Germany (3,500 Euro Stipend).",
+      "href": "opportunity-the-international-journalists-programmes-ijp-southern-africa-2026-11-02.html",
+      "deadline": "January 20, 2027",
+      "closes": "2027-01-20",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Continental Reinsurance Plc Pan-African Re/Insurance Journalism Awards 2027 for Young African Journalists",
+      "href": "opportunity-continental-reinsurance-plc-pan-african-re-insurance-journal-2026-11-02.html",
+      "deadline": "January 31, 2027",
+      "closes": "2027-01-31",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The IREX Community Solutions Program 2027 for Community youth leaders (Fully Funded to the United States)",
+      "href": "opportunity-the-irex-community-solutions-program-2027-for-community-yout-2026-11-02.html",
+      "deadline": "November 24, 2026",
+      "closes": "2026-11-24",
+      "added": "2026-11-02",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
       "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
       "deadline": "January 31, 2027",
@@ -364,94 +375,6 @@
       "added": "2026-10-26",
       "tier": 1,
       "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Wellcome Photography Prize 2027",
-      "href": "opportunity-call-for-applications-wellcome-photography-prize-2027-2026-10-22.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-22",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
-      "href": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-10-22",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Proposals: The Commonwealth Blue Charter Incubator Round II (£50,000 in funding)",
-      "href": "opportunity-call-for-proposals-the-commonwealth-blue-charter-incubator-r-2026-10-22.html",
-      "deadline": "December 11, 2026",
-      "closes": "2026-12-11",
-      "added": "2026-10-22",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
-      "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
-      "deadline": "November 6, 2026",
-      "closes": "2026-11-06",
-      "added": "2026-10-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
-      "href": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
-      "deadline": "December 18, 2026",
-      "closes": "2026-12-18",
-      "added": "2026-10-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
-      "href": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
-      "deadline": "December 2, 2026",
-      "closes": "2026-12-02",
-      "added": "2026-10-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Blaze by Ecobank InnovateX 2026 — ₦20 million prize pool",
-      "href": "opportunity-blaze-ecobank-innovatex-2026-2026-09-09.html",
-      "deadline": "None published — register now, finale is 30 October 2026",
-      "closes": "2026-10-30",
-      "added": "2026-09-09",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
-      "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-09-21",
-      "tier": 2,
-      "isNew": false,
       "closed": false,
       "recurring": true
     },
@@ -472,6 +395,17 @@
       "deadline": "November 5, 2026",
       "closes": "2026-11-05",
       "added": "2026-09-29",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
+      "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
+      "deadline": "November 6, 2026",
+      "closes": "2026-11-06",
+      "added": "2026-10-19",
       "tier": 2,
       "isNew": false,
       "closed": false,
@@ -621,12 +555,56 @@
       "recurring": true
     },
     {
+      "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
+      "href": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
+      "deadline": "December 2, 2026",
+      "closes": "2026-12-02",
+      "added": "2026-10-19",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Proposals: The Commonwealth Blue Charter Incubator Round II (£50,000 in funding)",
+      "href": "opportunity-call-for-proposals-the-commonwealth-blue-charter-incubator-r-2026-10-22.html",
+      "deadline": "December 11, 2026",
+      "closes": "2026-12-11",
+      "added": "2026-10-22",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
+      "href": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
+      "deadline": "December 18, 2026",
+      "closes": "2026-12-18",
+      "added": "2026-10-19",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Mercedes-Benz beVisioneers Fellowship Program 2027 for young innovators (Fully Funded)",
       "href": "opportunity-mercedes-benz-bevisioneers-fellowship-program-2027-for-young-2026-09-28.html",
       "deadline": "January 31, 2027",
       "closes": "2027-01-31",
       "added": "2026-09-28",
       "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Wellcome Photography Prize 2027",
+      "href": "opportunity-call-for-applications-wellcome-photography-prize-2027-2026-10-22.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-22",
+      "tier": 3,
       "isNew": false,
       "closed": false,
       "recurring": true
@@ -1215,17 +1193,6 @@
       "recurring": true
     },
     {
-      "title": "Call For Applications: GEAF Ambassador Climate Leadership Programme 2027 (fully funded)",
-      "href": "opportunity-call-for-applications-geaf-ambassador-climate-leadership-pro-2026-07-23.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-07-23",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "Call for Applications: Africa Health Collaborative (AHC) Research Fund 2026 (Funding of Up to $ 22,000)",
       "href": "opportunity-call-for-applications-africa-health-collaborative-ahc-resear-2026-07-20.html",
       "deadline": "Check official page",
@@ -1545,6 +1512,39 @@
       "recurring": false
     },
     {
+      "title": "Blaze by Ecobank InnovateX 2026 — ₦20 million prize pool",
+      "href": "opportunity-blaze-ecobank-innovatex-2026-2026-09-09.html",
+      "deadline": "None published — register now, finale is 30 October 2026",
+      "closes": "2026-10-30",
+      "added": "2026-09-09",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
+      "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
+      "deadline": "October 30, 2026",
+      "closes": "2026-10-30",
+      "added": "2026-09-21",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
+      "href": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22.html",
+      "deadline": "October 30, 2026",
+      "closes": "2026-10-30",
+      "added": "2026-10-22",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
       "title": "Call For Applications: Commonwealth Foundation Grants Programme 2026",
       "href": "opportunity-call-for-applications-commonwealth-foundation-grants-program-2026-09-28.html",
       "deadline": "October 26, 2026",
@@ -1571,39 +1571,6 @@
       "href": "opportunity-apply-for-the-afrinvest-analyst-program-taap-2027-2026-10-15.html",
       "deadline": "October 25, 2026",
       "closes": "2026-10-25",
-      "added": "2026-10-15",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Halcyon’s Africa Innovation in Agriculture and Food Security Program 2027 for early-stage, impact-driven ventures .",
-      "href": "opportunity-halcyon-s-africa-innovation-in-agriculture-and-food-security-2026-09-28.html",
-      "deadline": "October 23, 2026",
-      "closes": "2026-10-23",
-      "added": "2026-09-28",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Grooming Centre University Research Grant 2026 ( Up to ₦200,000)",
-      "href": "opportunity-call-for-applications-grooming-centre-university-research-gr-2026-10-15.html",
-      "deadline": "October 23, 2026",
-      "closes": "2026-10-23",
-      "added": "2026-10-15",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Apply for SMEDAN Zero to 100 Pitch Competition 2026 — ₦30 Million Grant",
-      "href": "opportunity-apply-for-smedan-zero-to-100-pitch-competition-2026-30-milli-2026-10-15.html",
-      "deadline": "October 22, 2026",
-      "closes": "2026-10-22",
       "added": "2026-10-15",
       "tier": 4,
       "isNew": false,

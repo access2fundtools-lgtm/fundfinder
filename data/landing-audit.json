@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-29T12:14:01.819Z",
+  "ranAt": "2026-11-02T14:41:17.831Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -275,9 +275,10 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -343,9 +344,10 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
@@ -591,9 +593,10 @@
       "slug": "opportunity-call-for-applications-fao-innovate-africa-challenge-2026for--2026-08-31",
       "title": "Call for Applications: FAO Innovate Africa Challenge 2026for AI Climate-Smart Agriculture (Up To 50,000 Funding)",
       "href": "https://sti-portal.fao.org/network/group/34/about?utm_source=chatgpt.com",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (timeout)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (7)",
+      "finalUrl": "https://sti-portal.fao.org/network/group/34/about?utm_source=chatgpt.com"
     },
     {
       "file": "opportunity-call-for-applications-fast-forward-accelerator-2027-for-tech-2026-08-20.html",
@@ -621,8 +624,8 @@
       "title": "Call For Applications: GEAF Ambassador Climate Leadership Programme 2027 (fully funded)",
       "href": "https://144781338.hs-sites-eu1.com/en/geaf-ambassador-programme",
       "ok": false,
-      "definitive": false,
-      "reason": "page has almost no readable content (JS-only or blocked)",
+      "definitive": true,
+      "reason": "HTTP 404 (page gone)",
       "finalUrl": "https://144781338.hs-sites-eu1.com/en/geaf-ambassador-programme"
     },
     {
@@ -750,10 +753,9 @@
       "slug": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29",
       "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
       "href": "https://lcs.learnstar.co/competitions",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (12)",
-      "finalUrl": "https://lcs.learnstar.co/competitions"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-call-for-applications-maple-global-innovation-fellowship-202-2026-09-17.html",
@@ -804,6 +806,16 @@
       "definitive": true,
       "reason": "programme page with application signals (10)",
       "finalUrl": "https://www.grandchallenges.ca/portfolio/nexa/"
+    },
+    {
+      "file": "opportunity-call-for-applications-officially-green-global-fellowship-202-2026-11-02.html",
+      "slug": "opportunity-call-for-applications-officially-green-global-fellowship-202-2026-11-02",
+      "title": "Call for Applications: Officially Green Global Fellowship 2027 Opens for Young Sustainability Advocates Worldwide",
+      "href": "https://greeninstitute.ng/greenfellow2026",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (20)",
+      "finalUrl": "https://greeninstitute.ng/greenfellow2026"
     },
     {
       "file": "opportunity-call-for-applications-one-young-world-leading-scholarship-20-2026-08-12.html",
@@ -1046,6 +1058,16 @@
       "finalUrl": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-startup-fellowship-information-for-candidates/"
     },
     {
+      "file": "opportunity-continental-reinsurance-plc-pan-african-re-insurance-journal-2026-11-02.html",
+      "slug": "opportunity-continental-reinsurance-plc-pan-african-re-insurance-journal-2026-11-02",
+      "title": "Continental Reinsurance Plc Pan-African Re/Insurance Journalism Awards 2027 for Young African Journalists",
+      "href": "https://www.continental-re.com/section/continental-re-awards/?lang=eng",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (2)",
+      "finalUrl": "https://www.continental-re.com/section/continental-re-awards/?lang=eng"
+    },
+    {
       "file": "opportunity-d-prize-global-competition-2026-07-28.html",
       "slug": "opportunity-d-prize-global-competition-2026-07-28",
       "title": "D-Prize Global Competition",
@@ -1102,7 +1124,7 @@
       "href": "https://fi.co/s/lagos",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (13)",
+      "reason": "programme page with application signals (14)",
       "finalUrl": "https://fi.co/s/lagos"
     },
     {
@@ -1434,6 +1456,26 @@
       "finalUrl": "https://recruitment.digitalent.go.ke/"
     },
     {
+      "file": "opportunity-the-international-journalists-programmes-ijp-southern-africa-2026-11-02.html",
+      "slug": "opportunity-the-international-journalists-programmes-ijp-southern-africa-2026-11-02",
+      "title": "The International Journalists‘ Programmes (IJP) Southern-African Journalists’ Fellowship Programme 2027 in Germany (3,500 Euro Stipend).",
+      "href": "https://ijp.org/en/programmes/southernafrica/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (10)",
+      "finalUrl": "https://ijp.org/en/programmes/southernafrica/"
+    },
+    {
+      "file": "opportunity-the-irex-community-solutions-program-2027-for-community-yout-2026-11-02.html",
+      "slug": "opportunity-the-irex-community-solutions-program-2027-for-community-yout-2026-11-02",
+      "title": "The IREX Community Solutions Program 2027 for Community youth leaders (Fully Funded to the United States)",
+      "href": "https://www.irex.org/program/community-solutions-program-application-information",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (34)",
+      "finalUrl": "https://www.irex.org/program/community-solutions-program-application-information"
+    },
+    {
       "file": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
       "slug": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19",
       "title": "The John S. Knight Journalism Fellowships 2027/2028 at Stanford University, USA ($135,000 stipend & Fully Funded)",
@@ -1528,9 +1570,9 @@
       "slug": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22",
       "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
       "href": "https://wipo.taleo.net/careersection/wp_2_fel/jobdetail.ftl?job=26307-FEL",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (2)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://wipo.taleo.net/careersection/wp_2_fel/jobdetail.ftl?job=26307-FEL"
     },
     {
