@@ -1,16 +1,49 @@
 {
-  "generated": "2026-11-02T14:41:21.665Z",
-  "rotationSeed": 20261102,
+  "generated": "2026-11-05T13:56:34.981Z",
+  "rotationSeed": 20261105,
   "newWindowDays": 10,
   "counts": {
-    "total": 158,
-    "new": 11,
-    "closing": 20,
+    "total": 161,
+    "new": 14,
+    "closing": 19,
     "evergreen": 83,
     "recurring": 39,
-    "archived": 5
+    "archived": 6
   },
   "ticker": [
+    {
+      "title": "Call for Applications: AfDB Opens HEI Innovation and Entrepreneurship Programme Phase II for African Universities and Research Centres",
+      "href": "opportunity-call-for-applications-afdb-opens-hei-innovation-and-entrepre-2026-11-05.html",
+      "deadline": "November 9, 2026",
+      "closes": "2026-11-09",
+      "added": "2026-11-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call for Applications: SAIS Livestock Investment Readiness Program 2027 Offers African Start-ups (Up to €15,000 in Funding)",
+      "href": "opportunity-call-for-applications-sais-livestock-investment-readiness-pr-2026-11-05.html",
+      "deadline": "November 15, 2026",
+      "closes": "2026-11-15",
+      "added": "2026-11-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The ILO Better Regional Migration Management (BRMM) Programme University Essay Writing Competition 2026 (Fully Funded to Fifth LMAG in Zanzibar)",
+      "href": "opportunity-the-ilo-better-regional-migration-management-brmm-programme--2026-11-05.html",
+      "deadline": "November 25, 2026",
+      "closes": "2026-11-25",
+      "added": "2026-11-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call for Applications: Officially Green Global Fellowship 2027 Opens for Young Sustainability Advocates Worldwide",
       "href": "opportunity-call-for-applications-officially-green-global-fellowship-202-2026-11-02.html",
@@ -135,6 +168,39 @@
   ],
   "latest": [
     {
+      "title": "Call for Applications: AfDB Opens HEI Innovation and Entrepreneurship Programme Phase II for African Universities and Research Centres",
+      "href": "opportunity-call-for-applications-afdb-opens-hei-innovation-and-entrepre-2026-11-05.html",
+      "deadline": "November 9, 2026",
+      "closes": "2026-11-09",
+      "added": "2026-11-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call for Applications: SAIS Livestock Investment Readiness Program 2027 Offers African Start-ups (Up to €15,000 in Funding)",
+      "href": "opportunity-call-for-applications-sais-livestock-investment-readiness-pr-2026-11-05.html",
+      "deadline": "November 15, 2026",
+      "closes": "2026-11-15",
+      "added": "2026-11-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The ILO Better Regional Migration Management (BRMM) Programme University Essay Writing Competition 2026 (Fully Funded to Fifth LMAG in Zanzibar)",
+      "href": "opportunity-the-ilo-better-regional-migration-management-brmm-programme--2026-11-05.html",
+      "deadline": "November 25, 2026",
+      "closes": "2026-11-25",
+      "added": "2026-11-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Officially Green Global Fellowship 2027 Opens for Young Sustainability Advocates Worldwide",
       "href": "opportunity-call-for-applications-officially-green-global-fellowship-202-2026-11-02.html",
       "deadline": "January 7, 2027",
@@ -228,28 +294,6 @@
       "deadline": "November 30, 2026",
       "closes": "2026-11-30",
       "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The UNDP Africa Young Innovates Programme 2026/2027 for young Nigerian Innovators",
-      "href": "opportunity-the-undp-africa-young-innovates-programme-2026-2027-for-youn-2026-10-29.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for TBH MSME Pitchaton 2026: Up to ₦10m Grant and Loan for Your Business",
-      "href": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-26",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -258,6 +302,39 @@
   ],
   "items": [
     {
+      "title": "Call for Applications: AfDB Opens HEI Innovation and Entrepreneurship Programme Phase II for African Universities and Research Centres",
+      "href": "opportunity-call-for-applications-afdb-opens-hei-innovation-and-entrepre-2026-11-05.html",
+      "deadline": "November 9, 2026",
+      "closes": "2026-11-09",
+      "added": "2026-11-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Call for Applications: SAIS Livestock Investment Readiness Program 2027 Offers African Start-ups (Up to €15,000 in Funding)",
+      "href": "opportunity-call-for-applications-sais-livestock-investment-readiness-pr-2026-11-05.html",
+      "deadline": "November 15, 2026",
+      "closes": "2026-11-15",
+      "added": "2026-11-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The ILO Better Regional Migration Management (BRMM) Programme University Essay Writing Competition 2026 (Fully Funded to Fifth LMAG in Zanzibar)",
+      "href": "opportunity-the-ilo-better-regional-migration-management-brmm-programme--2026-11-05.html",
+      "deadline": "November 25, 2026",
+      "closes": "2026-11-25",
+      "added": "2026-11-05",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Officially Green Global Fellowship 2027 Opens for Young Sustainability Advocates Worldwide",
       "href": "opportunity-call-for-applications-officially-green-global-fellowship-202-2026-11-02.html",
       "deadline": "January 7, 2027",
@@ -377,17 +454,6 @@
       "isNew": true,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "The UNICEF/Sweden Funding opportunity for femtech solutions (US$100,000)",
-      "href": "opportunity-the-unicef-sweden-funding-opportunity-for-femtech-solutions--2026-10-15.html",
-      "deadline": "November 4, 2026",
-      "closes": "2026-11-04",
-      "added": "2026-10-15",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
     },
     {
       "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
@@ -1550,28 +1616,6 @@
       "deadline": "October 26, 2026",
       "closes": "2026-10-26",
       "added": "2026-09-28",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Apply for Ban Ki-moon Foundation Your Future in Green Jobs Mentorship Programme 2026",
-      "href": "opportunity-apply-for-ban-ki-moon-foundation-your-future-in-green-jobs-m-2026-10-15.html",
-      "deadline": "October 25, 2026",
-      "closes": "2026-10-25",
-      "added": "2026-10-15",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Apply for The Afrinvest Analyst Program (TAAP) 2027",
-      "href": "opportunity-apply-for-the-afrinvest-analyst-program-taap-2027-2026-10-15.html",
-      "deadline": "October 25, 2026",
-      "closes": "2026-10-25",
-      "added": "2026-10-15",
       "tier": 4,
       "isNew": false,
       "closed": true,

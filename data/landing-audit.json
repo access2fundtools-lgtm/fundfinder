@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-02T14:41:17.831Z",
+  "ranAt": "2026-11-05T13:56:32.356Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -108,7 +108,7 @@
       "href": "https://bankimoon.submit.com//show/31",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (12)",
+      "reason": "programme page with application signals (10)",
       "finalUrl": "https://bankimoon.submit.com//show/31"
     },
     {
@@ -275,10 +275,9 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -344,10 +343,9 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
@@ -368,6 +366,16 @@
       "definitive": false,
       "reason": "page says applications are closed",
       "finalUrl": "https://www.acestartupacademy.com/apply?fbclid=PAVERFWATa_StwZG9mAmV4dG4DYWVtAjEwAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpzM6Ew63w4UGjpiRT57VCsxolMFhFBflXcucBMOHtxF4wPBopO6Vc6umRpl1_aem_gExGxvm_RRQBcCMUZpuGaA#top"
+    },
+    {
+      "file": "opportunity-call-for-applications-afdb-opens-hei-innovation-and-entrepre-2026-11-05.html",
+      "slug": "opportunity-call-for-applications-afdb-opens-hei-innovation-and-entrepre-2026-11-05",
+      "title": "Call for Applications: AfDB Opens HEI Innovation and Entrepreneurship Programme Phase II for African Universities and Research Centres",
+      "href": "https://www.eyecity.africa/hei-call-for-applications",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (21)",
+      "finalUrl": "https://www.eyecity.africa/hei-call-for-applications"
     },
     {
       "file": "opportunity-call-for-applications-africa-agriculture-and-trade-investmen-2026-08-10.html",
@@ -495,7 +503,7 @@
       "href": "https://changemakerxchange.org/changemakers-for-youth/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (37)",
+      "reason": "programme page with application signals (38)",
       "finalUrl": "https://changemakerxchange.org/changemakers-for-youth/"
     },
     {
@@ -617,16 +625,6 @@
       "definitive": false,
       "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://atpp.education.gov.ng/"
-    },
-    {
-      "file": "opportunity-call-for-applications-geaf-ambassador-climate-leadership-pro-2026-07-23.html",
-      "slug": "opportunity-call-for-applications-geaf-ambassador-climate-leadership-pro-2026-07-23",
-      "title": "Call For Applications: GEAF Ambassador Climate Leadership Programme 2027 (fully funded)",
-      "href": "https://144781338.hs-sites-eu1.com/en/geaf-ambassador-programme",
-      "ok": false,
-      "definitive": true,
-      "reason": "HTTP 404 (page gone)",
-      "finalUrl": "https://144781338.hs-sites-eu1.com/en/geaf-ambassador-programme"
     },
     {
       "file": "opportunity-call-for-applications-gef-entrepreneurs-investment-program-2-2026-09-17.html",
@@ -753,9 +751,10 @@
       "slug": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29",
       "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
       "href": "https://lcs.learnstar.co/competitions",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (12)",
+      "finalUrl": "https://lcs.learnstar.co/competitions"
     },
     {
       "file": "opportunity-call-for-applications-maple-global-innovation-fellowship-202-2026-09-17.html",
@@ -866,6 +865,16 @@
       "definitive": false,
       "reason": "page shows no application/eligibility/deadline signals",
       "finalUrl": "https://www.reckitt.com/our-impact/stronger-communities/"
+    },
+    {
+      "file": "opportunity-call-for-applications-sais-livestock-investment-readiness-pr-2026-11-05.html",
+      "slug": "opportunity-call-for-applications-sais-livestock-investment-readiness-pr-2026-11-05",
+      "title": "Call for Applications: SAIS Livestock Investment Readiness Program 2027 Offers African Start-ups (Up to €15,000 in Funding)",
+      "href": "https://sais-accelerator.com/livestock-apply-now-for-2027/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (16)",
+      "finalUrl": "https://sais-accelerator.com/livestock-apply-now-for-2027/"
     },
     {
       "file": "opportunity-call-for-applications-schneider-electric-learnership-program-2026-07-14.html",
@@ -1124,7 +1133,7 @@
       "href": "https://fi.co/s/lagos",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (14)",
+      "reason": "programme page with application signals (13)",
       "finalUrl": "https://fi.co/s/lagos"
     },
     {
@@ -1300,9 +1309,9 @@
       "slug": "opportunity-novastar-ventures-2026-07-28",
       "title": "Novastar Ventures",
       "href": "https://novastarventures.com",
-      "ok": false,
-      "definitive": false,
-      "reason": "page shows no application/eligibility/deadline signals",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
       "finalUrl": "https://www.novastarventures.com/"
     },
     {
@@ -1372,8 +1381,8 @@
       "href": "https://www.shell.com.ng/sustainability/communities/livewire.html",
       "ok": false,
       "definitive": false,
-      "reason": "page has almost no readable content (JS-only or blocked)",
-      "finalUrl": "https://www.shell.com.ng/sustainability/communities.html#vanity-aHR0cHM6Ly93d3cuc2hlbGwuY29tLm5nL3N1c3RhaW5hYmlsaXR5L2NvbW11bml0aWVzL2xpdmV3aXJlLmh0bWw"
+      "reason": "HTTP 403 (could not confirm)",
+      "finalUrl": "https://www.shell.com.ng/sustainability/communities/livewire.html"
     },
     {
       "file": "opportunity-smedan-bryne-building-resilient-young-nigerian-entrepreneurs-2026-08-19.html",
@@ -1454,6 +1463,16 @@
       "definitive": true,
       "reason": "programme page with application signals (7)",
       "finalUrl": "https://recruitment.digitalent.go.ke/"
+    },
+    {
+      "file": "opportunity-the-ilo-better-regional-migration-management-brmm-programme--2026-11-05.html",
+      "slug": "opportunity-the-ilo-better-regional-migration-management-brmm-programme--2026-11-05",
+      "title": "The ILO Better Regional Migration Management (BRMM) Programme University Essay Writing Competition 2026 (Fully Funded to Fifth LMAG in Zanzibar)",
+      "href": "https://www.ilo.org/resource/news/ilo-launches-three-writing-competitions-safe-labour-migration-east-and-horn",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (2)",
+      "finalUrl": "https://www.ilo.org/resource/news/ilo-launches-three-writing-competitions-safe-labour-migration-east-and-horn"
     },
     {
       "file": "opportunity-the-international-journalists-programmes-ijp-southern-africa-2026-11-02.html",
@@ -1682,7 +1701,7 @@
       "href": "https://www.ycombinator.com/apply",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (26)",
+      "reason": "programme page with application signals (24)",
       "finalUrl": "https://www.ycombinator.com/apply"
     }
   ]
