@@ -1,26 +1,48 @@
 {
-  "generated": "2026-11-05T13:56:34.981Z",
-  "rotationSeed": 20261105,
+  "generated": "2026-11-12T14:34:06.584Z",
+  "rotationSeed": 20261112,
   "newWindowDays": 10,
   "counts": {
-    "total": 161,
-    "new": 14,
-    "closing": 19,
-    "evergreen": 83,
-    "recurring": 39,
+    "total": 164,
+    "new": 10,
+    "closing": 18,
+    "evergreen": 86,
+    "recurring": 44,
     "archived": 6
   },
   "ticker": [
     {
-      "title": "Call for Applications: AfDB Opens HEI Innovation and Entrepreneurship Programme Phase II for African Universities and Research Centres",
-      "href": "opportunity-call-for-applications-afdb-opens-hei-innovation-and-entrepre-2026-11-05.html",
-      "deadline": "November 9, 2026",
-      "closes": "2026-11-09",
-      "added": "2026-11-05",
+      "title": "Call For Applications: TRISEG Export Support Programme 2026 For Nigerian SMEs",
+      "href": "opportunity-call-for-applications-triseg-export-support-programme-2026-f-2026-11-12.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-11-12",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Fidelity Bank Offers SMEs Access to Affordable Loans at 10–16%: How Businesses Can Benefit",
+      "href": "opportunity-fidelity-bank-offers-smes-access-to-affordable-loans-at-10-1-2026-11-12.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-12",
       "tier": 1,
       "isNew": true,
       "closed": false,
       "recurring": false
+    },
+    {
+      "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
+      "href": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12.html",
+      "deadline": "January 17, 2027",
+      "closes": "2027-01-17",
+      "added": "2026-11-12",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
     },
     {
       "title": "Call for Applications: SAIS Livestock Investment Readiness Program 2027 Offers African Start-ups (Up to €15,000 in Funding)",
@@ -83,83 +105,6 @@
       "deadline": "November 24, 2026",
       "closes": "2026-11-24",
       "added": "2026-11-02",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
-      "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
-      "deadline": "January 31, 2027",
-      "closes": "2027-01-31",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
-      "href": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29.html",
-      "deadline": "December 15, 2026",
-      "closes": "2026-12-15",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for ProMoat Capital’s ₦1 Million Business Grant",
-      "href": "opportunity-apply-for-promoat-capital-s-1-million-business-grant-2026-10-29.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Apply for Renewed Hope Ward Development Programme in Kano",
-      "href": "opportunity-apply-for-renewed-hope-ward-development-programme-in-kano-2026-10-29.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The UN DPoA Mid-Term Review Journalism Fellowship 2027 for journalists from Least Developed Countries (Fully Funded to Doha, Qatar)",
-      "href": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The UNDP Africa Young Innovates Programme 2026/2027 for young Nigerian Innovators",
-      "href": "opportunity-the-undp-africa-young-innovates-programme-2026-2027-for-youn-2026-10-29.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for TBH MSME Pitchaton 2026: Up to ₦10m Grant and Loan for Your Business",
-      "href": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-26",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -168,6 +113,39 @@
   ],
   "latest": [
     {
+      "title": "Call For Applications: TRISEG Export Support Programme 2026 For Nigerian SMEs",
+      "href": "opportunity-call-for-applications-triseg-export-support-programme-2026-f-2026-11-12.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-11-12",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Fidelity Bank Offers SMEs Access to Affordable Loans at 10–16%: How Businesses Can Benefit",
+      "href": "opportunity-fidelity-bank-offers-smes-access-to-affordable-loans-at-10-1-2026-11-12.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-12",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
+      "href": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12.html",
+      "deadline": "January 17, 2027",
+      "closes": "2027-01-17",
+      "added": "2026-11-12",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: AfDB Opens HEI Innovation and Entrepreneurship Programme Phase II for African Universities and Research Centres",
       "href": "opportunity-call-for-applications-afdb-opens-hei-innovation-and-entrepre-2026-11-05.html",
       "deadline": "November 9, 2026",
@@ -175,7 +153,7 @@
       "added": "2026-11-05",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": false
     },
     {
@@ -239,61 +217,6 @@
       "deadline": "November 24, 2026",
       "closes": "2026-11-24",
       "added": "2026-11-02",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
-      "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
-      "deadline": "January 31, 2027",
-      "closes": "2027-01-31",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
-      "href": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29.html",
-      "deadline": "December 15, 2026",
-      "closes": "2026-12-15",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for ProMoat Capital’s ₦1 Million Business Grant",
-      "href": "opportunity-apply-for-promoat-capital-s-1-million-business-grant-2026-10-29.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Apply for Renewed Hope Ward Development Programme in Kano",
-      "href": "opportunity-apply-for-renewed-hope-ward-development-programme-in-kano-2026-10-29.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The UN DPoA Mid-Term Review Journalism Fellowship 2027 for journalists from Least Developed Countries (Fully Funded to Doha, Qatar)",
-      "href": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-29",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -302,6 +225,39 @@
   ],
   "items": [
     {
+      "title": "Call For Applications: TRISEG Export Support Programme 2026 For Nigerian SMEs",
+      "href": "opportunity-call-for-applications-triseg-export-support-programme-2026-f-2026-11-12.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-11-12",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Fidelity Bank Offers SMEs Access to Affordable Loans at 10–16%: How Businesses Can Benefit",
+      "href": "opportunity-fidelity-bank-offers-smes-access-to-affordable-loans-at-10-1-2026-11-12.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-12",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
+      "href": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12.html",
+      "deadline": "January 17, 2027",
+      "closes": "2027-01-17",
+      "added": "2026-11-12",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: AfDB Opens HEI Innovation and Entrepreneurship Programme Phase II for African Universities and Research Centres",
       "href": "opportunity-call-for-applications-afdb-opens-hei-innovation-and-entrepre-2026-11-05.html",
       "deadline": "November 9, 2026",
@@ -309,7 +265,7 @@
       "added": "2026-11-05",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": false
     },
     {
@@ -375,138 +331,6 @@
       "added": "2026-11-02",
       "tier": 1,
       "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
-      "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
-      "deadline": "January 31, 2027",
-      "closes": "2027-01-31",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
-      "href": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29.html",
-      "deadline": "December 15, 2026",
-      "closes": "2026-12-15",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for ProMoat Capital’s ₦1 Million Business Grant",
-      "href": "opportunity-apply-for-promoat-capital-s-1-million-business-grant-2026-10-29.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Apply for Renewed Hope Ward Development Programme in Kano",
-      "href": "opportunity-apply-for-renewed-hope-ward-development-programme-in-kano-2026-10-29.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The UN DPoA Mid-Term Review Journalism Fellowship 2027 for journalists from Least Developed Countries (Fully Funded to Doha, Qatar)",
-      "href": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The UNDP Africa Young Innovates Programme 2026/2027 for young Nigerian Innovators",
-      "href": "opportunity-the-undp-africa-young-innovates-programme-2026-2027-for-youn-2026-10-29.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-29",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Apply for TBH MSME Pitchaton 2026: Up to ₦10m Grant and Loan for Your Business",
-      "href": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-10-26",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
-      "href": "opportunity-the-st-gallen-symposium-global-leadership-challenge-2026-for-2026-09-29.html",
-      "deadline": "November 5, 2026",
-      "closes": "2026-11-05",
-      "added": "2026-09-29",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
-      "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
-      "deadline": "November 6, 2026",
-      "closes": "2026-11-06",
-      "added": "2026-10-19",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Changemakers for Youth Programme 2027 | Travel Stipend Available",
-      "href": "opportunity-call-for-applications-changemakers-for-youth-programme-2027--2026-10-15.html",
-      "deadline": "November 9, 2026",
-      "closes": "2026-11-09",
-      "added": "2026-10-15",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
-      "href": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
-      "deadline": "November 10, 2026",
-      "closes": "2026-11-10",
-      "added": "2026-09-29",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Dalai Lama Fellowship Programme 2027 for emerging changemakers (Fully Funded to Contemplative Leadership Assembly)",
-      "href": "opportunity-dalai-lama-fellowship-programme-2027-for-emerging-changemake-2026-10-01.html",
-      "deadline": "November 11, 2026",
-      "closes": "2026-11-11",
-      "added": "2026-10-01",
-      "tier": 2,
-      "isNew": false,
       "closed": false,
       "recurring": true
     },
@@ -610,6 +434,28 @@
       "recurring": true
     },
     {
+      "title": "Apply for ProMoat Capital’s ₦1 Million Business Grant",
+      "href": "opportunity-apply-for-promoat-capital-s-1-million-business-grant-2026-10-29.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-29",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The UN DPoA Mid-Term Review Journalism Fellowship 2027 for journalists from Least Developed Countries (Fully Funded to Doha, Qatar)",
+      "href": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-10-29",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "The 2027 Jim Leech Mastercard Foundation Fellowship on Entrepreneurship for young African students & recent graduates.",
       "href": "opportunity-the-2027-jim-leech-mastercard-foundation-fellowship-on-entre-2026-09-28.html",
       "deadline": "December 1, 2026",
@@ -643,6 +489,17 @@
       "recurring": false
     },
     {
+      "title": "Call for Applications: Learnstar Startup Challenge 2027 Offers ₦1.5 Million to Entrepreneurs",
+      "href": "opportunity-call-for-applications-learnstar-startup-challenge-2027-offer-2026-10-29.html",
+      "deadline": "December 15, 2026",
+      "closes": "2026-12-15",
+      "added": "2026-10-29",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
       "href": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19.html",
       "deadline": "December 18, 2026",
@@ -660,6 +517,50 @@
       "closes": "2027-01-31",
       "added": "2026-09-28",
       "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Carnegie Challenge for Civic Leadership 2026/2027 Offers Up to $5,000",
+      "href": "opportunity-call-for-applications-carnegie-challenge-for-civic-leadershi-2026-10-29.html",
+      "deadline": "January 31, 2027",
+      "closes": "2027-01-31",
+      "added": "2026-10-29",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for Renewed Hope Ward Development Programme in Kano",
+      "href": "opportunity-apply-for-renewed-hope-ward-development-programme-in-kano-2026-10-29.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-29",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The UNDP Africa Young Innovates Programme 2026/2027 for young Nigerian Innovators",
+      "href": "opportunity-the-undp-africa-young-innovates-programme-2026-2027-for-youn-2026-10-29.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-29",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Apply for TBH MSME Pitchaton 2026: Up to ₦10m Grant and Loan for Your Business",
+      "href": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-10-26",
+      "tier": 3,
       "isNew": false,
       "closed": false,
       "recurring": true
@@ -1578,44 +1479,66 @@
       "recurring": false
     },
     {
+      "title": "Dalai Lama Fellowship Programme 2027 for emerging changemakers (Fully Funded to Contemplative Leadership Assembly)",
+      "href": "opportunity-dalai-lama-fellowship-programme-2027-for-emerging-changemake-2026-10-01.html",
+      "deadline": "November 11, 2026",
+      "closes": "2026-11-11",
+      "added": "2026-10-01",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
+      "href": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
+      "deadline": "November 10, 2026",
+      "closes": "2026-11-10",
+      "added": "2026-09-29",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Call for Applications: Changemakers for Youth Programme 2027 | Travel Stipend Available",
+      "href": "opportunity-call-for-applications-changemakers-for-youth-programme-2027--2026-10-15.html",
+      "deadline": "November 9, 2026",
+      "closes": "2026-11-09",
+      "added": "2026-10-15",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "Call For Applications: Africa Jobs Fund × SDRB Somalia Business Plan Competition 2026 | Win $20,000",
+      "href": "opportunity-call-for-applications-africa-jobs-fund-sdrb-somalia-business-2026-10-19.html",
+      "deadline": "November 6, 2026",
+      "closes": "2026-11-06",
+      "added": "2026-10-19",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
+      "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
+      "href": "opportunity-the-st-gallen-symposium-global-leadership-challenge-2026-for-2026-09-29.html",
+      "deadline": "November 5, 2026",
+      "closes": "2026-11-05",
+      "added": "2026-09-29",
+      "tier": 4,
+      "isNew": false,
+      "closed": true,
+      "recurring": true
+    },
+    {
       "title": "Blaze by Ecobank InnovateX 2026 — ₦20 million prize pool",
       "href": "opportunity-blaze-ecobank-innovatex-2026-2026-09-09.html",
       "deadline": "None published — register now, finale is 30 October 2026",
       "closes": "2026-10-30",
       "added": "2026-09-09",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: African Female Artist Mentorship Program 2026–2027",
-      "href": "opportunity-call-for-applications-african-female-artist-mentorship-progr-2026-09-21.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-09-21",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "The WIPO Global Innovation Index Fellowship 2027 for international research (6,000 CHF monthly stipend and funded to Geneva, Switzerland)",
-      "href": "opportunity-the-wipo-global-innovation-index-fellowship-2027-for-interna-2026-10-22.html",
-      "deadline": "October 30, 2026",
-      "closes": "2026-10-30",
-      "added": "2026-10-22",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: Commonwealth Foundation Grants Programme 2026",
-      "href": "opportunity-call-for-applications-commonwealth-foundation-grants-program-2026-09-28.html",
-      "deadline": "October 26, 2026",
-      "closes": "2026-10-26",
-      "added": "2026-09-28",
       "tier": 4,
       "isNew": false,
       "closed": true,

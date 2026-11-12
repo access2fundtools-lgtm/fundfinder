@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-05T13:56:32.356Z",
+  "ranAt": "2026-11-12T14:34:04.221Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -148,7 +148,7 @@
       "href": "https://www.promoatcapital.com/drawbridge-grant#apply",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (22)",
+      "reason": "programme page with application signals (27)",
       "finalUrl": "https://www.promoatcapital.com/drawbridge-grant#apply"
     },
     {
@@ -168,7 +168,7 @@
       "href": "https://conference.smedan.gov.ng/pitch",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (9)",
+      "reason": "programme page with application signals (1)",
       "finalUrl": "https://conference.smedan.gov.ng/pitch"
     },
     {
@@ -343,9 +343,10 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
@@ -551,9 +552,9 @@
       "slug": "opportunity-call-for-applications-digital-entrepreneurship-training-and--2026-08-13",
       "title": "Call For Applications: Digital Entrepreneurship Training and Business Support Programme for Women and Girls in Northern Nigeria",
       "href": "https://citad.org.ng/agenda-winnig-digital-entrepreneurship-training/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (3)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://citad.org.ng/agenda-winnig-digital-entrepreneurship-training/"
     },
     {
@@ -593,7 +594,7 @@
       "href": "https://www.faceofagriculture.com",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (4)",
+      "reason": "programme page with application signals (2)",
       "finalUrl": "https://www.faceofagriculture.com"
     },
     {
@@ -937,6 +938,16 @@
       "finalUrl": "https://sustain.lenvor.net/"
     },
     {
+      "file": "opportunity-call-for-applications-triseg-export-support-programme-2026-f-2026-11-12.html",
+      "slug": "opportunity-call-for-applications-triseg-export-support-programme-2026-f-2026-11-12",
+      "title": "Call For Applications: TRISEG Export Support Programme 2026 For Nigerian SMEs",
+      "href": "https://ee-eu.kobotoolbox.org/single/1qdcnMDz",
+      "ok": true,
+      "definitive": true,
+      "reason": "application form (ee-eu.kobotoolbox.org)",
+      "finalUrl": "https://ee-eu.kobotoolbox.org/single/1qdcnMDz"
+    },
+    {
       "file": "opportunity-call-for-applications-undp-africa-timbuktoo-pan-african-incu-2026-07-14.html",
       "slug": "opportunity-call-for-applications-undp-africa-timbuktoo-pan-african-incu-2026-07-14",
       "title": "Call For Applications: UNDP Africa Timbuktoo Pan-African Incubation Programme 2026 for EdTech Startups",
@@ -1117,6 +1128,16 @@
       "finalUrl": "https://www.svcg.education.gov.ng/authentication/students-signup"
     },
     {
+      "file": "opportunity-fidelity-bank-offers-smes-access-to-affordable-loans-at-10-1-2026-11-12.html",
+      "slug": "opportunity-fidelity-bank-offers-smes-access-to-affordable-loans-at-10-1-2026-11-12",
+      "title": "Fidelity Bank Offers SMEs Access to Affordable Loans at 10–16%: How Businesses Can Benefit",
+      "href": "https://www.fidelitybank.ng/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (9)",
+      "finalUrl": "https://www.fidelitybank.ng/"
+    },
+    {
       "file": "opportunity-firstcheck-africa-2026-07-28.html",
       "slug": "opportunity-firstcheck-africa-2026-07-28",
       "title": "FirstCheck Africa",
@@ -1133,7 +1154,7 @@
       "href": "https://fi.co/s/lagos",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (13)",
+      "reason": "programme page with application signals (14)",
       "finalUrl": "https://fi.co/s/lagos"
     },
     {
@@ -1381,8 +1402,8 @@
       "href": "https://www.shell.com.ng/sustainability/communities/livewire.html",
       "ok": false,
       "definitive": false,
-      "reason": "HTTP 403 (could not confirm)",
-      "finalUrl": "https://www.shell.com.ng/sustainability/communities/livewire.html"
+      "reason": "page has almost no readable content (JS-only or blocked)",
+      "finalUrl": "https://www.shell.com.ng/sustainability/communities.html#vanity-aHR0cHM6Ly93d3cuc2hlbGwuY29tLm5nL3N1c3RhaW5hYmlsaXR5L2NvbW11bml0aWVzL2xpdmV3aXJlLmh0bWw"
     },
     {
       "file": "opportunity-smedan-bryne-building-resilient-young-nigerian-entrepreneurs-2026-08-19.html",
@@ -1455,6 +1476,16 @@
       "finalUrl": "https://anzisha.org/fellowship/"
     },
     {
+      "file": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12.html",
+      "slug": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12",
+      "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
+      "href": "https://cega.berkeley.edu/article/cega-fellowship-program-2027-2028-request-for-applications/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (28)",
+      "finalUrl": "https://cega.berkeley.edu/article/cega-fellowship-program-2027-2028-request-for-applications/"
+    },
+    {
       "file": "opportunity-the-government-of-kenya-presidential-digital-talent-programm-2026-08-24.html",
       "slug": "opportunity-the-government-of-kenya-presidential-digital-talent-programm-2026-08-24",
       "title": "The Government of Kenya Presidential Digital Talent Programme Cohort XI (12 Month ICT Program for Kenyan Graduates).",
@@ -1501,7 +1532,7 @@
       "href": "https://jsk.stanford.edu/become-a-fellow",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (12)",
+      "reason": "programme page with application signals (13)",
       "finalUrl": "https://jsk.stanford.edu/become-a-fellow"
     },
     {
@@ -1549,9 +1580,9 @@
       "slug": "opportunity-the-st-gallen-symposium-global-leadership-challenge-2026-for-2026-09-29",
       "title": "The St Gallen Symposium Global Leadership Challenge 2026 for emerging young Leaders (Fully Funded)",
       "href": "https://www.leadership-challenge.org/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (7)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page says applications are closed",
       "finalUrl": "https://www.leadership-challenge.org/"
     },
     {
