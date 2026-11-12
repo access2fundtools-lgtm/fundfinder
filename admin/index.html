@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OneUp Admin | Send notification</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>.wrap{max-width:640px;margin:0 auto;padding:40px 20px 80px}.res{margin-top:16px;padding:14px;border-radius:12px;background:rgba(201,168,76,.1);font-size:14px;display:none;white-space:pre-wrap}.hide{display:none}table{font-size:13px}</style>
+</head>
+<body>
+<div class="wrap">
+  <img src="/assets/logo-light.png" alt="OneUp" width="120" height="68" />
+  <h1 style="font-size:30px;margin:18px 0 4px">Send a notification</h1>
+  <p class="small" style="opacity:.7">Admin only. Arrives on members' phones even when the app is closed.</p>
+
+  <div id="login" class="form-wrap">
+    <label for="pw">Admin password</label>
+    <input id="pw" type="password" autocomplete="current-password" />
+    <button class="btn btn-gold" id="loginBtn" type="button">Open</button>
+    <div class="res" id="loginRes"></div>
+  </div>
+
+  <div id="panel" class="hide">
+    <p id="stats" style="margin-top:18px;opacity:.85"></p>
+    <form class="form-wrap" id="sendForm">
+      <label for="title">Title (max 60)</label>
+      <input id="title" maxlength="60" required placeholder="New class dates in Ibadan" />
+      <label for="body">Message (max 180)</label>
+      <textarea id="body" maxlength="180" rows="3" required placeholder="Tap to see dates and book your seat."></textarea>
+      <label for="url">Link when tapped</label>
+      <input id="url" value="/" placeholder="/ or /iruneko/ or https://..." />
+      <label for="target">Send to</label>
+      <select id="target"><option value="all">Everyone</option><option value="city">One city</option><option value="track">One track</option></select>
+      <div id="cityBox" class="hide"><label for="city">City (matches inside "city / state")</label><input id="city" placeholder="Ibadan" /></div>
+      <div id="trackBox" class="hide"><label for="track">Track</label><select id="track"><option value="sell">Sellers</option><option value="install">Stylists (install)</option></select></div>
+      <button class="btn btn-gold" type="submit" id="sendBtn">Send now</button>
+      <div class="res" id="sendRes"></div>
+    </form>
+    <h3 style="margin-top:30px;font-size:20px">Recent</h3>
+    <table><thead><tr><th>When</th><th>Title</th><th>To</th><th>Sent</th></tr></thead><tbody id="recent"></tbody></table>
+
+    <details style="margin-top:34px"><summary style="cursor:pointer;opacity:.8">One-time setup: generate push keys</summary>
+      <p class="small" style="opacity:.8">Run once. Copy the public key into Cloudflare as <b>VAPID_PUBLIC_KEY</b> and the private key as the secret <b>VAPID_PRIVATE_JWK</b>. Keys are made in this browser and are not sent anywhere.</p>
+      <button class="btn btn-line" type="button" id="genBtn">Generate keys</button>
+      <label>VAPID_PUBLIC_KEY</label><textarea id="pub" rows="2" readonly></textarea>
+      <label>VAPID_PRIVATE_JWK (secret)</label><textarea id="priv" rows="4" readonly></textarea>
+    </details>
+  </div>
+</div>
+<script>
+(function(){
+  const $=s=>document.querySelector(s); let key='';
+  const api=(path,opt={})=>fetch(path,Object.assign({},opt,{headers:Object.assign({'Content-Type':'application/json','x-admin-key':key},opt.headers||{})})).then(async r=>({ok:r.ok,body:await r.json().catch(()=>({}))}));
+  async function load(){ const r=await api('/api/push/stats'); if(!r.ok) return false;
+    $('#stats').textContent=`Devices with notifications on: ${r.body.active_devices}`;
+    $('#recent').innerHTML=r.body.recent.map(n=>`<tr><td>${new Date(n.created_at).toLocaleString('en-NG')}</td><td>${n.title.replace(/</g,'&lt;')}</td><td>${n.target}${n.target_value?': '+n.target_value:''}</td><td>${n.sent_count} ✓ / ${n.failed_count} ✗</td></tr>`).join('');
+    return true; }
+  $('#loginBtn').onclick=async()=>{ key=$('#pw').value; if(await load()){ $('#login').classList.add('hide'); $('#panel').classList.remove('hide'); } else { $('#loginRes').style.display='block'; $('#loginRes').textContent='Wrong password.'; } };
+  $('#target').onchange=()=>{ $('#cityBox').classList.toggle('hide',$('#target').value!=='city'); $('#trackBox').classList.toggle('hide',$('#target').value!=='track'); };
+  $('#sendForm').onsubmit=async e=>{ e.preventDefault(); const t=$('#target').value;
+    if(!confirm('Send this notification now?')) return;
+    $('#sendBtn').disabled=true;
+    const r=await api('/api/push/send',{method:'POST',body:JSON.stringify({title:$('#title').value,body:$('#body').value,url:$('#url').value,target:t,target_value:t==='city'?$('#city').value:t==='track'?$('#track').value:null})});
+    $('#sendBtn').disabled=false; $('#sendRes').style.display='block';
+    $('#sendRes').textContent=r.ok?`Sent to ${r.body.sent} of ${r.body.targeted} devices. Failed: ${r.body.failed}. Expired removed: ${r.body.expired_removed}.`:(r.body.error||'Failed.');
+    load(); };
+  $('#genBtn').onclick=async()=>{ const kp=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify']);
+    const raw=new Uint8Array(await crypto.subtle.exportKey('raw',kp.publicKey));
+    $('#pub').value=btoa(String.fromCharCode(...raw)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    const jwk=await crypto.subtle.exportKey('jwk',kp.privateKey); $('#priv').value=JSON.stringify({kty:jwk.kty,crv:jwk.crv,d:jwk.d,x:jwk.x,y:jwk.y}); };
+})();
+</script>
+</body>
+</html>

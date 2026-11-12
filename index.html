@@ -1,567 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>if(location.hostname==='opportunities.a2fpartners.com')location.replace('https://fundfinder.ng'+location.pathname+location.search);</script>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grants, Loans & Accelerators for Nigerian Businesses | FundFinder AI</title>
-<meta name="description" content="Discover grants, loans, accelerators and empowerment programs open to Nigerian entrepreneurs. AI-powered matching. Free daily alerts. Apply smarter.">
-<meta property="og:title" content="Grants, Loans & Accelerators for Nigerian Businesses | FundFinder AI">
-<meta property="og:description" content="Find the right funding for your Nigerian business. AI-powered grant matching, daily alerts, and smart application support.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg: #080808; --surface: #111; --surface2: #181818; --surface3: #222;
-  --border: rgba(255,255,255,0.08); --text: #f0f0f0;
-  --muted: rgba(255,255,255,0.5); --hint: rgba(255,255,255,0.28);
-  --gold: #FFD700; --gold-dim: rgba(255,215,0,0.1); --gold-border: rgba(255,215,0,0.25);
-  --green: #22c55e; --green-dim: rgba(34,197,94,0.1);
-}
-html { scroll-behavior: smooth; }
-body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5; }
-
-/* NAV */
-nav {
-  position: sticky; top: 0; z-index: 200;
-  background: rgba(8,8,8,0.95); backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px;
-}
-.nav-logo { font-size: 22px; font-weight: 900; letter-spacing: 1px; text-decoration: none; color: var(--text); }
-.nav-logo span { color: var(--gold); }
-.nav-links { display: flex; align-items: center; gap: 8px; }
-.nav-link { color: var(--muted); font-size: 14px; font-weight: 500; text-decoration: none; padding: 7px 14px; border-radius: 8px; transition: color 0.2s; }
-.nav-link:hover { color: var(--text); }
-.nav-cta { background: var(--gold); color: #000; font-size: 14px; font-weight: 900; padding: 9px 20px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; }
-.nav-cta:hover { opacity: 0.85; }
-.nav-login { color: var(--gold); font-size: 14px; font-weight: 700; text-decoration: none; padding: 9px 16px; }
-
-/* TICKER */
-.ticker-wrap { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 12px 0; position: relative; }
-/* 50s was roughly three times too fast to read a headline, let alone aim at
-   one. 180s is a walking pace you can actually track with your eye. */
-.ticker { display: flex; gap: 48px; animation: scroll 180s linear infinite; width: max-content; }
-/* Stop on hover or keyboard focus so a moving target can be clicked. */
-.ticker-wrap:hover .ticker,
-.ticker-wrap:focus-within .ticker { animation-play-state: paused; }
-.ticker-item { font-size: 13px; color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 8px; text-decoration: none; transition: color .15s ease; }
-a.ticker-item:hover, a.ticker-item:focus-visible { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
-a.ticker-item:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
-.ticker-item .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-.ticker-item .tick-deadline { opacity: .72; }
-/* Motion is decorative here; anyone who has asked the OS to stop it gets a
-   static, still-readable, still-clickable strip. */
-@media (prefers-reduced-motion: reduce) {
-  .ticker-wrap { overflow-x: auto; }
-  .ticker { animation: none; width: max-content; padding: 0 16px; scrollbar-width: thin; }
-}
-
-/* TOUCH DEVICES — the important one for mobile.
-   :hover does not exist on a phone, so pause-on-hover cannot help there and an
-   auto-scrolling strip stays an un-tappable moving target. On coarse pointers
-   we therefore drop the animation entirely and hand the user a swipeable strip:
-   they control the speed, and a stationary link can actually be hit. Tap
-   targets are also grown to a sane size — 13px text in a 12px-tall row is not
-   a touch target. */
-@media (hover: none), (pointer: coarse) {
-  .ticker-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; scrollbar-width: none; padding: 6px 0; }
-  .ticker-wrap::-webkit-scrollbar { display: none; }
-  .ticker { animation: none; width: max-content; gap: 28px; padding: 0 16px; }
-  .ticker-item { font-size: 14px; padding: 10px 2px; scroll-snap-align: start; }
-}
-
-/* On smaller desktop widths the same duration covers less screen, so it reads
-   faster than it does on a wide monitor. Give it more time. */
-@media (max-width: 900px) {
-  .ticker { animation-duration: 260s; }
-}
-.dot-green { background: var(--green); } .dot-gold { background: var(--gold); }
-@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-/* JUST ADDED */
-.just-added { border-bottom: 1px solid var(--border); background: var(--surface); padding: 40px 32px; }
-.ja-inner { max-width: 1100px; margin: 0 auto; }
-.ja-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
-.ja-title { font-size: clamp(22px, 3vw, 30px); font-weight: 900; letter-spacing: -0.5px; }
-.ja-all { color: var(--gold); font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; }
-.ja-all:hover { text-decoration: underline; }
-.ja-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-.ja-card { display: block; background: var(--surface2); border: 1px solid var(--border); border-radius: 14px; padding: 18px; text-decoration: none; color: var(--text); transition: border-color .2s, transform .2s; }
-.ja-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
-.ja-tags { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
-.ja-tag { font-size: 11px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; }
-.ja-tag-new { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
-.ja-tag-open { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
-.ja-tag-closed { background: rgba(255,255,255,0.06); color: var(--hint); border: 1px solid var(--border); }
-.ja-name { font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 10px; }
-.ja-meta { font-size: 12.5px; color: var(--muted); }
-
-/* HERO */
-.hero { padding: 100px 32px 80px; text-align: center; position: relative; overflow: hidden; }
-.hero::before {
-  content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
-  width: 800px; height: 600px;
-  background: radial-gradient(ellipse at center, rgba(255,215,0,0.07) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--gold-dim); border: 1px solid var(--gold-border);
-  color: var(--gold); font-size: 13px; font-weight: 700;
-  padding: 7px 16px; border-radius: 50px; margin-bottom: 28px; letter-spacing: 0.5px;
-}
-.hero-badge .dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: blink 1.4s infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-h1 { font-size: clamp(36px, 6vw, 72px); font-weight: 900; line-height: 1.1; letter-spacing: -2px; max-width: 900px; margin: 0 auto 24px; }
-h1 .gold { color: var(--gold); }
-.hero-sub { font-size: clamp(16px, 2vw, 20px); color: var(--muted); max-width: 580px; margin: 0 auto 40px; line-height: 1.6; }
-.hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--gold); color: #000; font-size: 16px; font-weight: 900;
-  padding: 16px 32px; border-radius: 10px; text-decoration: none;
-  transition: transform 0.2s, opacity 0.2s; box-shadow: 0 8px 32px rgba(255,215,0,0.25);
-}
-.btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
-.btn-secondary {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: transparent; border: 1px solid var(--gold-border);
-  color: var(--gold); font-size: 16px; font-weight: 700;
-  padding: 16px 28px; border-radius: 10px; text-decoration: none; transition: all 0.2s;
-}
-.btn-secondary:hover { background: var(--gold-dim); border-color: rgba(255,215,0,0.5); }
-
-/* STATS BAR */
-.stats-bar { display: flex; justify-content: center; flex-wrap: wrap; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
-.stat { flex: 1; min-width: 160px; max-width: 240px; padding: 28px 24px; text-align: center; border-right: 1px solid var(--border); }
-.stat:last-child { border-right: none; }
-.stat-num { font-size: 36px; font-weight: 900; color: var(--gold); }
-.stat-lbl { font-size: 13px; color: var(--muted); margin-top: 4px; font-weight: 500; }
-
-/* SECTION */
-.section { padding: 80px 32px; max-width: 1100px; margin: 0 auto; }
-.section-label { font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
-.section-title { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; }
-.section-sub { font-size: 17px; color: var(--muted); max-width: 560px; line-height: 1.6; margin-bottom: 48px; }
-
-/* STEPS */
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-.step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; transition: border-color 0.2s, transform 0.2s; }
-.step:hover { border-color: var(--gold-border); transform: translateY(-4px); }
-.step-num { width: 44px; height: 44px; background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: var(--gold); margin-bottom: 18px; }
-.step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-.step p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-
-/* FEATURES */
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.2s; }
-.feature-card:hover { border-color: var(--gold-border); }
-.feature-icon { font-size: 32px; margin-bottom: 16px; }
-.feature-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-.feature-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-.feature-badge { display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; }
-.badge-free { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
-.badge-pro { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
-
-/* FOR WHOM */
-.for-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-.for-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; }
-.for-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-.for-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-.for-icon { font-size: 28px; margin-bottom: 12px; }
-
-/* PRICING */
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; max-width: 960px; }
-.pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; text-align: center; position: relative; transition: all 0.2s; }
-.pricing-card.popular { border-color: var(--gold-border); background: linear-gradient(145deg, rgba(255,215,0,0.05) 0%, var(--surface) 100%); }
-.popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 11px; font-weight: 900; padding: 4px 14px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
-.pricing-name { font-size: 14px; font-weight: 700; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
-.pricing-price { font-size: 36px; font-weight: 900; margin-bottom: 4px; }
-.pricing-credits { font-size: 14px; color: var(--gold); font-weight: 700; margin-bottom: 20px; }
-.pricing-feature { font-size: 13px; color: var(--muted); margin-bottom: 8px; text-align: left; }
-.pricing-cta { display: block; margin-top: 24px; background: var(--gold); color: #000; font-size: 14px; font-weight: 900; padding: 12px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; }
-.pricing-cta:hover { opacity: 0.85; }
-.pricing-cta.outline { background: transparent; color: var(--gold); border: 1px solid var(--gold-border); }
-.pricing-cta.outline:hover { background: var(--gold-dim); }
-
-/* TESTIMONIALS */
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.testimonial { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
-.testimonial-text { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 20px; }
-.testimonial-text::before { content: '\201C'; color: var(--gold); font-size: 28px; line-height: 0; vertical-align: -0.5em; margin-right: 4px; }
-.testimonial-text::after { content: '\201D'; color: var(--gold); font-size: 28px; line-height: 0; vertical-align: -0.5em; margin-left: 4px; }
-.testimonial-author { display: flex; align-items: center; gap: 12px; }
-.avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--gold-dim); border: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: center; font-size: 18px; }
-.author-name { font-size: 14px; font-weight: 700; }
-.author-role { font-size: 12px; color: var(--muted); }
-
-/* CTA SECTION */
-.cta-section { padding: 80px 32px; text-align: center; position: relative; }
-.cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(255,215,0,0.06) 0%, transparent 65%); pointer-events: none; }
-.cta-card { background: var(--surface); border: 1px solid var(--gold-border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
-.cta-card h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.2; margin-bottom: 16px; }
-.cta-card p { font-size: 17px; color: var(--muted); margin-bottom: 36px; line-height: 1.6; }
-.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-/* FOOTER */
-footer { border-top: 1px solid var(--border); padding: 48px 32px 32px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; }
-.footer-brand .logo { font-size: 20px; font-weight: 900; margin-bottom: 10px; }
-.footer-brand .logo span { color: var(--gold); }
-.footer-brand p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-.footer-col a { display: block; font-size: 14px; color: var(--hint); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
-.footer-col a:hover { color: var(--text); }
-.footer-bottom { border-top: 1px solid var(--border); padding: 20px 32px; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-.footer-bottom p { font-size: 13px; color: var(--hint); }
-.footer-bottom a { color: var(--hint); text-decoration: none; }
-.footer-bottom a:hover { color: var(--gold); }
-
-@media (max-width: 768px) {
-  nav { padding: 0 16px; }
-  .nav-link { display: none; }
-  .hero { padding: 60px 16px 48px; }
-  .stats-bar { flex-direction: column; }
-  .stat { border-right: none; border-bottom: 1px solid var(--border); }
-  .section { padding: 48px 16px; }
-  footer { grid-template-columns: 1fr 1fr; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-}
-</style>
-<link rel="canonical" href="https://fundfinder.ng/">
-<meta property="og:url" content="https://fundfinder.ng/">
-<meta property="og:image" content="https://fundfinder.ng/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="FundFinder AI">
-<meta name="twitter:title" content="FundFinder AI — Funding Intelligence for Nigerian Businesses">
-<meta name="twitter:description" content="Discover grants, loans, accelerators and empowerment programs open to Nigerian entrepreneurs. AI-powered matching. Free daily alerts. Apply smarter.">
-<meta name="twitter:image" content="https://fundfinder.ng/og-image.png">
-<script type="application/ld+json">
-{"@context": "https://schema.org","@graph": [{"@type": "Organization","@id": "https://fundfinder.ng/#org","name": "A2F Partners Limited","alternateName": "FundFinder AI","url": "https://fundfinder.ng/","logo": "https://fundfinder.ng/og-image.png","email": "access2fundtools@gmail.com","areaServed": "NG","sameAs": ["https://www.linkedin.com/in/dayoakinofficial/","https://x.com/fundfinder_ai","https://www.facebook.com/fundfinderai/"],"description": "FundFinder AI helps Nigerian entrepreneurs, SMEs and farmers discover grants, loans, accelerators and empowerment programs they qualify for — matched to their profile and updated daily."},{"@context": "https://schema.org","@type": "WebSite","@id": "https://fundfinder.ng/#website","url": "https://fundfinder.ng/","name": "FundFinder AI","description": "Funding intelligence platform for Nigerian businesses — grants, loans, accelerators and agri funding, matched daily.","inLanguage": "en-NG","publisher": {"@id": "https://fundfinder.ng/#org"}}]}
-</script>
-<!-- Meta Pixel (FundFinder Web, ID 1407796214793701) -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1407796214793701');fbq('track','PageView');</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1407796214793701&ev=PageView&noscript=1"/></noscript>
-<!-- End Meta Pixel -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OneUp Admin | Send notification</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>.wrap{max-width:640px;margin:0 auto;padding:40px 20px 80px}.res{margin-top:16px;padding:14px;border-radius:12px;background:rgba(201,168,76,.1);font-size:14px;display:none;white-space:pre-wrap}.hide{display:none}table{font-size:13px}</style>
 </head>
 <body>
+<div class="wrap">
+  <img src="/assets/logo-light.png" alt="OneUp" width="120" height="68" />
+  <h1 style="font-size:30px;margin:18px 0 4px">Send a notification</h1>
+  <p class="small" style="opacity:.7">Admin only. Arrives on members' phones even when the app is closed.</p>
 
-<nav>
-  <a href="index.html" class="nav-logo">Fund<span>Finder</span> AI</a>
-  <div class="nav-links">
-    <a href="opportunity-hub.html" class="nav-link">Browse Opportunities</a>
-    <a href="guides.html" class="nav-link">Guides</a>
-    <a href="#features" class="nav-link">Features</a>
-    <a href="fundfinder-auth.html?mode=login" class="nav-login">Log In</a>
-    <a href="fundfinder-auth.html" class="nav-cta">Get Started Free &rarr;</a>
+  <div id="login" class="form-wrap">
+    <label for="pw">Admin password</label>
+    <input id="pw" type="password" autocomplete="current-password" />
+    <button class="btn btn-gold" id="loginBtn" type="button">Open</button>
+    <div class="res" id="loginRes"></div>
   </div>
-</nav>
 
-<div class="ticker-wrap" aria-label="Live funding opportunities">
-  <div class="ticker" id="ticker">
-    <!-- Populated at runtime from /data/ticker.json (built by scripts/gen-ticker.js
-         at the end of every scrape). The markup below is the no-JS / fetch-failed
-         fallback only — it is intentionally generic and carries no deadlines,
-         because a stale date is worse than no date. -->
-    <a class="ticker-item" href="/opportunity-hub.html"><span class="dot dot-green"></span>Live funding opportunities for Nigerian businesses &middot; Browse the hub</a>
-    <a class="ticker-item" href="/opportunity-hub.html"><span class="dot dot-green"></span>Grants, loans, accelerators and scholarships &middot; Updated twice a week</a>
-    <a class="ticker-item" href="/opportunity-hub.html"><span class="dot dot-green"></span>Live funding opportunities for Nigerian businesses &middot; Browse the hub</a>
-    <a class="ticker-item" href="/opportunity-hub.html"><span class="dot dot-green"></span>Grants, loans, accelerators and scholarships &middot; Updated twice a week</a>
-  </div>
-</div>
+  <div id="panel" class="hide">
+    <p id="stats" style="margin-top:18px;opacity:.85"></p>
+    <form class="form-wrap" id="sendForm">
+      <label for="title">Title (max 60)</label>
+      <input id="title" maxlength="60" required placeholder="New class dates in Ibadan" />
+      <label for="body">Message (max 180)</label>
+      <textarea id="body" maxlength="180" rows="3" required placeholder="Tap to see dates and book your seat."></textarea>
+      <label for="url">Link when tapped</label>
+      <input id="url" value="/" placeholder="/ or /iruneko/ or https://..." />
+      <label for="target">Send to</label>
+      <select id="target"><option value="all">Everyone</option><option value="city">One city</option><option value="track">One track</option></select>
+      <div id="cityBox" class="hide"><label for="city">City (matches inside "city / state")</label><input id="city" placeholder="Ibadan" /></div>
+      <div id="trackBox" class="hide"><label for="track">Track</label><select id="track"><option value="sell">Sellers</option><option value="install">Stylists (install)</option></select></div>
+      <button class="btn btn-gold" type="submit" id="sendBtn">Send now</button>
+      <div class="res" id="sendRes"></div>
+    </form>
+    <h3 style="margin-top:30px;font-size:20px">Recent</h3>
+    <table><thead><tr><th>When</th><th>Title</th><th>To</th><th>Sent</th></tr></thead><tbody id="recent"></tbody></table>
 
-<!-- JUST ADDED — newest listings from the most recent scrape runs, whatever the
-     deadline. Hidden entirely when the feed has nothing new, so the homepage
-     never shows an empty shelf. -->
-<section class="just-added" id="just-added" hidden>
-  <div class="ja-inner">
-    <div class="ja-head">
-      <div>
-        <div class="section-label">Just added</div>
-        <h2 class="ja-title">New this week</h2>
-      </div>
-      <a href="opportunity-hub.html" class="ja-all">See all opportunities &rarr;</a>
-    </div>
-    <div class="ja-grid" id="ja-grid"></div>
-  </div>
-</section>
-
-<section class="hero">
-  <div class="hero-badge"><span class="dot"></span>&#127475;&#127468; Built for Nigerian entrepreneurs &middot; Updated daily</div>
-  <h1>Find the <span class="gold">right funding</span><br>for your <span class="gold">Nigerian business</span></h1>
-  <p class="hero-sub">FundFinder AI scans hundreds of sources daily to surface grants, loans, accelerators and empowerment programs you actually qualify for &mdash; matched to your business profile.</p>
-  <div class="hero-ctas">
-    <a href="business-diagnostic.html" class="btn-primary">&#127919; Free Funding Diagnostic &mdash; 90 seconds</a>
-    <a href="opportunity-hub.html" class="btn-secondary">Browse Open Opportunities &rarr;</a>
-  </div>
-  <div style="display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap; color:var(--muted); font-size:13px;">
-    <span>&#10003; Free to join</span>
-    <span>&#10003; Daily email alerts</span>
-    <span>&#10003; AI-powered matching</span>
-    <span>&#10003; No commissions taken</span>
-  </div>
-</section>
-
-<div class="stats-bar">
-  <div class="stat"><div class="stat-num">22+</div><div class="stat-lbl">Opportunities Open Now</div></div>
-  <div class="stat"><div class="stat-num">$10M+</div><div class="stat-lbl">Value of Programmes Listed</div></div>
-  <div class="stat"><div class="stat-num">Daily</div><div class="stat-lbl">New Opportunities Added</div></div>
-  <div class="stat"><div class="stat-num">Free</div><div class="stat-lbl">To Join &amp; Browse</div></div>
-  <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Nigeria-Filtered</div></div>
-</div>
-
-<div class="section" id="how-it-works">
-  <div class="section-label">How it works</div>
-  <div class="section-title">From signup to funded<br>in 4 simple steps</div>
-  <p class="section-sub">Our AI does the heavy lifting. You focus on running your business.</p>
-  <div class="steps">
-    <div class="step"><div class="step-num">1</div><h3>Create your profile</h3><p>Tell us about your business &mdash; sector, stage, location, team size. Takes 3 minutes. Free forever.</p></div>
-    <div class="step"><div class="step-num">2</div><h3>AI matches you</h3><p>Our AI scans 200+ funding sources and surfaces only the opportunities you're actually eligible for.</p></div>
-    <div class="step"><div class="step-num">3</div><h3>Get daily alerts</h3><p>New matches land in your email every morning before 7am. Never miss a deadline again.</p></div>
-    <div class="step"><div class="step-num">4</div><h3>Apply with AI help</h3><p>Chat with FundFinder AI for application advice, eligibility checks, and document prep guidance.</p></div>
+    <details style="margin-top:34px"><summary style="cursor:pointer;opacity:.8">One-time setup: generate push keys</summary>
+      <p class="small" style="opacity:.8">Run once. Copy the public key into Cloudflare as <b>VAPID_PUBLIC_KEY</b> and the private key as the secret <b>VAPID_PRIVATE_JWK</b>. Keys are made in this browser and are not sent anywhere.</p>
+      <button class="btn btn-line" type="button" id="genBtn">Generate keys</button>
+      <label>VAPID_PUBLIC_KEY</label><textarea id="pub" rows="2" readonly></textarea>
+      <label>VAPID_PRIVATE_JWK (secret)</label><textarea id="priv" rows="4" readonly></textarea>
+    </details>
   </div>
 </div>
-
-<div style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-<div class="section" id="features">
-  <div class="section-label">Platform features</div>
-  <div class="section-title">Everything you need<br>to get funded</div>
-  <p class="section-sub">The free tier gets you further than most paid tools.</p>
-  <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon">&#128269;</div><div class="feature-title">Opportunity Hub</div><div class="feature-desc">Browse and filter 22+ live opportunities. Updated daily. Filter by sector, deadline, amount, and eligibility. No login required.</div><span class="feature-badge badge-free">Free Forever</span></div>
-    <div class="feature-card"><div class="feature-icon">&#129302;</div><div class="feature-title">AI Funding Advisor</div><div class="feature-desc">Ask anything: "Am I eligible for this grant?" "What documents do I need?" "Write my business summary." Powered by Claude AI.</div><span class="feature-badge badge-pro">Free</span></div>
-    <div class="feature-card"><div class="feature-icon">&#128231;</div><div class="feature-title">Daily Email Alerts</div><div class="feature-desc">New grants and opportunities arrive in your inbox every morning. Filtered to match your business profile. Never miss a deadline.</div><span class="feature-badge badge-free">Free</span></div>
-    <div class="feature-card"><div class="feature-icon">&#127919;</div><div class="feature-title">Smart Profile Matching</div><div class="feature-desc">Build your business profile once. Our system continuously matches it against new opportunities and scores your eligibility.</div><span class="feature-badge badge-free">Free</span></div>
-    <div class="feature-card"><div class="feature-icon">&#128202;</div><div class="feature-title">Growth Suite</div><div class="feature-desc">Supplier Connect, Contract Radar, Growth Partners, Risk Desk, and Outreach Engine. The AI operating system for your business.</div><span class="feature-badge badge-pro">Pro Feature</span></div>
-    <div class="feature-card"><div class="feature-icon">&#127963;</div><div class="feature-title">Program Principal Portal</div><div class="feature-desc">For grant-makers, DFIs and government agencies: manage your capital program, receive applications, and track disbursements in one place.</div><span class="feature-badge badge-pro">Enterprise</span></div>
-  </div>
-</div>
-</div>
-
-<div class="section">
-  <div class="section-label">Who it's for</div>
-  <div class="section-title">Built for every stage<br>of the Nigerian entrepreneur journey</div>
-  <div class="for-grid">
-    <div class="for-card"><div class="for-icon">&#127807;</div><h3>Early-Stage Founders</h3><p>Just starting out? Find idea-stage grants, accelerator programs, and equity-free seed funding to get your business off the ground.</p></div>
-    <div class="for-card"><div class="for-icon">&#128640;</div><h3>Growing SMEs</h3><p>Ready to scale? Discover government loans, development finance, and strategic grants matched to your sector and growth stage.</p></div>
-    <div class="for-card"><div class="for-icon">&#128105;&#8205;&#128188;</div><h3>Women Entrepreneurs</h3><p>Access a curated list of women-specific funding programs, accelerators and business support tailored to female founders in Nigeria.</p></div>
-    <div class="for-card"><div class="for-icon">&#127806;</div><h3>Agribusiness &amp; Agritech</h3><p>Nigeria's biggest sector is also the most funded. Find NIRSAL, CBN, and international agriculture grants your business qualifies for.</p></div>
-    <div class="for-card"><div class="for-icon">&#128161;</div><h3>Tech &amp; Innovation Startups</h3><p>From Lagos to Abuja, find accelerators, VC programs and innovation challenges offering funding and market access for tech founders.</p></div>
-    <div class="for-card"><div class="for-icon">&#127891;</div><h3>Youth &amp; Students</h3><p>NYSC members, recent graduates, and student entrepreneurs &mdash; there are programs built specifically for you. We'll find them.</p></div>
-  </div>
-</div>
-
-<div style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-<div class="section" id="how-its-free">
-  <div class="section-label">What it costs</div>
-  <div class="section-title">Free for entrepreneurs.<br>Always.</div>
-  <p class="section-sub">Finding funding, matching, and drafting your application costs you nothing. You never pay us to apply for a grant.</p>
-  <div class="pricing-grid" style="max-width:760px">
-    <div class="pricing-card popular">
-      <div class="popular-tag">&#11088; FOR FOUNDERS</div>
-      <div class="pricing-name">FundFinder</div>
-      <div class="pricing-price">Free</div>
-      <div class="pricing-credits">No card. No subscription.</div>
-      <div class="pricing-feature">&#10003; Browse every opportunity</div>
-      <div class="pricing-feature">&#10003; Daily alerts</div>
-      <div class="pricing-feature">&#10003; Business profile &amp; AI matching</div>
-      <div class="pricing-feature">&#10003; AI-assisted application drafts</div>
-      <div class="pricing-feature">&#10003; Review before anything is submitted</div>
-      <a href="fundfinder-auth.html" class="pricing-cta">Get Started Free &rarr;</a>
-    </div>
-    <div class="pricing-card" style="border-color: rgba(255,215,0,0.2);">
-      <div class="pricing-name">For Programme Organisers</div>
-      <div class="pricing-price" style="font-size:28px;">Partner</div>
-      <div class="pricing-credits">Programme Principal Portal</div>
-      <div class="pricing-feature">&#10003; Publish your programme</div>
-      <div class="pricing-feature">&#10003; Qualified, pre-screened applicants</div>
-      <div class="pricing-feature">&#10003; Application management</div>
-      <div class="pricing-feature">&#10003; Disbursement tracking</div>
-      <div class="pricing-feature">&#10003; White-label option</div>
-      <a href="program-principal-register.html" class="pricing-cta" style="background: linear-gradient(135deg,#FFD700,#FFA500);">Partner With Us &rarr;</a>
-    </div>
-  </div>
-  <p class="section-sub" style="margin-top:26px;font-size:14px">Optional paid services &mdash; CAC registration, web &amp; brand, business-development consulting &mdash; are separate and never required to use FundFinder.</p>
-</div>
-</div>
-
-<!-- Testimonials section removed 2026-10-04 on Dayo's instruction: the three quoted
-     founders were not sourced, and the site is cited in live funding applications. Do not
-     reinstate testimonials unless they are real, attributable and permissioned. -->
-
-<!-- FAQ — visible content backing the FAQPage schema; targets long-tail funding queries -->
-<section class="section" id="faq" style="max-width:860px;margin:0 auto;padding:60px 24px;">
-  <h2 style="text-align:center;font-size:28px;margin-bottom:8px;">Funding questions, answered</h2>
-  <p style="text-align:center;color:var(--muted);margin-bottom:32px;">What Nigerian founders ask us most.</p>
-  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="font-weight:700;cursor:pointer;">How do I find grants for my small business in Nigeria?</summary>
-    <p style="color:var(--muted);margin-top:10px;">Start with programs that are actually open. FundFinder checks government agencies (SMEDAN, LSETF, BOI), foundations and accelerators every morning and lists only opportunities Nigerian businesses can apply to right now — with the official application link for each. Browse free on the <a href="opportunity-hub.html" style="color:var(--gold);">Opportunity Hub</a>.</p>
-  </details>
-  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="font-weight:700;cursor:pointer;">Is FundFinder free to use?</summary>
-    <p style="color:var(--muted);margin-top:10px;">Yes. Discovering opportunities and getting daily alerts is free. You only pay if you want AI help preparing an application. We never take a commission on any grant you win.</p>
-  </details>
-  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="font-weight:700;cursor:pointer;">Do I need CAC registration to qualify for funding?</summary>
-    <p style="color:var(--muted);margin-top:10px;">Many grants and nearly all loans require an active CAC registration — and thousands of companies are in the CAC strike-off pool without knowing. Check yours free with the <a href="cac-strike-off-checker.html" style="color:var(--gold);">CAC strike-off checker</a>.</p>
-  </details>
-  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="font-weight:700;cursor:pointer;">What government funding is open right now?</summary>
-    <p style="color:var(--muted);margin-top:10px;">It changes weekly — that's the problem FundFinder solves. Federal and state programs like the SMEDAN Conditional Grant Scheme and LSETF MSME Loans open and close on their own schedules. The <a href="opportunity-hub.html" style="color:var(--gold);">hub is updated every morning</a> so you never apply to a closed program.</p>
-  </details>
-  <details style="background:var(--surface,#111);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 22px;">
-    <summary style="font-weight:700;cursor:pointer;">How does the AI matching work?</summary>
-    <p style="color:var(--muted);margin-top:10px;">You describe your business once — sector, stage, state, registration status. FundFinder compares that profile against every open opportunity and alerts you only when you actually qualify, so you stop wasting time on programs that will reject you on page one.</p>
-  </details>
-</section>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I find grants for my small business in Nigeria?","acceptedAnswer":{"@type":"Answer","text":"Start with programs that are actually open. FundFinder checks government agencies (SMEDAN, LSETF, BOI), foundations and accelerators every morning and lists only opportunities Nigerian businesses can apply to right now, with the official application link for each."}},{"@type":"Question","name":"Is FundFinder free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. Discovering opportunities and getting daily alerts is free. You only pay if you want AI help preparing an application. FundFinder never takes a commission on any grant you win."}},{"@type":"Question","name":"Do I need CAC registration to qualify for funding?","acceptedAnswer":{"@type":"Answer","text":"Many grants and nearly all loans require an active CAC registration. FundFinder offers a free CAC strike-off checker so you can confirm your company's status before applying."}},{"@type":"Question","name":"What government funding is open right now?","acceptedAnswer":{"@type":"Answer","text":"Federal and state programs like the SMEDAN Conditional Grant Scheme and LSETF MSME Loans open and close on their own schedules. FundFinder's Opportunity Hub is updated every morning so you never apply to a closed program."}},{"@type":"Question","name":"How does the AI matching work?","acceptedAnswer":{"@type":"Answer","text":"You describe your business once — sector, stage, state, registration status. FundFinder compares that profile against every open opportunity and alerts you only when you qualify."}}]}
-</script>
-
-<section class="cta-section">
-  <div class="cta-card">
-    <h2>Your next grant is already open.<br><span style="color:var(--gold);">Don't miss it.</span></h2>
-    <p>Join Nigerian entrepreneurs getting daily funding alerts matched to their business. Free to start. No credit card needed.</p>
-    <div class="cta-btns">
-      <a href="fundfinder-auth.html" class="btn-primary">&#128640; Create Free Account</a>
-      <a href="opportunity-hub.html" class="btn-secondary">Browse Opportunities First</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-brand">
-    <div class="logo">Fund<span>Finder</span> AI<p style="margin-top:12px;font-size:13px">
-      <a href="https://www.facebook.com/fundfinderai/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700">Facebook</a> ·
-      <a href="https://web.facebook.com/accesstofunds" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700">@accesstofunds</a> ·
-      <a href="mailto:funding@a2fpartners.com" style="color:var(--muted);text-decoration:none">funding@a2fpartners.com</a>
-      ·
-      <a href="privacy.html" style="color:var(--muted);text-decoration:none">Privacy Policy</a>
-    </p></div>
-    <p>Funding intelligence for Nigerian businesses. Helping entrepreneurs discover and win the capital they need to grow.</p>
-    <p style="margin-top:12px; font-size:12px; color:var(--hint);">A product of <strong style="color:var(--muted);">A2F Partners</strong></p>
-  </div>
-  <div class="footer-col">
-    <h4>Platform</h4>
-    <a href="opportunity-hub.html">Browse Opportunities</a>
-    <a href="fundfinder-auth.html">Sign Up Free</a>
-    <a href="fundfinder-dashboard.html">Dashboard</a>
-    <a href="fundfinder-wallet.html">Wallet</a>
-  </div>
-  <div class="footer-col">
-    <h4>For Businesses</h4>
-    <a href="program-principal-register.html">Program Principals</a>
-    <a href="fundfinder-growth-suite.html">Growth Suite</a>
-    <a href="#how-its-free">What it costs</a>
-  </div>
-  <div class="footer-col">
-    <h4>Resources</h4>
-    <a href="opportunity-hub.html">Daily Opportunity Feed</a>
-    <a href="fundfinder-auth.html">Get Free Alerts</a>
-    <a href="mailto:hello@a2fpartners.com">Contact Us</a>
-    <a href="mailto:partnerships@a2fpartners.com">Partnerships</a>
-  </div>
-</footer>
-<div class="footer-bottom">
-  <p>&copy; 2026 FundFinder AI &middot; A2F Partners &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Terms</a></p>
-  <p>Built for &#127475;&#127468; Nigerian entrepreneurs</p>
-</div>
-
 <script>
-/* Homepage feed — ticker + "Just added".
-   Source: /data/ticker.json, rebuilt by scripts/gen-ticker.js at the end of
-   every scrape. If the fetch fails the hardcoded fallback strip stays as-is,
-   so the page degrades to something generic rather than to something stale. */
-(function () {
-  var esc = function (s) {
-    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-    });
-  };
-
-  // Days until close, for the urgency label.
-  function daysLeft(iso) {
-    if (!iso) return null;
-    var d = new Date(iso + 'T23:59:59Z') - new Date();
-    return Math.ceil(d / 86400000);
-  }
-
-  function deadlineLabel(item) {
-    if (!item.closes) return 'Always open';
-    var n = daysLeft(item.closes);
-    if (n === null) return item.deadline;
-    if (n < 0) return 'Closed';
-    if (n === 0) return 'Closes today';
-    if (n === 1) return 'Closes tomorrow';
-    if (n <= 14) return 'Closes in ' + n + ' days';
-    return 'Closes ' + new Date(item.closes + 'T00:00:00Z')
-      .toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
-  }
-
-  /* Rotate rather than shuffle. Rotation keeps a stable, reproducible order
-     within a day while making sure a returning visitor doesn't meet the same
-     items in the same front slots. Padding entries stay at the back. */
-  function rotate(list, seed) {
-    if (!list || list.length < 3) return list || [];
-    var fresh = list.filter(function (i) { return !i.pad; });
-    var pad   = list.filter(function (i) { return i.pad; });
-    if (fresh.length > 2) {
-      var k = seed % fresh.length;
-      fresh = fresh.slice(k).concat(fresh.slice(0, k));
-    }
-    return fresh.concat(pad);
-  }
-
-  fetch('/data/ticker.json', { cache: 'no-cache' })
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (feed) {
-      if (!feed) return;
-
-      // ── Ticker ──────────────────────────────────────────────
-      var strip = document.getElementById('ticker');
-      var items = rotate(feed.ticker || [], feed.rotationSeed || 0);
-      if (strip && items.length) {
-        var one = items.map(function (i) {
-          return '<a class="ticker-item" href="' + esc(i.href) + '">' +
-                 '<span class="dot ' + (i.closes ? 'dot-gold' : 'dot-green') + '"></span>' +
-                 esc(i.title) +
-                 ' <span class="tick-deadline">&middot; ' + esc(deadlineLabel(i)) + '</span></a>';
-        }).join('');
-        // Duplicated because the CSS loop translates by -50%; one copy would
-        // leave a visible gap on the wrap.
-        strip.innerHTML = one + one;
-      }
-
-      // ── Just added ──────────────────────────────────────────
-      var sec = document.getElementById('just-added');
-      var grid = document.getElementById('ja-grid');
-      var latest = feed.latest || [];
-      if (sec && grid && latest.length) {
-        grid.innerHTML = latest.map(function (i) {
-          var closed = !!i.closed;
-          var tag = closed
-            ? '<span class="ja-tag ja-tag-closed">Closed</span>'
-            : '<span class="ja-tag ja-tag-open">Open</span>';
-          return '<a class="ja-card" href="' + esc(i.href) + '">' +
-                 '<div class="ja-tags"><span class="ja-tag ja-tag-new">New</span>' + tag + '</div>' +
-                 '<div class="ja-name">' + esc(i.title) + '</div>' +
-                 '<div class="ja-meta">' + esc(deadlineLabel(i)) + '</div>' +
-                 '</a>';
-        }).join('');
-        sec.hidden = false;
-      }
-    })
-    .catch(function () { /* fallback markup stands */ });
+(function(){
+  const $=s=>document.querySelector(s); let key='';
+  const api=(path,opt={})=>fetch(path,Object.assign({},opt,{headers:Object.assign({'Content-Type':'application/json','x-admin-key':key},opt.headers||{})})).then(async r=>({ok:r.ok,body:await r.json().catch(()=>({}))}));
+  async function load(){ const r=await api('/api/push/stats'); if(!r.ok) return false;
+    $('#stats').textContent=`Devices with notifications on: ${r.body.active_devices}`;
+    $('#recent').innerHTML=r.body.recent.map(n=>`<tr><td>${new Date(n.created_at).toLocaleString('en-NG')}</td><td>${n.title.replace(/</g,'&lt;')}</td><td>${n.target}${n.target_value?': '+n.target_value:''}</td><td>${n.sent_count} ✓ / ${n.failed_count} ✗</td></tr>`).join('');
+    return true; }
+  $('#loginBtn').onclick=async()=>{ key=$('#pw').value; if(await load()){ $('#login').classList.add('hide'); $('#panel').classList.remove('hide'); } else { $('#loginRes').style.display='block'; $('#loginRes').textContent='Wrong password.'; } };
+  $('#target').onchange=()=>{ $('#cityBox').classList.toggle('hide',$('#target').value!=='city'); $('#trackBox').classList.toggle('hide',$('#target').value!=='track'); };
+  $('#sendForm').onsubmit=async e=>{ e.preventDefault(); const t=$('#target').value;
+    if(!confirm('Send this notification now?')) return;
+    $('#sendBtn').disabled=true;
+    const r=await api('/api/push/send',{method:'POST',body:JSON.stringify({title:$('#title').value,body:$('#body').value,url:$('#url').value,target:t,target_value:t==='city'?$('#city').value:t==='track'?$('#track').value:null})});
+    $('#sendBtn').disabled=false; $('#sendRes').style.display='block';
+    $('#sendRes').textContent=r.ok?`Sent to ${r.body.sent} of ${r.body.targeted} devices. Failed: ${r.body.failed}. Expired removed: ${r.body.expired_removed}.`:(r.body.error||'Failed.');
+    load(); };
+  $('#genBtn').onclick=async()=>{ const kp=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify']);
+    const raw=new Uint8Array(await crypto.subtle.exportKey('raw',kp.publicKey));
+    $('#pub').value=btoa(String.fromCharCode(...raw)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    const jwk=await crypto.subtle.exportKey('jwk',kp.privateKey); $('#priv').value=JSON.stringify({kty:jwk.kty,crv:jwk.crv,d:jwk.d,x:jwk.x,y:jwk.y}); };
 })();
 </script>
 </body>
