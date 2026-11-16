@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-12T14:34:04.221Z",
+  "ranAt": "2026-11-16T14:40:06.210Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -10,6 +10,16 @@
       "definitive": true,
       "reason": "programme page with application signals (13)",
       "finalUrl": "https://ird.oou.cmu.ac.th/2026-shenzhen-international-fintech-competition/"
+    },
+    {
+      "file": "opportunity-50-000-fg-nersi-relief-grant-how-government-selects-benefici-2026-11-16.html",
+      "slug": "opportunity-50-000-fg-nersi-relief-grant-how-government-selects-benefici-2026-11-16",
+      "title": "₦50,000 FG NERSI Relief Grant: How Government Selects Beneficiaries, Why Your SMS Is Delayed and How to File Complaints",
+      "href": "https://www.fmhapr.gov.ng/nersi/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (11)",
+      "finalUrl": "https://www.fmhapr.gov.ng/nersi/"
     },
     {
       "file": "opportunity-abia-awards-100m-startup-grants-to-100-polytechnic-graduate-2026-07-16.html",
@@ -275,9 +285,10 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -343,19 +354,28 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ECONNRESET)"
+    },
+    {
+      "file": "opportunity-call-for-application-sterling-bank-and-google-career-certifi-2026-11-16.html",
+      "slug": "opportunity-call-for-application-sterling-bank-and-google-career-certifi-2026-11-16",
+      "title": "Call for Application: Sterling Bank and Google Career Certification Program (8 Free Career and AI Certificates for Nigerian Women)",
+      "href": "https://sterling.ng/google-career-certification/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "reason": "programme page with application signals (19)",
+      "finalUrl": "https://sterling.ng/google-career-certification/"
     },
     {
       "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
       "slug": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28",
       "title": "Call for Applications: Access Bank Womenpreneur Pitch-a-ton Program 2026 (Up to ₦18 Million in Business Grants)",
       "href": "https://www.womenpreneur.thewcommunity.com/",
-      "ok": true,
+      "ok": false,
       "definitive": true,
-      "reason": "programme page with application signals (26)",
+      "reason": "HTTP 404 (page gone)",
       "finalUrl": "https://www.womenpreneur.thewcommunity.com/"
     },
     {
@@ -504,7 +524,7 @@
       "href": "https://changemakerxchange.org/changemakers-for-youth/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (38)",
+      "reason": "programme page with application signals (30)",
       "finalUrl": "https://changemakerxchange.org/changemakers-for-youth/"
     },
     {
@@ -554,7 +574,7 @@
       "href": "https://citad.org.ng/agenda-winnig-digital-entrepreneurship-training/",
       "ok": false,
       "definitive": false,
-      "reason": "page has almost no readable content (JS-only or blocked)",
+      "reason": "HTTP 403 (could not confirm)",
       "finalUrl": "https://citad.org.ng/agenda-winnig-digital-entrepreneurship-training/"
     },
     {
@@ -594,7 +614,7 @@
       "href": "https://www.faceofagriculture.com",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (2)",
+      "reason": "programme page with application signals (1)",
       "finalUrl": "https://www.faceofagriculture.com"
     },
     {
@@ -998,6 +1018,16 @@
       "finalUrl": "https://event.wetech.africa/pitch-her"
     },
     {
+      "file": "opportunity-call-for-applications-women-in-tech-un-women-digital-skills--2026-11-16.html",
+      "slug": "opportunity-call-for-applications-women-in-tech-un-women-digital-skills--2026-11-16",
+      "title": "Call for Applications: Women in Tech × UN Women Digital Skills and Mentorship Programme 2026",
+      "href": "https://women-in-tech.typeform.com/UNWIT",
+      "ok": true,
+      "definitive": true,
+      "reason": "application form (women-in-tech.typeform.com)",
+      "finalUrl": "https://women-in-tech.typeform.com/UNWIT"
+    },
+    {
       "file": "opportunity-call-for-applications-womenpower2030-seed-grant-2026-for-wom-2026-07-16.html",
       "slug": "opportunity-call-for-applications-womenpower2030-seed-grant-2026-for-wom-2026-07-16",
       "title": "Call For Applications: WomenPower2030 Seed Grant 2026 for Women-Led Organisations in Nigeria and Sierra Leone (€5,000 Seed Grant)",
@@ -1064,8 +1094,7 @@
       "href": "https://catalystfund.org",
       "ok": false,
       "definitive": false,
-      "reason": "page has almost no readable content (JS-only or blocked)",
-      "finalUrl": "https://catalystfund.org"
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-commonwealth-startup-fellowship-cohort-3-2026-08-10.html",
@@ -1102,9 +1131,9 @@
       "slug": "opportunity-dalai-lama-fellowship-programme-2027-for-emerging-changemake-2026-10-01",
       "title": "Dalai Lama Fellowship Programme 2027 for emerging changemakers (Fully Funded to Contemplative Leadership Assembly)",
       "href": "https://dalailamafellows.com/apply/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (27)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page says applications are closed",
       "finalUrl": "https://dalailamafellows.com/apply/"
     },
     {
@@ -1235,6 +1264,16 @@
       "definitive": true,
       "reason": "programme page with application signals (16)",
       "finalUrl": "https://www.iaps.ai/fellowship"
+    },
+    {
+      "file": "opportunity-international-women-s-media-foundation-iwmf-kim-wall-memoria-2026-11-16.html",
+      "slug": "opportunity-international-women-s-media-foundation-iwmf-kim-wall-memoria-2026-11-16",
+      "title": "International Women’s Media Foundation (IWMF) Kim Wall Memorial Fund 2027 forwomen or nonbinary reporters ($USD 5,000 Grant)",
+      "href": "https://iwmf.submittable.com/submit/038e57c0-167e-4410-ae1d-97ed122664a8/kim-wall-memorial-fund-2027",
+      "ok": true,
+      "definitive": true,
+      "reason": "application form (iwmf.submittable.com)",
+      "finalUrl": "https://iwmf.submittable.com/submit/038e57c0-167e-4410-ae1d-97ed122664a8/kim-wall-memorial-fund-2027"
     },
     {
       "file": "opportunity-japan-international-cooperation-center-jice-japan-africa-you-2026-09-03.html",
@@ -1412,7 +1451,7 @@
       "href": "https://smedan.gov.ng/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (10)",
+      "reason": "programme page with application signals (9)",
       "finalUrl": "https://smedan.gov.ng/"
     },
     {
@@ -1482,7 +1521,7 @@
       "href": "https://cega.berkeley.edu/article/cega-fellowship-program-2027-2028-request-for-applications/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (28)",
+      "reason": "programme page with application signals (30)",
       "finalUrl": "https://cega.berkeley.edu/article/cega-fellowship-program-2027-2028-request-for-applications/"
     },
     {
@@ -1532,7 +1571,7 @@
       "href": "https://jsk.stanford.edu/become-a-fellow",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (13)",
+      "reason": "programme page with application signals (12)",
       "finalUrl": "https://jsk.stanford.edu/become-a-fellow"
     },
     {
@@ -1602,7 +1641,7 @@
       "href": "https://youngafricainnovates.ng/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (15)",
+      "reason": "programme page with application signals (12)",
       "finalUrl": "https://youngafricainnovates.ng/"
     },
     {
@@ -1672,7 +1711,7 @@
       "href": "https://unglobalcompact.org/take-action/business-and-human-rights",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (13)",
+      "reason": "programme page with application signals (12)",
       "finalUrl": "https://unglobalcompact.org/take-action/business-and-human-rights"
     },
     {

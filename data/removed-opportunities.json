@@ -526,5 +526,13 @@
     "reason": "HTTP 404 (page gone)",
     "removedOn": "2026-11-02",
     "supabase": "HTTP 204"
+  },
+  {
+    "slug": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28",
+    "title": "Call for Applications: Access Bank Womenpreneur Pitch-a-ton Program 2026 (Up to ₦18 Million in Business Grants)",
+    "href": "https://www.womenpreneur.thewcommunity.com/",
+    "reason": "HTTP 404 (page gone)",
+    "removedOn": "2026-11-16",
+    "supabase": "HTTP 204"
   }
 ]
