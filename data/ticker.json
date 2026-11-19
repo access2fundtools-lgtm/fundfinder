@@ -1,16 +1,82 @@
 {
-  "generated": "2026-11-16T14:40:08.758Z",
-  "rotationSeed": 20261116,
+  "generated": "2026-11-19T15:11:26.049Z",
+  "rotationSeed": 20261119,
   "newWindowDays": 10,
   "counts": {
-    "total": 167,
-    "new": 7,
-    "closing": 21,
+    "total": 173,
+    "new": 13,
+    "closing": 20,
     "evergreen": 86,
-    "recurring": 46,
+    "recurring": 47,
     "archived": 7
   },
   "ticker": [
+    {
+      "title": "Call for Applications: Rising Stars Challenge at 14th HR Bootcamp Conference (Up to ₦1 Million in Prizes)",
+      "href": "opportunity-call-for-applications-rising-stars-challenge-at-14th-hr-boot-2026-11-19.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "FG Offers Nigerians ₦100 Million Housing Loans at 9.75% Interest – Eligibility, Requirements and How to Apply",
+      "href": "opportunity-fg-offers-nigerians-100-million-housing-loans-at-9-75-intere-2026-11-19.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Kogi Govt Opens ₦500,000 Youth Business Grant Application Portal",
+      "href": "opportunity-kogi-govt-opens-500-000-youth-business-grant-application-por-2026-11-19.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The taz Panter Foundation Rest & Resilience Fellowship 2027 for journalists worldwide (Fully Funded to Berlin, Germany)",
+      "href": "opportunity-the-taz-panter-foundation-rest-resilience-fellowship-2027-fo-2026-11-19.html",
+      "deadline": "December 6, 2026",
+      "closes": "2026-12-06",
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The NIVEA CONNECT 2026 Gen Z Research Grants program for researchers worldwide (€30,000 grant)",
+      "href": "opportunity-the-nivea-connect-2026-gen-z-research-grants-program-for-res-2026-11-19.html",
+      "deadline": "December 11, 2026",
+      "closes": "2026-12-11",
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Cambridge Africa Climate Collaborative Research Fund 2026/2027 for African Researchers.",
+      "href": "opportunity-the-cambridge-africa-climate-collaborative-research-fund-202-2026-11-19.html",
+      "deadline": "January 15, 2027",
+      "closes": "2027-01-15",
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call for Applications: Women in Tech × UN Women Digital Skills and Mentorship Programme 2026",
       "href": "opportunity-call-for-applications-women-in-tech-un-women-digital-skills--2026-11-16.html",
@@ -91,6 +157,72 @@
   ],
   "latest": [
     {
+      "title": "Call for Applications: Rising Stars Challenge at 14th HR Bootcamp Conference (Up to ₦1 Million in Prizes)",
+      "href": "opportunity-call-for-applications-rising-stars-challenge-at-14th-hr-boot-2026-11-19.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "FG Offers Nigerians ₦100 Million Housing Loans at 9.75% Interest – Eligibility, Requirements and How to Apply",
+      "href": "opportunity-fg-offers-nigerians-100-million-housing-loans-at-9-75-intere-2026-11-19.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Kogi Govt Opens ₦500,000 Youth Business Grant Application Portal",
+      "href": "opportunity-kogi-govt-opens-500-000-youth-business-grant-application-por-2026-11-19.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The taz Panter Foundation Rest & Resilience Fellowship 2027 for journalists worldwide (Fully Funded to Berlin, Germany)",
+      "href": "opportunity-the-taz-panter-foundation-rest-resilience-fellowship-2027-fo-2026-11-19.html",
+      "deadline": "December 6, 2026",
+      "closes": "2026-12-06",
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The NIVEA CONNECT 2026 Gen Z Research Grants program for researchers worldwide (€30,000 grant)",
+      "href": "opportunity-the-nivea-connect-2026-gen-z-research-grants-program-for-res-2026-11-19.html",
+      "deadline": "December 11, 2026",
+      "closes": "2026-12-11",
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Cambridge Africa Climate Collaborative Research Fund 2026/2027 for African Researchers.",
+      "href": "opportunity-the-cambridge-africa-climate-collaborative-research-fund-202-2026-11-19.html",
+      "deadline": "January 15, 2027",
+      "closes": "2027-01-15",
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Women in Tech × UN Women Digital Skills and Mentorship Programme 2026",
       "href": "opportunity-call-for-applications-women-in-tech-un-women-digital-skills--2026-11-16.html",
       "deadline": "November 20, 2026",
@@ -155,21 +287,76 @@
       "isNew": true,
       "closed": false,
       "recurring": false
-    },
-    {
-      "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
-      "href": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12.html",
-      "deadline": "January 17, 2027",
-      "closes": "2027-01-17",
-      "added": "2026-11-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
     }
   ],
   "items": [
     {
+      "title": "Call for Applications: Rising Stars Challenge at 14th HR Bootcamp Conference (Up to ₦1 Million in Prizes)",
+      "href": "opportunity-call-for-applications-rising-stars-challenge-at-14th-hr-boot-2026-11-19.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "FG Offers Nigerians ₦100 Million Housing Loans at 9.75% Interest – Eligibility, Requirements and How to Apply",
+      "href": "opportunity-fg-offers-nigerians-100-million-housing-loans-at-9-75-intere-2026-11-19.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Kogi Govt Opens ₦500,000 Youth Business Grant Application Portal",
+      "href": "opportunity-kogi-govt-opens-500-000-youth-business-grant-application-por-2026-11-19.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The taz Panter Foundation Rest & Resilience Fellowship 2027 for journalists worldwide (Fully Funded to Berlin, Germany)",
+      "href": "opportunity-the-taz-panter-foundation-rest-resilience-fellowship-2027-fo-2026-11-19.html",
+      "deadline": "December 6, 2026",
+      "closes": "2026-12-06",
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The NIVEA CONNECT 2026 Gen Z Research Grants program for researchers worldwide (€30,000 grant)",
+      "href": "opportunity-the-nivea-connect-2026-gen-z-research-grants-program-for-res-2026-11-19.html",
+      "deadline": "December 11, 2026",
+      "closes": "2026-12-11",
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Cambridge Africa Climate Collaborative Research Fund 2026/2027 for African Researchers.",
+      "href": "opportunity-the-cambridge-africa-climate-collaborative-research-fund-202-2026-11-19.html",
+      "deadline": "January 15, 2027",
+      "closes": "2027-01-15",
+      "added": "2026-11-19",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Women in Tech × UN Women Digital Skills and Mentorship Programme 2026",
       "href": "opportunity-call-for-applications-women-in-tech-un-women-digital-skills--2026-11-16.html",
       "deadline": "November 20, 2026",
@@ -243,17 +430,6 @@
       "added": "2026-11-12",
       "tier": 1,
       "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The World Bank Government Analytics Fellowship Program 2027 for government officials (Fully Funded to Washington DC, United States)",
-      "href": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
-      "deadline": "November 16, 2026",
-      "closes": "2026-11-16",
-      "added": "2026-10-12",
-      "tier": 2,
-      "isNew": false,
       "closed": false,
       "recurring": true
     },
@@ -1424,66 +1600,11 @@
       "recurring": false
     },
     {
-      "title": "Harvard Global Health Institute LEAD Fellowship Program 2027/2028 for Promoting Women in Global Health. (Fully Funded)",
-      "href": "opportunity-harvard-global-health-institute-lead-fellowship-program-2027-2026-10-12.html",
-      "deadline": "November 15, 2026",
-      "closes": "2026-11-15",
+      "title": "The World Bank Government Analytics Fellowship Program 2027 for government officials (Fully Funded to Washington DC, United States)",
+      "href": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
+      "deadline": "November 16, 2026",
+      "closes": "2026-11-16",
       "added": "2026-10-12",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: CEGA 2026 Global Networks Research Grant Competition | Up to US$67,000 per Project",
-      "href": "opportunity-call-for-applications-cega-2026-global-networks-research-gra-2026-10-15.html",
-      "deadline": "November 15, 2026",
-      "closes": "2026-11-15",
-      "added": "2026-10-15",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: SAIS Livestock Investment Readiness Program 2027 Offers African Start-ups (Up to €15,000 in Funding)",
-      "href": "opportunity-call-for-applications-sais-livestock-investment-readiness-pr-2026-11-05.html",
-      "deadline": "November 15, 2026",
-      "closes": "2026-11-15",
-      "added": "2026-11-05",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Dalai Lama Fellowship Programme 2027 for emerging changemakers (Fully Funded to Contemplative Leadership Assembly)",
-      "href": "opportunity-dalai-lama-fellowship-programme-2027-for-emerging-changemake-2026-10-01.html",
-      "deadline": "November 11, 2026",
-      "closes": "2026-11-11",
-      "added": "2026-10-01",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "The Anzisha Venture Building Fellowship 2027 for young African Entrepreneurs (USD $140,000 Prize to grow your Business)",
-      "href": "opportunity-the-anzisha-venture-building-fellowship-2027-for-young-afric-2026-09-29.html",
-      "deadline": "November 10, 2026",
-      "closes": "2026-11-10",
-      "added": "2026-09-29",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Changemakers for Youth Programme 2027 | Travel Stipend Available",
-      "href": "opportunity-call-for-applications-changemakers-for-youth-programme-2027--2026-10-15.html",
-      "deadline": "November 9, 2026",
-      "closes": "2026-11-09",
-      "added": "2026-10-15",
       "tier": 4,
       "isNew": false,
       "closed": true,

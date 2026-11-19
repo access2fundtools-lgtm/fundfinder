@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-16T14:40:06.210Z",
+  "ranAt": "2026-11-19T15:11:22.567Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -76,9 +76,9 @@
       "slug": "opportunity-africa-startup-congress-asc27-nigeria-2026-09-09",
       "title": "Africa Startup Congress 2027 (ASC27) — Nigeria National Pitch Competition",
       "href": "https://africastartupcongress.org/",
-      "ok": false,
-      "definitive": false,
-      "reason": "page has almost no readable content (JS-only or blocked)",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (8)",
       "finalUrl": "https://africastartupcongress.org/"
     },
     {
@@ -354,9 +354,10 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-call-for-application-sterling-bank-and-google-career-certifi-2026-11-16.html",
@@ -367,16 +368,6 @@
       "definitive": true,
       "reason": "programme page with application signals (19)",
       "finalUrl": "https://sterling.ng/google-career-certification/"
-    },
-    {
-      "file": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28.html",
-      "slug": "opportunity-call-for-applications-access-bank-womenpreneur-pitch-a-ton-p-2026-09-28",
-      "title": "Call for Applications: Access Bank Womenpreneur Pitch-a-ton Program 2026 (Up to ₦18 Million in Business Grants)",
-      "href": "https://www.womenpreneur.thewcommunity.com/",
-      "ok": false,
-      "definitive": true,
-      "reason": "HTTP 404 (page gone)",
-      "finalUrl": "https://www.womenpreneur.thewcommunity.com/"
     },
     {
       "file": "opportunity-call-for-applications-ace-startup-academy-2026-for-entrepren-2026-08-03.html",
@@ -572,9 +563,9 @@
       "slug": "opportunity-call-for-applications-digital-entrepreneurship-training-and--2026-08-13",
       "title": "Call For Applications: Digital Entrepreneurship Training and Business Support Programme for Women and Girls in Northern Nigeria",
       "href": "https://citad.org.ng/agenda-winnig-digital-entrepreneurship-training/",
-      "ok": false,
-      "definitive": false,
-      "reason": "HTTP 403 (could not confirm)",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (3)",
       "finalUrl": "https://citad.org.ng/agenda-winnig-digital-entrepreneurship-training/"
     },
     {
@@ -888,13 +879,23 @@
       "finalUrl": "https://www.reckitt.com/our-impact/stronger-communities/"
     },
     {
+      "file": "opportunity-call-for-applications-rising-stars-challenge-at-14th-hr-boot-2026-11-19.html",
+      "slug": "opportunity-call-for-applications-rising-stars-challenge-at-14th-hr-boot-2026-11-19",
+      "title": "Call for Applications: Rising Stars Challenge at 14th HR Bootcamp Conference (Up to ₦1 Million in Prizes)",
+      "href": "https://hrbootcampconference.com",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (8)",
+      "finalUrl": "https://hrbootcampconference.com"
+    },
+    {
       "file": "opportunity-call-for-applications-sais-livestock-investment-readiness-pr-2026-11-05.html",
       "slug": "opportunity-call-for-applications-sais-livestock-investment-readiness-pr-2026-11-05",
       "title": "Call for Applications: SAIS Livestock Investment Readiness Program 2027 Offers African Start-ups (Up to €15,000 in Funding)",
       "href": "https://sais-accelerator.com/livestock-apply-now-for-2027/",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (16)",
+      "reason": "programme page with application signals (14)",
       "finalUrl": "https://sais-accelerator.com/livestock-apply-now-for-2027/"
     },
     {
@@ -924,7 +925,7 @@
       "href": "https://shell.wd3.myworkdayjobs.com/en-GB/shellcareers/",
       "ok": false,
       "definitive": false,
-      "reason": "page has almost no readable content (JS-only or blocked)",
+      "reason": "HTTP 429 (could not confirm)",
       "finalUrl": "https://shell.wd3.myworkdayjobs.com/en-GB/shellcareers/"
     },
     {
@@ -934,7 +935,7 @@
       "href": "https://www.skollcentre.org/skoll-scholarship",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (10)",
+      "reason": "programme page with application signals (11)",
       "finalUrl": "https://www.skollcentre.org/skoll-scholarship"
     },
     {
@@ -1094,7 +1095,8 @@
       "href": "https://catalystfund.org",
       "ok": false,
       "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "reason": "page has almost no readable content (JS-only or blocked)",
+      "finalUrl": "https://catalystfund.org"
     },
     {
       "file": "opportunity-commonwealth-startup-fellowship-cohort-3-2026-08-10.html",
@@ -1145,6 +1147,16 @@
       "definitive": true,
       "reason": "programme page with application signals (5)",
       "finalUrl": "https://vc4a.com/heave-ventures/fcmb-agritech-hackathon-and-venture-building-program/"
+    },
+    {
+      "file": "opportunity-fg-offers-nigerians-100-million-housing-loans-at-9-75-intere-2026-11-19.html",
+      "slug": "opportunity-fg-offers-nigerians-100-million-housing-loans-at-9-75-intere-2026-11-19",
+      "title": "FG Offers Nigerians ₦100 Million Housing Loans at 9.75% Interest – Eligibility, Requirements and How to Apply",
+      "href": "https://www.mreif.com.ng/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (12)",
+      "finalUrl": "https://www.mreif.com.ng/"
     },
     {
       "file": "opportunity-fg-student-venture-capital-grant-cohort-2-2026-09-07.html",
@@ -1280,10 +1292,10 @@
       "slug": "opportunity-japan-international-cooperation-center-jice-japan-africa-you-2026-09-03",
       "title": "Japan International Cooperation Center (JICE) Japan-Africa Youth Program 2026 for African Animation Professionals (Fully Funded to Japan)",
       "href": "https://jice.form.kintoneapp.com/public/africa-cc-af",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://jice.form.kintoneapp.com/waiting/?_formCode=africa-cc-af"
+      "ok": false,
+      "definitive": false,
+      "reason": "HTTP 503 (could not confirm)",
+      "finalUrl": "https://jice.form.kintoneapp.com/public/africa-cc-af"
     },
     {
       "file": "opportunity-kj-ller-open-investment-application-2026-08-13.html",
@@ -1294,6 +1306,16 @@
       "definitive": false,
       "reason": "HTTP 403 (could not confirm)",
       "finalUrl": "https://kjoller.com/application.asp"
+    },
+    {
+      "file": "opportunity-kogi-govt-opens-500-000-youth-business-grant-application-por-2026-11-19.html",
+      "slug": "opportunity-kogi-govt-opens-500-000-youth-business-grant-application-por-2026-11-19",
+      "title": "Kogi Govt Opens ₦500,000 Youth Business Grant Application Portal",
+      "href": "https://youthandsports.kogistate.gov.ng/grant-application/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (9)",
+      "finalUrl": "https://youthandsports.kogistate.gov.ng/grant-application/"
     },
     {
       "file": "opportunity-launch-africa-ventures-2026-07-28.html",
@@ -1515,6 +1537,16 @@
       "finalUrl": "https://anzisha.org/fellowship/"
     },
     {
+      "file": "opportunity-the-cambridge-africa-climate-collaborative-research-fund-202-2026-11-19.html",
+      "slug": "opportunity-the-cambridge-africa-climate-collaborative-research-fund-202-2026-11-19",
+      "title": "The Cambridge Africa Climate Collaborative Research Fund 2026/2027 for African Researchers.",
+      "href": "https://www.cambridge-africa.cam.ac.uk/initiatives/2026-call-for-applications/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (16)",
+      "finalUrl": "https://www.cambridge-africa.cam.ac.uk/initiatives/2026-call-for-applications/"
+    },
+    {
       "file": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12.html",
       "slug": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12",
       "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
@@ -1595,6 +1627,16 @@
       "finalUrl": "https://ncair.nitda.gov.ng/naic/#about"
     },
     {
+      "file": "opportunity-the-nivea-connect-2026-gen-z-research-grants-program-for-res-2026-11-19.html",
+      "slug": "opportunity-the-nivea-connect-2026-gen-z-research-grants-program-for-res-2026-11-19",
+      "title": "The NIVEA CONNECT 2026 Gen Z Research Grants program for researchers worldwide (€30,000 grant)",
+      "href": "https://socialconnectioninstitute.org/nivea-connect",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (9)",
+      "finalUrl": "https://socialconnectioninstitute.org/nivea-connect"
+    },
+    {
       "file": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27.html",
       "slug": "opportunity-the-sasol-technician-development-programme-tdp-2026-for-youn-2026-08-27",
       "title": "The Sasol Technician Development Programme (TDP) 2026 for young South African graduates.",
@@ -1623,6 +1665,16 @@
       "definitive": false,
       "reason": "page says applications are closed",
       "finalUrl": "https://www.leadership-challenge.org/"
+    },
+    {
+      "file": "opportunity-the-taz-panter-foundation-rest-resilience-fellowship-2027-fo-2026-11-19.html",
+      "slug": "opportunity-the-taz-panter-foundation-rest-resilience-fellowship-2027-fo-2026-11-19",
+      "title": "The taz Panter Foundation Rest & Resilience Fellowship 2027 for journalists worldwide (Fully Funded to Berlin, Germany)",
+      "href": "https://taz.de/taz-panterstiftung/rest-resilience-fellowship/!v=2c0b2d3c-7081-46a5-9256-f9fb6ebf81f2/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (23)",
+      "finalUrl": "https://taz.de/taz-panterstiftung/rest-resilience-fellowship/!v=2c0b2d3c-7081-46a5-9256-f9fb6ebf81f2/"
     },
     {
       "file": "opportunity-the-un-dpoa-mid-term-review-journalism-fellowship-2027-for-j-2026-10-29.html",
