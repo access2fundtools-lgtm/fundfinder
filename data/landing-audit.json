@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-19T15:11:22.567Z",
+  "ranAt": "2026-11-23T17:16:55.095Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -285,10 +285,9 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -354,10 +353,9 @@
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (1)",
-      "finalUrl": "https://www.boi.ng/products/"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ECONNRESET)"
     },
     {
       "file": "opportunity-call-for-application-sterling-bank-and-google-career-certifi-2026-11-16.html",
@@ -593,10 +591,9 @@
       "slug": "opportunity-call-for-applications-ecowas-youth-and-women-entrepreneurshi-2026-07-10",
       "title": "Call For Applications: ECOWAS Youth and Women Entrepreneurship Programme (EYWEP) for Young Entrepreneurs",
       "href": "https://eywep.cdjscedeao.org/fr/ressources/13",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (3)",
-      "finalUrl": "https://eywep.cdjscedeao.org/fr/ressources/13"
+      "ok": false,
+      "definitive": false,
+      "reason": "unreachable (ETIMEDOUT)"
     },
     {
       "file": "opportunity-call-for-applications-face-of-agriculture-2026-programme-for-2026-07-16.html",
@@ -1149,6 +1146,16 @@
       "finalUrl": "https://vc4a.com/heave-ventures/fcmb-agritech-hackathon-and-venture-building-program/"
     },
     {
+      "file": "opportunity-fg-begins-registration-for-300-000-interest-free-farmermoni--2026-11-23.html",
+      "slug": "opportunity-fg-begins-registration-for-300-000-interest-free-farmermoni--2026-11-23",
+      "title": "FG Begins Registration for ₦300,000 Interest-Free FarmerMoni Loans in More States",
+      "href": "https://geep.nsipa.gov.ng/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://geep.nsipa.gov.ng/"
+    },
+    {
       "file": "opportunity-fg-offers-nigerians-100-million-housing-loans-at-9-75-intere-2026-11-19.html",
       "slug": "opportunity-fg-offers-nigerians-100-million-housing-loans-at-9-75-intere-2026-11-19",
       "title": "FG Offers Nigerians ₦100 Million Housing Loans at 9.75% Interest – Eligibility, Requirements and How to Apply",
@@ -1206,6 +1213,16 @@
       "ok": false,
       "definitive": false,
       "reason": "could not find the Apply button on the page (check manually)"
+    },
+    {
+      "file": "opportunity-fulbright-teaching-excellence-and-achievement-program-2027-2-2026-11-23.html",
+      "slug": "opportunity-fulbright-teaching-excellence-and-achievement-program-2027-2-2026-11-23",
+      "title": "Fulbright Teaching Excellence and Achievement Program 2027/2028 (Fulbright TEA) for secondary-level teachers (Fully Funded to the United States)",
+      "href": "https://www.fulbrightteacherexchanges.org/programs/tea#",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (11)",
+      "finalUrl": "https://www.fulbrightteacherexchanges.org/programs/tea#"
     },
     {
       "file": "opportunity-future-africa-fund-2026-07-28.html",
@@ -1292,10 +1309,10 @@
       "slug": "opportunity-japan-international-cooperation-center-jice-japan-africa-you-2026-09-03",
       "title": "Japan International Cooperation Center (JICE) Japan-Africa Youth Program 2026 for African Animation Professionals (Fully Funded to Japan)",
       "href": "https://jice.form.kintoneapp.com/public/africa-cc-af",
-      "ok": false,
-      "definitive": false,
-      "reason": "HTTP 503 (could not confirm)",
-      "finalUrl": "https://jice.form.kintoneapp.com/public/africa-cc-af"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://jice.form.kintoneapp.com/waiting/?_formCode=africa-cc-af"
     },
     {
       "file": "opportunity-kj-ller-open-investment-application-2026-08-13.html",
@@ -1557,6 +1574,16 @@
       "finalUrl": "https://cega.berkeley.edu/article/cega-fellowship-program-2027-2028-request-for-applications/"
     },
     {
+      "file": "opportunity-the-dataphyte-foundation-infra-watch-media-fellowship-2026-f-2026-11-23.html",
+      "slug": "opportunity-the-dataphyte-foundation-infra-watch-media-fellowship-2026-f-2026-11-23",
+      "title": "The Dataphyte Foundation Infra-watch Media Fellowship 2026 for Nigerian journalists.",
+      "href": "https://dataphyte.org/career/call-for-applications-dataphyte-foundation-infra-watch-media-fellowship",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (13)",
+      "finalUrl": "https://dataphyte.org/career/call-for-applications-dataphyte-foundation-infra-watch-media-fellowship"
+    },
+    {
       "file": "opportunity-the-government-of-kenya-presidential-digital-talent-programm-2026-08-24.html",
       "slug": "opportunity-the-government-of-kenya-presidential-digital-talent-programm-2026-08-24",
       "title": "The Government of Kenya Presidential Digital Talent Programme Cohort XI (12 Month ICT Program for Kenyan Graduates).",
@@ -1725,6 +1752,16 @@
       "definitive": true,
       "reason": "programme page with application signals (26)",
       "finalUrl": "https://www.worldbank.org/en/publication/government-analytics/brief/government-analytics-fellowship"
+    },
+    {
+      "file": "opportunity-the-yale-council-on-african-studies-visiting-african-scholar-2026-11-23.html",
+      "slug": "opportunity-the-yale-council-on-african-studies-visiting-african-scholar-2026-11-23",
+      "title": "The Yale Council on African Studies Visiting African Scholars Fellowship 2027/2028 for African academics.",
+      "href": "https://africanstudies.org/jobs/visiting-african-scholars-fellowship-yale-council-on-african-studies/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (9)",
+      "finalUrl": "https://africanstudies.org/jobs/visiting-african-scholars-fellowship-yale-council-on-african-studies/"
     },
     {
       "file": "opportunity-the-yale-maurice-r-greenberg-world-fellows-program-2027-for--2026-10-01.html",

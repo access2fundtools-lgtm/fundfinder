@@ -1,16 +1,60 @@
 {
-  "generated": "2026-11-19T15:11:26.049Z",
-  "rotationSeed": 20261119,
+  "generated": "2026-11-23T17:16:57.192Z",
+  "rotationSeed": 20261123,
   "newWindowDays": 10,
   "counts": {
-    "total": 173,
-    "new": 13,
-    "closing": 20,
-    "evergreen": 86,
-    "recurring": 47,
+    "total": 177,
+    "new": 14,
+    "closing": 21,
+    "evergreen": 87,
+    "recurring": 48,
     "archived": 7
   },
   "ticker": [
+    {
+      "title": "FG Begins Registration for ₦300,000 Interest-Free FarmerMoni Loans in More States",
+      "href": "opportunity-fg-begins-registration-for-300-000-interest-free-farmermoni--2026-11-23.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Fulbright Teaching Excellence and Achievement Program 2027/2028 (Fulbright TEA) for secondary-level teachers (Fully Funded to the United States)",
+      "href": "opportunity-fulbright-teaching-excellence-and-achievement-program-2027-2-2026-11-23.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Yale Council on African Studies Visiting African Scholars Fellowship 2027/2028 for African academics.",
+      "href": "opportunity-the-yale-council-on-african-studies-visiting-african-scholar-2026-11-23.html",
+      "deadline": "December 31, 2026",
+      "closes": "2026-12-31",
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Dataphyte Foundation Infra-watch Media Fellowship 2026 for Nigerian journalists.",
+      "href": "opportunity-the-dataphyte-foundation-infra-watch-media-fellowship-2026-f-2026-11-23.html",
+      "deadline": "November 27, 2026",
+      "closes": "2026-11-27",
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "Call for Applications: Rising Stars Challenge at 14th HR Bootcamp Conference (Up to ₦1 Million in Prizes)",
       "href": "opportunity-call-for-applications-rising-stars-challenge-at-14th-hr-boot-2026-11-19.html",
@@ -78,17 +122,6 @@
       "recurring": true
     },
     {
-      "title": "Call for Applications: Women in Tech × UN Women Digital Skills and Mentorship Programme 2026",
-      "href": "opportunity-call-for-applications-women-in-tech-un-women-digital-skills--2026-11-16.html",
-      "deadline": "November 20, 2026",
-      "closes": "2026-11-20",
-      "added": "2026-11-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
       "title": "₦50,000 FG NERSI Relief Grant: How Government Selects Beneficiaries, Why Your SMS Is Delayed and How to File Complaints",
       "href": "opportunity-50-000-fg-nersi-relief-grant-how-government-selects-benefici-2026-11-16.html",
       "deadline": "Check official page",
@@ -116,39 +149,6 @@
       "deadline": "December 6, 2026",
       "closes": "2026-12-06",
       "added": "2026-11-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: TRISEG Export Support Programme 2026 For Nigerian SMEs",
-      "href": "opportunity-call-for-applications-triseg-export-support-programme-2026-f-2026-11-12.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-11-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Fidelity Bank Offers SMEs Access to Affordable Loans at 10–16%: How Businesses Can Benefit",
-      "href": "opportunity-fidelity-bank-offers-smes-access-to-affordable-loans-at-10-1-2026-11-12.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-11-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
-      "href": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12.html",
-      "deadline": "January 17, 2027",
-      "closes": "2027-01-17",
-      "added": "2026-11-12",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -157,6 +157,50 @@
   ],
   "latest": [
     {
+      "title": "FG Begins Registration for ₦300,000 Interest-Free FarmerMoni Loans in More States",
+      "href": "opportunity-fg-begins-registration-for-300-000-interest-free-farmermoni--2026-11-23.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Fulbright Teaching Excellence and Achievement Program 2027/2028 (Fulbright TEA) for secondary-level teachers (Fully Funded to the United States)",
+      "href": "opportunity-fulbright-teaching-excellence-and-achievement-program-2027-2-2026-11-23.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Yale Council on African Studies Visiting African Scholars Fellowship 2027/2028 for African academics.",
+      "href": "opportunity-the-yale-council-on-african-studies-visiting-african-scholar-2026-11-23.html",
+      "deadline": "December 31, 2026",
+      "closes": "2026-12-31",
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Dataphyte Foundation Infra-watch Media Fellowship 2026 for Nigerian journalists.",
+      "href": "opportunity-the-dataphyte-foundation-infra-watch-media-fellowship-2026-f-2026-11-23.html",
+      "deadline": "November 27, 2026",
+      "closes": "2026-11-27",
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Rising Stars Challenge at 14th HR Bootcamp Conference (Up to ₦1 Million in Prizes)",
       "href": "opportunity-call-for-applications-rising-stars-challenge-at-14th-hr-boot-2026-11-19.html",
       "deadline": "Check official page",
@@ -230,7 +274,7 @@
       "added": "2026-11-16",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": true
     },
     {
@@ -239,50 +283,6 @@
       "deadline": "Check official page",
       "closes": null,
       "added": "2026-11-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "Call for Application: Sterling Bank and Google Career Certification Program (8 Free Career and AI Certificates for Nigerian Women)",
-      "href": "opportunity-call-for-application-sterling-bank-and-google-career-certifi-2026-11-16.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-11-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "International Women’s Media Foundation (IWMF) Kim Wall Memorial Fund 2027 forwomen or nonbinary reporters ($USD 5,000 Grant)",
-      "href": "opportunity-international-women-s-media-foundation-iwmf-kim-wall-memoria-2026-11-16.html",
-      "deadline": "December 6, 2026",
-      "closes": "2026-12-06",
-      "added": "2026-11-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: TRISEG Export Support Programme 2026 For Nigerian SMEs",
-      "href": "opportunity-call-for-applications-triseg-export-support-programme-2026-f-2026-11-12.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-11-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Fidelity Bank Offers SMEs Access to Affordable Loans at 10–16%: How Businesses Can Benefit",
-      "href": "opportunity-fidelity-bank-offers-smes-access-to-affordable-loans-at-10-1-2026-11-12.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-11-12",
       "tier": 1,
       "isNew": true,
       "closed": false,
@@ -291,6 +291,50 @@
   ],
   "items": [
     {
+      "title": "FG Begins Registration for ₦300,000 Interest-Free FarmerMoni Loans in More States",
+      "href": "opportunity-fg-begins-registration-for-300-000-interest-free-farmermoni--2026-11-23.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "Fulbright Teaching Excellence and Achievement Program 2027/2028 (Fulbright TEA) for secondary-level teachers (Fully Funded to the United States)",
+      "href": "opportunity-fulbright-teaching-excellence-and-achievement-program-2027-2-2026-11-23.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Yale Council on African Studies Visiting African Scholars Fellowship 2027/2028 for African academics.",
+      "href": "opportunity-the-yale-council-on-african-studies-visiting-african-scholar-2026-11-23.html",
+      "deadline": "December 31, 2026",
+      "closes": "2026-12-31",
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Dataphyte Foundation Infra-watch Media Fellowship 2026 for Nigerian journalists.",
+      "href": "opportunity-the-dataphyte-foundation-infra-watch-media-fellowship-2026-f-2026-11-23.html",
+      "deadline": "November 27, 2026",
+      "closes": "2026-11-27",
+      "added": "2026-11-23",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "Call for Applications: Rising Stars Challenge at 14th HR Bootcamp Conference (Up to ₦1 Million in Prizes)",
       "href": "opportunity-call-for-applications-rising-stars-challenge-at-14th-hr-boot-2026-11-19.html",
       "deadline": "Check official page",
@@ -364,7 +408,7 @@
       "added": "2026-11-16",
       "tier": 1,
       "isNew": true,
-      "closed": false,
+      "closed": true,
       "recurring": true
     },
     {
@@ -397,50 +441,6 @@
       "added": "2026-11-16",
       "tier": 1,
       "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call For Applications: TRISEG Export Support Programme 2026 For Nigerian SMEs",
-      "href": "opportunity-call-for-applications-triseg-export-support-programme-2026-f-2026-11-12.html",
-      "deadline": "November 30, 2026",
-      "closes": "2026-11-30",
-      "added": "2026-11-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Fidelity Bank Offers SMEs Access to Affordable Loans at 10–16%: How Businesses Can Benefit",
-      "href": "opportunity-fidelity-bank-offers-smes-access-to-affordable-loans-at-10-1-2026-11-12.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-11-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
-      "href": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12.html",
-      "deadline": "January 17, 2027",
-      "closes": "2027-01-17",
-      "added": "2026-11-12",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Mo Ibrahim Foundation Leadership Fellowship Programme 2027 for emerging African Leaders (Fully Funded to work at AfDB, UNECA & ITC with an Annual Stipend of $100,000)",
-      "href": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
-      "deadline": "November 20, 2026",
-      "closes": "2026-11-20",
-      "added": "2026-09-24",
-      "tier": 2,
-      "isNew": false,
       "closed": false,
       "recurring": true
     },
@@ -544,6 +544,17 @@
       "recurring": true
     },
     {
+      "title": "Call For Applications: TRISEG Export Support Programme 2026 For Nigerian SMEs",
+      "href": "opportunity-call-for-applications-triseg-export-support-programme-2026-f-2026-11-12.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-11-12",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "The 2027 Jim Leech Mastercard Foundation Fellowship on Entrepreneurship for young African students & recent graduates.",
       "href": "opportunity-the-2027-jim-leech-mastercard-foundation-fellowship-on-entre-2026-09-28.html",
       "deadline": "December 1, 2026",
@@ -610,6 +621,17 @@
       "recurring": true
     },
     {
+      "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
+      "href": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12.html",
+      "deadline": "January 17, 2027",
+      "closes": "2027-01-17",
+      "added": "2026-11-12",
+      "tier": 2,
+      "isNew": false,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "The International Journalists‘ Programmes (IJP) Southern-African Journalists’ Fellowship Programme 2027 in Germany (3,500 Euro Stipend).",
       "href": "opportunity-the-international-journalists-programmes-ijp-southern-africa-2026-11-02.html",
       "deadline": "January 20, 2027",
@@ -652,6 +674,17 @@
       "isNew": false,
       "closed": false,
       "recurring": true
+    },
+    {
+      "title": "Fidelity Bank Offers SMEs Access to Affordable Loans at 10–16%: How Businesses Can Benefit",
+      "href": "opportunity-fidelity-bank-offers-smes-access-to-affordable-loans-at-10-1-2026-11-12.html",
+      "deadline": "Check official page",
+      "closes": null,
+      "added": "2026-11-12",
+      "tier": 3,
+      "isNew": false,
+      "closed": false,
+      "recurring": false
     },
     {
       "title": "Apply for Renewed Hope Ward Development Programme in Kano",
@@ -1576,39 +1609,6 @@
       "isNew": false,
       "closed": false,
       "recurring": false
-    },
-    {
-      "title": "Artisanal & Small-scale Miners (ASM) Financing Support Fund",
-      "href": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01.html",
-      "deadline": "See official site",
-      "closes": null,
-      "added": "2026-07-01",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "MSME Loan Programme",
-      "href": "opportunity-msme-loan-programme-2026-06-30.html",
-      "deadline": "See official site",
-      "closes": null,
-      "added": "2026-06-30",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "The World Bank Government Analytics Fellowship Program 2027 for government officials (Fully Funded to Washington DC, United States)",
-      "href": "opportunity-the-world-bank-government-analytics-fellowship-program-2027--2026-10-12.html",
-      "deadline": "November 16, 2026",
-      "closes": "2026-11-16",
-      "added": "2026-10-12",
-      "tier": 4,
-      "isNew": false,
-      "closed": true,
-      "recurring": true
     }
   ]
 }
