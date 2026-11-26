@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-23T17:16:55.095Z",
+  "ranAt": "2026-11-26T16:18:51.598Z",
   "results": [
     {
       "file": "opportunity-2026-shenzhen-international-fintech-competition-in-china-ful-2026-10-12.html",
@@ -206,9 +206,9 @@
       "slug": "opportunity-apply-for-tbh-msme-pitchaton-2026-up-to-10m-grant-and-loan-f-2026-10-26",
       "title": "Apply for TBH MSME Pitchaton 2026: Up to ₦10m Grant and Loan for Your Business",
       "href": "https://pitchathon.thebusinesshub.ng/#apply",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (39)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page says applications are closed",
       "finalUrl": "https://pitchathon.thebusinesshub.ng/#apply"
     },
     {
@@ -285,9 +285,10 @@
       "slug": "opportunity-artisanal-038-small-scale-miners-asm-financing-support-fund-2026-07-01",
       "title": "Artisanal &#038; Small-scale Miners (ASM) Financing Support Fund",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-au-eu-youth-action-lab-entrepreneurship-grant-2026-08-27.html",
@@ -343,19 +344,19 @@
       "slug": "opportunity-blaze-ecobank-innovatex-2026-2026-09-09",
       "title": "Blaze by Ecobank InnovateX 2026 (₦20 million prize pool)",
       "href": "https://www.innovatex.africa/",
-      "ok": true,
+      "ok": false,
       "definitive": true,
-      "reason": "programme page with application signals (13)",
-      "finalUrl": "https://www.innovatex.africa/"
+      "reason": "unreachable (ENOTFOUND)"
     },
     {
       "file": "opportunity-boi-engineering-038-technology-funds-2026-07-01.html",
       "slug": "opportunity-boi-engineering-038-technology-funds-2026-07-01",
       "title": "BOI Engineering &#038; Technology Funds",
       "href": "https://www.boi.ng/products/",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ECONNRESET)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (1)",
+      "finalUrl": "https://www.boi.ng/products/"
     },
     {
       "file": "opportunity-call-for-application-sterling-bank-and-google-career-certifi-2026-11-16.html",
@@ -553,17 +554,17 @@
       "href": "https://commonwealthfoundation.com/grants/annual",
       "ok": false,
       "definitive": false,
-      "reason": "page says applications are closed",
-      "finalUrl": "https://commonwealthfoundation.com/grants/annual/"
+      "reason": "page has almost no readable content (JS-only or blocked)",
+      "finalUrl": "https://commonwealthfoundation.com/grants/annual"
     },
     {
       "file": "opportunity-call-for-applications-digital-entrepreneurship-training-and--2026-08-13.html",
       "slug": "opportunity-call-for-applications-digital-entrepreneurship-training-and--2026-08-13",
       "title": "Call For Applications: Digital Entrepreneurship Training and Business Support Programme for Women and Girls in Northern Nigeria",
       "href": "https://citad.org.ng/agenda-winnig-digital-entrepreneurship-training/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (3)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://citad.org.ng/agenda-winnig-digital-entrepreneurship-training/"
     },
     {
@@ -591,9 +592,10 @@
       "slug": "opportunity-call-for-applications-ecowas-youth-and-women-entrepreneurshi-2026-07-10",
       "title": "Call For Applications: ECOWAS Youth and Women Entrepreneurship Programme (EYWEP) for Young Entrepreneurs",
       "href": "https://eywep.cdjscedeao.org/fr/ressources/13",
-      "ok": false,
-      "definitive": false,
-      "reason": "unreachable (ETIMEDOUT)"
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (3)",
+      "finalUrl": "https://eywep.cdjscedeao.org/fr/ressources/13"
     },
     {
       "file": "opportunity-call-for-applications-face-of-agriculture-2026-programme-for-2026-07-16.html",
@@ -850,9 +852,9 @@
       "slug": "opportunity-call-for-applications-pibbss-winter-fellowship-program-2026--2026-07-08",
       "title": "Call For Applications: PIBBSS Winter Fellowship Program 2026–2027 in South Africa ($3,000 Monthly Stipend, Free Accommodation, Flights, and Mentorship)",
       "href": "https://princint.ai/programs/fellowship/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (18)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://princint.ai/programs/fellowship/"
     },
     {
@@ -880,9 +882,9 @@
       "slug": "opportunity-call-for-applications-rising-stars-challenge-at-14th-hr-boot-2026-11-19",
       "title": "Call for Applications: Rising Stars Challenge at 14th HR Bootcamp Conference (Up to ₦1 Million in Prizes)",
       "href": "https://hrbootcampconference.com",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (8)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://hrbootcampconference.com"
     },
     {
@@ -922,7 +924,7 @@
       "href": "https://shell.wd3.myworkdayjobs.com/en-GB/shellcareers/",
       "ok": false,
       "definitive": false,
-      "reason": "HTTP 429 (could not confirm)",
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://shell.wd3.myworkdayjobs.com/en-GB/shellcareers/"
     },
     {
@@ -1072,7 +1074,7 @@
       "href": "https://thecommonwealth.org/commonwealth-blue-charter-incubator-round-2",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (28)",
+      "reason": "programme page with application signals (33)",
       "finalUrl": "https://thecommonwealth.org/commonwealth-blue-charter-incubator-round-2"
     },
     {
@@ -1132,7 +1134,7 @@
       "href": "https://dalailamafellows.com/apply/",
       "ok": false,
       "definitive": false,
-      "reason": "page says applications are closed",
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://dalailamafellows.com/apply/"
     },
     {
@@ -1194,6 +1196,16 @@
       "definitive": true,
       "reason": "programme page with application signals (1)",
       "finalUrl": "https://www.firstcheck.africa/"
+    },
+    {
+      "file": "opportunity-flutterwave-opens-1-5-million-ai-startup-challenge-for-niger-2026-11-26.html",
+      "slug": "opportunity-flutterwave-opens-1-5-million-ai-startup-challenge-for-niger-2026-11-26",
+      "title": "Flutterwave Opens ₦1.5 Million AI Startup Challenge for Nigerians – Free Training, Requirements and How to Apply",
+      "href": "https://aiinnigeria.com/ai-startup-challenge/apply/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (9)",
+      "finalUrl": "https://aiinnigeria.com/ai-startup-challenge/apply/"
     },
     {
       "file": "opportunity-founder-institute-lagos-2026-07-28.html",
@@ -1303,6 +1315,16 @@
       "definitive": true,
       "reason": "application form (iwmf.submittable.com)",
       "finalUrl": "https://iwmf.submittable.com/submit/038e57c0-167e-4410-ae1d-97ed122664a8/kim-wall-memorial-fund-2027"
+    },
+    {
+      "file": "opportunity-iso-lomso-fellowships-2027-for-early-career-african-research-2026-11-26.html",
+      "slug": "opportunity-iso-lomso-fellowships-2027-for-early-career-african-research-2026-11-26",
+      "title": "Iso Lomso Fellowships 2027 for Early Career African Researchers (Fully Funded)",
+      "href": "https://www.stias.ac.za/fellowships/apply/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (44)",
+      "finalUrl": "https://www.stias.ac.za/fellowships/apply/"
     },
     {
       "file": "opportunity-japan-international-cooperation-center-jice-japan-africa-you-2026-09-03.html",
@@ -1468,9 +1490,9 @@
       "slug": "opportunity-sasol-mining-fence-line-mainstream-programme-2026-for-young--2026-08-27",
       "title": "Sasol Mining Fence-line (Mainstream) Programme 2026 for young South Africans.",
       "href": "https://www.sasolbursaries.com/welcome/sasol-mining-bursaries/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (34)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://www.sasolbursaries.com/welcome/sasol-mining-bursaries/"
     },
     {
@@ -1538,9 +1560,9 @@
       "slug": "opportunity-the-allianz-x-social-shifters-movenow-social-innovation-chal-2026-10-19",
       "title": "The Allianz x Social Shifters MoveNow Social Innovation Challenge 2026 for youth-led solutions ($USD90,000 in funding)",
       "href": "https://www.socialshifters.co/allianz-movenow-social-innovation-challenge/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (7)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://www.socialshifters.co/allianz-movenow-social-innovation-challenge/"
     },
     {
@@ -1568,9 +1590,9 @@
       "slug": "opportunity-the-center-for-effective-global-action-cega-fellowship-progr-2026-11-12",
       "title": "The Center for Effective Global Action (CEGA) Fellowship Program 2027/2028 for African Researchers (monetary stipend and fully funded UC Berkeley Residency)",
       "href": "https://cega.berkeley.edu/article/cega-fellowship-program-2027-2028-request-for-applications/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (30)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://cega.berkeley.edu/article/cega-fellowship-program-2027-2028-request-for-applications/"
     },
     {
@@ -1580,7 +1602,7 @@
       "href": "https://dataphyte.org/career/call-for-applications-dataphyte-foundation-infra-watch-media-fellowship",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (13)",
+      "reason": "programme page with application signals (11)",
       "finalUrl": "https://dataphyte.org/career/call-for-applications-dataphyte-foundation-infra-watch-media-fellowship"
     },
     {
@@ -1592,6 +1614,16 @@
       "definitive": true,
       "reason": "programme page with application signals (7)",
       "finalUrl": "https://recruitment.digitalent.go.ke/"
+    },
+    {
+      "file": "opportunity-the-heidelberg-laureate-forum-2027-for-young-researchers-in--2026-11-26.html",
+      "slug": "opportunity-the-heidelberg-laureate-forum-2027-for-young-researchers-in--2026-11-26",
+      "title": "The Heidelberg Laureate Forum 2027 for young Researchers in computer science and mathematics ( Travel grant available to Heidelberg, Germany)",
+      "href": "https://www.newsroom.hlf-foundation.org/news/article/the-application-process-for-the-14th-heidelberg-laureate-forum-has-begun/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (9)",
+      "finalUrl": "https://www.newsroom.hlf-foundation.org/news/article/the-application-process-for-the-14th-heidelberg-laureate-forum-has-begun/"
     },
     {
       "file": "opportunity-the-ilo-better-regional-migration-management-brmm-programme--2026-11-05.html",
@@ -1620,8 +1652,18 @@
       "href": "https://www.irex.org/program/community-solutions-program-application-information",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (34)",
+      "reason": "programme page with application signals (33)",
       "finalUrl": "https://www.irex.org/program/community-solutions-program-application-information"
+    },
+    {
+      "file": "opportunity-the-jica-bcg-ninja-innovation-bridge-program-2027-for-growth-2026-11-26.html",
+      "slug": "opportunity-the-jica-bcg-ninja-innovation-bridge-program-2027-for-growth-2026-11-26",
+      "title": "The JICA-BCG NINJA Innovation Bridge Program 2027 for growth-stage startups in Kenya and Nigeria (USD 50,000 in funding)",
+      "href": "https://www.jica.go.jp/english/activities/issues/private_sec/project_ninja.html",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (2)",
+      "finalUrl": "https://www.jica.go.jp/english/activities/issues/private_sec/project_ninja.html"
     },
     {
       "file": "opportunity-the-john-s-knight-journalism-fellowships-2027-2028-at-stanfo-2026-10-19.html",
@@ -1632,6 +1674,16 @@
       "definitive": true,
       "reason": "programme page with application signals (12)",
       "finalUrl": "https://jsk.stanford.edu/become-a-fellow"
+    },
+    {
+      "file": "opportunity-the-leadership-advocacy-for-women-in-africa-lawa-fellowship--2026-11-26.html",
+      "slug": "opportunity-the-leadership-advocacy-for-women-in-africa-lawa-fellowship--2026-11-26",
+      "title": "The Leadership & Advocacy for Women in Africa (LAWA) Fellowship Program 2027/2028 for study at Georgetown University, USA (Funded)",
+      "href": "https://www.law.georgetown.edu/wlppfp/lawa-fellowship-program/application-for-the-lawa-fellowship-program/",
+      "ok": true,
+      "definitive": true,
+      "reason": "programme page with application signals (12)",
+      "finalUrl": "https://www.law.georgetown.edu/wlppfp/lawa-fellowship-program/application-for-the-lawa-fellowship-program/"
     },
     {
       "file": "opportunity-the-mo-ibrahim-foundation-leadership-fellowship-programme-20-2026-09-24.html",
@@ -1670,7 +1722,7 @@
       "href": "https://www.sasolbursaries.com/welcome/",
       "ok": false,
       "definitive": false,
-      "reason": "page says applications are closed",
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://www.sasolbursaries.com/welcome/"
     },
     {
@@ -1678,9 +1730,9 @@
       "slug": "opportunity-the-she-leads-africa-sla-boosther-program-2026-for-young-nig-2026-08-27",
       "title": "The She Leads Africa (SLA) BoostHer Program 2026 for young Nigerian women entrepreneurs.",
       "href": "https://sheleadsafrica.org/sla-boosther/",
-      "ok": true,
-      "definitive": true,
-      "reason": "programme page with application signals (4)",
+      "ok": false,
+      "definitive": false,
+      "reason": "page has almost no readable content (JS-only or blocked)",
       "finalUrl": "https://sheleadsafrica.org/sla-boosther/"
     },
     {
@@ -1750,7 +1802,7 @@
       "href": "https://www.worldbank.org/en/publication/government-analytics/brief/government-analytics-fellowship",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (26)",
+      "reason": "programme page with application signals (22)",
       "finalUrl": "https://www.worldbank.org/en/publication/government-analytics/brief/government-analytics-fellowship"
     },
     {
@@ -1770,7 +1822,7 @@
       "href": "https://jackson.yale.edu/international-leadership-center/yale-world-fellows",
       "ok": true,
       "definitive": true,
-      "reason": "programme page with application signals (71)",
+      "reason": "programme page with application signals (80)",
       "finalUrl": "https://jackson.yale.edu/international-leadership-center/yale-world-fellows"
     },
     {

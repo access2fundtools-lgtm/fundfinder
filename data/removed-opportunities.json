@@ -534,5 +534,13 @@
     "reason": "HTTP 404 (page gone)",
     "removedOn": "2026-11-16",
     "supabase": "HTTP 204"
+  },
+  {
+    "slug": "opportunity-blaze-ecobank-innovatex-2026-2026-09-09",
+    "title": "Blaze by Ecobank InnovateX 2026 (₦20 million prize pool)",
+    "href": "https://www.innovatex.africa/",
+    "reason": "unreachable (ENOTFOUND)",
+    "removedOn": "2026-11-26",
+    "supabase": "HTTP 204"
   }
 ]

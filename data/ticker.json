@@ -1,16 +1,71 @@
 {
-  "generated": "2026-11-23T17:16:57.192Z",
-  "rotationSeed": 20261123,
+  "generated": "2026-11-26T16:18:53.710Z",
+  "rotationSeed": 20261126,
   "newWindowDays": 10,
   "counts": {
-    "total": 177,
-    "new": 14,
-    "closing": 21,
+    "total": 181,
+    "new": 19,
+    "closing": 18,
     "evergreen": 87,
-    "recurring": 48,
+    "recurring": 50,
     "archived": 7
   },
   "ticker": [
+    {
+      "title": "Flutterwave Opens ₦1.5 Million AI Startup Challenge for Nigerians – Free Training, Requirements and How to Apply",
+      "href": "opportunity-flutterwave-opens-1-5-million-ai-startup-challenge-for-niger-2026-11-26.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The JICA-BCG NINJA Innovation Bridge Program 2027 for growth-stage startups in Kenya and Nigeria (USD 50,000 in funding)",
+      "href": "opportunity-the-jica-bcg-ninja-innovation-bridge-program-2027-for-growth-2026-11-26.html",
+      "deadline": "December 2, 2026",
+      "closes": "2026-12-02",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Iso Lomso Fellowships 2027 for Early Career African Researchers (Fully Funded)",
+      "href": "opportunity-iso-lomso-fellowships-2027-for-early-career-african-research-2026-11-26.html",
+      "deadline": "February 15, 2027",
+      "closes": "2027-02-15",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Heidelberg Laureate Forum 2027 for young Researchers in computer science and mathematics ( Travel grant available to Heidelberg, Germany)",
+      "href": "opportunity-the-heidelberg-laureate-forum-2027-for-young-researchers-in--2026-11-26.html",
+      "deadline": "February 11, 2027",
+      "closes": "2027-02-11",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Leadership & Advocacy for Women in Africa (LAWA) Fellowship Program 2027/2028 for study at Georgetown University, USA (Funded)",
+      "href": "opportunity-the-leadership-advocacy-for-women-in-africa-lawa-fellowship--2026-11-26.html",
+      "deadline": "January 15, 2027",
+      "closes": "2027-01-15",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "FG Begins Registration for ₦300,000 Interest-Free FarmerMoni Loans in More States",
       "href": "opportunity-fg-begins-registration-for-300-000-interest-free-farmermoni--2026-11-23.html",
@@ -157,6 +212,61 @@
   ],
   "latest": [
     {
+      "title": "Flutterwave Opens ₦1.5 Million AI Startup Challenge for Nigerians – Free Training, Requirements and How to Apply",
+      "href": "opportunity-flutterwave-opens-1-5-million-ai-startup-challenge-for-niger-2026-11-26.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": false
+    },
+    {
+      "title": "The JICA-BCG NINJA Innovation Bridge Program 2027 for growth-stage startups in Kenya and Nigeria (USD 50,000 in funding)",
+      "href": "opportunity-the-jica-bcg-ninja-innovation-bridge-program-2027-for-growth-2026-11-26.html",
+      "deadline": "December 2, 2026",
+      "closes": "2026-12-02",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Iso Lomso Fellowships 2027 for Early Career African Researchers (Fully Funded)",
+      "href": "opportunity-iso-lomso-fellowships-2027-for-early-career-african-research-2026-11-26.html",
+      "deadline": "February 15, 2027",
+      "closes": "2027-02-15",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Heidelberg Laureate Forum 2027 for young Researchers in computer science and mathematics ( Travel grant available to Heidelberg, Germany)",
+      "href": "opportunity-the-heidelberg-laureate-forum-2027-for-young-researchers-in--2026-11-26.html",
+      "deadline": "February 11, 2027",
+      "closes": "2027-02-11",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Leadership & Advocacy for Women in Africa (LAWA) Fellowship Program 2027/2028 for study at Georgetown University, USA (Funded)",
+      "href": "opportunity-the-leadership-advocacy-for-women-in-africa-lawa-fellowship--2026-11-26.html",
+      "deadline": "January 15, 2027",
+      "closes": "2027-01-15",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
       "title": "FG Begins Registration for ₦300,000 Interest-Free FarmerMoni Loans in More States",
       "href": "opportunity-fg-begins-registration-for-300-000-interest-free-farmermoni--2026-11-23.html",
       "deadline": "Check official page",
@@ -232,64 +342,64 @@
       "isNew": true,
       "closed": false,
       "recurring": false
-    },
+    }
+  ],
+  "items": [
     {
-      "title": "The taz Panter Foundation Rest & Resilience Fellowship 2027 for journalists worldwide (Fully Funded to Berlin, Germany)",
-      "href": "opportunity-the-taz-panter-foundation-rest-resilience-fellowship-2027-fo-2026-11-19.html",
-      "deadline": "December 6, 2026",
-      "closes": "2026-12-06",
-      "added": "2026-11-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The NIVEA CONNECT 2026 Gen Z Research Grants program for researchers worldwide (€30,000 grant)",
-      "href": "opportunity-the-nivea-connect-2026-gen-z-research-grants-program-for-res-2026-11-19.html",
-      "deadline": "December 11, 2026",
-      "closes": "2026-12-11",
-      "added": "2026-11-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The Cambridge Africa Climate Collaborative Research Fund 2026/2027 for African Researchers.",
-      "href": "opportunity-the-cambridge-africa-climate-collaborative-research-fund-202-2026-11-19.html",
-      "deadline": "January 15, 2027",
-      "closes": "2027-01-15",
-      "added": "2026-11-19",
-      "tier": 1,
-      "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "Call for Applications: Women in Tech × UN Women Digital Skills and Mentorship Programme 2026",
-      "href": "opportunity-call-for-applications-women-in-tech-un-women-digital-skills--2026-11-16.html",
-      "deadline": "November 20, 2026",
-      "closes": "2026-11-20",
-      "added": "2026-11-16",
-      "tier": 1,
-      "isNew": true,
-      "closed": true,
-      "recurring": true
-    },
-    {
-      "title": "₦50,000 FG NERSI Relief Grant: How Government Selects Beneficiaries, Why Your SMS Is Delayed and How to File Complaints",
-      "href": "opportunity-50-000-fg-nersi-relief-grant-how-government-selects-benefici-2026-11-16.html",
-      "deadline": "Check official page",
-      "closes": null,
-      "added": "2026-11-16",
+      "title": "Flutterwave Opens ₦1.5 Million AI Startup Challenge for Nigerians – Free Training, Requirements and How to Apply",
+      "href": "opportunity-flutterwave-opens-1-5-million-ai-startup-challenge-for-niger-2026-11-26.html",
+      "deadline": "November 30, 2026",
+      "closes": "2026-11-30",
+      "added": "2026-11-26",
       "tier": 1,
       "isNew": true,
       "closed": false,
       "recurring": false
-    }
-  ],
-  "items": [
+    },
+    {
+      "title": "The JICA-BCG NINJA Innovation Bridge Program 2027 for growth-stage startups in Kenya and Nigeria (USD 50,000 in funding)",
+      "href": "opportunity-the-jica-bcg-ninja-innovation-bridge-program-2027-for-growth-2026-11-26.html",
+      "deadline": "December 2, 2026",
+      "closes": "2026-12-02",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "Iso Lomso Fellowships 2027 for Early Career African Researchers (Fully Funded)",
+      "href": "opportunity-iso-lomso-fellowships-2027-for-early-career-african-research-2026-11-26.html",
+      "deadline": "February 15, 2027",
+      "closes": "2027-02-15",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Heidelberg Laureate Forum 2027 for young Researchers in computer science and mathematics ( Travel grant available to Heidelberg, Germany)",
+      "href": "opportunity-the-heidelberg-laureate-forum-2027-for-young-researchers-in--2026-11-26.html",
+      "deadline": "February 11, 2027",
+      "closes": "2027-02-11",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
+    {
+      "title": "The Leadership & Advocacy for Women in Africa (LAWA) Fellowship Program 2027/2028 for study at Georgetown University, USA (Funded)",
+      "href": "opportunity-the-leadership-advocacy-for-women-in-africa-lawa-fellowship--2026-11-26.html",
+      "deadline": "January 15, 2027",
+      "closes": "2027-01-15",
+      "added": "2026-11-26",
+      "tier": 1,
+      "isNew": true,
+      "closed": false,
+      "recurring": true
+    },
     {
       "title": "FG Begins Registration for ₦300,000 Interest-Free FarmerMoni Loans in More States",
       "href": "opportunity-fg-begins-registration-for-300-000-interest-free-farmermoni--2026-11-23.html",
@@ -441,39 +551,6 @@
       "added": "2026-11-16",
       "tier": 1,
       "isNew": true,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "TWAS Research Professors in Least Developed Countries (LDCs) Programme 2026/2027 (Fully Funded)",
-      "href": "opportunity-twas-research-professors-in-least-developed-countries-ldcs-p-2026-10-05.html",
-      "deadline": "November 23, 2026",
-      "closes": "2026-11-23",
-      "added": "2026-10-05",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The IREX Community Solutions Program 2027 for Community youth leaders (Fully Funded to the United States)",
-      "href": "opportunity-the-irex-community-solutions-program-2027-for-community-yout-2026-11-02.html",
-      "deadline": "November 24, 2026",
-      "closes": "2026-11-24",
-      "added": "2026-11-02",
-      "tier": 2,
-      "isNew": false,
-      "closed": false,
-      "recurring": true
-    },
-    {
-      "title": "The ILO Better Regional Migration Management (BRMM) Programme University Essay Writing Competition 2026 (Fully Funded to Fifth LMAG in Zanzibar)",
-      "href": "opportunity-the-ilo-better-regional-migration-management-brmm-programme--2026-11-05.html",
-      "deadline": "November 25, 2026",
-      "closes": "2026-11-25",
-      "added": "2026-11-05",
-      "tier": 2,
-      "isNew": false,
       "closed": false,
       "recurring": true
     },
@@ -1587,28 +1664,6 @@
       "isNew": false,
       "closed": false,
       "recurring": true
-    },
-    {
-      "title": "Apply Now: Katsina Government MBBS Scholarship in Russian Universities",
-      "href": "opportunity-apply-now-katsina-government-mbbs-scholarship-in-russian-uni-2026-07-02.html",
-      "deadline": "See source",
-      "closes": null,
-      "added": "2026-07-02",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
-    },
-    {
-      "title": "BOI Engineering & Technology Funds",
-      "href": "opportunity-boi-engineering-038-technology-funds-2026-07-01.html",
-      "deadline": "See official site",
-      "closes": null,
-      "added": "2026-07-01",
-      "tier": 3,
-      "isNew": false,
-      "closed": false,
-      "recurring": false
     }
   ]
 }
